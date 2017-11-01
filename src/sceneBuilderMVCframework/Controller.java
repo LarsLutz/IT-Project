@@ -1,4 +1,4 @@
-package application;
+package sceneBuilderMVCframework;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

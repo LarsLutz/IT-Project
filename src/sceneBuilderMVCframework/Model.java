@@ -1,4 +1,4 @@
-package application;
+package sceneBuilderMVCframework;
 
 public class Model {
 	
