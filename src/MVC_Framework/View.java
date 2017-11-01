@@ -1,4 +1,4 @@
-package sampleSolution.abstractClasses;
+package MVC_Framework;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
