@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ClientController">
+   <bottom>
+      <Pane prefHeight="157.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="318.0" layoutY="62.0" mnemonicParsing="false" text="Update">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </bottom>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" height="100.0" layoutX="45.0" layoutY="110.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="100.0" layoutX="246.0" layoutY="110.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+         </children>
+      </Pane>
+   </center>
+   <left>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ColorPicker layoutX="52.0" layoutY="77.0" />
+            <ColorPicker layoutX="52.0" layoutY="186.0" />
+         </children>
+      </Pane>
+   </left>
+   <right>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextArea layoutX="-8.0" prefHeight="342.0" prefWidth="207.0" />
+         </children>
+      </Pane>
+   </right>
+   <top>
+      <Pane prefHeight="105.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField layoutX="149.0" layoutY="37.0" />
+            <TextField layoutX="458.0" layoutY="37.0" />
+            <Label layoutX="52.0" layoutY="42.0" text="IP Adresse" />
+            <Label layoutX="386.0" layoutY="42.0" text="Port" />
+            <Button layoutX="685.0" layoutY="37.0" mnemonicParsing="false" text="Connect" />
+         </children>
+      </Pane>
+   </top>
+</BorderPane>
