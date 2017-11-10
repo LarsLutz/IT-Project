@@ -8,7 +8,7 @@
    <bottom>
       <Pane prefHeight="66.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="start" layoutX="474.0" layoutY="18.0" mnemonicParsing="false" text="Start" />
+            <Button fx:id="start" layoutX="474.0" layoutY="18.0" mnemonicParsing="false" onAction="#startsrv" text="Start" />
          </children>
       </Pane>
    </bottom>
