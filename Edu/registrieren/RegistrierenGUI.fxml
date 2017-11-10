@@ -9,9 +9,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #556b2f;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="registrieren.Registrieren_Controller">
    <children>
-      <ImageView fitHeight="502.0" fitWidth="701.0" pickOnBounds="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
+      <ImageView fx:id="waldBildReg" fitHeight="502.0" fitWidth="701.0" pickOnBounds="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
          <image>
-            <Image url="@../../../../../Desktop/210266.jpg" />
+            <Image url="@Wald.jpg" />
          </image>
       </ImageView>
       <Pane layoutX="101.0" layoutY="-6.0" prefHeight="517.0" prefWidth="498.0" AnchorPane.leftAnchor="101.0" AnchorPane.rightAnchor="101.0">

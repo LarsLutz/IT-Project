@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 public class Registrieren_Controller {
@@ -39,6 +40,9 @@ public class Registrieren_Controller {
 
     @FXML
     private TextField usernameRegistrierenTextfeld;
+    
+    @FXML
+    private ImageView waldBildReg;
     
     
     // Nach erfolgreicher Registrierung gelangt man mit dem "Registrieren-Button" in die Lobby.

@@ -10,9 +10,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #556b2f;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.Login_Controller">
    <children>
-      <ImageView fitHeight="510.0" fitWidth="707.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ImageView fx:id="waldBildLogin" fitHeight="510.0" fitWidth="707.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
-            <Image url="@../../../../../Desktop/210266.jpg" />
+            <Image url="@Wald.jpg" />
          </image>
       </ImageView>
       <AnchorPane layoutX="76.0" layoutY="-7.0" prefHeight="502.0" prefWidth="546.0">

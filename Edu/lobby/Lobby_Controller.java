@@ -4,6 +4,7 @@ package lobby;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 public class Lobby_Controller {
@@ -29,6 +30,9 @@ public class Lobby_Controller {
 
     @FXML
     private Button beendenButton;
+    
+    @FXML
+    private ImageView lobbyBild;
 
 
     // "neues Spiel-Button"--> oeffnet ein leeres Spielfeld-Fenster.

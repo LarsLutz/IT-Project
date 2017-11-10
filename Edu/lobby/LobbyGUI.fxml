@@ -9,9 +9,9 @@
 
 <AnchorPane disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lobby.Lobby_Controller">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="400.0" opacity="0.73" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ImageView fx:id="lobbyBild" fitHeight="400.0" fitWidth="400.0" opacity="0.73" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
-            <Image url="@../../../../../Desktop/ddd628dc-7b00-44d6-8e2a-1302af4a6cda_1.232ba581ab8ac7cd17baf926f556efe3.jpg" />
+            <Image url="@Lobby_Dominion.jpg" />
          </image>
          <effect>
             <InnerShadow />
