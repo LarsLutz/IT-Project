@@ -19,6 +19,4 @@ public class Model {
 		return value;
 	}
 	
-	
-
 }
