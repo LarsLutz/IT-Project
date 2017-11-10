@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+
+<AnchorPane disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lobby.Lobby_Controller">
+   <children>
+      <ImageView fx:id="lobbyBild" fitHeight="400.0" fitWidth="400.0" opacity="0.73" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@Lobby_Dominion.jpg" />
+         </image>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </ImageView>
+      <AnchorPane prefHeight="400.0" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="neuesSpielButton" layoutX="143.0" layoutY="124.0" mnemonicParsing="false" onMouseClicked="#spielfeldOeffnen" opacity="0.79" prefHeight="27.0" prefWidth="114.0" style="-fx-background-color: #000000;" text="Neues Spiel" textFill="WHITE" />
+            <Button fx:id="spielLadenButton" layoutX="143.0" layoutY="165.0" mnemonicParsing="false" onMouseClicked="#spielLaden" opacity="0.79" prefHeight="27.0" prefWidth="114.0" style="-fx-background-color: #000000;" text="Spiel laden" textFill="WHITE" />
+            <Button fx:id="chatButton" layoutX="143.0" layoutY="206.0" mnemonicParsing="false" onMouseClicked="#chatOeffnen" opacity="0.79" prefHeight="27.0" prefWidth="114.0" style="-fx-background-color: #000000;" text="Chat" textFill="WHITE" />
+            <Button fx:id="leaderboardButton" layoutX="143.0" layoutY="246.0" minHeight="-Infinity" mnemonicParsing="false" onMouseClicked="#leaderZeigen" opacity="0.79" prefHeight="27.0" prefWidth="114.0" style="-fx-background-color: #000000;" text="Leaderboard" textFill="WHITE" />
+            <Button fx:id="anleitungButton" layoutX="143.0" layoutY="287.0" mnemonicParsing="false" onMouseClicked="#anlZeigen" opacity="0.79" prefHeight="27.0" prefWidth="114.0" style="-fx-background-color: #000000;" text="Anleitung" textFill="WHITE" />
+            <Button fx:id="beendenButton" layoutX="143.0" layoutY="330.0" mnemonicParsing="false" onMouseClicked="#lobbySchliessen" opacity="0.79" prefHeight="27.0" prefWidth="114.0" style="-fx-background-color: #000000;" text="Beenden" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,4 +1,4 @@
-package test;
+package application;
 
 public class Model {
 	
@@ -19,6 +19,4 @@ public class Model {
 		return value;
 	}
 	
-	
-
 }
