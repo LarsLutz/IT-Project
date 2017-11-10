@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #556b2f;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="leaderboard.Leaderboard_Controller">
+   <center>
+      <TextArea fx:id="leaderText" prefHeight="282.0" prefWidth="600.0" text="1.&#10;2.&#10;3.&#10;4.&#10;5.&#10;6.&#10;7.&#10;8.&#10;9.&#10;10." BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="60.0" />
+         </BorderPane.margin></TextArea>
+   </center>
+   <bottom>
+      <Button fx:id="zurueck" mnemonicParsing="false" onMouseClicked="#zurueckKlick" style="-fx-background-color: #f5deb3;" text="Zurück" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="20.0" left="500.0" />
+         </BorderPane.margin>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+   </bottom>
+   <effect>
+      <InnerShadow />
+   </effect>
+</BorderPane>
