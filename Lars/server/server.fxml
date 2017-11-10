@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="server.ServerController">
+   <bottom>
+      <Pane prefHeight="66.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="start" layoutX="474.0" layoutY="18.0" mnemonicParsing="false" onAction="#startsrv" text="Start" />
+         </children>
+      </Pane>
+   </bottom>
+   <center>
+      <TextArea fx:id="text" prefHeight="334.0" prefWidth="596.0" promptText="Test" text="Test" BorderPane.alignment="CENTER" />
+   </center>
+   <top>
+      <Pane prefHeight="79.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="ip" layoutX="141.0" layoutY="24.0" prefHeight="31.0" prefWidth="130.0" />
+            <TextField fx:id="port" layoutX="448.0" layoutY="24.0" prefHeight="31.0" prefWidth="121.0" />
+            <Label layoutX="34.0" layoutY="29.0" text="IP Adresse" />
+            <Label layoutX="377.0" layoutY="29.0" text="Port" />
+         </children>
+      </Pane>
+   </top>
+</BorderPane>
