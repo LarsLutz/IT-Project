@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #556b2f;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chat.Chat_Controller">
+   <children>
+      <TextArea fx:id="textArea1" prefHeight="232.0" prefWidth="600.0">
+         <VBox.margin>
+            <Insets bottom="10.0" left="20.0" right="20.0" top="50.0" />
+         </VBox.margin>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </TextArea>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <TextArea fx:id="textArea2" prefHeight="60.0" prefWidth="490.0">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" top="20.0" />
+               </HBox.margin>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextArea>
+            <Button fx:id="bSenden" mnemonicParsing="false" onMouseClicked="#sendenKlick" style="-fx-background-color: #f5deb3;" text="Senden">
+               <HBox.margin>
+                  <Insets left="15.0" top="35.0" />
+               </HBox.margin>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+   <effect>
+      <InnerShadow />
+   </effect>
+</VBox>

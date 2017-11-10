@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="313.0" prefWidth="442.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gewonnen.SiegNiederlage_Controller">
+   <children>
+      <ImageView fx:id="gameOver" fitHeight="313.0" fitWidth="442.0" pickOnBounds="true">
+         <image>
+            <Image url="@Game_Over_Screen.jpg" />
+         </image>
+      </ImageView>
+      <BorderPane prefHeight="313.0" prefWidth="442.0">
+         <bottom>
+            <Button fx:id="bOk" mnemonicParsing="false" onMouseClicked="#okKlick" style="-fx-background-color: #f5deb3;" text="Ok" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="15.0" />
+               </BorderPane.margin>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+         </bottom>
+         <center>
+            <Label fx:id="labNachricht" text="Sie haben gewonnen/verloren" textFill="#b23a3a" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets top="150.0" />
+               </BorderPane.margin>
+            </Label>
+         </center>
+      </BorderPane>
+   </children>
+</Pane>
