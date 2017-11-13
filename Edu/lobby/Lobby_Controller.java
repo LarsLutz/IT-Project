@@ -1,11 +1,10 @@
 package lobby;
 
-// Eduart Bunjaku
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 
 public class Lobby_Controller {
 	
@@ -14,61 +13,66 @@ public class Lobby_Controller {
 	}
 	
 	@FXML
-    private Button neuesSpielButton;
-	
+    private ImageView lobbyFoto;
+
+    @FXML
+    private Button chatButton;
+
     @FXML
     private Button spielLadenButton;
 
     @FXML
-    private Button chatButton;
-    
-    @FXML
-    private Button leaderboardButton;
+    private Button neuesSpielButton;
 
     @FXML
     private Button anleitungButton;
 
     @FXML
     private Button beendenButton;
-    
-    @FXML
-    private ImageView lobbyBild;
 
-
-    // "neues Spiel-Button"--> oeffnet ein leeres Spielfeld-Fenster.
     @FXML
+    private Button leaderBoardButton;
+
+    @FXML
+<<<<<<< HEAD
     void spielfeldOeffnen(MouseEvent event) {
     	
+=======
+    public void neuesSpiel(ActionEvent event) {
+    	System.out.println("neues spiel");
+>>>>>>> branch 'master' of https://github.com/LarsLutz/IT-Project.git
     }
 
-    // "Spiel laden-Button" --> oeffnet gespeichertes Spiel.
     @FXML
-    void spielLaden(MouseEvent event) {
-
+    public void spielLaden(ActionEvent event) {
+    	System.out.println("Spielladen");
     }
 
-    // "Chat-Button" --> oeffnet Chatfenster
     @FXML
-    void chatOeffnen(MouseEvent event) {
-
+    public void chatOeffnen(ActionEvent event) {
+    	System.out.println("Chat Roulette");
     }
 
-    // "Leaderboard-Button"--> zeigt den 
+
     @FXML
-    void leaderZeigen(MouseEvent event) {
-
+    public void leaderboardAnzeigen(ActionEvent event) {
+    	System.out.println("Leaderboard");
     }
 
-    // "Anleitung-Button" --> oeffnet ein Fenster mit dem Link zur Spielanleitung.
+
+
     @FXML
-    void anlZeigen(MouseEvent event) {
-
+    public void anleitungAnzeigen(ActionEvent event) {
+    	System.out.println("Anleitung zeigen");
     }
 
-    // "Beenden-Button" --> schliesst das Lobby-Fenster.
+
+
     @FXML
-    void lobbySchliessen(MouseEvent event) {
-
+    public void beenden(ActionEvent event) {
+    	Platform.exit();
     }
+
+
 
 }
