@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lobby.Lobby_Controller">
+   <children>
+      <ImageView fx:id="lobbyFoto" fitHeight="400.0" fitWidth="400.0" opacity="0.68" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Lobby.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="neuesSpielButton" layoutX="142.0" layoutY="124.0" mnemonicParsing="false" onAction="#neuesSpiel" opacity="0.79" prefWidth="117.0" style="-fx-background-color: #000000;" text="Neues Spiel" textFill="#fcfcfc">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Button fx:id="spielLadenButton" layoutX="142.0" layoutY="166.0" mnemonicParsing="false" onAction="#spielLaden" prefWidth="117.0" style="-fx-background-color: #000000;" text="Spiel laden" textFill="#fcfcfc">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Button fx:id="chatButton" layoutX="142.0" layoutY="209.0" mnemonicParsing="false" onAction="#chatOeffnen" prefWidth="117.0" style="-fx-background-color: #000000;" text="Chat" textFill="#fcfcfc">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Button fx:id="leaderBoardButton" layoutX="142.0" layoutY="251.0" mnemonicParsing="false" onAction="#leaderboardAnzeigen" prefWidth="117.0" style="-fx-background-color: #000000;" text="Leaderboard" textFill="#fcfcfc">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Button fx:id="anleitungButton" layoutX="142.0" layoutY="292.0" mnemonicParsing="false" onAction="#anleitungAnzeigen" prefWidth="117.0" style="-fx-background-color: #000000;" text="Anleitung" textFill="#fcfcfc">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Button fx:id="beendenButton" layoutX="142.0" layoutY="332.0" mnemonicParsing="false" onAction="#beenden" prefWidth="117.0" style="-fx-background-color: #000000;" text="Beenden" textFill="#fcfcfc">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+   </children>
+   <effect>
+      <InnerShadow />
+   </effect>
+</AnchorPane>
