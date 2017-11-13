@@ -38,7 +38,7 @@ public class Lobby_Controller {
     // "neues Spiel-Button"--> oeffnet ein leeres Spielfeld-Fenster.
     @FXML
     void spielfeldOeffnen(MouseEvent event) {
-
+    	
     }
 
     // "Spiel laden-Button" --> oeffnet gespeichertes Spiel.
