@@ -67,39 +67,36 @@ public class Login_Controller {
     
     // Oeffnet Lobby-Fenster, wenn man auf "Login-Button" klickt.
     @FXML
-    public void oeffneLobby(ActionEvent event) {
+    public void oeffneLobby(ActionEvent event) throws IOException {
     	
-    	try{
-    		
-    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("..//lobby//LobbyGUI.fxml"));
-    		Parent root1 = (Parent) fxmlLoader.load();
-    		Stage stage = new Stage();
-    		stage.setTitle("Lobby");
-    		stage.setScene(new Scene(root1));
-    		stage.show();
-   
-    	}catch (Exception e){
-    		System.out.println("Lobby Fenster nicht gefunden");
-    	}
+    	// schliesst aktuelles Fenster
+		Stage currentStage = (Stage) loginButton.getScene().getWindow();
+	    currentStage.close();
+	    
+	    // oeffnet neues fenster
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../lobby/LobbyGui.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root1));  
+        stage.show();
   
     }
     
     
     // Oeffnet Registrieren-Fenster, wenn man auf "Registrieren-Button" klickt.
     @FXML
-   public void oeffneRegistrieren(ActionEvent event){
+   public void oeffneRegistrieren(ActionEvent event) throws IOException{
 
-    	try{
-    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("..//registrieren//RegistrierenGUI.fxml"));
-    		Parent root1 = (Parent) fxmlLoader.load();
-    		Stage stage = new Stage();
-    		stage.setTitle("Registrieren");
-    		stage.setScene(new Scene(root1));
-    		stage.show();
-  
-    	}catch (Exception e){
-    		System.out.println("Registrieren Fenster nicht gefunden");
-    	}
+    	// closes current window
+		Stage currentStage = (Stage) registrierenButton.getScene().getWindow();
+	    currentStage.close();
+	    
+	    // opens new window 'LoginView.fxml'
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../registrieren/RegistrierenGUI.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root1));  
+        stage.show();
     
     	
     }

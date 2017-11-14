@@ -1,5 +1,7 @@
 package registrieren;
 
+import java.io.IOException;
+
 import javafx.application.Platform;
 // Eduart Bunjaku
 import javafx.event.ActionEvent;
@@ -56,10 +58,19 @@ public class Registrieren_Controller {
 
     }
 
-    // Mit dem Betätigen des "Abbrechen-Buttons", schlisst man das Fenster "Registrieren".
+    // Mit dem Betätigen des "Abbrechen-Buttons", kehrt man zum Login Fenster zurück
     @FXML
-   public void fensterSchliessen() {
-    	Platform.exit();
+   public void fensterSchliessen() throws IOException {
+    	// schliesst aktuelles Fenster
+    			Stage currentStage = (Stage) abbrechenButton.getScene().getWindow();
+    		    currentStage.close();
+    		    
+    		    // oeffnet neues fenster
+    			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../login/LoginGUI.fxml"));
+    	        Parent root1 = (Parent) fxmlLoader.load();
+    	        Stage stage = new Stage();
+    	        stage.setScene(new Scene(root1));  
+    	        stage.show();
     }
 	
 

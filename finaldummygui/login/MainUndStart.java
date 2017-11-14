@@ -1,7 +1,8 @@
-package gewonnen;
+package login;
 	
 import java.net.URL;
 
+// Eduart Bunjaku - Jan Müller
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -9,34 +10,34 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 
-//Jan Müller
-public class SiegNiederlage_Main extends Application {
+
+
+public class MainUndStart extends Application {
 	
-	
-	
-	
-	
+	private Login_View v;
+	private Login_Model m;
+	private Login_Controller c;
 	
 	
 	@Override
 	public void start(Stage primaryStage) {
-		SiegNiederlage_Model sn_m = new SiegNiederlage_Model();
-		SiegNiederlage_View sn_v = new SiegNiederlage_View(primaryStage);
-		SiegNiederlage_Controller sn_c = new SiegNiederlage_Controller();
-try {
+		
+		primaryStage.setResizable(false);
+		v = new Login_View(primaryStage);
+		m = new Login_Model();
+		c = new Login_Controller();
+
+		try {
 			
-			URL fxmlUrl = getClass().getResource("SiegNiederlageGUI.fxml");
+			URL fxmlUrl = getClass().getResource("LoginGUI.fxml");
 			FXMLLoader fxmlLoader = new FXMLLoader(fxmlUrl); 
-			//fxmlLoader.setController(sn_c);
-			/* Utils Auskommentiert weil es einen NullPointerException wirft
-			Utils.loadFxml(fxmlUrl);
-			 */
+			//fxmlLoader.setController(sn_c); - dieser Code teil wirft eine komische Exception.. habe ausserdem nicht verstanden was der Code macht...
 			Parent root = fxmlLoader.load(); 
 			Scene scene = new Scene(root); 
 			primaryStage.setScene(scene);
 			primaryStage.show();
 			
-			//SQLInjection sqln = new SQLInjection();
+			//SQLInjection sqln = new SQLInjection(); - evt später für larsiboy?
 			//sqln.connectDatabase();
 			
 			//Loading LobbyView into Class
@@ -45,8 +46,9 @@ try {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		
 	}
+	
+	
 	
 	public static void main(String[] args) {
 		launch(args);
