@@ -9,7 +9,6 @@ import javafx.scene.layout.BorderPane;
 
 public class Login_Main extends Application {
 	
-	
 	@Override
 	public void start(Stage primaryStage) {
 		
