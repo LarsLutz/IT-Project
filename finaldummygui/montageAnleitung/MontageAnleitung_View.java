@@ -1,19 +1,16 @@
-package anleitung;
+package montageAnleitung;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class Anleitung_View {
+public class MontageAnleitung_View {
 	
-//Jan Müller
-	
-	public Anleitung_View(Stage primaryStage) {
+	public MontageAnleitung_View(Stage primaryStage) {
 		
 		try {
-			BorderPane root = (BorderPane) FXMLLoader.load(getClass().getResource("AnleitungGUI.fxml"));
+			BorderPane root = (BorderPane) FXMLLoader.load(getClass().getResource("MontageAnleitungGUI.fxml"));
 			Scene scene = new Scene(root,615,400);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setTitle("Anleitung");
