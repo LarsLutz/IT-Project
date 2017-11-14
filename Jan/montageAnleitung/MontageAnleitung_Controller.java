@@ -6,7 +6,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 
 public class MontageAnleitung_Controller {
-public MontageAnleitung_Controller(){
+	
+	public MontageAnleitung_Controller(){
 		
 	}
 	

@@ -20,7 +20,7 @@ public class Leaderboard_Controller {
 	Button zurueck;
 	
 	@FXML
-	public void zurueckKlick(MouseEvent e){
+	public void zurueckKlick(MouseEvent event){
 		System.exit(0);
 	}
 

@@ -12,8 +12,8 @@ public class MontageAnleitung_View {
 		try {
 			BorderPane root = (BorderPane) FXMLLoader.load(getClass().getResource("MontageAnleitungGUI.fxml"));
 			Scene scene = new Scene(root,615,400);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setTitle("Anleitung");
+			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			primaryStage.setTitle("MontageAnleitung");
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {
