@@ -34,13 +34,8 @@ public class Lobby_Controller {
     private Button leaderBoardButton;
 
     @FXML
-<<<<<<< HEAD
-    void spielfeldOeffnen(MouseEvent event) {
-    	
-=======
     public void neuesSpiel(ActionEvent event) {
     	System.out.println("neues spiel");
->>>>>>> branch 'master' of https://github.com/LarsLutz/IT-Project.git
     }
 
     @FXML
