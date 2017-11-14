@@ -14,9 +14,9 @@ public class Lobby_Main extends Application {
 		Lobby_Controller c = new Lobby_Controller();	
 	}
 	
-	public static void main (String[] args){
-		launch(args);
-	}
+	//public static void main (String[] args){
+	//	launch(args);
+	//}
 	
 
 
