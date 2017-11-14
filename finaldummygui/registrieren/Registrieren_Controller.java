@@ -1,14 +1,19 @@
 package registrieren;
 
+import javafx.application.Platform;
 // Eduart Bunjaku
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 public class Registrieren_Controller {
 	
@@ -47,14 +52,14 @@ public class Registrieren_Controller {
     
     // Nach erfolgreicher Registrierung gelangt man mit dem "Registrieren-Button" in die Lobby.
     @FXML
-    void lobbyOeffnen(MouseEvent event) {
+   public void lobbyOeffnen(MouseEvent event) {
 
     }
 
     // Mit dem Betätigen des "Abbrechen-Buttons", schlisst man das Fenster "Registrieren".
     @FXML
-    void fensterSchliessen(MouseEvent event) {
-
+   public void fensterSchliessen() {
+    	Platform.exit();
     }
 	
 

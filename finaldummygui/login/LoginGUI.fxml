@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.GridPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #556b2f;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.Login_Controller">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #556b2f;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.Login_Controller">
    <children>
       <ImageView fx:id="waldBildLogin" fitHeight="510.0" fitWidth="707.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
@@ -29,12 +29,12 @@
                </effect>
             </TextField>
             <Label fx:id="usernameLabel" layoutX="112.0" layoutY="163.0" style="-fx-background-insets: #00ced1;" text="Username" textFill="#fbf9f9" AnchorPane.leftAnchor="112.0" />
-            <Button fx:id="loginButton" layoutX="131.0" layoutY="344.0" mnemonicParsing="false" onMouseClicked="#oeffneLobby" style="-fx-background-color: #f5deb3;" text="Login">
+            <Button fx:id="loginButton" layoutX="131.0" layoutY="344.0" mnemonicParsing="false" onAction="#oeffneLobby" style="-fx-background-color: #f5deb3;" text="Login">
                <effect>
                   <DropShadow />
                </effect>
             </Button>
-            <Button fx:id="registrierenButton" layoutX="258.0" layoutY="343.0" mnemonicParsing="false" onMouseClicked="#oeffneRegistrieren" style="-fx-background-color: #f5deb3;" text="Registrieren">
+            <Button fx:id="registrierenButton" layoutX="258.0" layoutY="343.0" mnemonicParsing="false" onAction="#oeffneRegistrieren" style="-fx-background-color: #f5deb3;" text="Registrieren">
                <effect>
                   <DropShadow />
                </effect>

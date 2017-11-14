@@ -7,16 +7,22 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 
 
+
 public class Login_Main extends Application {
+	
+	private Login_View v;
+	private Login_Model m;
+	private Login_Controller c;
+	
 	
 	@Override
 	public void start(Stage primaryStage) {
 		
 		primaryStage.setResizable(false);
 		
-		Login_View v = new Login_View(primaryStage);
-		Login_Model m = new Login_Model();
-		Login_Controller c = new Login_Controller();	
+		v = new Login_View(primaryStage);
+		m = new Login_Model();
+		c = new Login_Controller();		
 	}
 	
 	

@@ -1,5 +1,7 @@
 package login;
 
+import java.io.IOException;
+
 // Eduart Bunjaku
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -13,10 +15,19 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lobby.*;
 
 public class Login_Controller {
+
 	
+	public Login_Controller(){
+
+	}
+	
+    @FXML
+    private AnchorPane root;
 	
 	@FXML
     private Button registrierenButton;
@@ -26,7 +37,11 @@ public class Login_Controller {
 
     @FXML
     private Button loginButton;
-
+    
+    public Button getLoginButton(){
+    	return loginButton;
+    }
+    
     @FXML
     private Label passwortLabel;
 
@@ -42,7 +57,9 @@ public class Login_Controller {
     @FXML
     private ImageView waldBildLogin;
     
-    // Schliesst Login-Fenster, wenn man auf "Abbrechen-Button" klickt.
+    
+    
+    // Schliesst Login-Fenster, wenn man auf "Abbrechen-Button" klickt.   
     @FXML
     public void schliessen(){
     	Platform.exit();
@@ -50,9 +67,9 @@ public class Login_Controller {
     
     // Oeffnet Lobby-Fenster, wenn man auf "Login-Button" klickt.
     @FXML
-    public void oeffneLobby(ActionEvent eevent) {
+    public void oeffneLobby(ActionEvent event) {
     	
-try{
+    	try{
     		
     		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("..//lobby//LobbyGUI.fxml"));
     		Parent root1 = (Parent) fxmlLoader.load();
@@ -64,16 +81,29 @@ try{
     	}catch (Exception e){
     		System.out.println("Lobby Fenster nicht gefunden");
     	}
-    
-    
-
+  
     }
+    
     
     // Oeffnet Registrieren-Fenster, wenn man auf "Registrieren-Button" klickt.
     @FXML
-    public void oeffneRegistrieren(){
+   public void oeffneRegistrieren(ActionEvent event){
+
+    	try{
+    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("..//registrieren//RegistrierenGUI.fxml"));
+    		Parent root1 = (Parent) fxmlLoader.load();
+    		Stage stage = new Stage();
+    		stage.setTitle("Registrieren");
+    		stage.setScene(new Scene(root1));
+    		stage.show();
+  
+    	}catch (Exception e){
+    		System.out.println("Registrieren Fenster nicht gefunden");
+    	}
+    
     	
     }
+    
     
     
 
