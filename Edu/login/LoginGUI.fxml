@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #556b2f;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.Login_Controller">
+   <children>
+      <ImageView fx:id="waldBildLogin" fitHeight="510.0" fitWidth="707.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@Wald.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="76.0" layoutY="-7.0" prefHeight="502.0" prefWidth="546.0">
+         <children>
+            <Button fx:id="abbrechenButton" layoutX="420.0" layoutY="343.0" mnemonicParsing="false" onMouseClicked="#schliessen" style="-fx-background-color: #f5deb3;" text="Abbrechen">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Label fx:id="passwortLabel" layoutX="115.0" layoutY="224.0" text="Passwort" textFill="#fbf9f9" AnchorPane.leftAnchor="115.0" AnchorPane.rightAnchor="374.0" />
+            <TextField fx:id="usernameTextfeld" layoutX="193.0" layoutY="157.0" prefHeight="27.0" prefWidth="224.0" style="-fx-background-color: #f5deb3;" AnchorPane.bottomAnchor="377.0" AnchorPane.leftAnchor="193.0" AnchorPane.rightAnchor="131.0" AnchorPane.topAnchor="157.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <Label fx:id="usernameLabel" layoutX="112.0" layoutY="163.0" style="-fx-background-insets: #00ced1;" text="Username" textFill="#fbf9f9" AnchorPane.leftAnchor="112.0" />
+            <Button fx:id="loginButton" layoutX="131.0" layoutY="344.0" mnemonicParsing="false" onAction="#oeffneLobby" style="-fx-background-color: #f5deb3;" text="Login">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Button fx:id="registrierenButton" layoutX="258.0" layoutY="343.0" mnemonicParsing="false" onAction="#oeffneRegistrieren" style="-fx-background-color: #f5deb3;" text="Registrieren">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <PasswordField fx:id="passwortFeld" layoutX="194.0" layoutY="219.0" prefHeight="27.0" prefWidth="224.0" style="-fx-background-color: #f5deb3;" AnchorPane.bottomAnchor="317.0" AnchorPane.leftAnchor="193.0" AnchorPane.rightAnchor="131.0" AnchorPane.topAnchor="219.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </PasswordField>
+         </children>
+      </AnchorPane>
+   </children>
+   <effect>
+      <DropShadow>
+         <input>
+            <InnerShadow />
+         </input></DropShadow>
+   </effect>
+</AnchorPane>
