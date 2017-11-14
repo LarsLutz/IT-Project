@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 
+// Eduart Bunjaku
+
 public class Lobby_Controller {
 	
 	public Lobby_Controller(){
