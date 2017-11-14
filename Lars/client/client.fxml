@@ -10,7 +10,7 @@
    <bottom>
       <Pane prefHeight="157.0" prefWidth="800.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="update" layoutX="318.0" layoutY="62.0" mnemonicParsing="false" onAction="#startclient" text="Update">
+            <Button fx:id="update" layoutX="318.0" layoutY="62.0" mnemonicParsing="false" onAction="#sendclient" text="Update">
                <font>
                   <Font size="36.0" />
                </font>
@@ -48,7 +48,7 @@
             <TextField fx:id="portc" layoutX="458.0" layoutY="37.0" />
             <Label layoutX="52.0" layoutY="42.0" text="IP Adresse" />
             <Label layoutX="386.0" layoutY="42.0" text="Port" />
-            <Button fx:id="connectc" layoutX="685.0" layoutY="37.0" mnemonicParsing="false" text="Connect" />
+            <Button fx:id="connectc" layoutX="685.0" layoutY="37.0" mnemonicParsing="false" onAction="#startclient" text="Connect" />
          </children>
       </Pane>
    </top>
