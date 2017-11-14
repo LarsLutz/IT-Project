@@ -1,6 +1,9 @@
 package Karte;
 
 public class AktionsKarte extends SuperKarte{
+	
+	// groesse ??
+	
 
 	public void aktionsAbwerfen(){	
 	}
