@@ -1,27 +1,24 @@
-package leaderboard;
+package montageAnleitung;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 
-public class Leaderboard_Controller {
+public class MontageAnleitung_Controller {
 	
-	
-	// Jan Müller
-	public Leaderboard_Controller(){
+	public MontageAnleitung_Controller(){
 		
 	}
 	
 	@FXML
-	TextArea leaderText;
+	TextArea AnleitungsText;
 	
 	@FXML
 	Button zurueck;
 	
 	@FXML
-	public void zurueckKlick(MouseEvent event){
+	public void zurueckKlick(MouseEvent e){
 		System.exit(0);
 	}
-
 }
