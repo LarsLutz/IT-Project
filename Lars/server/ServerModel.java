@@ -11,9 +11,7 @@ public class ServerModel {
 	
 	private  static ServerSocket srvsocket;
 	private static Socket sockel;
-	private ServerController controller;
 	private static int client_id = 0;
-	private static Socket socket;
 	private BufferedReader in;
 	private PrintWriter out;
 	private int id;
@@ -21,20 +19,27 @@ public class ServerModel {
 	public ServerModel() {
 		
 	}
+	
+	
 		
 		
+	
+	
 		public ServerModel(int id, Socket socket) throws IOException {
-			this.socket = socket;
+			this.sockel = socket;
 			this.id = id;
 			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			out = new PrintWriter(socket.getOutputStream());
+			System.out.println("Servermodel");
 		}
 
 		public void start() {
 			try {
 				listen();
+				System.out.println("Servermodel");
 			} catch (IOException e) {
 				e.printStackTrace();
+				System.out.println(e.getMessage());
 			}
 		}
 
@@ -43,22 +48,39 @@ public class ServerModel {
 			String inputLine;
 			while ((inputLine = in.readLine()) != null) {
 				System.out.println(inputLine);
+				System.out.println("listen");
 			}
 		}
 		
 		
 public void  serverstart() {
 			
-			System.out.println("Hallo");
-			//srvsocket = new ServerSocket(8080);
 			
-			//controller.text.appendText("Läuft");
-			/*while (true) {
-			sockel = srvsocket.accept();
+			try {
+				srvsocket = new ServerSocket(8080);
+				System.out.println("Läuft \n");
+			} catch (IOException e) {
+				
+				e.printStackTrace();
+			}
+			
+			while (true) {
+			try {
+				sockel = srvsocket.accept();
+			} catch (IOException e) {
+				
+				e.printStackTrace();
+			}
 			client_id++;
-			controller.text.appendText(client_id + ". Client hinzugefügt");
-			new ServerModel(client_id, socket).start();
-		} */
+			System.out.println("Neuer Client mit ID: " + client_id);
+			try {
+				new ServerModel(client_id, sockel).start();
+				System.out.println("Neuer Sockel");
+			} catch (IOException e) {
+				
+				e.printStackTrace();
+			}
+		} 
 			
 			
 			

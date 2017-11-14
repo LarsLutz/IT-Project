@@ -13,6 +13,13 @@ public class ServerController {
 	private ServerModel model;
 	private ServerView view;
 	
+	public ServerController(){
+		
+		model = new ServerModel();
+	}
+	
+	
+	
 	@FXML
 	private Button start;
 	
@@ -28,23 +35,10 @@ public class ServerController {
 
 public void startsrv(ActionEvent event){
 		
-	//try {	
 		model.serverstart();
 		
-	//} catch (IOException e) {
-		
-		//e.printStackTrace();
-		//text.appendText("Fehler");
-	//}
+	
 }
-
-
-public void setText(TextArea text) {
-	this.text = text;
-}
-
-
-
 	
 
 }

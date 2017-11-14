@@ -11,15 +11,15 @@ public class ClientModel {
 	public ClientModel(){
 	}
 
-		public void clientcon(){		
+		public void clientcon(){
+			System.out.println("Client buffer");
 				try (Socket client = new Socket("localhost", 8080);
-			BufferedReader in = new BufferedReader(new InputStreamReader(
-								client.getInputStream()));
-						PrintWriter out = new PrintWriter(client.getOutputStream(),
-								true);) {
+			BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+						
+						PrintWriter out = new PrintWriter(client.getOutputStream(),true);) {
 
 					out.print("Hallo Hitler");
-					
+					System.out.println("Client site message");
 					in.close();
 					out.close();
 
