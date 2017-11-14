@@ -1,5 +1,7 @@
 package client;
 
+import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -47,9 +49,18 @@ public class ClientController {
 
 @FXML
 
-public void startclient(ActionEvent event){
+public void startclient(ActionEvent event) throws IOException{
 	
 		model.clientcon();
+		
+	
+}
+
+@FXML
+
+public void sendclient(ActionEvent event) throws IOException{
+	
+		model.sendenClient();
 		
 	
 }
