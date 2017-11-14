@@ -28,7 +28,7 @@
                   <DropShadow />
                </effect>
             </TextField>
-            <Label fx:id="usernameLabel" layoutX="112.0" layoutY="163.0" style="-fx-background-insets: #00ced1;" text="Username" textFill="#fbf9f9" AnchorPane.leftAnchor="112.0" />
+            <Label fx:id="usernameLabel" layoutX="112.0" layoutY="163.0" text="Username" textFill="#fbf9f9" AnchorPane.leftAnchor="112.0" />
             <Button fx:id="loginButton" layoutX="131.0" layoutY="344.0" mnemonicParsing="false" onAction="#oeffneLobby" style="-fx-background-color: #f5deb3;" text="Login">
                <effect>
                   <DropShadow />
