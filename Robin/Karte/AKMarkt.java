@@ -9,10 +9,27 @@ public class AKMarkt extends AktionsKarte{
 	final int karteKaufen = 1;
 	final int guthaben = 1;
 	
+	public int getKosten() {
+		return kosten;
+	}
+	public String getName() {
+		return name;
+	}
+	public int getKarteZiehen() {
+		return karteZiehen;
+	}
+	public int getAktionsKarteSpielen() {
+		return aktionsKarteSpielen;
+	}
+	public int getKarteKaufen() {
+		return karteKaufen;
+	}
+	public int getGuthaben() {
+		return guthaben;
+	}
 	
-public int getKosten(){
-	return this.kosten;
-}
+	
+
 
 	// karteZiehen ++
 	// aktionskarteSpielen ++

@@ -7,10 +7,29 @@ public class AKKeller extends AktionsKarte{
 	private int karteZiehen;
 	final int aktionsKarteSpielen = 1;
 	private int kartenAbwerfen;
+	
+	public int getKarteZiehen() {
+		return karteZiehen;
+	}
+	public void setKarteZiehen(int karteZiehen) {
+		this.karteZiehen = karteZiehen;
+	}
+	public int getKartenAbwerfen() {
+		return kartenAbwerfen;
+	}
+	public void setKartenAbwerfen(int kartenAbwerfen) {
+		this.kartenAbwerfen = kartenAbwerfen;
+	}
+	public int getKosten() {
+		return kosten;
+	}
+	public String getName() {
+		return name;
+	}
+	public int getAktionsKarteSpielen() {
+		return aktionsKarteSpielen;
+	}
 
-public int getKosten(){
-		return this.kosten;
-}
 
 	// aktionskarteSpielen ++
 	// kartenAbwerfen ??

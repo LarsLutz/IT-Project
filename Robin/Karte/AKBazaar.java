@@ -8,9 +8,22 @@ public class AKBazaar extends AktionsKarte{
 	final int aktionsKarteSpielen = 2;
 	final int guthaben = 1;
 	
-public int getKosten(){
-	return this.kosten;
-}
+	public int getKosten() {
+		return kosten;
+	}
+	public String getName() {
+		return name;
+	}
+	public int getKarteZiehen() {
+		return karteZiehen;
+	}
+	public int getAktionsKarteSpielen() {
+		return aktionsKarteSpielen;
+	}
+	public int getGuthaben() {
+		return guthaben;
+	}
+
 	// karteZiehen ++
 	// aktionskarteSpielen +2
 	// guthaben ++

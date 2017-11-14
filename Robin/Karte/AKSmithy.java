@@ -6,9 +6,16 @@ public class AKSmithy extends AktionsKarte{
 	final String name = "Smithy";
 	final int karteZiehen = 3;
 	
-public int getKosten(){
-		return this.kosten;
-}
+	public int getKosten() {
+		return kosten;
+	}
+	public String getName() {
+		return name;
+	}
+	public int getKarteZiehen() {
+		return karteZiehen;
+	}
+	
 
 	// karteZiehen +3
 	// setKosten 4

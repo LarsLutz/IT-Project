@@ -7,7 +7,7 @@ public class GeldKarte extends SuperKarte{
 	// groesse ??
 	
 	
-	public GeldKarte(int wert, String name, int Kosten){
+	public GeldKarte(int wert, String name, int kosten){
 		this.wert = wert;
 		this.name = name;
 		this.kosten = kosten;

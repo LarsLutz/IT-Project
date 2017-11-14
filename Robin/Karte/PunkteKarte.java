@@ -6,7 +6,7 @@ public class PunkteKarte extends SuperKarte{
 	private int kosten;
 	// groesse ??
 	
-	public PunkteKarte(int punkte, String name, int Kosten){
+	public PunkteKarte(int punkte, String name, int kosten){
 	this.punkte = punkte;
 	this.name = name;
 	this.kosten = kosten;
