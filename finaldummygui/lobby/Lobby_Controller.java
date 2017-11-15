@@ -102,7 +102,8 @@ public class Lobby_Controller {
 
     @FXML
     public void beenden(ActionEvent event) {
-    	Platform.exit();
+    	Stage currentStage = (Stage) leaderBoardButton.getScene().getWindow();
+    	currentStage.close();
     }
 
 
