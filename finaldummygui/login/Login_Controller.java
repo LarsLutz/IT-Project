@@ -79,6 +79,7 @@ public class Login_Controller {
         Stage stage = new Stage();
         stage.setScene(new Scene(root1));  
         stage.show();
+        stage.setResizable(false);
   
     }
     
@@ -97,7 +98,7 @@ public class Login_Controller {
         Stage stage = new Stage();
         stage.setScene(new Scene(root1));  
         stage.show();
-    
+        stage.setResizable(false);
     	
     }
     

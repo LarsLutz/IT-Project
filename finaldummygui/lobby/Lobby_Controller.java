@@ -51,8 +51,10 @@ public class Lobby_Controller {
    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../spielfeld/SpielfeldGUI.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
+        stage.setTitle("Spielfeld");
         stage.setScene(new Scene(root1));  
         stage.show();
+        stage.setResizable(false);
     }
 
     @FXML
@@ -80,6 +82,7 @@ public class Lobby_Controller {
     	Stage stage = new Stage();
     	stage.setScene(new Scene(root1));  
     	stage.show();
+    	stage.setResizable(false);
     }
 
 
@@ -96,6 +99,7 @@ public class Lobby_Controller {
     	Stage stage = new Stage();
     	stage.setScene(new Scene(root1));  
     	stage.show();
+    	stage.setResizable(false);
     }
 
 
