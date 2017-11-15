@@ -14,18 +14,18 @@ import javafx.scene.layout.BorderPane;
 
 public class MainUndStart extends Application {
 	
-	private Login_View v;
-	private Login_Model m;
-	private Login_Controller c;
+	//private Login_View v;
+	//private Login_Model m;
+	//private Login_Controller c;
 	
 	
 	@Override
 	public void start(Stage primaryStage) {
 		
 		primaryStage.setResizable(false);
-		v = new Login_View(primaryStage);
-		m = new Login_Model();
-		c = new Login_Controller();
+		//v = new Login_View(primaryStage);
+		//m = new Login_Model();
+		//c = new Login_Controller();
 
 		try {
 			
