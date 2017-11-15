@@ -104,6 +104,8 @@ public class Lobby_Controller {
     public void beenden(ActionEvent event) {
     	Stage currentStage = (Stage) leaderBoardButton.getScene().getWindow();
     	currentStage.close();
+    	
+    	Platform.exit();
     }
 
 
