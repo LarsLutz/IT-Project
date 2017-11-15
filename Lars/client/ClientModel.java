@@ -14,15 +14,20 @@ public class ClientModel {
 	private BufferedReader bread=null;
 	private BufferedReader ist=null;
 	private PrintWriter pwrite=null;
+	private String gettext= "Verbindungslog \n";
 	
 	public ClientModel(){
 	}
+	
+	
 
 		public void clientcon() throws IOException{
 			
 			InetAddress address=InetAddress.getLocalHost();
 			
-			System.out.println("Client buffer");
+			//System.out.println("Client buffer");
+			this.gettext= gettext+ "Client Buffer \n";
+			
 				try { 
 				
 					sockel1= new Socket(address,8080);
@@ -30,15 +35,7 @@ public class ClientModel {
 					ist=new BufferedReader(new InputStreamReader(sockel1.getInputStream()));
 					pwrite= new PrintWriter(sockel1.getOutputStream());
 					
-				//(Socket client = new Socket("localhost", 8080);
-			/*BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
-						
-						PrintWriter out = new PrintWriter(client.getOutputStream(),true);) {
-
-					out.print("Hallo Hitler");
-					System.out.println("Client site message");
-					in.close();
-					out.close();*/
+				
 
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -80,6 +77,23 @@ public class ClientModel {
 	
 		    }
 		}
+		
+		public String getText(){
+			
+			return this.gettext;
+			
+			
+		}
+		
+		//(Socket client = new Socket("localhost", 8080);
+		/*BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+					
+					PrintWriter out = new PrintWriter(client.getOutputStream(),true);) {
+
+				out.print("Hallo Hitler");
+				System.out.println("Client site message");
+				in.close();
+				out.close();*/
 		
 
 }

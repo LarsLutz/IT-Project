@@ -6,6 +6,7 @@
 	<classpathentry kind="src" path="Robin"/>
 	<classpathentry kind="src" path="Lars"/>
 	<classpathentry kind="src" path="finaldummygui"/>
+	<classpathentry kind="src" path="Dominion"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
