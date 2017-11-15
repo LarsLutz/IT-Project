@@ -5,7 +5,7 @@ import javafx.stage.Stage;
 
 public class Server extends Application {
 	
-	private ServerModel model;
+	private ServerModelneu model;
 	private ServerView view;
 	private ServerController controller;
 	
@@ -13,7 +13,7 @@ public class Server extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		
-		model = new ServerModel() ;
+		model = new ServerModelneu() ;
 		view = new ServerView(primaryStage);
 		controller= new ServerController();
 		

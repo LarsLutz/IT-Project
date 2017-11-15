@@ -10,12 +10,12 @@ import javafx.scene.control.TextField;
 
 public class ServerController {
 	
-	private ServerModel model;
+	private ServerModelneu model;
 	private ServerView view;
 	
 	public ServerController(){
 		
-		model = new ServerModel();
+		model = new ServerModelneu();
 	}
 	
 	
@@ -36,6 +36,8 @@ public class ServerController {
 public void startsrv(ActionEvent event){
 		
 		model.serverstart();
+		
+		text.appendText(model.getText());
 		
 	
 }

@@ -41,8 +41,8 @@ public class ClientModel {
 					e.printStackTrace();
 					System.err.println("IO Exception");
 				}
-				System.out.println("Client Address : "+address);
-			    
+				//System.out.println("Client Address : "+address);
+				this.gettext= gettext+"Client Address : "+address;
 				
 				
 				
@@ -59,7 +59,8 @@ public class ClientModel {
 		                pwrite.println(line);
 		                pwrite.flush();
 		                response=ist.readLine();
-		                System.out.println("Server Response : "+response);
+		                //System.out.println("Server Response : "+response);
+		                this.gettext= gettext+"Server Response : "+response;
 		                line=bread.readLine();
 	
 		            }
@@ -73,8 +74,8 @@ public class ClientModel {
 		    finally{
 	
 		        ist.close();pwrite.close();bread.close();sockel1.close();
-		                System.out.println("Connection Closed");
-	
+		                //System.out.println("Connection Closed");
+		                this.gettext= gettext+"Connection Closed";
 		    }
 		}
 		
