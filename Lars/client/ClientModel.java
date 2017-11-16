@@ -3,9 +3,12 @@ package client;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
 import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
+
+import javafx.scene.paint.Color;
 
 public class ClientModel {
 	
@@ -25,8 +28,8 @@ public class ClientModel {
 			
 			InetAddress address=InetAddress.getLocalHost();
 			
-			//System.out.println("Client buffer");
-			this.gettext= gettext+ "Client Buffer \n";
+			System.out.println("Client buffer");
+			
 			
 				try { 
 				
@@ -41,43 +44,58 @@ public class ClientModel {
 					e.printStackTrace();
 					System.err.println("IO Exception");
 				}
-				//System.out.println("Client Address : "+address);
-				this.gettext= gettext+"Client Address : "+address;
+				System.out.println("Client Address : "+address);
+				//this.gettext= gettext+"Client Address : "+address;
 				
 				
 				
 			}
 		
-		public void sendenClient() throws IOException{
+		public void sendenClient(String c) throws IOException{
 			
-			System.out.println("Enter Data to echo Server ( Enter QUIT to end):");
-			
+//			System.out.println("Enter Data to echo Server ( Enter QUIT to end):");
+			System.out.println("Sending...");
+//			
 			String response=null;
-		    try{
-		        line=bread.readLine(); 
-		        while(line.compareTo("QUIT")!=0){
-		                pwrite.println(line);
-		                pwrite.flush();
-		                response=ist.readLine();
-		                //System.out.println("Server Response : "+response);
-		                this.gettext= gettext+"Server Response : "+response;
-		                line=bread.readLine();
+			String c1=c;
+		   // try{
+		    	
+		    	
+		    	pwrite.println(c1);
+		    	pwrite.flush();
+//		        line=bread.readLine(); 
+//		        while(line.compareTo("QUIT")!=0){
+//		                pwrite.println(line);
+//		                pwrite.flush();
+//		                response=ist.readLine();
+//		                System.out.println("Server Response : "+response);
+//		                this.gettext= gettext+"Server Response : "+response;
+//		                line=bread.readLine();
 	
-		            }
-			
-		}
+		            
+//		    }
+//			
+//		    catch(IOException e){
+//		        e.printStackTrace();
+//		    System.out.println("Socket read Error");
+//		    }
 		    
-		    catch(IOException e){
-		        e.printStackTrace();
-		    System.out.println("Socket read Error");
-		    }
-		    finally{
-	
-		        ist.close();pwrite.close();bread.close();sockel1.close();
-		                //System.out.println("Connection Closed");
-		                this.gettext= gettext+"Connection Closed";
-		    }
 		}
+		
+		public String readClient() throws IOException{
+			
+			String textin = ist.readLine();
+			
+			return textin;
+		}
+
+
+		public void conclose() throws IOException{
+	
+			ist.close();pwrite.close();bread.close();sockel1.close();
+            System.out.println("Connection Closed");
+            //this.gettext= gettext+"Connection Closed";
+			}
 		
 		public String getText(){
 			

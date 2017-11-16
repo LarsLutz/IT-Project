@@ -10,29 +10,24 @@
    <bottom>
       <Pane prefHeight="157.0" prefWidth="800.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="update" layoutX="318.0" layoutY="62.0" mnemonicParsing="false" onAction="#sendclient" text="Update">
+            <Button fx:id="update" layoutX="588.0" layoutY="40.0" mnemonicParsing="false" onAction="#sendclient" text="Update">
                <font>
                   <Font size="36.0" />
                </font>
             </Button>
+            <TextField fx:id="textout" layoutX="59.0" layoutY="63.0" prefHeight="31.0" prefWidth="428.0" />
          </children>
       </Pane>
    </bottom>
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Rectangle fx:id="qua1" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" height="100.0" layoutX="45.0" layoutY="110.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
-            <Rectangle fx:id="qua2" arcHeight="5.0" arcWidth="5.0" fill="RED" height="100.0" layoutX="246.0" layoutY="110.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
+            <TextArea fx:id="textin" layoutX="1.0" layoutY="22.0" prefHeight="315.0" prefWidth="343.0" />
          </children>
       </Pane>
    </center>
    <left>
-      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <ColorPicker fx:id="color1" layoutX="52.0" layoutY="77.0" />
-            <ColorPicker fx:id="color2" layoutX="52.0" layoutY="186.0" />
-         </children>
-      </Pane>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </left>
    <right>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -44,11 +39,8 @@
    <top>
       <Pane prefHeight="105.0" prefWidth="800.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="ipc" layoutX="149.0" layoutY="37.0" />
-            <TextField fx:id="portc" layoutX="458.0" layoutY="37.0" />
-            <Label layoutX="52.0" layoutY="42.0" text="IP Adresse" />
-            <Label layoutX="386.0" layoutY="42.0" text="Port" />
-            <Button fx:id="connectc" layoutX="685.0" layoutY="37.0" mnemonicParsing="false" onAction="#startclient" text="Connect" />
+            <Button fx:id="connectc" layoutX="88.0" layoutY="37.0" mnemonicParsing="false" onAction="#startclient" text="Connect" />
+            <Button fx:id="disconectc" layoutX="667.0" layoutY="37.0" mnemonicParsing="false" onAction="#closeclient" text="Close" />
          </children>
       </Pane>
    </top>

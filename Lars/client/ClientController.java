@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import server.ServerModel;
 import server.ServerView;
@@ -31,25 +32,20 @@ public class ClientController {
 	@FXML
 	private Button update;
 	@FXML
-	private TextField ipc;
+	private Button close;
 	@FXML
-	private TextField portc;
+	private TextField textout;
 	@FXML
 	private TextArea textc;
 	@FXML
-	private Rectangle qua1;
-	@FXML
-	private Rectangle qua2;
-	@FXML
-	private ColorPicker color1;
-	@FXML
-	private ColorPicker color2;
+	private TextArea textin;
 
 
 
 @FXML
 
 public void startclient(ActionEvent event) throws IOException{
+	
 	
 		model.clientcon();
 		
@@ -60,9 +56,22 @@ public void startclient(ActionEvent event) throws IOException{
 
 public void sendclient(ActionEvent event) throws IOException{
 	
-		model.sendenClient();
+	String c1=null;	
+	c1= textout.getText();
+	model.sendenClient(c1);
+	textin.appendText(model.readClient()+"\n");
+	textout.clear();
 		
 	
+}
+
+@FXML
+
+public void closeclient(ActionEvent event) throws IOException{
+	
+	model.conclose();
+	
+
 }
 
 }

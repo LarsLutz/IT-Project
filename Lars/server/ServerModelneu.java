@@ -36,7 +36,7 @@ public class ServerModelneu extends Thread {
 	  }
 	  try {
 	      line=breader.readLine();
-	      while(line.compareTo("QUIT")!=0){
+	      while(true){
 	
 	          pwriter.println(line);
 	          pwriter.flush();
@@ -53,28 +53,7 @@ public class ServerModelneu extends Thread {
 	      System.out.println("Client "+line+" Closed");
 	  }
 	
-	  finally{    
-	  try{
-	      System.out.println("Connection Closing..");
-	      if (breader!=null){
-	          breader.close(); 
-	          System.out.println(" Socket Input Stream Closed");
-	      }
-	
-	      if(pwriter!=null){
-	          pwriter.close();
-	          System.out.println("Socket Out Closed");
-	      }
-	      if (sockel!=null){
-	      sockel.close();
-	      System.out.println("Socket Closed");
-	      }
-	
-	      }
-	  catch(IOException ie){
-	      System.out.println("Socket Close Error");
-	  }
-	  }//end finally
+	  
 }
 	
 	
@@ -112,6 +91,29 @@ public class ServerModelneu extends Thread {
 		
 		
 	} 
+	
+	public void sclose(){    
+		  try{
+		      System.out.println("Connection Closing..");
+		      if (breader!=null){
+		          breader.close(); 
+		          System.out.println(" Socket Input Stream Closed");
+		      }
+		
+		      if(pwriter!=null){
+		          pwriter.close();
+		          System.out.println("Socket Out Closed");
+		      }
+		      if (sockel!=null){
+		      sockel.close();
+		      System.out.println("Socket Closed");
+		      }
+		
+		      }
+		  catch(IOException ie){
+		      System.out.println("Socket Close Error");
+		  }
+		  }//end finally
 	
 	public String getText(){
 		

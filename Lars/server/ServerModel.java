@@ -91,7 +91,7 @@ public void  serverstart() {
 		
 public String getText(){
 	
-	return this.gettext;
+	return gettext;
 	
 	
 }

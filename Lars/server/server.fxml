@@ -9,6 +9,7 @@
       <Pane prefHeight="66.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="start" layoutX="474.0" layoutY="18.0" mnemonicParsing="false" onAction="#startsrv" text="Start" />
+            <Button fx:id="bclose" layoutX="32.0" layoutY="18.0" mnemonicParsing="false" onAction="#endsrv" text="Close" />
          </children>
       </Pane>
    </bottom>
@@ -18,10 +19,8 @@
    <top>
       <Pane prefHeight="79.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="ip" layoutX="141.0" layoutY="24.0" prefHeight="31.0" prefWidth="130.0" />
-            <TextField fx:id="port" layoutX="448.0" layoutY="24.0" prefHeight="31.0" prefWidth="121.0" />
-            <Label layoutX="34.0" layoutY="29.0" text="IP Adresse" />
-            <Label layoutX="377.0" layoutY="29.0" text="Port" />
+            <TextField fx:id="port" layoutX="112.0" layoutY="24.0" prefHeight="31.0" prefWidth="158.0" />
+            <Label layoutX="55.0" layoutY="29.0" text="Port" />
          </children>
       </Pane>
    </top>

@@ -24,6 +24,9 @@ public class ServerController {
 	private Button start;
 	
 	@FXML
+	private Button bclose;
+	
+	@FXML
 	private TextField ip;
 	@FXML
 	private TextField port;
@@ -42,5 +45,14 @@ public void startsrv(ActionEvent event){
 	
 }
 	
+@FXML
+
+public void endsrv(ActionEvent event){
+	
+	model.sclose();
+		
+				
+	
+}
 
 }
