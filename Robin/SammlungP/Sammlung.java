@@ -2,8 +2,8 @@ package SammlungP;
 
 import Karte.AktionsKarte;
 
-import java.util.Collection;
 import java.util.ArrayList;
+import java.util.Collections;
 import Karte.AKBazaar;
 import Karte.AKChancellor;
 import Karte.AKKeller;
@@ -38,8 +38,8 @@ public class Sammlung {
 //	private AKMarkt[] markt;
 //	private AKSmithy[] smithy;
 	
-//	public void Schöffel(arrayList<SuperKarte> toSchöffel){
-//		Collection.shuffle(toSchöffel);
-//	{
+	public void Schöffel(ArrayList<SuperKarte> toSchöffel){
+		Collections.shuffle(toSchöffel);
+	}
 }
 	
