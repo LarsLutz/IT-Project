@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
+import lobby.Lobby_Model;
 
 public class Chat_Controller {
 	
@@ -24,7 +25,6 @@ public class Chat_Controller {
 	public void sendenKlick(){
 		textArea1.setText(textArea2.getText());
 		textArea1.setDisable(true);
-		
 	}
 	
 }

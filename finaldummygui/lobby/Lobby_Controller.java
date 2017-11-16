@@ -12,14 +12,17 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-// Eduart Bunjaku - Jan Müller
+// Eduart Bunjaku - Jan Mueller
 
 public class Lobby_Controller {
 	
+	private Lobby_Model lm;
+	
 	public Lobby_Controller(){
-		
+		lm = new Lobby_Model();
 	}
 	
+	//Eduart Bunjaku
 	@FXML
     private ImageView lobbyFoto;
 
@@ -40,7 +43,9 @@ public class Lobby_Controller {
 
     @FXML
     private Button leaderBoardButton;
-
+    
+    
+    //Jan Müller
     @FXML
     public void neuesSpiel(ActionEvent event) throws IOException {
     	// schliesst aktuelles Fenster
@@ -56,26 +61,30 @@ public class Lobby_Controller {
         stage.show();
         stage.setResizable(false);
     }
-
+   
     @FXML
     public void spielLaden(ActionEvent event) {
     	System.out.println("TODO... SpielLaden");
     }
 
+    //Jan Mueller
     @FXML
     public void chatOeffnen(ActionEvent event) throws IOException {
     	// oeffnet neues fenster wenn noch keins offen ist
-    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../chat/ChatGUI.fxml"));
-    		Parent root1 = (Parent) fxmlLoader.load();
-    		Stage stage = new Stage();
-    		stage.setTitle("Chat");
-    		stage.setScene(new Scene(root1)); 
-    		stage.show();
-    		stage.setResizable(false);
-    		chatButton.setDisable(true);
+    		
+    		if(lm.getChatIstOffen() == false){
+	    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../chat/ChatGUI.fxml"));
+	    		Parent root1 = (Parent) fxmlLoader.load();
+	    		Stage stage = new Stage();
+	    		stage.setTitle("Chat");
+	    		stage.setScene(new Scene(root1)); 
+	    		stage.show();
+	    		stage.setResizable(false);
+    		}
+    		lm.setChatIstOffen(true);
     }
 
-
+    //Jan Mueller
     @FXML
     public void leaderboardAnzeigen(ActionEvent event) throws IOException {
     	// schliesst aktuelles Fenster
@@ -92,7 +101,7 @@ public class Lobby_Controller {
     }
 
 
-
+    //Jan Mueller
     @FXML
     public void anleitungAnzeigen(ActionEvent event)throws IOException {
     	// schliesst aktuelles Fenster
@@ -109,7 +118,7 @@ public class Lobby_Controller {
     }
 
 
-
+    //Edu Bunjaku
     @FXML
     public void beenden(ActionEvent event) {
     	Stage currentStage = (Stage) leaderBoardButton.getScene().getWindow();
