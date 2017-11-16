@@ -36,7 +36,6 @@ public class MainUndStart extends Application {
 			Scene scene = new Scene(root); 
 			primaryStage.setScene(scene);
 			primaryStage.show();
-			
 			//SQLInjection sqln = new SQLInjection(); - evt später für larsiboy?
 			//sqln.connectDatabase();
 			

@@ -63,10 +63,16 @@ public class Lobby_Controller {
     }
 
     @FXML
-    public void chatOeffnen(ActionEvent event) {
-    	System.out.println("Hier stellt sich die Frage wie wir das machen wollen...");
-    	System.out.println("Chat sollte auch vom Spielfeld selber aus aufgerufen werden - daher sollte das GUI");
-    	System.out.println("meiner Meinung nach als eigene Stage erscheinen (mit eigenem Fenster) -- LG der Führer");
+    public void chatOeffnen(ActionEvent event) throws IOException {
+    	// oeffnet neues fenster wenn noch keins offen ist
+    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../chat/ChatGUI.fxml"));
+    		Parent root1 = (Parent) fxmlLoader.load();
+    		Stage stage = new Stage();
+    		stage.setTitle("Chat");
+    		stage.setScene(new Scene(root1)); 
+    		stage.show();
+    		stage.setResizable(false);
+    		chatButton.setDisable(true);
     }
 
 
