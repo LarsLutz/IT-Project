@@ -10,8 +10,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import server.ServerModel;
-import server.ServerView;
 
 public class ClientController {
 	

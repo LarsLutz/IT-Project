@@ -4,26 +4,18 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.net.ServerSocket;
 import java.net.Socket;
 
-public class ServerModelneu extends Thread {
+public class ServerThread extends Thread{
+	
 	
 	private String line=null;
-	private BufferedReader  breader = null;
+	private BufferedReader breader = null;
 	private PrintWriter pwriter=null;
 	private Socket sockel=null;
-	private String gettext= "Verbindungslog \n";
-	//private Socket sockel1=null;
 	
-	
-	public ServerModelneu (){
-
-	}
-	
-	
-	public ServerModelneu (Socket s){
-		this.sockel=s;
+	public ServerThread (Socket s){
+		sockel=s;
 	}
 	
 	public void run() {
@@ -51,41 +43,31 @@ public class ServerModelneu extends Thread {
 	  catch(NullPointerException e){
 	      line=this.getName(); //reused String line for getting thread name
 	      System.out.println("Client "+line+" Closed");
+	  }finally {
+	  try{
+	      System.out.println("Connection Closing..");
+	      if (breader!=null){
+	          breader.close(); 
+	          System.out.println(" Socket Input Stream Closed");
+	      }
+	
+	      if(pwriter!=null){
+	          pwriter.close();
+	          System.out.println("Socket Out Closed");
+	      }
+	      if (sockel!=null){
+	      sockel.close();
+	      System.out.println("Socket Closed");
+	      }
+	
+	      }
+	  catch(IOException ie){
+	      System.out.println("Socket Close Error");
 	  }
+	  }//end finally
 	
 	  
-}
-	
-	
-	public void sclose(){    
-		  try{
-		      System.out.println("Connection Closing..");
-		      if (breader!=null){
-		          breader.close(); 
-		          System.out.println(" Socket Input Stream Closed");
-		      }
-		
-		      if(pwriter!=null){
-		          pwriter.close();
-		          System.out.println("Socket Out Closed");
-		      }
-		      if (sockel!=null){
-		      sockel.close();
-		      System.out.println("Socket Closed");
-		      }
-		
-		      }
-		  catch(IOException ie){
-		      System.out.println("Socket Close Error");
-		  }
-		  }//end finally
-	
-	public String getText(){
-		
-		return this.gettext;
-	}
+}    
+		  
 
-	
-	
 }
-
