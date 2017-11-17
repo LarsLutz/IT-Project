@@ -38,8 +38,8 @@ public class Sammlung {
 //	private AKMarkt[] markt;
 //	private AKSmithy[] smithy;
 	
-	public void Schöffel(ArrayList<SuperKarte> toSchöffel){
-		Collections.shuffle(toSchöffel);
+	public void Schuffel(ArrayList<SuperKarte> toSchuffel){
+		Collections.shuffle(toSchuffel);
 	}
 }
 	
