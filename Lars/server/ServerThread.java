@@ -13,28 +13,38 @@ public class ServerThread extends Thread{
 	private BufferedReader breader = null;
 	private PrintWriter pwriter=null;
 	private Socket sockel=null;
+	private int client_id;
+	private Kommunikation kom;
 	
-	public ServerThread (Socket s){
-		sockel=s;
+	public ServerThread (int id, Socket sck){
+		sockel=sck;
+		client_id=id;
 	}
 	
 	public void run() {
 	  try{
 	      breader= new BufferedReader(new InputStreamReader(sockel.getInputStream()));
 	      pwriter=new PrintWriter(sockel.getOutputStream());
+	      kom= new Kommunikation();
 	
 	  }catch(IOException e){
 	      System.out.println("IO error in server thread");
 	  }
 	  try {
-	      line=breader.readLine();
+		  
 	      while(true){
-	
-	          pwriter.println(line);
-	          pwriter.flush();
-	          System.out.println("Response to Client  :  "+line);
-	          line=breader.readLine();
-	      }   
+	    	  
+	    	  kom.setText1(breader.readLine());
+	    	  
+	    	  System.out.println(kom.getText1());
+	    	  
+	    	  
+	    	
+	            
+	          
+	      }  
+	    	  
+	      
 	  } catch (IOException e) {
 	
 	      line=this.getName(); //reused String line for getting thread name

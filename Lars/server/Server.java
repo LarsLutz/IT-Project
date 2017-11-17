@@ -23,6 +23,7 @@ public class Server {
 			
 			ServerSocket srvsockel=null;
 			Socket sockel=null;
+			int client_id=0;
 			
 			    System.out.println("Server Listening......");
 			    try{
@@ -38,10 +39,11 @@ public class Server {
 			
 			    
 			    while(true){
+			    	client_id++;
 			        try{
 			            sockel= srvsockel.accept();
-			            System.out.println("connection Established");
-			            ServerModelneu st=new ServerModelneu(sockel);
+			            System.out.println("connection Established at Client"+client_id);
+			            ServerThread st=new ServerThread(client_id,sockel);
 			            st.start();
 			            
 			
