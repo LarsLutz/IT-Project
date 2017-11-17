@@ -10,8 +10,9 @@ import javafx.scene.control.TextField;
 
 public class ServerController {
 	
-	private ServerModelneu model;
+	private static ServerModelneu model;
 	private ServerView view;
+	private static int wert;
 	
 	public ServerController(){
 		
@@ -37,19 +38,20 @@ public class ServerController {
 @FXML
 
 public void startsrv(ActionEvent event){
-		
-		model.serverstart();
-		
-		text.appendText(model.getText());
-		
 	
+	  this.wert=1;
+		
+		Server.setWert(this.wert);
+			
 }
 	
 @FXML
 
 public void endsrv(ActionEvent event){
 	
-	model.sclose();
+	this.wert=0;
+	
+	Server.setWert(this.wert);
 		
 				
 	

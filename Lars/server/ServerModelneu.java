@@ -15,7 +15,7 @@ public class ServerModelneu extends Thread {
 	private Socket sockel=null;
 	private String gettext= "Verbindungslog \n";
 	//private Socket sockel1=null;
-	private ServerSocket srvsocket=null;
+	
 	
 	public ServerModelneu (){
 
@@ -56,41 +56,6 @@ public class ServerModelneu extends Thread {
 	  
 }
 	
-	
-	public void  serverstart() {
-		
-	    System.out.println("Server Listening......");
-	    this.gettext= gettext+"Server Listening......";
-	    try{
-	        srvsocket = new ServerSocket(8080); // can also use static final PORT_NUM , when defined
-	
-	    }
-	    catch(IOException e){
-	    e.printStackTrace();
-	    System.out.println("Server error");
-	    
-	
-	    }
-	    
-	    while(true){
-	        try{
-	            sockel= srvsocket.accept();
-	            System.out.println("connection Established");
-	            ServerModelneu st=new ServerModelneu(sockel);
-	            st.start();
-	
-	        }
-	
-	    catch(Exception e){
-	        e.printStackTrace();
-	        System.out.println("Connection Error");
-	
-	    }
-	    }
-
-		
-		
-	} 
 	
 	public void sclose(){    
 		  try{
