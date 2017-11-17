@@ -17,6 +17,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+// Eduart Bunjaku
+
 public class Registrieren_Controller {
 	
 	public Registrieren_Controller(){
@@ -54,7 +56,21 @@ public class Registrieren_Controller {
     
     // Nach erfolgreicher Registrierung gelangt man mit dem "Registrieren-Button" in die Lobby.
     @FXML
-   public void lobbyOeffnen(MouseEvent event) {
+   public void lobbyOeffnen(ActionEvent event) throws IOException {
+    	
+    	// schliesst aktuelles Fenster
+		Stage currentStage = (Stage) registrierenButton.getScene().getWindow();
+	    currentStage.close();
+	    
+	    // oeffnet neues fenster
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../lobby/LobbyGui.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root1));  
+        stage.show();
+        stage.setResizable(false);
+  
+    
 
     }
 
