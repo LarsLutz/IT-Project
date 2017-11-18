@@ -54,7 +54,7 @@ public class Registrieren_Controller {
     private ImageView waldBildReg;
     
     
-    // Nach erfolgreicher Registrierung gelangt man mit dem "Registrieren-Button" in die Lobby.
+    // Nach erfolgreicher Registrierung gelangt man mit dem "Registrieren-Button" zum Login.
     @FXML
    public void lobbyOeffnen(ActionEvent event) throws IOException {
     	
@@ -63,7 +63,7 @@ public class Registrieren_Controller {
 	    currentStage.close();
 	    
 	    // oeffnet neues fenster
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../lobby/LobbyGui.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../login/LoginGUI.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root1));  
