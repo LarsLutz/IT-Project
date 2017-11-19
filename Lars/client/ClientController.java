@@ -68,6 +68,7 @@ public void sendclient(ActionEvent event) throws IOException{
 public void closeclient(ActionEvent event) throws IOException{
 	
 	model.conclose();
+	System.exit(0);
 	
 
 }

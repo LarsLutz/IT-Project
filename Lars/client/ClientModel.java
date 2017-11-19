@@ -34,7 +34,7 @@ public class ClientModel {
 				try { 
 				
 					sockel1= new Socket(address,8080);
-					bread= new BufferedReader(new InputStreamReader(System.in));
+					//bread= new BufferedReader(new InputStreamReader(System.in));
 					ist=new BufferedReader(new InputStreamReader(sockel1.getInputStream()));
 					pwrite= new PrintWriter(sockel1.getOutputStream());
 					
@@ -91,6 +91,7 @@ public class ClientModel {
 
 
 		public void conclose() throws IOException{
+			
 	
 			ist.close();pwrite.close();bread.close();sockel1.close();
             System.out.println("Connection Closed");
