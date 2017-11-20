@@ -1,4 +1,4 @@
-package server;
+package Guelle;
 
 public class Model {
 	
