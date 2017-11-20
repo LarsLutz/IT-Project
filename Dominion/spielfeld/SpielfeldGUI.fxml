@@ -39,7 +39,7 @@
                      </children>
                   </HBox>
                   <HBox prefHeight="212.0" prefWidth="250.0" />
-                  <HBox prefHeight="63.0" prefWidth="250.0">
+                  <HBox prefHeight="0.0" prefWidth="250.0">
                      <children>
                         <Button fx:id="bP1" mnemonicParsing="false" prefWidth="70.0" text="Phase 1">
                            <effect>
@@ -85,25 +85,7 @@
                         </Button>
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Button fx:id="bZugBeenden" mnemonicParsing="false" prefWidth="234.0" text="Zug Beenden">
-                           <HBox.margin>
-                              <Insets top="20.0" />
-                           </HBox.margin>
-                           <effect>
-                              <Lighting>
-                                 <bumpInput>
-                                    <Shadow />
-                                 </bumpInput>
-                                 <light>
-                                    <Light.Distant />
-                                 </light>
-                              </Lighting>
-                           </effect>
-                        </Button>
-                     </children>
-                  </HBox>
+                  <HBox prefHeight="0.0" prefWidth="250.0" />
                </children>
             </VBox>
          </right>
@@ -154,6 +136,140 @@
                </children>
             </HBox>
          </top>
+         <left>
+            <VBox prefHeight="616.0" prefWidth="147.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox prefHeight="52.0" prefWidth="147.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Pane fx:id="p1" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="anwesen1" fitHeight="118.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@estate.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="pKupfer" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="kupfer" fitHeight="118.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@copper.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Pane fx:id="p3" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="anwesen3" fitHeight="118.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@duchy.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="pSilber" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="silber" fitHeight="118.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@silver.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Pane fx:id="p6" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="anwesen6" fitHeight="118.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@province.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="pGold" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="gold" fitHeight="118.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@gold.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <BorderPane.margin>
+                  <Insets left="15.0" />
+               </BorderPane.margin>
+            </VBox>
+         </left>
+         <bottom>
+            <HBox prefHeight="150.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox prefHeight="150.0" prefWidth="16.0" />
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Pane fx:id="pRueckseiteNormal" prefHeight="150.0" prefWidth="99.0">
+                           <children>
+                              <ImageView fx:id="rueckseiteNormal" fitHeight="150.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@back.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" />
+                  <VBox prefHeight="200.0" prefWidth="100.0" />
+                  <VBox prefHeight="200.0" prefWidth="100.0" />
+                  <VBox prefHeight="200.0" prefWidth="100.0" />
+                  <VBox prefHeight="200.0" prefWidth="100.0" />
+                  <VBox prefHeight="200.0" prefWidth="100.0" />
+                  <VBox prefHeight="150.0" prefWidth="116.0" />
+                  <VBox prefHeight="150.0" prefWidth="0.0" />
+                  <VBox prefHeight="150.0" prefWidth="0.0" />
+                  <VBox prefHeight="150.0" prefWidth="250.0">
+                     <children>
+                        <Button fx:id="bZugBeenden" mnemonicParsing="false" prefWidth="234.0" text="Zug Beenden">
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect>
+                           <VBox.margin>
+                              <Insets top="60.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="10.0" />
+               </BorderPane.margin>
+            </HBox>
+         </bottom>
       </BorderPane>
    </children>
 </Pane>
