@@ -20,6 +20,7 @@ public class Spielfeld_Controller {
 	@FXML
 	ImageView hintergrund, rueckseite, rueckseiteNormal;
 	ImageView kupfer, silber, gold, anwesen1, anwesen3, anwesen6;
+	ImageView bazaarMiddle, cellarMiddle, chancellorMiddle, marketMiddle, smithyMiddle;
 	
 	@FXML
 	Button bSpeichern, bP1, bP2, bP3, bZugBeenden;
@@ -29,6 +30,7 @@ public class Spielfeld_Controller {
 	
 	@FXML
 	Pane pSeinStapel, pKupfer, pSilber, pGold, p1, p3, p6, pRueckseiteNormal;
+	Pane pBazaarMiddle, pCellarMiddle, pChancellorMiddle, pMarketMiddle, pSmithyMiddle;
 	
 	@FXML
 	Label anzahlSeinStapel;

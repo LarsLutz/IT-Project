@@ -270,6 +270,79 @@
                </BorderPane.margin>
             </HBox>
          </bottom>
+         <center>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="130.0">
+                     <HBox.margin>
+                        <Insets bottom="100.0" left="160.0" top="100.0" />
+                     </HBox.margin>
+                     <children>
+                        <Pane fx:id="pBazaarMiddle" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="bazaarMiddle" fitHeight="128.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@bazaarMiddle.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="pCellarMiddle" prefHeight="200.0" prefWidth="0.0">
+                           <children>
+                              <ImageView fx:id="cellarMiddle" fitHeight="128.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@cellarMiddle.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="130.0">
+                     <HBox.margin>
+                        <Insets bottom="100.0" top="100.0" />
+                     </HBox.margin>
+                     <children>
+                        <Pane fx:id="pChancellorMiddle" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="chancellorMiddle" fitHeight="128.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@chancellorMiddle.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="pMarketMiddle" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="marketMiddle" fitHeight="128.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@marketMiddle.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="130.0">
+                     <HBox.margin>
+                        <Insets bottom="100.0" top="100.0" />
+                     </HBox.margin>
+                     <children>
+                        <Pane fx:id="pSmithyMiddle" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="smithyMiddle" fitHeight="128.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@smithyMiddle.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="200.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </center>
       </BorderPane>
    </children>
 </Pane>
