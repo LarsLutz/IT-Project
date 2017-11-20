@@ -6,7 +6,11 @@ public class AKChancellor extends AktionsKarte{
 	final String name = "Chancellor";
 	final int guthaben = 2;
 	private boolean deckDiscard;
+	final String typ = "Aktionskarte";
 	
+	public String getTyp() {
+		return typ;
+	}
 	public boolean isDeckDiscard() {
 		return deckDiscard;
 	}

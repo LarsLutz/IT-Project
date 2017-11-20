@@ -7,6 +7,10 @@ public class AKBazaar extends AktionsKarte{
 	final int karteZiehen = 1;
 	final int aktionsKarteSpielen = 2;
 	final int guthaben = 1;
+	public String getTyp() {
+		return typ;
+	}
+	final String typ = "Aktionskarte";
 	
 	public int getKosten() {
 		return kosten;

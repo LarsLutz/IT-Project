@@ -11,23 +11,34 @@ import Karte.AKSmithy;
 import Karte.GeldKarte;
 import Karte.PunkteKarte;
 import SammlungP.Spielfeldkarte;
-import SammlungP.Abwerfstapel;
 import SammlungP.Sammlung;
+import java.util.Random;
+import Karte.SuperKarte;
+
+
 
 public class Deck {
-
-	//sött Starthand erstelle
-	ArrayList<SuperKarte> deckliste = new ArrayList<SuperKarte>();
-	GeldKarte testobjekt = new GeldKarte(1,"Kupfer",0);
-	PunkteKarte testobjekt2 = new PunkteKarte(1,"Anwesen",1);{
-	
-	for ( int i=0; i>5; i++){
-		deckliste.add(testobjekt);
-	}
-	for ( int i=0; i>3; i++){
-		deckliste.add(testobjekt2);
-	}	
-	
-	
-}
+//	//sött Starthand erstelle
+//	public ArrayList<SuperKarte> deckliste;
+//	
+//	GeldKarte startGeld = new GeldKarte(1,"Kupfer",0);
+//	PunkteKarte startPunkte = new PunkteKarte(1,"Anwesen",1);{
+//	
+//	for ( int i=0; i>5; i++){
+//		deckliste.add(startGeld);
+//	}
+//	for ( int i=0; i>3; i++){
+//		deckliste.add(startPunkte);
+//	}	
+//	
+//	
+//}
+//	
+//	// zieht en zuefälligi charte vom deck, machts Schöffel metode nutzlos
+//	
+//	public SuperKarte KarteZiehen(){
+//		Random zufall = new Random();
+//		return deckliste.get(zufall.nextInt(deckliste.size()));
+//	}
+//	
 }

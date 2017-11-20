@@ -7,7 +7,11 @@ public class AKKeller extends AktionsKarte{
 	private int karteZiehen;
 	final int aktionsKarteSpielen = 1;
 	private int kartenAbwerfen;
+	final String typ = "Aktionskarte";
 	
+	public String getTyp() {
+		return typ;
+	}
 	public int getKarteZiehen() {
 		return karteZiehen;
 	}

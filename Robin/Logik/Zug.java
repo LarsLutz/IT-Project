@@ -1,6 +1,42 @@
 package Logik;
 
-public class Zug {
+import Karte.AktionsKarte;
+import java.util.ArrayList;
+import Karte.SuperKarte;
+import Karte.AKBazaar;
+import Karte.AKChancellor;
+import Karte.AKKeller;
+import Karte.AKMarkt;
+import Karte.AKSmithy;
+import Karte.GeldKarte;
+import Karte.PunkteKarte;
+import SammlungP.Spielfeldkarte;
+import SammlungP.Sammlung;
+import Logik.Zaehler;
+import SammlungP.Deck;
+import Logik.Spieler;
+
+public class Zug{
+	Spieler[] spieler;
+	
+	
+	}
+	
+	
+	
+	
+	
+	
+	// schleife baue
+
+	// zieht zu beginn vo jedem zog 1 charte
+//	public void turn(Spieler spieler) {
+//		
+//Spieler.KarteZiehen(1);
+//	}
+
+	// kei ahnig wei charte usspiele met guetem code usgseht
+	
 
 //	to-do
 //	Schleife für spieler wechsel
@@ -14,5 +50,10 @@ public class Zug {
 //	Karten kommen auf abwerfstapel
 //	Zug beenden
 //	GameEnd bediengung
-//	
-}
+//	private int aktionsZaehler;
+//	private int guthaben;
+//	private int kaufZaehler;
+//	private int phase;
+//	private int spielerAmZug;
+//	private int runde;
+

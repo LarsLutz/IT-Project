@@ -8,7 +8,11 @@ public class AKMarkt extends AktionsKarte{
 	final int aktionsKarteSpielen = 1;
 	final int karteKaufen = 1;
 	final int guthaben = 1;
+	final String typ = "Aktionskarte";
 	
+	public String getTyp() {
+		return typ;
+	}
 	public int getKosten() {
 		return kosten;
 	}

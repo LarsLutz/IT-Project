@@ -5,7 +5,11 @@ public class AKSmithy extends AktionsKarte{
 	final int kosten = 4;
 	final String name = "Smithy";
 	final int karteZiehen = 3;
+	final String typ = "Aktionskarte";
 	
+	public String getTyp() {
+		return typ;
+	}
 	public int getKosten() {
 		return kosten;
 	}
