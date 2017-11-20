@@ -1,15 +1,12 @@
 package client;
 
-import java.io.IOException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ColorPicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
+
+import java.io.IOException;
 
 public class ClientController {
 	
@@ -43,24 +40,23 @@ public class ClientController {
 @FXML
 
 public void startclient(ActionEvent event) throws IOException{
-	
-	
 		model.clientcon();
-		
-	
 }
 
 @FXML
 
 public void sendclient(ActionEvent event) throws IOException{
 	
-	String c1=null;	
+	String c1;
 	c1= textout.getText();
-	model.sendenClient(c1);
-	textin.appendText(model.readClient()+"\n");
+	if (c1 != null && !c1.isEmpty()) {
+		model.sendenClient(c1);
+	}
+	c1 = model.readClient();
+	if (c1 != null && !c1.isEmpty()){
+		textin.appendText(c1+"\n");
+	}
 	textout.clear();
-		
-	
 }
 
 @FXML
