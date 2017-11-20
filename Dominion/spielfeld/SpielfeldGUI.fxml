@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<Pane fx:id="pSeinStapel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#testEvent" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spielfeld.Spielfeld_Controller">
+<Pane fx:id="pSeinStapel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spielfeld.Spielfeld_Controller">
    <children>
       <ImageView fx:id="hintergrund" fitHeight="720.0" fitWidth="1080.0" pickOnBounds="true">
          <image>
@@ -38,7 +38,14 @@
                         <TextArea fx:id="tEingabe" onKeyTyped="#enterKlick" prefHeight="200.0" prefWidth="245.0" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="212.0" prefWidth="250.0" />
+                  <HBox prefHeight="212.0" prefWidth="250.0">
+                     <children>
+                        <Label fx:id="infoLabel" text="Bewege den Cursor auf eine Karte" textFill="#eef1f2">
+                           <HBox.margin>
+                              <Insets top="15.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children></HBox>
                   <HBox prefHeight="0.0" prefWidth="250.0">
                      <children>
                         <Button fx:id="bP1" mnemonicParsing="false" prefWidth="70.0" text="Phase 1">
@@ -225,7 +232,7 @@
                   <VBox prefHeight="150.0" prefWidth="16.0" />
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Pane fx:id="pRueckseiteNormal" prefHeight="150.0" prefWidth="99.0">
+                        <Pane fx:id="pRueckseiteNormal" onMouseClicked="#karteZiehen" prefHeight="150.0" prefWidth="99.0">
                            <children>
                               <ImageView fx:id="rueckseiteNormal" fitHeight="150.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -303,7 +310,7 @@
                         <Insets bottom="100.0" top="100.0" />
                      </HBox.margin>
                      <children>
-                        <Pane fx:id="pChancellorMiddle" prefHeight="200.0" prefWidth="200.0">
+                        <Pane fx:id="pChancellorMiddle" onMouseEntered="#infoKanzler" prefHeight="200.0" prefWidth="200.0">
                            <children>
                               <ImageView fx:id="chancellorMiddle" fitHeight="128.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

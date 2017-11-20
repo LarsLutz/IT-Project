@@ -33,11 +33,15 @@ public class Spielfeld_Controller {
 	Pane pBazaarMiddle, pCellarMiddle, pChancellorMiddle, pMarketMiddle, pSmithyMiddle;
 	
 	@FXML
-	Label anzahlSeinStapel;
+	Label anzahlSeinStapel, infoLabel;
+	
+	public void karteZiehen(){
+		System.out.println("Diese Aktion löst das Ziehen eine Karte aus.. natürlich nur if...");
+	}
 	
 	@FXML
-	public void testEvent(MouseEvent Moue){
-		System.out.println("auf Panes zu klicken scheint zu funktionieren");
+	public void infoKanzler(){
+		infoLabel.setText("Der Kanzler führt und verwaltet das\nReich");
 	}
 	
 	
