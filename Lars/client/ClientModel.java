@@ -58,7 +58,9 @@ public class ClientModel {
 		System.out.println("read"+textin);
 		return textin;
 	}
-
+ 
+//	String string = "004-034556";
+//	String[] parts = string.split("-");
 
 	public void conclose() throws IOException{
 		sendenClient(terminate);

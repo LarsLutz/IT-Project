@@ -52,6 +52,8 @@ public void sendclient(ActionEvent event) throws IOException{
 	if (c1 != null && !c1.isEmpty()) {
 		model.sendenClient(c1);
 	}
+	
+	
 	c1 = model.readClient();
 	if (c1 != null && !c1.isEmpty()){
 		textin.appendText(c1+"\n");

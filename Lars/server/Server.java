@@ -17,6 +17,7 @@ public class Server {
 
                 if(player1.isDataInAvailable()){
                     String data = player1.getDataIn();
+                    //Verarbeiter.verarbeite(player1.getdatain(),player1,player2)
                     System.out.println("1 - 2");
                     player2.setDataOut(data);
                     System.out.println("echo");
