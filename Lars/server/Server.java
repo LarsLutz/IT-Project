@@ -7,6 +7,7 @@ public class Server {
     static boolean running = true;
     public static void main(String[] args){
         try {
+        	System.out.println("Sever startet");
             ServerSocket serverSocket = new ServerSocket(8080);
             Player player1 = new Player(serverSocket.accept(), 1);
             Player player2 = new Player(serverSocket.accept(), 2);
