@@ -52,12 +52,12 @@ public class Lobby_Controller {
     	Stage currentStage = (Stage) neuesSpielButton.getScene().getWindow();
     	currentStage.close();
     		    
-   	    // oeffnet neues fenster
+   	    //oeffnet neues fenster
    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../spielfeld/SpielfeldGUI.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
-        stage.setTitle("Spielfeld");
-        stage.setScene(new Scene(root1));  
+        stage.setTitle("Dominion");
+        stage.setScene(new Scene(root1));
         stage.show();
         stage.setResizable(false);
     }
