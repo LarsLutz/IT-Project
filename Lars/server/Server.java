@@ -8,10 +8,10 @@ public class Server {
     public static void main(String[] args){
         try {
         	System.out.println("Sever startet");
-            ServerSocket serverSocket = new ServerSocket(8080);
-            Player player1 = new Player(serverSocket.accept(), 1);
+            ServerSocket serverSocket = new ServerSocket(8080); // Generiert Serversocket
+            Player player1 = new Player(serverSocket.accept(), 1); //Instansiert die Klasse Player
             Player player2 = new Player(serverSocket.accept(), 2);
-            while (player1.isRunning()&player2.isRunning()){
+            while (player1.isRunning()&player2.isRunning()){ //Soblad beide Verbunden sind
 
                 //Daten zuerst verarbeiten bevor weitergeleitet wird
 

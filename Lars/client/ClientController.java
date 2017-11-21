@@ -38,27 +38,27 @@ public class ClientController {
 
 
 @FXML
-
+// Methode für den Connect Button
 public void startclient(ActionEvent event) throws IOException{
 		model.clientcon();
 }
 
 @FXML
-
+//Methode für den Update Button
 public void sendclient(ActionEvent event) throws IOException{
 	
 	String c1;
 	c1= textout.getText();
-	if (c1 != null && !c1.isEmpty()) {
+	if (c1 != null && !c1.isEmpty()) { //Checkt ob überhaupt etwas gesendet werden kann
 		model.sendenClient(c1);
 	}
 	
 	
 	c1 = model.readClient();
-	if (c1 != null && !c1.isEmpty()){
+	if (c1 != null && !c1.isEmpty()){ //Checkt ob etwas empfangen werden kann
 		textin.appendText(c1+"\n");
 	}
-	textout.clear();
+	textout.clear(); //Leert das Textfeld
 }
 
 @FXML

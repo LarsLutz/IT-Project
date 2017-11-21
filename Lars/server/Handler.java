@@ -14,7 +14,7 @@ class Handler implements Runnable {
         this.socket = socket;
         this.player = player;
     }
-
+// Thread wird gestartet und die Reader und Writer Instanziert
     @Override
     public void run() {
         try {
@@ -30,7 +30,7 @@ class Handler implements Runnable {
         }
         processConnection();
     }
-
+// Überprüft das nur gesendet und empfangen wird wennauch wirklich Daten vorhanden sind
     private void processConnection() {
         try {
             String message;

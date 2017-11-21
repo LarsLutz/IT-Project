@@ -19,7 +19,7 @@ public class Player{
     public Player(Socket socket, int id){
         this.socket = socket;
         this.id = id;
-        this.thread = new Thread(new Handler(socket, this));
+        this.thread = new Thread(new Handler(socket, this)); //Neuer Thread wird angelegt mit den Playerdaten
         this.thread.start();
         System.out.println("Player: "+ this.id + " - sock: " + socket.toString());
     }
@@ -28,6 +28,7 @@ public class Player{
         return this.id;
     }
 
+    //Daten werden in den Thread gelesen(synchronized macht das nicht mehrer Trheads gleichzeitig versuchen auf die Methode zuzugreifen
     synchronized public void setDataIn(String message){
         this.dataIn = message;
         this.dataInAvailable = true;
@@ -57,6 +58,7 @@ public class Player{
         this.dataOutAvailable = true;
     }
 
+    // Daten werden in den Writer geladen
     synchronized public void sendMessage(String message) throws IOException {
 
         PrintWriter printWriter =
@@ -67,6 +69,8 @@ public class Player{
         printWriter.flush();
     }
 
+    
+    //Schaut ob der Thread noch läuft und schliesst ihn bei bedarf
     synchronized public boolean isRunning(){
         if (!thread.isAlive()){
             close();
