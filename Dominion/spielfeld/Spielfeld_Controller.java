@@ -44,6 +44,11 @@ public class Spielfeld_Controller {
 		infoLabel.setText("Der Kanzler führt und verwaltet das\nReich");
 	}
 	
+	@FXML
+	public void infoSchmied(){
+		infoLabel.setText("ziehe 3 Karten");
+	}
+	
 	
 	@FXML
 	public void enterKlick(){

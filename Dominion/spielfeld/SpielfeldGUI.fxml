@@ -335,7 +335,7 @@
                         <Insets bottom="100.0" top="100.0" />
                      </HBox.margin>
                      <children>
-                        <Pane fx:id="pSmithyMiddle" prefHeight="200.0" prefWidth="200.0">
+                        <Pane fx:id="pSmithyMiddle" onMouseEntered="#infoSchmied" prefHeight="200.0" prefWidth="200.0">
                            <children>
                               <ImageView fx:id="smithyMiddle" fitHeight="128.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
