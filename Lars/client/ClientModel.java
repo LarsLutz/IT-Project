@@ -51,6 +51,7 @@ public class ClientModel {
 	
 	//Methode für den Update Button (nur zum Test). Empfängt die Daten. Kommt schluessedlich in eine Endlosschleife
 	public String readClient() throws IOException{
+		//public String update() throws IOException{
 		System.out.println("lesen");
 		String textin = "";
 		if (input.ready()){
@@ -59,9 +60,9 @@ public class ClientModel {
 		System.out.println("lesen"+textin);
 		return textin;
 	}
+	
  
-//	String string = "004-034556";
-//	String[] parts = string.split("-");
+
 
 	
 	// Schliesst die Verbindung
