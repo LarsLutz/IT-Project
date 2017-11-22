@@ -4,13 +4,6 @@ public class Spielfeld_Model {
 	
 	public Spielfeld_Model(){
 		
-		
-		
 	}
-	
-	
-	
-	
-	
 	
 }

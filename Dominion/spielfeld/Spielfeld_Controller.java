@@ -13,8 +13,12 @@ public class Spielfeld_Controller {
 	
 	//Begonnen von Jan Müller - würde das gerne weiterführen :)
 	//aufgrund der komplexität (Dynamik etc) habe ich das GUI nicht vervollständigt
+	
+	private Spielfeld_Model sm;
+	
+	
 	public Spielfeld_Controller(){
-		
+		sm = new Spielfeld_Model();
 	}
 	
 	@FXML
@@ -29,7 +33,7 @@ public class Spielfeld_Controller {
 	TextArea tVerlauf, tEingabe;
 	
 	@FXML
-	Pane pSeinStapel, pKupfer, pSilber, pGold, p1, p3, p6, pRueckseiteNormal;
+	Pane pSeinDeck, pSeinDiscardPile, pKupfer, pSilber, pGold, p1, p3, p6, pMeinDiscardPile, pMeinDeck;
 	Pane pBazaarMiddle, pCellarMiddle, pChancellorMiddle, pMarketMiddle, pSmithyMiddle;
 	
 	@FXML
@@ -53,6 +57,15 @@ public class Spielfeld_Controller {
 	@FXML
 	public void enterKlick(){
 		System.out.println("Taste gedrückt.. jetzt noch auf Enter... Bei tastendruck ist es kein MouseEvent sondern ein..?");
+	}
+	
+	@FXML
+	public void infoDiscard(){
+		infoLabel.setText("Sein Ablagestapel");
+	}
+	
+	public void infoMeinDiscard(){
+		infoLabel.setText("MEIN Abwerfstapel");
 	}
 	
 }
