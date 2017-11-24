@@ -7,6 +7,14 @@ public class AKChancellor extends AktionsKarte{
 	final int guthaben = 2;
 	private boolean deckDiscard;
 	final String typ = "Aktionskarte";
+	final String pfad = "chancellor.jpg";
+	//TODO
+	final String beschreibung = "asdf";
+	
+	public AKChancellor(boolean deckDiscard){
+		this.deckDiscard = deckDiscard;
+	}
+	
 	
 	public String getTyp() {
 		return typ;
@@ -25,6 +33,14 @@ public class AKChancellor extends AktionsKarte{
 	}
 	public int getGuthaben() {
 		return guthaben;
+	}
+	
+	public String getPfad(){
+		return pfad;
+	}
+	
+	public String getBeschreibung(){
+		return this.beschreibung;
 	}
 	
 

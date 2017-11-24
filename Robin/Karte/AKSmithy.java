@@ -6,6 +6,20 @@ public class AKSmithy extends AktionsKarte{
 	final String name = "Smithy";
 	final int karteZiehen = 3;
 	final String typ = "Aktionskarte";
+	final String pfad = "smithy.jpg";
+	//TODO
+	final String beschreibung = "sdf";
+	
+	
+	public AKSmithy(){
+		
+	}
+	
+	
+	
+	
+	
+	
 	
 	public String getTyp() {
 		return typ;
@@ -18,6 +32,10 @@ public class AKSmithy extends AktionsKarte{
 	}
 	public int getKarteZiehen() {
 		return karteZiehen;
+	}
+	
+	public String getPfad(){
+		return pfad;
 	}
 	
 

@@ -8,6 +8,15 @@ public class AKKeller extends AktionsKarte{
 	final int aktionsKarteSpielen = 1;
 	private int kartenAbwerfen;
 	final String typ = "Aktionskarte";
+	final String pfad = "cellar.jpg";
+	//TODO
+	final String beschreibung = "asdfd";
+	
+	public AKKeller(int karteZiehen, int kartenAbwerfen){
+		this.karteZiehen = karteZiehen;
+		this.kartenAbwerfen = kartenAbwerfen;
+	}
+	
 	
 	public String getTyp() {
 		return typ;
@@ -32,6 +41,14 @@ public class AKKeller extends AktionsKarte{
 	}
 	public int getAktionsKarteSpielen() {
 		return aktionsKarteSpielen;
+	}
+	
+	public String getPfad(){
+		return pfad;
+	}
+	
+	public String getBeschreibung(){
+		return this.beschreibung;
 	}
 
 

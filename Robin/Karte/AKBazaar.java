@@ -7,6 +7,16 @@ public class AKBazaar extends AktionsKarte{
 	final int karteZiehen = 1;
 	final int aktionsKarteSpielen = 2;
 	final int guthaben = 1;
+	final String pfad = "bazaar.jpg";
+	//TODO insert description of card here :) 
+	final String beschreibung = "ljkasdfljkadf";
+	
+	//Konstruktor
+	public AKBazaar(){
+		
+	}
+	
+	
 	public String getTyp() {
 		return typ;
 	}
@@ -26,6 +36,14 @@ public class AKBazaar extends AktionsKarte{
 	}
 	public int getGuthaben() {
 		return guthaben;
+	}
+	
+	public String getPfad(){
+		return pfad;
+	}
+	
+	public String getBeschreibung(){
+		return this.beschreibung;
 	}
 
 	// karteZiehen ++
