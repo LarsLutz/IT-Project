@@ -12,6 +12,8 @@ public class SuperKarte {
 	protected int aktionsKarteSpielen;
 	protected int karteKaufen;
 	protected int guthaben;
+	protected String beschreibung;
+	protected String pfad;
 	
 
 	protected boolean seite;
@@ -40,5 +42,11 @@ public class SuperKarte {
 	}
 	public int getGuthaben() {
 		return guthaben;
+	}
+	public String getBeschreibung(){
+		return beschreibung;
+	}
+	public String getPfad(){
+		return pfad;
 	}
 }

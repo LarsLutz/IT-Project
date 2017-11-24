@@ -2,6 +2,7 @@ package lobby;
 
 import java.io.IOException;
 
+import Logik.Spieler;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,6 +18,7 @@ import javafx.stage.Stage;
 public class Lobby_Controller {
 	
 	private Lobby_Model lm;
+	//private Spieler spie;
 	
 	public Lobby_Controller(){
 		lm = new Lobby_Model();
@@ -60,9 +62,6 @@ public class Lobby_Controller {
         stage.setScene(new Scene(root1));
         stage.show();
         stage.setResizable(false);
-    	
-    	
-        
     }
    
     @FXML

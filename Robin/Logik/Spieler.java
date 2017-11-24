@@ -26,21 +26,21 @@ public class Spieler {
 		deckliste = new ArrayList<SuperKarte>();
 		abwerfliste = new ArrayList<SuperKarte>();
 		setupStarthand();
-		//sött Startdeck erstelle
-		GeldKarte startGeld = new GeldKarte(1,"Kupfer",0);
-		PunkteKarte startPunkte = new PunkteKarte(1,"Anwesen",1);{
+		//sï¿½tt Startdeck erstelle --> funktioniert nicht!!
+		GeldKarte startGeld = new GeldKarte(1,"Kupfer",0, "cooper.jpg");
+		PunkteKarte startPunkte = new PunkteKarte(1,"Anwesen", 1, "estate.jpg");
 		
-		for ( int i=0; i>5; i++){
-			deckliste.add(startGeld);
+			for ( int i=0; i>5; i++){
+				deckliste.add(startGeld);
+			}
+			for ( int i=0; i>3; i++){
+				deckliste.add(startPunkte);
+			}
 		}
-		for ( int i=0; i>3; i++){
-			deckliste.add(startPunkte);
-		}
-		}}
 
 	
 	
-	// zieht en zuefälligi charte vom deck, machts Schöffel methode nutzlos, überprueft obs deck leer isch und duet demmentsprechend de abwerfstapel ufs deck lege
+	// zieht en zuefï¿½lligi charte vom deck, machts Schï¿½ffel methode nutzlos, ï¿½berprueft obs deck leer isch und duet demmentsprechend de abwerfstapel ufs deck lege
 	public void KarteZiehen(int anzahlKarten){
 		for (int i=0; i>anzahlKarten; i++){
 		if(deckliste.isEmpty()){
@@ -57,7 +57,7 @@ public class Spieler {
 	public void setupStarthand() {
 		KarteZiehen(5);
 	}
-//charte überpruefe
+//charte ï¿½berpruefe
 public Spielfeldkarte getSpielfeldkarte(SuperKarte K){
 for(Spielfeldkarte sk: Sammlung.feldkarten){
 	if(sk.art.equals(K)){
@@ -81,7 +81,7 @@ public SuperKarte kartenKaufen(SuperKarte K){
 	
 	}
 }
-	//Methode um gekaufte karte hinzuzufügen
+	//Methode um gekaufte karte hinzuzufï¿½gen
 
 
 public void karteErhalten(SuperKarte K){

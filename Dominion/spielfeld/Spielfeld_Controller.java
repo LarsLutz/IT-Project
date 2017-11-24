@@ -1,5 +1,9 @@
 package spielfeld;
 
+import java.util.Random;
+
+import Logik.Spieler;
+import SammlungP.Sammlung;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -13,14 +17,17 @@ import javafx.scene.layout.Pane;
 
 public class Spielfeld_Controller {
 	
-	//Begonnen von Jan Müller - würde das gerne weiterführen :)
-	//aufgrund der komplexität (Dynamik etc) habe ich das GUI nicht vervollständigt
+	//Jan Müller
+	
 	
 	private Spielfeld_Model sm;
-	
+	private Sammlung sam;
+	private Spieler spie;
 	
 	public Spielfeld_Controller(){
 		sm = new Spielfeld_Model();
+		sam = new Sammlung();
+		spie = new Spieler(0);
 	}
 	
 	@FXML
@@ -43,10 +50,14 @@ public class Spielfeld_Controller {
 	
 	@FXML
 	HBox hBoxHand;
+	
+	//Löst das Ziehen einer Karte aus...
+	@FXML
 	public void karteZiehen(){
-		System.out.println("Diese Aktion löst das Ziehen eine Karte aus.. natürlich nur if...");
 		Pane p = new Pane();
 		ImageView iv = new ImageView(new Image(this.getClass().getResourceAsStream("chancellor.jpg")));
+		//Random rand = new Random();
+		//ImageView iv = new ImageView(new Image(this.getClass().getResourceAsStream(spie.deckliste.get(rand.nextInt(spie.deckliste.size())).getPfad())));
 		
 		p.setMaxWidth(66);
 		p.setMaxHeight(100);
@@ -60,7 +71,7 @@ public class Spielfeld_Controller {
 	
 	@FXML
 	public void infoKanzler(){
-		infoLabel.setText("Der Kanzler führt und verwaltet das\nReich");
+		infoLabel.setText(sam.aktionsKarten[1].getBeschreibung());
 	}
 	
 	@FXML

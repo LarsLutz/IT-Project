@@ -18,7 +18,6 @@ public class MainUndStart extends Application {
 	//private Login_Model m;
 	//private Login_Controller c;
 	
-	
 	@Override
 	public void start(Stage primaryStage) {
 		

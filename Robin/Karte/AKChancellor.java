@@ -8,8 +8,7 @@ public class AKChancellor extends AktionsKarte{
 	private boolean deckDiscard;
 	final String typ = "Aktionskarte";
 	final String pfad = "chancellor.jpg";
-	//TODO
-	final String beschreibung = "asdf";
+	final String beschreibung = "Der Kanzler führt und verwaltet das\nReich";
 	
 	public AKChancellor(boolean deckDiscard){
 		this.deckDiscard = deckDiscard;
@@ -40,7 +39,7 @@ public class AKChancellor extends AktionsKarte{
 	}
 	
 	public String getBeschreibung(){
-		return this.beschreibung;
+		return beschreibung;
 	}
 	
 
