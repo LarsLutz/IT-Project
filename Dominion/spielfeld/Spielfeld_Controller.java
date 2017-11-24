@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -42,9 +43,19 @@ public class Spielfeld_Controller {
 	
 	@FXML
 	HBox hBoxHand;
-	
 	public void karteZiehen(){
 		System.out.println("Diese Aktion löst das Ziehen eine Karte aus.. natürlich nur if...");
+		Pane p = new Pane();
+		ImageView iv = new ImageView(new Image(this.getClass().getResourceAsStream("chancellor.jpg")));
+		
+		p.setMaxWidth(66);
+		p.setMaxHeight(100);
+		//p.setStyle("-fx-background-color: red");
+		p.getChildren().add(iv);
+		iv.setScaleX(0.3);
+		iv.setScaleY(0.3);
+		iv.setLayoutY(iv.getLayoutY()-160);
+		hBoxHand.getChildren().add(p);
 	}
 	
 	@FXML

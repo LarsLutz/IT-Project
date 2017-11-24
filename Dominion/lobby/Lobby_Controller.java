@@ -60,6 +60,9 @@ public class Lobby_Controller {
         stage.setScene(new Scene(root1));
         stage.show();
         stage.setResizable(false);
+    	
+    	
+        
     }
    
     @FXML
