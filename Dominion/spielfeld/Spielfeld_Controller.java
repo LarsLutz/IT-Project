@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
 public class Spielfeld_Controller {
@@ -38,6 +39,9 @@ public class Spielfeld_Controller {
 	
 	@FXML
 	Label anzahlSeinStapel, infoLabel, verbAktionen, verbKaeufe, verbGuthaben;
+	
+	@FXML
+	HBox hBoxHand;
 	
 	public void karteZiehen(){
 		System.out.println("Diese Aktion löst das Ziehen eine Karte aus.. natürlich nur if...");
