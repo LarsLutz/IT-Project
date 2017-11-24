@@ -37,7 +37,7 @@ public class Spielfeld_Controller {
 	Pane pBazaarMiddle, pCellarMiddle, pChancellorMiddle, pMarketMiddle, pSmithyMiddle;
 	
 	@FXML
-	Label anzahlSeinStapel, infoLabel;
+	Label anzahlSeinStapel, infoLabel, verbAktionen, verbKaeufe, verbGuthaben;
 	
 	public void karteZiehen(){
 		System.out.println("Diese Aktion löst das Ziehen eine Karte aus.. natürlich nur if...");
