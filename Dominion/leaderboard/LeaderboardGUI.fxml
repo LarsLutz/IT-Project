@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -13,7 +14,10 @@
       <TextArea fx:id="leaderText" editable="false" prefHeight="282.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="60.0" />
-         </BorderPane.margin></TextArea>
+         </BorderPane.margin>
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></TextArea>
    </center>
    <bottom>
       <Button fx:id="zurueck" mnemonicParsing="false" onMouseClicked="#zurueckKlick" style="-fx-background-color: #f5deb3;" text="Zurück" BorderPane.alignment="CENTER">

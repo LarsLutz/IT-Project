@@ -30,7 +30,7 @@ public class Leaderboard_Controller {
 	TextArea leaderText;
 	// Lars Lutz
 	public void initialize() {
-		
+		leaderText.appendText("Rang \t\t   Spieler \t\t\t Punkte \n");
 	    leaderText.appendText(model.getLeader());
 	}
 
