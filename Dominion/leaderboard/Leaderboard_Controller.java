@@ -2,6 +2,7 @@ package leaderboard;
 
 import java.io.IOException;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,17 +14,37 @@ import javafx.stage.Stage;
 
 public class Leaderboard_Controller {
 	
-	
+	private Leaderboard_Model model;
 	// Jan Müller
 	public Leaderboard_Controller(){
 		
+		//Lars Lutz 
+		model= new Leaderboard_Model();
+			
+		
 	}
+	
+	
 	
 	@FXML
 	TextArea leaderText;
+	// Lars Lutz
+	public void initialize() {
+		
+	    leaderText.appendText(model.getLeader());
+	}
+
+	
+	@FXML
+	
+	public void setLeader(){
+		leaderText.appendText(model.getLeader());
+	}
 	
 	@FXML
 	Button zurueck;
+	
+	
 	
 	@FXML
 	public void zurueckKlick(MouseEvent event) throws IOException{

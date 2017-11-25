@@ -91,8 +91,7 @@ public class MYSQL {
 	public static void main(String[] args){
 		
 		try {
-	        // The newInstance() call is a work around for some
-	        // broken Java implementations
+	        
 			
 			//newInstance ladet einen neuen Abschnitt um fehler zu vermeiden
 

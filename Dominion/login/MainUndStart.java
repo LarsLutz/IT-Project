@@ -36,6 +36,19 @@ public class MainUndStart extends Application {
 			primaryStage.setTitle("Dominion");
 			primaryStage.setScene(scene);
 			primaryStage.show();
+			// SQL Treiber wird geladen (Zur kommunikation mit Datenbank
+			try {
+				//newInstance ladet einen neuen Abschnitt um fehler zu vermeiden
+
+		        Class.forName("com.mysql.jdbc.Driver").newInstance();
+		        System.out.println("Treiber laden erfolgreich");
+		        	
+		        
+		    } catch (Exception ex) {
+		        System.out.println("Treiber laden  fehlgeschlagen");
+		        ex.printStackTrace();
+		    }
+			
 			//SQLInjection sqln = new SQLInjection(); - evt später für larsiboy?
 			//sqln.connectDatabase();
 			
