@@ -79,30 +79,25 @@ return null;
 public SuperKarte kartenKaufen(SuperKarte K){
 	Spielfeldkarte sk = getSpielfeldkarte(K);
 	if(sk.anzahlVorhanden > 0){
-//		if(sk.art.getKosten() > Zaehler.this.getGuthaben()){
-//	}
-//			return null;
-//		}else
-//		Zaehler.this.getGuthaben(Zaehler.this.getGuthaben() - sk.art.getKosten());
-//		sk.anzahlVorhanden--;
-		return K;
-	}else{return null;
-	
+		if(sk.art.getKosten() > Zaehler.getGuthaben()){
 	}
-}
+			return null;
+		}else
+		Zaehler.setGuthaben(Zaehler.getGuthaben() - sk.art.getKosten());
+		sk.anzahlVorhanden--;
+		return K;
+	}
+
+
+
 	//Methode um gekaufte karte hinzuzuf�gen
-
-
 public void karteErhalten(SuperKarte K){
 	abwerfliste.add(K);
 
 
 
 
-//charte spelle
-//public void aktionsKarteSpielen(AktionsKarte AK){
-//addGuthaben(Karte.AktionsKarte.get)
-	 //charte ufem spielfeld chaufe
+
 
 }
 }

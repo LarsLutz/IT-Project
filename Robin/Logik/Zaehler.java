@@ -1,16 +1,16 @@
 package Logik;
 
-public class Zaehler {
+public final class Zaehler {
 
 	//wärt ufem spielfeld
-	private int aktionsZaehler = 0;
-	private int guthaben = 0;
-	private int kaufZaehler = 0;
-	private int phase;
-	private int spielerAmZug;
-	private int runde;
+	public static int aktionsZaehler = 0;
+	public static int guthaben = 0;
+	public static int kaufZaehler = 0;
+	public static int phase;
+	public static int spielerAmZug;
+	public static int runde;
 	
-	public Zaehler(int aktionsZaehler, int guthaben, int kaufZaehler, int phase, int spielerAmZug, int runde) {
+	private Zaehler(int aktionsZaehler, int guthaben, int kaufZaehler, int phase, int spielerAmZug, int runde) {
 		super();
 		this.aktionsZaehler = aktionsZaehler;
 		this.guthaben = guthaben;
@@ -20,58 +20,58 @@ public class Zaehler {
 		this.runde = runde;
 	}
 	//Startwert am afang vo jedem zog
-		public void beginnZug(){
+		public static void beginnZug(){
 			aktionsZaehler = 1;
 			kaufZaehler = 1;
 			guthaben = 1;
 		}
 		
 		// Methode um d Charte effekt chönne azwände
-		public void addKauf(int i){
+		public static void addKauf(int i){
 			kaufZaehler+=i;
 		}
-		public void addAktion(int i){
+		public static void addAktion(int i){
 			aktionsZaehler+=i;
 		}
-		public void addGuthaben(int i){
+		public static void addGuthaben(int i){
 			guthaben+=i;
 		}
 	
-	public int getAktionsZaehler() {
+	public static int getAktionsZaehler() {
 		return aktionsZaehler;
 	}
-	public void setAktionsZaehler(int aktionsZaehler) {
-		this.aktionsZaehler = aktionsZaehler;
+	public static void setAktionsZaehler(int aktionsZaehler) {
+		aktionsZaehler = aktionsZaehler;
 	}
-	public int getGuthaben() {
+	public static int getGuthaben() {
 		return guthaben;
 	}
-	public void setGuthaben(int guthaben) {
-		this.guthaben = guthaben;
+	public static void setGuthaben(int guthaben) {
+		guthaben = guthaben;
 	}
-	public int getKaufZaehler() {
+	public static int getKaufZaehler() {
 		return kaufZaehler;
 	}
-	public void setKaufZaehler(int kaufZaehler) {
-		this.kaufZaehler = kaufZaehler;
+	public static void setKaufZaehler(int kaufZaehler) {
+		kaufZaehler = kaufZaehler;
 	}
-	public int getPhase() {
+	public static int getPhase() {
 		return phase;
 	}
-	public void setPhase(int phase) {
-		this.phase = phase;
+	public static void setPhase(int phase) {
+		phase = phase;
 	}
-	public int getSpielerAmZug() {
+	public static int getSpielerAmZug() {
 		return spielerAmZug;
 	}
-	public void setSpielerAmZug(int spielerAmZug) {
-		this.spielerAmZug = spielerAmZug;
+	public static void setSpielerAmZug(int spielerAmZug) {
+		spielerAmZug = spielerAmZug;
 	}
-	public int getRunde() {
+	public static int getRunde() {
 		return runde;
 	}
-	public void setRunde(int runde) {
-		this.runde = runde;
+	public static void setRunde(int runde) {
+		runde = runde;
 	}
 	
 }
