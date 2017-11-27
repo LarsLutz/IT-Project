@@ -17,7 +17,7 @@ import java.util.Stack;
 public class Spieler {
 	
 	//send alli spielbare charte uf de hand
-	public Stack<SuperKarte> handliste = new Stack<SuperKarte>();
+	public ArrayList<SuperKarte> handliste = new ArrayList<SuperKarte>();
 	public Stack<SuperKarte> deckliste = new Stack<SuperKarte>();
 	public Stack<SuperKarte> abwerfliste = new Stack<SuperKarte>();
 	public int spielerNummer;
@@ -51,7 +51,7 @@ public class Spieler {
 			abwerfliste.clear();
 			Collections.shuffle(deckliste);
 		}
-		handliste.push(deckliste.pop());
+		handliste.add(deckliste.pop());
 //		Random zufall = new Random();
 //		int rand = zufall.nextInt(deckliste.size());
 //		handliste.add(deckliste.get(rand));
