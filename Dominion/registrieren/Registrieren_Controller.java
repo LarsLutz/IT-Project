@@ -16,13 +16,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import leaderboard.Leaderboard_Model;
 
 // Eduart Bunjaku
 
 public class Registrieren_Controller {
 	
+	private Registrieren_Model model;
+	
 	public Registrieren_Controller(){
-		
+		model= new Registrieren_Model();
 		
 	}
 	
@@ -57,6 +60,10 @@ public class Registrieren_Controller {
     // Nach erfolgreicher Registrierung gelangt man mit dem "Registrieren-Button" zum Login.
     @FXML
    public void lobbyOeffnen(ActionEvent event) throws IOException {
+    	
+    	
+    	
+    	
     	
     	// schliesst aktuelles Fenster
 		Stage currentStage = (Stage) registrierenButton.getScene().getWindow();
