@@ -27,7 +27,7 @@ public class Spielfeld_Controller {
 	public Spielfeld_Controller(){
 		sm = new Spielfeld_Model();
 		sam = new Sammlung();
-		spie = new Spieler(0);	
+		spie = new Spieler(0);
 	}
 	
 	@FXML
@@ -46,7 +46,7 @@ public class Spielfeld_Controller {
 	Pane pBazaarMiddle, pCellarMiddle, pChancellorMiddle, pMarketMiddle, pSmithyMiddle;
 	
 	@FXML
-	Label anzahlSeinStapel, anzahlMeinStapel, infoLabel, verbAktionen, verbKaeufe, verbGuthaben;
+	Label anzahlSeinStapel, anzahlMeinStapel, infoLabel, verbAktionen, verbKaeufe, verbGuthaben, startLabel, startLabel1;
 	
 	@FXML
 	HBox hBoxHand;
@@ -59,6 +59,11 @@ public class Spielfeld_Controller {
 		ImageView iv = new ImageView(new Image(this.getClass().getResourceAsStream(spie.deckliste.peek().getPfad())));
 		spie.KarteZiehen(1);
 		anzahlMeinStapel.setText(spie.deckliste.size()+"");
+		if(spie.deckliste.size() == 5){
+			startLabel.setText("");
+			startLabel1.setText("");
+			pMeinDeck.setDisable(true);
+		}
 		
 		p.setMaxWidth(66);
 		p.setMaxHeight(100);

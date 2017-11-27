@@ -150,69 +150,74 @@
             </VBox>
          </right>
          <top>
-            <HBox prefHeight="104.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
+            <VBox>
                <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+                  <HBox prefHeight="104.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Pane fx:id="pSeinDiscardPile" onMouseEntered="#infoDiscard" prefHeight="95.0" prefWidth="90.0">
+                        <VBox prefHeight="200.0" prefWidth="100.0">
                            <children>
-                              <ImageView fitHeight="91.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@Rueck.jpg" />
-                                 </image>
-                              </ImageView>
+                              <Pane fx:id="pSeinDiscardPile" onMouseEntered="#infoDiscard" prefHeight="95.0" prefWidth="90.0">
+                                 <children>
+                                    <ImageView fitHeight="91.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@Rueck.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </Pane>
                            </children>
-                           <VBox.margin>
-                              <Insets left="5.0" />
-                           </VBox.margin>
-                        </Pane>
-                     </children></VBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
-                     <children>
-                        <Pane fx:id="pSeinDeck" prefHeight="100.0" prefWidth="100.0">
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
                            <children>
-                              <ImageView fx:id="rueckseite" fitHeight="91.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@Rueck.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label fx:id="anzahlSeinStapel" layoutX="9.0" layoutY="59.0" text="0" textFill="#c61515">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
+                              <Pane fx:id="pSeinDeck" prefHeight="100.0" prefWidth="100.0">
+                                 <children>
+                                    <ImageView fx:id="rueckseite" fitHeight="91.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@Rueck.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Label fx:id="anzahlSeinStapel" layoutX="9.0" layoutY="59.0" text="0" textFill="#c61515">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Pane>
                            </children>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </Pane>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" />
+                        <VBox prefHeight="200.0" prefWidth="100.0" />
+                        <VBox prefHeight="200.0" prefWidth="100.0" />
+                        <VBox prefHeight="200.0" prefWidth="100.0" />
+                        <VBox prefHeight="200.0" prefWidth="100.0" />
+                        <VBox prefHeight="200.0" prefWidth="100.0" />
+                        <VBox prefHeight="200.0" prefWidth="100.0" />
+                        <VBox prefHeight="200.0" prefWidth="40.0" />
+                        <VBox prefHeight="142.0" prefWidth="141.0">
+                           <children>
+                              <Button fx:id="bSpeichern" mnemonicParsing="false" text="Spiel Speichern">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <effect>
+                                    <InnerShadow />
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets left="15.0" top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
                      </children>
-                  </VBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0" />
-                  <VBox prefHeight="200.0" prefWidth="100.0" />
-                  <VBox prefHeight="200.0" prefWidth="100.0" />
-                  <VBox prefHeight="200.0" prefWidth="100.0" />
-                  <VBox prefHeight="200.0" prefWidth="100.0" />
-                  <VBox prefHeight="200.0" prefWidth="100.0" />
-                  <VBox prefHeight="200.0" prefWidth="100.0" />
-                  <VBox prefHeight="200.0" prefWidth="40.0" />
-                  <VBox prefHeight="142.0" prefWidth="141.0">
-                     <children>
-                        <Button fx:id="bSpeichern" mnemonicParsing="false" text="Spiel Speichern">
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <effect>
-                              <InnerShadow />
-                           </effect>
-                           <VBox.margin>
-                              <Insets left="15.0" top="10.0" />
-                           </VBox.margin>
-                        </Button>
-                     </children>
-                  </VBox>
+                  </HBox>
                </children>
-            </HBox>
+            </VBox>
          </top>
          <left>
             <VBox prefHeight="616.0" prefWidth="147.0" BorderPane.alignment="CENTER">
@@ -288,6 +293,19 @@
                         </Pane>
                      </children>
                   </HBox>
+                  <Label fx:id="startLabel" text="Ziehe 5 Karten" textFill="#e40303">
+                     <VBox.margin>
+                        <Insets top="40.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="startLabel1" text="um zu Starten" textFill="#e40303">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
                </children>
                <opaqueInsets>
                   <Insets />
