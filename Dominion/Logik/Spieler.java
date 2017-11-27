@@ -58,7 +58,7 @@ public class Spieler {
 //		deckliste.remove(rand);
 	}
 	}
-	// starthand erstelle --> han das uskommentiert zum epis probiere.. wenns na uskommentiert isch hanis warsch verpeilt
+	// starthand erstelle --> Auskommentiert da unkonventionell geloest..
 	//public void setupStarthand() {
 		//KarteZiehen(5);
 	//}

@@ -2,7 +2,6 @@ package lobby;
 
 import java.io.IOException;
 
-import Logik.Spieler;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
@@ -18,7 +18,6 @@ import javafx.stage.Stage;
 public class Lobby_Controller {
 	
 	private Lobby_Model lm;
-	//private Spieler spie;
 	
 	public Lobby_Controller(){
 		lm = new Lobby_Model();

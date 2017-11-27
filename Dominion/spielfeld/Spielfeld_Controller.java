@@ -27,7 +27,7 @@ public class Spielfeld_Controller {
 	public Spielfeld_Controller(){
 		sm = new Spielfeld_Model();
 		sam = new Sammlung();
-		spie = new Spieler(0);
+		spie = new Spieler(0);	
 	}
 	
 	@FXML
@@ -59,8 +59,6 @@ public class Spielfeld_Controller {
 		ImageView iv = new ImageView(new Image(this.getClass().getResourceAsStream(spie.deckliste.peek().getPfad())));
 		spie.KarteZiehen(1);
 		anzahlMeinStapel.setText(spie.deckliste.size()+"");
-		if(anzahlMeinStapel.getText().equals(0+""))
-			anzahlMeinStapel.setStyle("-fx-background-color: red");
 		
 		p.setMaxWidth(66);
 		p.setMaxHeight(100);
