@@ -4,6 +4,34 @@ public class PunkteKarte extends SuperKarte{
 	private int punkte;
 	private String name;
 	private int kosten;
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getKosten() {
+		return kosten;
+	}
+
+	public void setKosten(int kosten) {
+		this.kosten = kosten;
+	}
+
+	public String getPfad() {
+		return pfad;
+	}
+
+	public void setPfad(String pfad) {
+		this.pfad = pfad;
+	}
+
+	public int getPunkte() {
+		return punkte;
+	}
+
 	private String pfad;
 	// groesse ??
 	

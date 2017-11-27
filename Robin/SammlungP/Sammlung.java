@@ -38,9 +38,6 @@ public class Sammlung {
 			feldkarten.add(new Spielfeldkarte(aktionsKarten[i], 10));}
 			
 		}
-	// deck mischle aber im moment useless
-	public void Schuffel(ArrayList<SuperKarte> toSchuffel){
-		Collections.shuffle(toSchuffel);
-	}
+	
 }
 	

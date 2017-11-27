@@ -1,6 +1,7 @@
 package Logik;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 import SammlungP.Spielfeldkarte;
 import Karte.AktionsKarte;
@@ -16,29 +17,15 @@ import java.util.Stack;
 public class Spieler {
 	
 	//send alli spielbare charte uf de hand
-	public Stack<SuperKarte> handliste;
-	public Stack<SuperKarte> deckliste;
-	public Stack<SuperKarte> abwerfliste;
-	public final int spielerNummer;
+	public Stack<SuperKarte> handliste = new Stack<SuperKarte>();
+	public Stack<SuperKarte> deckliste = new Stack<SuperKarte>();
+	public Stack<SuperKarte> abwerfliste = new Stack<SuperKarte>();
+	public int spielerNummer;
 
 	public Spieler(int spielerNummer) {
 		this.spielerNummer = spielerNummer;
-		handliste = new Stack<SuperKarte>();
-		deckliste = new Stack<SuperKarte>();
-		abwerfliste = new Stack<SuperKarte>();
-		GeldKarte startGeld = new GeldKarte(1,"Kupfer",0, "cooper.jpg");
-		deckliste.push(startGeld);
-		deckliste.push(startGeld);
-		deckliste.push(startGeld);
-		deckliste.push(startGeld);
-		deckliste.push(startGeld);
-		deckliste.push(startGeld);
-		setupStarthand();
 		setupStartdeck();
-		
-	
-	
-		
+		setupStarthand();
 	}
 		
 
@@ -47,20 +34,22 @@ public class Spieler {
 		GeldKarte startGeld = new GeldKarte(1,"Kupfer",0, "cooper.jpg");
 		PunkteKarte startPunkte = new PunkteKarte(1,"Anwesen", 1, "estate.jpg");
 		
-			for ( int i=0; i>5; i++){
+			for ( int i=0; i<5; i++){
 				deckliste.push(startGeld);
 			}
-			for ( int i=0; i>3; i++){
+			for ( int i=0; i<3; i++){
 				deckliste.push(startPunkte);
 	}
+			Schuffel(deckliste);
 	}
 	// zieht en zuef�lligi charte vom deck, machts Sch�ffel methode nutzlos, �berprueft obs deck leer isch und duet demmentsprechend de abwerfstapel ufs deck lege
 	public void KarteZiehen(int anzahlKarten){
 		
-		for (int i=0; i>anzahlKarten; i++){
+		for (int i=0; i<anzahlKarten; i++){
 		if(deckliste.isEmpty()){
 			deckliste.addAll(abwerfliste);
 			abwerfliste.clear();
+			Collections.shuffle(deckliste);
 		}
 		handliste.push(deckliste.pop());
 //		Random zufall = new Random();
@@ -73,6 +62,10 @@ public class Spieler {
 	public void setupStarthand() {
 		KarteZiehen(5);
 	}
+	// deck mischle aber im moment useless
+		public void Schuffel(Stack<SuperKarte> toSchuffel){
+			Collections.shuffle(toSchuffel);
+		}
 //charte �berpruefe
 public Spielfeldkarte getSpielfeldkarte(SuperKarte K){
 for(Spielfeldkarte sk: Sammlung.feldkarten){
