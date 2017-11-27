@@ -80,7 +80,7 @@
                                     </Label>
                                  </children>
                               </HBox>
-                              <Button fx:id="bZugBeenden" mnemonicParsing="false" prefHeight="27.0" prefWidth="234.0" text="Zug Beenden">
+                              <Button fx:id="bZugBeenden" disable="true" mnemonicParsing="false" onMouseClicked="#zugBeenden" prefHeight="27.0" prefWidth="234.0" text="Zug Beenden">
                                  <VBox.margin>
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
@@ -101,7 +101,7 @@
                   </Pane>
                   <HBox prefHeight="0.0" prefWidth="250.0">
                      <children>
-                        <Button fx:id="bP1" mnemonicParsing="false" prefWidth="70.0" text="Phase 1">
+                        <Button fx:id="bP1" disable="true" mnemonicParsing="false" onMouseClicked="#aktionsPhase" prefWidth="70.0" text="Aktion">
                            <effect>
                               <Lighting>
                                  <bumpInput>
@@ -113,7 +113,7 @@
                               </Lighting>
                            </effect>
                         </Button>
-                        <Button fx:id="bP2" mnemonicParsing="false" prefWidth="70.0" text="Phase 2">
+                        <Button fx:id="bP2" disable="true" mnemonicParsing="false" onMouseClicked="#kaufPhase" prefWidth="70.0" text="Kauf">
                            <HBox.margin>
                               <Insets left="12.0" />
                            </HBox.margin>
@@ -128,7 +128,7 @@
                               </Lighting>
                            </effect>
                         </Button>
-                        <Button fx:id="bP3" mnemonicParsing="false" prefWidth="70.0" text="Phase 3">
+                        <Button fx:id="bP3" disable="true" mnemonicParsing="false" onMouseClicked="#discardPhase" prefWidth="70.0" text="Discard">
                            <HBox.margin>
                               <Insets left="12.0" />
                            </HBox.margin>
@@ -179,11 +179,6 @@
                                           <Image url="@Rueck.jpg" />
                                        </image>
                                     </ImageView>
-                                    <Label fx:id="anzahlSeinStapel" layoutX="9.0" layoutY="59.0" text="0" textFill="#c61515">
-                                       <font>
-                                          <Font size="20.0" />
-                                       </font>
-                                    </Label>
                                  </children>
                                  <VBox.margin>
                                     <Insets />
@@ -327,6 +322,11 @@
                                     <Image url="@back.jpg" />
                                  </image>
                               </ImageView>
+                              <Label fx:id="anzahlAblageStapel" text="0" textFill="#05f026">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
                            </children>
                            <VBox.margin>
                               <Insets left="5.0" />

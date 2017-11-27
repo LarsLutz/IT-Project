@@ -19,13 +19,13 @@ public class Spielfeld_Controller {
 	
 	//Jan Müller
 	
-	
 	private Spielfeld_Model sm;
 	private Sammlung sam;
 	private Spieler spie;
 	
+	
 	public Spielfeld_Controller(){
-		sm = new Spielfeld_Model();
+		sm = new Spielfeld_Model(5);
 		sam = new Sammlung();
 		spie = new Spieler(0);
 	}
@@ -46,12 +46,13 @@ public class Spielfeld_Controller {
 	Pane pBazaarMiddle, pCellarMiddle, pChancellorMiddle, pMarketMiddle, pSmithyMiddle;
 	
 	@FXML
-	Label anzahlSeinStapel, anzahlMeinStapel, infoLabel, verbAktionen, verbKaeufe, verbGuthaben, startLabel, startLabel1;
+	Label anzahlMeinStapel, anzahlAblageStapel, infoLabel, verbAktionen, verbKaeufe, verbGuthaben, startLabel, startLabel1;
 	
 	@FXML
 	HBox hBoxHand;
 	
-	//Löst das Ziehen einer Karte aus...
+	
+	//Löst das Ziehen bzw. Erzeugen einer Karte aus...
 	@FXML
 	public void karteZiehen(){
 		Pane p = new Pane();
@@ -59,10 +60,18 @@ public class Spielfeld_Controller {
 		ImageView iv = new ImageView(new Image(this.getClass().getResourceAsStream(spie.deckliste.peek().getPfad())));
 		spie.KarteZiehen(1);
 		anzahlMeinStapel.setText(spie.deckliste.size()+"");
-		if(spie.deckliste.size() == 5){
+		
+		//was passiert wenn mein deck auf 0 kommt?
+		if(spie.deckliste.size() == 0){
+			anzahlMeinStapel.setStyle("-fx-text-fill: red");
+		}
+		if(spie.handliste.size() == sm.getWannDisabeln()){
 			startLabel.setText("");
 			startLabel1.setText("");
 			pMeinDeck.setDisable(true);
+			bP1.setDisable(false);
+			bP2.setDisable(false);
+			bP3.setDisable(false);
 		}
 		
 		p.setMaxWidth(66);
@@ -74,6 +83,45 @@ public class Spielfeld_Controller {
 		iv.setLayoutY(iv.getLayoutY()-160);
 		hBoxHand.getChildren().add(p);
 	}
+	
+	
+	//Aktionsphasen Knopf geklickt
+	@FXML
+	public void aktionsPhase(){
+		startLabel.setText("Aktionsphase");
+		bP1.setDisable(true);
+	}
+	
+	//Kaufphasen Knopf geklickt
+	@FXML
+	public void kaufPhase(){
+		startLabel.setText("Kaufphase");
+		bP1.setDisable(true);
+		bP2.setDisable(true);
+	}
+	
+	//Discardphasen Knopf geklickt
+	@FXML
+	public void discardPhase(){
+		
+		//TODO -- alles abwerfen und 5 neue Karten ziehen
+		
+		
+		
+		bP1.setDisable(true);
+		bP2.setDisable(true);
+		bP3.setDisable(true);
+		bZugBeenden.setDisable(false);
+	}
+	
+	//zugBeenden Knopf Klicken - erst nach abgeschlossenem Discard moeglich
+	@FXML
+	public void zugBeenden(){
+		bZugBeenden.setDisable(true);
+		pMeinDeck.setDisable(false);
+		sm.setWannDisabeln(1);
+	}
+	
 	
 	//folgende 5 geben beim drueberfahren mit der Maus Informationen ueber die jeweilige AktionsKarte
 	@FXML
