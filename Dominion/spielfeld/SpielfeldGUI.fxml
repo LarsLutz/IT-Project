@@ -311,7 +311,7 @@
             </VBox>
          </left>
          <bottom>
-            <HBox fx:id="hBoxHand" prefHeight="150.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
+            <HBox fx:id="hBoxBottom" prefHeight="150.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
                <children>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
@@ -354,6 +354,7 @@
                         </Pane>
                      </children></VBox>
                   <VBox prefHeight="150.0" prefWidth="6.0" />
+                  <HBox fx:id="hBoxRealHand" prefHeight="150.0" prefWidth="874.0" />
                </children>
                <BorderPane.margin>
                   <Insets bottom="10.0" />

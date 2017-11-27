@@ -93,13 +93,19 @@ public SuperKarte kartenKaufen(SuperKarte K){
 	//Methode um gekaufte karte hinzuzuf�gen
 public void karteErhalten(SuperKarte K){
 	abwerfliste.add(K);
+	}
 
 
+//Jan Mueller
+//Methode leert ganze Hand und fuegt diese dem Abwerstapel hinzu. Dieser wird anschliessend gemischt
+	public void discard(){
+		for(int i = 0; i<handliste.size(); i++){
+			abwerfliste.push(handliste.get(i));
+		}
+		Collections.shuffle(abwerfliste);
+		handliste.clear();
+	}
 
-
-
-
-}
 }
 
 

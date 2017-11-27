@@ -49,14 +49,14 @@ public class Spielfeld_Controller {
 	Label anzahlMeinStapel, anzahlAblageStapel, infoLabel, verbAktionen, verbKaeufe, verbGuthaben, startLabel, startLabel1;
 	
 	@FXML
-	HBox hBoxHand;
+	HBox hBoxBottom, hBoxRealHand;
 	
 	
 	//Löst das Ziehen bzw. Erzeugen einer Karte aus...
 	@FXML
 	public void karteZiehen(){
+		//ziehen
 		Pane p = new Pane();
-		//ImageView iv = new ImageView(new Image(this.getClass().getResourceAsStream("copper.jpg")));
 		ImageView iv = new ImageView(new Image(this.getClass().getResourceAsStream(spie.deckliste.peek().getPfad())));
 		spie.KarteZiehen(1);
 		anzahlMeinStapel.setText(spie.deckliste.size()+"");
@@ -81,7 +81,7 @@ public class Spielfeld_Controller {
 		iv.setScaleX(0.3);
 		iv.setScaleY(0.3);
 		iv.setLayoutY(iv.getLayoutY()-160);
-		hBoxHand.getChildren().add(p);
+		hBoxRealHand.getChildren().add(p);
 	}
 	
 	
@@ -104,13 +104,24 @@ public class Spielfeld_Controller {
 	@FXML
 	public void discardPhase(){
 		
-		//TODO -- alles abwerfen und 5 neue Karten ziehen
-		
-		
-		
+		int groesseHand = spie.handliste.size();
+		spie.discard();
+		hBoxRealHand.getChildren().clear();
+		anzahlAblageStapel.setText(spie.abwerfliste.size()+"");
+		bP3.setDisable(true);
 		bP1.setDisable(true);
 		bP2.setDisable(true);
-		bP3.setDisable(true);
+		
+		
+		
+		
+		//neue Karten ziehen - gleiche Anzahl wie vorhin auf Hand gehabt...
+		
+		
+		
+		
+		
+		pMeinDeck.setDisable(true);
 		bZugBeenden.setDisable(false);
 	}
 	
@@ -119,7 +130,7 @@ public class Spielfeld_Controller {
 	public void zugBeenden(){
 		bZugBeenden.setDisable(true);
 		pMeinDeck.setDisable(false);
-		sm.setWannDisabeln(1);
+		sm.setWannDisabeln(500000);
 	}
 	
 	
