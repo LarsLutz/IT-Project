@@ -11,7 +11,7 @@ public class AKMarkt extends AktionsKarte{
 	final String typ = "Aktionskarte";
 	final String pfad = "market";
 	//TODO
-	final String beschreibung = "asdfdsafa";
+	final String beschreibung = "Text für Markt";
 	
 	
 	

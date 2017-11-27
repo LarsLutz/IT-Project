@@ -77,22 +77,22 @@ public class Spielfeld_Controller {
 	
 	@FXML
 	public void infoSchmied(){
-		infoLabel.setText(sam.aktionsKarten[1].getBeschreibung());
+		infoLabel.setText(sam.aktionsKarten[4].getBeschreibung());
 	}
 	
 	@FXML
 	public void infoKeller(){
-		infoLabel.setText(sam.aktionsKarten[1].getBeschreibung());
+		infoLabel.setText(sam.aktionsKarten[2].getBeschreibung());
 	}
 	
 	@FXML
 	public void infoBasar(){
-		infoLabel.setText(sam.aktionsKarten[1].getBeschreibung());
+		infoLabel.setText(sam.aktionsKarten[0].getBeschreibung());
 	}
 	
 	@FXML
 	public void infoMarkt(){
-		infoLabel.setText(sam.aktionsKarten[1].getBeschreibung());
+		infoLabel.setText(sam.aktionsKarten[3].getBeschreibung());
 	}
 	
 	

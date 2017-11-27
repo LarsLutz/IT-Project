@@ -8,7 +8,7 @@ public class AKSmithy extends AktionsKarte{
 	final String typ = "Aktionskarte";
 	final String pfad = "smithy.jpg";
 	//TODO
-	final String beschreibung = "sdf";
+	final String beschreibung = "Text für Schmied";
 	
 	
 	public AKSmithy(){
@@ -32,6 +32,10 @@ public class AKSmithy extends AktionsKarte{
 	}
 	public int getKarteZiehen() {
 		return karteZiehen;
+	}
+	
+	public String getBeschreibung(){
+		return beschreibung;
 	}
 	
 	public String getPfad(){
