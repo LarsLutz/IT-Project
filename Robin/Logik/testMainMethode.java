@@ -6,7 +6,9 @@ public class testMainMethode {
 		
 		//dDeckliste müessti ja bim instanziere vom spieler automatisch ufgsetzt werde.. Sie blibt aber leer
 		Spieler s = new Spieler(1);
-		System.out.println(s.deckliste.get(0).getPfad());
+		s.setupStartdeck();
+		s.setupStarthand();
+		System.out.println(s.deckliste.pop().getName());
 		
 		
 	}

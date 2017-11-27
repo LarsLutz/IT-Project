@@ -11,46 +11,62 @@ import SammlungP.Deck;
 import java.util.Random;
 import SammlungP.Sammlung;
 import Logik.Zaehler;
+import java.util.Stack;
 
 public class Spieler {
 	
 	//send alli spielbare charte uf de hand
-	public ArrayList<SuperKarte> handliste;
-	public ArrayList<SuperKarte> deckliste;
-	public ArrayList<SuperKarte> abwerfliste;
+	public Stack<SuperKarte> handliste;
+	public Stack<SuperKarte> deckliste;
+	public Stack<SuperKarte> abwerfliste;
 	public final int spielerNummer;
 
 	public Spieler(int spielerNummer) {
 		this.spielerNummer = spielerNummer;
-		handliste = new ArrayList<SuperKarte>();
-		deckliste = new ArrayList<SuperKarte>();
-		abwerfliste = new ArrayList<SuperKarte>();
+		handliste = new Stack<SuperKarte>();
+		deckliste = new Stack<SuperKarte>();
+		abwerfliste = new Stack<SuperKarte>();
+		GeldKarte startGeld = new GeldKarte(1,"Kupfer",0, "cooper.jpg");
+		deckliste.push(startGeld);
+		deckliste.push(startGeld);
+		deckliste.push(startGeld);
+		deckliste.push(startGeld);
+		deckliste.push(startGeld);
+		deckliste.push(startGeld);
 		setupStarthand();
-		//s�tt Startdeck erstelle --> funktioniert nicht!!
+		setupStartdeck();
+		
+	
+	
+		
+	}
+		
+
+	
+	public void setupStartdeck(){
 		GeldKarte startGeld = new GeldKarte(1,"Kupfer",0, "cooper.jpg");
 		PunkteKarte startPunkte = new PunkteKarte(1,"Anwesen", 1, "estate.jpg");
 		
 			for ( int i=0; i>5; i++){
-				deckliste.add(startGeld);
+				deckliste.push(startGeld);
 			}
 			for ( int i=0; i>3; i++){
-				deckliste.add(startPunkte);
-			}
-		}
-
-	
-	
+				deckliste.push(startPunkte);
+	}
+	}
 	// zieht en zuef�lligi charte vom deck, machts Sch�ffel methode nutzlos, �berprueft obs deck leer isch und duet demmentsprechend de abwerfstapel ufs deck lege
 	public void KarteZiehen(int anzahlKarten){
+		
 		for (int i=0; i>anzahlKarten; i++){
 		if(deckliste.isEmpty()){
 			deckliste.addAll(abwerfliste);
 			abwerfliste.clear();
 		}
-		Random zufall = new Random();
-		int rand = zufall.nextInt(deckliste.size());
-		handliste.add(deckliste.get(rand));
-		deckliste.remove(rand);
+		handliste.push(deckliste.pop());
+//		Random zufall = new Random();
+//		int rand = zufall.nextInt(deckliste.size());
+//		handliste.add(deckliste.get(rand));
+//		deckliste.remove(rand);
 	}
 	}
 	// starthand erstelle
