@@ -346,7 +346,7 @@
                         <Insets bottom="100.0" left="160.0" top="100.0" />
                      </HBox.margin>
                      <children>
-                        <Pane fx:id="pBazaarMiddle" prefHeight="200.0" prefWidth="200.0">
+                        <Pane fx:id="pBazaarMiddle" onMouseEntered="#infoBasar" prefHeight="200.0" prefWidth="200.0">
                            <children>
                               <ImageView fx:id="bazaarMiddle" fitHeight="128.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -355,7 +355,7 @@
                               </ImageView>
                            </children>
                         </Pane>
-                        <Pane fx:id="pCellarMiddle" prefHeight="200.0" prefWidth="0.0">
+                        <Pane fx:id="pCellarMiddle" onMouseEntered="#infoKeller" prefHeight="200.0" prefWidth="0.0">
                            <children>
                               <ImageView fx:id="cellarMiddle" fitHeight="128.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -380,7 +380,7 @@
                               </ImageView>
                            </children>
                         </Pane>
-                        <Pane fx:id="pMarketMiddle" prefHeight="200.0" prefWidth="200.0">
+                        <Pane fx:id="pMarketMiddle" onMouseEntered="#infoMarkt" prefHeight="200.0" prefWidth="200.0">
                            <children>
                               <ImageView fx:id="marketMiddle" fitHeight="128.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

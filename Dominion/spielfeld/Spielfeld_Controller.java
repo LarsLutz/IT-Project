@@ -69,6 +69,7 @@ public class Spielfeld_Controller {
 		hBoxHand.getChildren().add(p);
 	}
 	
+	//folgende 5 geben beim drueberfahren mit der Maus Informationen ueber die jeweilige AktionsKarte
 	@FXML
 	public void infoKanzler(){
 		infoLabel.setText(sam.aktionsKarten[1].getBeschreibung());
@@ -76,15 +77,32 @@ public class Spielfeld_Controller {
 	
 	@FXML
 	public void infoSchmied(){
-		infoLabel.setText("ziehe 3 Karten");
+		infoLabel.setText(sam.aktionsKarten[1].getBeschreibung());
+	}
+	
+	@FXML
+	public void infoKeller(){
+		infoLabel.setText(sam.aktionsKarten[1].getBeschreibung());
+	}
+	
+	@FXML
+	public void infoBasar(){
+		infoLabel.setText(sam.aktionsKarten[1].getBeschreibung());
+	}
+	
+	@FXML
+	public void infoMarkt(){
+		infoLabel.setText(sam.aktionsKarten[1].getBeschreibung());
 	}
 	
 	
+	//soll den Text mit einem Klick auf Enter absenden(Chat - TODO)
 	@FXML
 	public void enterKlick(){
 		System.out.println("Taste gedrückt.. jetzt noch auf Enter... Bei tastendruck ist es kein MouseEvent sondern ein..?");
 	}
 	
+	//weitere Infos ueber Karten, wenn man ueber diese drueber faehrt
 	@FXML
 	public void infoDiscard(){
 		infoLabel.setText("Sein Ablagestapel");
