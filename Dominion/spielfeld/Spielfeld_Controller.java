@@ -46,7 +46,7 @@ public class Spielfeld_Controller {
 	Pane pBazaarMiddle, pCellarMiddle, pChancellorMiddle, pMarketMiddle, pSmithyMiddle;
 	
 	@FXML
-	Label anzahlSeinStapel, infoLabel, verbAktionen, verbKaeufe, verbGuthaben;
+	Label anzahlSeinStapel, anzahlMeinStapel, infoLabel, verbAktionen, verbKaeufe, verbGuthaben;
 	
 	@FXML
 	HBox hBoxHand;
@@ -55,9 +55,12 @@ public class Spielfeld_Controller {
 	@FXML
 	public void karteZiehen(){
 		Pane p = new Pane();
-		ImageView iv = new ImageView(new Image(this.getClass().getResourceAsStream("chancellor.jpg")));
-		//Random rand = new Random();
-		//ImageView iv = new ImageView(new Image(this.getClass().getResourceAsStream(spie.deckliste.get(rand.nextInt(spie.deckliste.size())).getPfad())));
+		//ImageView iv = new ImageView(new Image(this.getClass().getResourceAsStream("copper.jpg")));
+		ImageView iv = new ImageView(new Image(this.getClass().getResourceAsStream(spie.deckliste.peek().getPfad())));
+		spie.KarteZiehen(1);
+		anzahlMeinStapel.setText(spie.deckliste.size()+"");
+		if(anzahlMeinStapel.getText().equals(0+""))
+			anzahlMeinStapel.setStyle("-fx-background-color: red");
 		
 		p.setMaxWidth(66);
 		p.setMaxHeight(100);

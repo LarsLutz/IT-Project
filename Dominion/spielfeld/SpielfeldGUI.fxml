@@ -325,6 +325,10 @@
                                     <Image url="@back.jpg" />
                                  </image>
                               </ImageView>
+                              <Label fx:id="anzahlMeinStapel" text="10" textFill="#05f026">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font></Label>
                            </children>
                            <VBox.margin>
                               <Insets left="5.0" />

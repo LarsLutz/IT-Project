@@ -25,16 +25,16 @@ public class Spieler {
 	public Spieler(int spielerNummer) {
 		this.spielerNummer = spielerNummer;
 		setupStartdeck();
-		setupStarthand();
+		//setupStarthand();
 	}
 		
 
 	
 	public void setupStartdeck(){
-		GeldKarte startGeld = new GeldKarte(1,"Kupfer",0, "cooper.jpg");
+		GeldKarte startGeld = new GeldKarte(1,"Kupfer",0, "copper.jpg");
 		PunkteKarte startPunkte = new PunkteKarte(1,"Anwesen", 1, "estate.jpg");
 		
-			for ( int i=0; i<5; i++){
+			for ( int i=0; i<7; i++){
 				deckliste.push(startGeld);
 			}
 			for ( int i=0; i<3; i++){
@@ -58,10 +58,10 @@ public class Spieler {
 //		deckliste.remove(rand);
 	}
 	}
-	// starthand erstelle
-	public void setupStarthand() {
-		KarteZiehen(5);
-	}
+	// starthand erstelle --> han das uskommentiert zum epis probiere.. wenns na uskommentiert isch hanis warsch verpeilt
+	//public void setupStarthand() {
+		//KarteZiehen(5);
+	//}
 	// deck mischle aber im moment useless
 		public void Schuffel(Stack<SuperKarte> toSchuffel){
 			Collections.shuffle(toSchuffel);
