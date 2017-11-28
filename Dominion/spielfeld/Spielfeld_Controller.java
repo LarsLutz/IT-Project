@@ -2,6 +2,8 @@ package spielfeld;
 
 import java.util.Random;
 
+import com.sun.java_cup.internal.runtime.Symbol;
+
 import Logik.Spieler;
 import SammlungP.Sammlung;
 import javafx.event.ActionEvent;
@@ -17,7 +19,7 @@ import javafx.scene.layout.Pane;
 
 public class Spielfeld_Controller {
 	
-	//Jan Müller
+	//Jan Mueller
 	
 	private Spielfeld_Model sm;
 	private Sammlung sam;
@@ -25,7 +27,7 @@ public class Spielfeld_Controller {
 	
 	
 	public Spielfeld_Controller(){
-		sm = new Spielfeld_Model(5);
+		sm = new Spielfeld_Model(11);
 		sam = new Sammlung();
 		spie = new Spieler(0);
 	}
@@ -51,6 +53,18 @@ public class Spielfeld_Controller {
 	@FXML
 	HBox hBoxBottom, hBoxRealHand;
 	
+	//wird vor dem oeffnen des Fensters gemacht
+	@FXML
+	public void initialize(){
+		
+		for(int i = 0; i<sm.getAnzahlStarthand(); i++){
+			this.karteZiehen();
+		}
+		pMeinDeck.setDisable(true);
+		
+	}
+	
+	
 	
 	//Löst das Ziehen bzw. Erzeugen einer Karte aus...
 	@FXML
@@ -61,17 +75,18 @@ public class Spielfeld_Controller {
 		spie.KarteZiehen(1);
 		anzahlMeinStapel.setText(spie.deckliste.size()+"");
 		
-		//was passiert wenn mein deck auf 0 kommt?
+		//was passiert wenn mein Deck auf 0 kommt?
 		if(spie.deckliste.size() == 0){
-			anzahlMeinStapel.setStyle("-fx-text-fill: red");
-		}
-		if(spie.handliste.size() == sm.getWannDisabeln()){
-			startLabel.setText("");
-			startLabel1.setText("");
-			pMeinDeck.setDisable(true);
-			bP1.setDisable(false);
-			bP2.setDisable(false);
-			bP3.setDisable(false);
+			//anzahlMeinStapel.setStyle("-fx-text-fill: red");
+			anzahlMeinStapel.setText(anzahlAblageStapel.getText());
+			anzahlAblageStapel.setText(0+"");
+			
+			
+			
+			//TODO -- machen das Ablagestapel auf Deck gelegt wird + schoeffle bisher wird nur das Label angepasst!!!
+			
+			
+			
 		}
 		
 		p.setMaxWidth(66);
@@ -90,6 +105,7 @@ public class Spielfeld_Controller {
 	public void aktionsPhase(){
 		startLabel.setText("Aktionsphase");
 		bP1.setDisable(true);
+		pMeinDeck.setDisable(true);
 	}
 	
 	//Kaufphasen Knopf geklickt
@@ -98,30 +114,30 @@ public class Spielfeld_Controller {
 		startLabel.setText("Kaufphase");
 		bP1.setDisable(true);
 		bP2.setDisable(true);
+		pMeinDeck.setDisable(true);
 	}
 	
 	//Discardphasen Knopf geklickt
 	@FXML
 	public void discardPhase(){
 		
+		//lokale Variable damit wir nachher wissen wieviele Karten zu ziehen sind
 		int groesseHand = spie.handliste.size();
+		
+		
 		spie.discard();
 		hBoxRealHand.getChildren().clear();
 		anzahlAblageStapel.setText(spie.abwerfliste.size()+"");
+			
+		
+		
+		for(int i = 0; i<groesseHand; i++){
+			this.karteZiehen();
+		}
+		
 		bP3.setDisable(true);
 		bP1.setDisable(true);
 		bP2.setDisable(true);
-		
-		
-		
-		
-		//neue Karten ziehen - gleiche Anzahl wie vorhin auf Hand gehabt...
-		
-		
-		
-		
-		
-		pMeinDeck.setDisable(true);
 		bZugBeenden.setDisable(false);
 	}
 	
@@ -130,7 +146,9 @@ public class Spielfeld_Controller {
 	public void zugBeenden(){
 		bZugBeenden.setDisable(true);
 		pMeinDeck.setDisable(false);
-		sm.setWannDisabeln(500000);
+		bP1.setDisable(false);
+		bP2.setDisable(false);
+		bP3.setDisable(false);
 	}
 	
 	

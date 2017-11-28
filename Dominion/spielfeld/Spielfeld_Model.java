@@ -6,6 +6,7 @@ public class Spielfeld_Model {
 	
 	//bei wievielen Karten in der Hand wird das Deck disabelt? - zu beginn bei 5 da diese Anzahl Karten gezogen werden muss...
 	private int wannDisabeln;
+	private final int ANZAHL_START_HAND = 5;
 	
 	public Spielfeld_Model(int wannDisablen){
 		this.wannDisabeln = wannDisablen;
@@ -19,5 +20,8 @@ public class Spielfeld_Model {
 		return this.wannDisabeln;
 	}
 	
+	public int getAnzahlStarthand(){
+		return this.ANZAHL_START_HAND;
+	}
 	
 }

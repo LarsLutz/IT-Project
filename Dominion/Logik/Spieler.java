@@ -46,11 +46,12 @@ public class Spieler {
 	public void KarteZiehen(int anzahlKarten){
 		
 		for (int i=0; i<anzahlKarten; i++){
-		if(deckliste.isEmpty()){
-			deckliste.addAll(abwerfliste);
-			abwerfliste.clear();
-			Collections.shuffle(deckliste);
-		}
+			if(deckliste.isEmpty()){
+				deckliste.addAll(abwerfliste);
+				abwerfliste.clear();
+				Collections.shuffle(deckliste);
+			}
+			
 		handliste.add(deckliste.pop());
 //		Random zufall = new Random();
 //		int rand = zufall.nextInt(deckliste.size());

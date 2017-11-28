@@ -101,7 +101,7 @@
                   </Pane>
                   <HBox prefHeight="0.0" prefWidth="250.0">
                      <children>
-                        <Button fx:id="bP1" disable="true" mnemonicParsing="false" onMouseClicked="#aktionsPhase" prefWidth="70.0" text="Aktion">
+                        <Button fx:id="bP1" mnemonicParsing="false" onMouseClicked="#aktionsPhase" prefWidth="70.0" text="Aktion">
                            <effect>
                               <Lighting>
                                  <bumpInput>
@@ -113,7 +113,7 @@
                               </Lighting>
                            </effect>
                         </Button>
-                        <Button fx:id="bP2" disable="true" mnemonicParsing="false" onMouseClicked="#kaufPhase" prefWidth="70.0" text="Kauf">
+                        <Button fx:id="bP2" mnemonicParsing="false" onMouseClicked="#kaufPhase" prefWidth="70.0" text="Kauf">
                            <HBox.margin>
                               <Insets left="12.0" />
                            </HBox.margin>
@@ -128,7 +128,7 @@
                               </Lighting>
                            </effect>
                         </Button>
-                        <Button fx:id="bP3" disable="true" mnemonicParsing="false" onMouseClicked="#discardPhase" prefWidth="70.0" text="Discard">
+                        <Button fx:id="bP3" mnemonicParsing="false" onMouseClicked="#discardPhase" prefWidth="70.0" text="Discard">
                            <HBox.margin>
                               <Insets left="12.0" />
                            </HBox.margin>
@@ -288,7 +288,7 @@
                         </Pane>
                      </children>
                   </HBox>
-                  <Label fx:id="startLabel" text="Ziehe 5 Karten" textFill="#e40303">
+                  <Label fx:id="startLabel" textFill="#e40303">
                      <VBox.margin>
                         <Insets top="40.0" />
                      </VBox.margin>
@@ -296,7 +296,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="startLabel1" text="um zu Starten" textFill="#e40303">
+                  <Label fx:id="startLabel1" textFill="#e40303">
                      <font>
                         <Font size="20.0" />
                      </font>
