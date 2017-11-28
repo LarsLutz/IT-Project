@@ -32,7 +32,8 @@ public class MainUndStart extends Application {
 			FXMLLoader fxmlLoader = new FXMLLoader(fxmlUrl); 
 			//fxmlLoader.setController(sn_c); - dieser Code teil wirft eine komische Exception.. habe ausserdem nicht verstanden was der Code macht...
 			Parent root = fxmlLoader.load(); 
-			Scene scene = new Scene(root); 
+			Scene scene = new Scene(root);
+			
 			primaryStage.setTitle("Dominion");
 			primaryStage.setScene(scene);
 			primaryStage.show();
