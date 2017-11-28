@@ -9,7 +9,7 @@ public class AKBazaar extends AktionsKarte{
 	final int guthaben = 1;
 	final String pfad = "bazaar.jpg";
 	//TODO insert description of card here :) 
-	final String beschreibung = "Text für Bazaar";
+	final String beschreibung = "Ziehe eine Karte\nDu erhaeltst +2 Aktionen\nDu erhaeltst +1 Guthaben";
 	
 	//Konstruktor
 	public AKBazaar(){

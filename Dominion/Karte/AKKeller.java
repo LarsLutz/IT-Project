@@ -9,8 +9,7 @@ public class AKKeller extends AktionsKarte{
 	private int kartenAbwerfen;
 	final String typ = "Aktionskarte";
 	final String pfad = "cellar.jpg";
-	//TODO
-	final String beschreibung = "Text für Keller";
+	final String beschreibung = "Du erhaeltst +1 Aktion\nRobin was macht die karte?";
 	
 	public AKKeller(int karteZiehen, int kartenAbwerfen){
 		this.karteZiehen = karteZiehen;

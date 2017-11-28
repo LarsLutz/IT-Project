@@ -8,7 +8,7 @@ public class AKSmithy extends AktionsKarte{
 	final String typ = "Aktionskarte";
 	final String pfad = "smithy.jpg";
 	//TODO
-	final String beschreibung = "Text für Schmied";
+	final String beschreibung = "Ziehe 3 Karten";
 	
 	
 	public AKSmithy(){
