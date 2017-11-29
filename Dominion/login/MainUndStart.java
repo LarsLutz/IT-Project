@@ -1,5 +1,6 @@
 package login;
 	
+import java.io.File;
 import java.net.URL;
 
 // Eduart Bunjaku - Jan Müller
@@ -9,6 +10,8 @@ import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 //Eduart Bunjaku - Jan Müller
 

@@ -1,5 +1,6 @@
 package spielfeld;
 
+import java.io.InputStream;
 import java.util.Random;
 
 import com.sun.java_cup.internal.runtime.Symbol;
@@ -69,7 +70,15 @@ public class Spielfeld_Controller {
 	//Löst das Ziehen bzw. Erzeugen einer Karte aus...
 	@FXML
 	public void karteZiehen(){
-		//ziehen
+		//ziehen wenn Deck leer ist
+		if(spie.deckliste.isEmpty()){
+			spie.KarteZiehen(1);
+			//InputStream spaeterPfad = this.getClass().getResourceAsStream(spie.handliste.get(0).getPfad());
+			Pane p = new Pane();
+			ImageView iv = new ImageView(new Image(this.getClass().getResourceAsStream(spie.handliste.get(0).getPfad())));
+		}
+		
+		//ziehen unter normalen umstaenden
 		Pane p = new Pane();
 		ImageView iv = new ImageView(new Image(this.getClass().getResourceAsStream(spie.deckliste.peek().getPfad())));
 		spie.KarteZiehen(1);
@@ -80,12 +89,6 @@ public class Spielfeld_Controller {
 			//anzahlMeinStapel.setStyle("-fx-text-fill: red");
 			anzahlMeinStapel.setText(anzahlAblageStapel.getText());
 			anzahlAblageStapel.setText(0+"");
-			
-			
-			
-			//TODO -- machen das Ablagestapel auf Deck gelegt wird + schoeffle bisher wird nur das Label angepasst!!!
-			
-			
 			
 		}
 		
@@ -124,8 +127,8 @@ public class Spielfeld_Controller {
 		//lokale Variable damit wir nachher wissen wieviele Karten zu ziehen sind
 		int groesseHand = spie.handliste.size();
 		
-		
 		spie.discard();
+		
 		hBoxRealHand.getChildren().clear();
 		anzahlAblageStapel.setText(spie.abwerfliste.size()+"");
 			
