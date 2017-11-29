@@ -109,7 +109,7 @@ public void karteErhalten(SuperKarte K){
 		for(int i = 0; i<handliste.size(); i++){
 			abwerfliste.push(handliste.get(i));
 		}
-		Collections.shuffle(abwerfliste);
+		
 		handliste.clear();
 	}
 

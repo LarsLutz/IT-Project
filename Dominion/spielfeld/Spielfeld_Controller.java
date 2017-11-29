@@ -75,6 +75,7 @@ public class Spielfeld_Controller {
 			anzahlMeinStapel.setText(anzahlAblageStapel.getText());
 			anzahlAblageStapel.setText(0+"");
 			spie.KarteZiehen(1);
+			anzahlMeinStapel.setText(spie.deckliste.size()+"");
 			//InputStream spaeterPfad = this.getClass().getResourceAsStream(spie.handliste.get(0).getPfad());
 			Pane p = new Pane();
 			ImageView iv = new ImageView(new Image(this.getClass().getResourceAsStream(spie.handliste.get(0).getPfad())));
