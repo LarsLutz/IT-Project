@@ -12,22 +12,53 @@ public class Registrieren_Model {
 	private String ausgabe="";
 	private Boolean vorhanden=false;
 	private String befehl =null;
+	private String name;
+	private String passwort;
+	
+	public Boolean getVorhanden() {
+		return vorhanden;
+	}
+
+
+	public void setVorhanden(Boolean vorhanden) {
+		this.vorhanden = vorhanden;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public String getPasswort() {
+		return passwort;
+	}
+
+
+	public void setPasswort(String passwort) {
+		this.passwort = passwort;
+	}
+
+
+	
 	public Registrieren_Model(){
 		
 	}
 	
 	
-	public Boolean vorhanden(){
-		
-		return vorhanden;
-	}
 	public String getsqlBefehl(){
 		
-	if (!vorhanden()){
+	if (!getVorhanden()){
+		
 		
 		befehl= "INSERT INTO `spieler` "
 				+ "(`idSpieler`, `Spielername`, `Passwort`, `SessionID`, `Spielstand_idSpielstand`)"
-				+ " VALUES (NULL, 'Hans', '123456', '0', '1') ";
+				+ " VALUES (NULL, '"+getName()+"', '"+getPasswort()+"', '0', '1') ";
 		
 	}
 	
@@ -39,6 +70,8 @@ public class Registrieren_Model {
 public String setSpieler(){
 		
 		SQLHandler.setBefehl(getsqlBefehl());
+		
+		SQLHandler.doManipulation();
 		
 		
 		

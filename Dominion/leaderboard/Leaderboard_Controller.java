@@ -48,6 +48,9 @@ public class Leaderboard_Controller {
 	
 	@FXML
 	public void zurueckKlick(MouseEvent event) throws IOException{
+		
+		
+		
 				// schliesst aktuelles Fenster
 				Stage currentStage = (Stage) zurueck.getScene().getWindow();
 			    currentStage.close();
