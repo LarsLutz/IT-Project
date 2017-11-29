@@ -42,28 +42,21 @@ public class Spieler {
 	}
 			Schuffel(deckliste);
 	}
-	// zieht en zuef�lligi charte vom deck, machts Sch�ffel methode nutzlos, �berprueft obs deck leer isch und duet demmentsprechend de abwerfstapel ufs deck lege
+	
+	//legt abwerfliste auf deckliste wenn deck leer ist
+	public void deckIstLeer(){
+			deckliste.addAll(abwerfliste);
+			abwerfliste.clear();
+			Collections.shuffle(deckliste);
+	}
+	
+	
+	// zieht en zuefaelligi charte vom deck, machts Schuffel methode nutzlos, ueberprueft obs deck leer isch und duet demmentsprechend de abwerfstapel ufs deck lege
 	public void KarteZiehen(int anzahlKarten){
 		
 		for (int i=0; i<anzahlKarten; i++){
-			if(deckliste.isEmpty()){
-				//deckliste.addAll(abwerfliste);
-				for(int p = 0; p<abwerfliste.size(); p++){
-					deckliste.push(abwerfliste.pop());
-				}
-				
-				Collections.shuffle(deckliste);
-			}
-				
 			handliste.add(deckliste.pop());
-			
-			
-		
-//		Random zufall = new Random();
-//		int rand = zufall.nextInt(deckliste.size());
-//		handliste.add(deckliste.get(rand));
-//		deckliste.remove(rand);
-	}
+		}
 	}
 	// starthand erstelle --> Auskommentiert da unkonventionell geloest..
 	//public void setupStarthand() {

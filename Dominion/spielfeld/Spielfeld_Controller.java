@@ -61,7 +61,7 @@ public class Spielfeld_Controller {
 		for(int i = 0; i<sm.getAnzahlStarthand(); i++){
 			this.karteZiehen();
 		}
-		pMeinDeck.setDisable(true);
+		pMeinDeck.setDisable(false);
 		
 	}
 	
@@ -70,24 +70,10 @@ public class Spielfeld_Controller {
 	//Löst das Ziehen bzw. Erzeugen einer Karte aus...
 	@FXML
 	public void karteZiehen(){
-		//ziehen wenn Deck leer ist
+		//behandlung des decks wenn dieses leer ist...
 		if(spie.deckliste.size() == 0){
-			anzahlMeinStapel.setText(anzahlAblageStapel.getText());
-			anzahlAblageStapel.setText(0+"");
-			spie.KarteZiehen(1);
-			anzahlMeinStapel.setText(spie.deckliste.size()+"");
-			//InputStream spaeterPfad = this.getClass().getResourceAsStream(spie.handliste.get(0).getPfad());
-			Pane p = new Pane();
-			ImageView iv = new ImageView(new Image(this.getClass().getResourceAsStream(spie.handliste.get(0).getPfad())));
-			
-			p.setMaxWidth(66);
-			p.setMaxHeight(100);
-			p.getChildren().add(iv);
-			iv.setScaleX(0.3);
-			iv.setScaleY(0.3);
-			iv.setLayoutY(iv.getLayoutY()-160);
-			hBoxRealHand.getChildren().add(p);
-		} else {
+			spie.deckIstLeer();
+		}
 		
 			//ziehen unter normalen umstaenden
 			Pane p = new Pane();
@@ -104,7 +90,11 @@ public class Spielfeld_Controller {
 			iv.setScaleY(0.3);
 			iv.setLayoutY(iv.getLayoutY()-160);
 			hBoxRealHand.getChildren().add(p);
-		}
+		
+		//just for testing
+		System.out.println("Deckliste "+spie.deckliste);
+		System.out.println("Handliste "+spie.handliste);
+		System.out.println("Abwerfliste "+spie.abwerfliste);
 	}
 	
 	
@@ -141,7 +131,7 @@ public class Spielfeld_Controller {
 		
 		for(int i = 0; i<groesseHand; i++){
 			this.karteZiehen();
-		}
+		}		
 		
 		bP3.setDisable(true);
 		bP1.setDisable(true);
