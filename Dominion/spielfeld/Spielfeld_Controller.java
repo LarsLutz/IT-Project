@@ -1,5 +1,6 @@
 package spielfeld;
 
+import java.io.InputStream;
 import java.util.Random;
 
 import com.sun.java_cup.internal.runtime.Symbol;
@@ -69,34 +70,37 @@ public class Spielfeld_Controller {
 	//Löst das Ziehen bzw. Erzeugen einer Karte aus...
 	@FXML
 	public void karteZiehen(){
-		//ziehen
-		Pane p = new Pane();
-		ImageView iv = new ImageView(new Image(this.getClass().getResourceAsStream(spie.deckliste.peek().getPfad())));
-		spie.KarteZiehen(1);
-		anzahlMeinStapel.setText(spie.deckliste.size()+"");
+		//ziehen wenn Deck leer ist
+		if(spie.deckliste.isEmpty()){
+			spie.KarteZiehen(1);
+			//InputStream spaeterPfad = this.getClass().getResourceAsStream(spie.handliste.get(0).getPfad());
+			Pane p = new Pane();
+			ImageView iv = new ImageView(new Image(this.getClass().getResourceAsStream(spie.handliste.get(0).getPfad())));
+		} else {
 		
-		//was passiert wenn mein Deck auf 0 kommt?
-		if(spie.deckliste.size() == 0){
-			//anzahlMeinStapel.setStyle("-fx-text-fill: red");
-			anzahlMeinStapel.setText(anzahlAblageStapel.getText());
-			anzahlAblageStapel.setText(0+"");
+			//ziehen unter normalen umstaenden
+			Pane p = new Pane();
+			ImageView iv = new ImageView(new Image(this.getClass().getResourceAsStream(spie.deckliste.peek().getPfad())));
+			spie.KarteZiehen(1);
+			anzahlMeinStapel.setText(spie.deckliste.size()+"");
+		
+			//was passiert wenn mein Deck auf 0 kommt?
+			if(spie.deckliste.size() == 0){
+				//anzahlMeinStapel.setStyle("-fx-text-fill: red");
+				anzahlMeinStapel.setText(anzahlAblageStapel.getText());
+				anzahlAblageStapel.setText(0+"");
 			
-			
-			
-			//TODO -- machen das Ablagestapel auf Deck gelegt wird + schoeffle bisher wird nur das Label angepasst!!!
-			
-			
-			
+			}
+		
+			p.setMaxWidth(66);
+			p.setMaxHeight(100);
+			//p.setStyle("-fx-background-color: red");
+			p.getChildren().add(iv);
+			iv.setScaleX(0.3);
+			iv.setScaleY(0.3);
+			iv.setLayoutY(iv.getLayoutY()-160);
+			hBoxRealHand.getChildren().add(p);
 		}
-		
-		p.setMaxWidth(66);
-		p.setMaxHeight(100);
-		//p.setStyle("-fx-background-color: red");
-		p.getChildren().add(iv);
-		iv.setScaleX(0.3);
-		iv.setScaleY(0.3);
-		iv.setLayoutY(iv.getLayoutY()-160);
-		hBoxRealHand.getChildren().add(p);
 	}
 	
 	
@@ -124,8 +128,8 @@ public class Spielfeld_Controller {
 		//lokale Variable damit wir nachher wissen wieviele Karten zu ziehen sind
 		int groesseHand = spie.handliste.size();
 		
-		
 		spie.discard();
+		
 		hBoxRealHand.getChildren().clear();
 		anzahlAblageStapel.setText(spie.abwerfliste.size()+"");
 			

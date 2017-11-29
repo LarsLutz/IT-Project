@@ -47,12 +47,18 @@ public class Spieler {
 		
 		for (int i=0; i<anzahlKarten; i++){
 			if(deckliste.isEmpty()){
-				deckliste.addAll(abwerfliste);
-				abwerfliste.clear();
+				//deckliste.addAll(abwerfliste);
+				for(int p = 0; p<abwerfliste.size(); p++){
+					deckliste.push(abwerfliste.pop());
+				}
+				
 				Collections.shuffle(deckliste);
 			}
+				
+			handliste.add(deckliste.pop());
 			
-		handliste.add(deckliste.pop());
+			
+		
 //		Random zufall = new Random();
 //		int rand = zufall.nextInt(deckliste.size());
 //		handliste.add(deckliste.get(rand));
