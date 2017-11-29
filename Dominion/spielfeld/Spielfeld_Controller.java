@@ -71,11 +71,21 @@ public class Spielfeld_Controller {
 	@FXML
 	public void karteZiehen(){
 		//ziehen wenn Deck leer ist
-		if(spie.deckliste.isEmpty()){
+		if(spie.deckliste.size() == 0){
+			anzahlMeinStapel.setText(anzahlAblageStapel.getText());
+			anzahlAblageStapel.setText(0+"");
 			spie.KarteZiehen(1);
 			//InputStream spaeterPfad = this.getClass().getResourceAsStream(spie.handliste.get(0).getPfad());
 			Pane p = new Pane();
 			ImageView iv = new ImageView(new Image(this.getClass().getResourceAsStream(spie.handliste.get(0).getPfad())));
+			
+			p.setMaxWidth(66);
+			p.setMaxHeight(100);
+			p.getChildren().add(iv);
+			iv.setScaleX(0.3);
+			iv.setScaleY(0.3);
+			iv.setLayoutY(iv.getLayoutY()-160);
+			hBoxRealHand.getChildren().add(p);
 		} else {
 		
 			//ziehen unter normalen umstaenden
@@ -83,14 +93,7 @@ public class Spielfeld_Controller {
 			ImageView iv = new ImageView(new Image(this.getClass().getResourceAsStream(spie.deckliste.peek().getPfad())));
 			spie.KarteZiehen(1);
 			anzahlMeinStapel.setText(spie.deckliste.size()+"");
-		
-			//was passiert wenn mein Deck auf 0 kommt?
-			if(spie.deckliste.size() == 0){
-				//anzahlMeinStapel.setStyle("-fx-text-fill: red");
-				anzahlMeinStapel.setText(anzahlAblageStapel.getText());
-				anzahlAblageStapel.setText(0+"");
 			
-			}
 		
 			p.setMaxWidth(66);
 			p.setMaxHeight(100);
