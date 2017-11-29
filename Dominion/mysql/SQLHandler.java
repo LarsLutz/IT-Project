@@ -80,6 +80,58 @@ public class SQLHandler {
 		
 	}
 	
+public static  void doManipulation(){
+		
+		try {
+		    conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/dominion?" +"user=root&password=");
+		    System.out.println("Login erfolgreich");
+		    
+
+		    
+
+		    try {
+		        state = conn.createStatement();
+		        //query = state.executeQuery(getBefehl());
+		        
+		        
+
+
+		        if (!state.execute(getBefehl())) {
+		           
+		        	System.out.println("User angelegt");
+		        
+		        	
+
+	            
+		        }else{
+		        	System.out.println("Login Fail");
+		        	
+		        }
+
+		        
+		    }
+		    catch (SQLException ex){
+		        // Für Fehler
+		        System.out.println("SQLException: " + ex.getMessage());
+		        System.out.println("SQLState: " + ex.getSQLState());
+		        System.out.println("VendorError: " + ex.getErrorCode());
+		    }
+		    
+		    
+		} catch (SQLException ex) {
+		 
+		    System.out.println("SQLException: " + ex.getMessage());
+		    System.out.println("SQLState: " + ex.getSQLState());
+		    System.out.println("VendorError: " + ex.getErrorCode());
+		}
+		
+		
+	
+		
+		
+		
+	}
+	
 	
 	public static void dbclose(){
 

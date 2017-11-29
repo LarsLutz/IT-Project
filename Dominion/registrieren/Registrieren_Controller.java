@@ -2,6 +2,7 @@ package registrieren;
 
 import java.io.IOException;
 
+import Guelle.Kommunikation;
 import javafx.application.Platform;
 // Eduart Bunjaku
 import javafx.event.ActionEvent;
@@ -56,13 +57,41 @@ public class Registrieren_Controller {
     @FXML
     private ImageView waldBildReg;
     
+    @FXML
+    private Label infolabel;
+    
     
     // Nach erfolgreicher Registrierung gelangt man mit dem "Registrieren-Button" zum Login.
     @FXML
    public void lobbyOeffnen(ActionEvent event) throws IOException {
     	
+    	String name = usernameRegistrierenTextfeld.getText();
+    	String password =pwFeld.getText();
+    	Boolean komform =true;
     	
+    	if (name.length()<=3){
+    		infolabel.setText("Username oder Passwort zu kurz. (min. 3 Zeichen)");
+    		komform=false;
+    	}
     	
+    	if (password.length()<=3 && komform ){
+    		komform=false;
+    		infolabel.setText("Username oder Passwort zu kurz. (min. 3 Zeichen)");
+    	}
+    	
+    	if (!password.equals(pwWiederholenFeld.getText())&& komform){
+    		infolabel.setText("Zwei verschiedene Passwörter eingegeben");
+    		komform=false;
+    	}
+    	
+    	if ( komform){
+    	
+    		model.setName(name);
+    		model.setPasswort(password);
+    		
+    		
+    		
+    		model.setSpieler();
     	
     	
     	// schliesst aktuelles Fenster
@@ -76,6 +105,8 @@ public class Registrieren_Controller {
         stage.setScene(new Scene(root1));  
         stage.show();
         stage.setResizable(false);
+        
+    	} 
   
     
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.control.*?>
@@ -44,6 +45,11 @@
                   <DropShadow />
                </effect>
             </PasswordField>
+            <Label fx:id="infolabel" layoutX="4.0" layoutY="248.0" prefHeight="27.0" prefWidth="481.0" textAlignment="CENTER" textFill="#fc0808">
+               <font>
+                  <Font name="Arial Black" size="18.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>
