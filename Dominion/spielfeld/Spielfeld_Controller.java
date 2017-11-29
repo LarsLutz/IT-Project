@@ -61,7 +61,7 @@ public class Spielfeld_Controller {
 		for(int i = 0; i<sm.getAnzahlStarthand(); i++){
 			this.karteZiehen();
 		}
-		pMeinDeck.setDisable(false);
+		pMeinDeck.setDisable(true);
 		
 	}
 	
@@ -80,7 +80,7 @@ public class Spielfeld_Controller {
 			ImageView iv = new ImageView(new Image(this.getClass().getResourceAsStream(spie.deckliste.peek().getPfad())));
 			spie.KarteZiehen(1);
 			anzahlMeinStapel.setText(spie.deckliste.size()+"");
-			
+			anzahlAblageStapel.setText(spie.abwerfliste.size()+"");
 		
 			p.setMaxWidth(66);
 			p.setMaxHeight(100);
@@ -91,7 +91,7 @@ public class Spielfeld_Controller {
 			iv.setLayoutY(iv.getLayoutY()-160);
 			hBoxRealHand.getChildren().add(p);
 		
-		//just for testing
+		//testen.... Logger fuer geistig behinderti
 		System.out.println("Deckliste "+spie.deckliste);
 		System.out.println("Handliste "+spie.handliste);
 		System.out.println("Abwerfliste "+spie.abwerfliste);
