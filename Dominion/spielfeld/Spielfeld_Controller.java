@@ -34,8 +34,10 @@ public class Spielfeld_Controller {
 	}
 	
 	@FXML
-	ImageView hintergrund, rueckseite, rueckseiteNormal;
+	ImageView hintergrund, rueckseite, rueckseiteNormal, rueckseiteDeck;
+	@FXML
 	ImageView kupfer, silber, gold, anwesen1, anwesen3, anwesen6;
+	@FXML
 	ImageView bazaarMiddle, cellarMiddle, chancellorMiddle, marketMiddle, smithyMiddle;
 	
 	@FXML
@@ -46,6 +48,7 @@ public class Spielfeld_Controller {
 	
 	@FXML
 	Pane pSeinDeck, pSeinDiscardPile, pKupfer, pSilber, pGold, p1, p3, p6, pMeinDiscardPile, pMeinDeck;
+	@FXML
 	Pane pBazaarMiddle, pCellarMiddle, pChancellorMiddle, pMarketMiddle, pSmithyMiddle;
 	
 	@FXML
@@ -177,6 +180,145 @@ public class Spielfeld_Controller {
 	}
 	
 	
+	//Klickeffekt wird ausgelöst
+	//Deck
+	@FXML
+	public void pressDeck(){
+		rueckseiteDeck.setOpacity(0.3);
+	}
+	
+	@FXML
+	public void releaseDeck(){
+		rueckseiteDeck.setOpacity(1);
+	}
+	
+	//Kupfer
+	@FXML
+	public void pressKupfer(){
+		kupfer.setOpacity(0.3);
+	}
+	
+	@FXML
+	public void releaseKupfer(){
+		kupfer.setOpacity(1);
+	}
+	
+	//Silber
+	@FXML
+	public void pressSilber(){
+		silber.setOpacity(0.3);
+	}
+	
+	@FXML
+	public void releaseSilber(){
+		silber.setOpacity(1);
+	}
+	
+	//Gold
+	@FXML
+	public void pressGold(){
+		gold.setOpacity(0.3);
+	}
+	
+	@FXML
+	public void releaseGold(){
+		gold.setOpacity(1);
+	}
+	
+	
+	//anwesen1
+	@FXML
+	public void pressAnwesen1(){
+		anwesen1.setOpacity(0.3);
+	}
+	
+	@FXML
+	public void releaseAnwesen1(){
+		anwesen1.setOpacity(1);
+	}
+	
+	//anwesen3
+	@FXML
+	public void pressAnwesen3(){
+		anwesen3.setOpacity(0.3);
+	}
+	
+	@FXML
+	public void releaseAnwesen3(){
+		anwesen3.setOpacity(1);
+	}
+	
+	
+	//anwesen6
+	@FXML
+	public void pressAnwesen6(){
+		anwesen6.setOpacity(0.3);
+	}
+	
+	@FXML
+	public void releaseAnwesen6(){
+		anwesen6.setOpacity(1);
+	}
+	
+	//basar
+	@FXML
+	public void pressBazaarMiddle(){
+		bazaarMiddle.setOpacity(0.3);
+	}
+	
+	@FXML
+	public void releaseBazaarMiddle(){
+		bazaarMiddle.setOpacity(1);
+	}
+	
+	
+	//kanzler
+	@FXML
+	public void pressChancellorMiddle(){
+		chancellorMiddle.setOpacity(0.3);
+	}
+	
+	@FXML
+	public void releaseChancellorMiddle(){
+		chancellorMiddle.setOpacity(1);
+	}
+	
+	
+	//Schmied
+	@FXML
+	public void pressSmithyMiddle(){
+		smithyMiddle.setOpacity(0.3);
+	}
+	
+	@FXML
+	public void releaseSmithyMiddle(){
+		smithyMiddle.setOpacity(1);
+	}
+	
+	
+	//Keller
+	@FXML
+	public void pressCellarMiddle(){
+		cellarMiddle.setOpacity(0.3);
+	}
+	
+	@FXML
+	public void releaseCellarMiddle(){
+		cellarMiddle.setOpacity(1);
+	}
+	
+	
+	//markt
+	@FXML
+	public void pressMarketMiddle(){
+		marketMiddle.setOpacity(0.3);
+	}
+	
+	@FXML
+	public void releaseMarketMiddle(){
+		marketMiddle.setOpacity(1);
+	}
+	
 	//soll den Text mit einem Klick auf Enter absenden(Chat - TODO)
 	@FXML
 	public void enterKlick(){
@@ -184,13 +326,13 @@ public class Spielfeld_Controller {
 	}
 	
 	//weitere Infos ueber Karten, wenn man ueber diese drueber faehrt
-	@FXML
-	public void infoDiscard(){
-		infoLabel.setText("Sein Ablagestapel");
-	}
-	
-	public void infoMeinDiscard(){
-		infoLabel.setText("MEIN Abwerfstapel");
-	}
+//	@FXML
+//	public void infoDiscard(){
+//		infoLabel.setText("Sein Ablagestapel");
+//	}
+//	
+//	public void infoMeinDiscard(){
+//		infoLabel.setText("MEIN Abwerfstapel");
+//	}
 	
 }
