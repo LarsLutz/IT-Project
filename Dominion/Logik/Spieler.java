@@ -21,11 +21,16 @@ public class Spieler {
 	public Stack<SuperKarte> deckliste = new Stack<SuperKarte>();
 	public Stack<SuperKarte> abwerfliste = new Stack<SuperKarte>();
 	public int spielerNummer;
+	private final int LETZTERUNDE = 10; // Edu --> Zug = 10 --> Spiel endet.
+	private int aktuelleRunde = 0;
 
+
+	
 	public Spieler(int spielerNummer) {
 		this.spielerNummer = spielerNummer;
 		setupStartdeck();
 		//setupStarthand();
+	
 	}
 		
 
@@ -101,10 +106,36 @@ public void karteErhalten(SuperKarte K){
 	public void discard(){
 		for(int i = 0; i<handliste.size(); i++){
 			abwerfliste.push(handliste.get(i));
+			//EB --> Nach Abwurf soll Runde um 1 erhöht werden.
+			aktuelleRunde++;
+			Zaehler.setRunde(aktuelleRunde);
+			System.out.println("DAS IST DIE" +Zaehler.getRunde()+" RUNDE");
 		}
 		
 		handliste.clear();
+		
+
 	}
+	 
+// Eduart Bunjaku
+// Nach Spielende werden Punkte berechnet und Sieger/Verlierer bekannt gegeben
+//	public void beendeSpiel(){
+//	if(Spieler1.spielnummer.getRunde() == LETZTERUNDE && Spieler2.getRunde() == LETZTERUNDE){
+//		this.punkteBerechnen();
+//
+//	
+//	}
+//		
+//	}
+	
+	
+	public void punkteBerechnen(){
+		
+		
+		
+		
+	}
+	
 
 }
 

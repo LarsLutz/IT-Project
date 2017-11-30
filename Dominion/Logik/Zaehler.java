@@ -2,13 +2,13 @@ package Logik;
 
 public final class Zaehler {
 
-	//wärt ufem spielfeld
+	//wï¿½rt ufem spielfeld
 	public static int aktionsZaehler = 0;
 	public static int guthaben = 0;
 	public static int kaufZaehler = 0;
 	public static int phase;
 	public static int spielerAmZug;
-	public static int runde;
+	public static int runde = 0; // Edu --> Runde auf 0 gesetzt.
 	
 	private Zaehler(int aktionsZaehler, int guthaben, int kaufZaehler, int phase, int spielerAmZug, int runde) {
 		super();
@@ -26,7 +26,7 @@ public final class Zaehler {
 			guthaben = 1;
 		}
 		
-		// Methode um d Charte effekt chönne azwände
+		// Methode um d Charte effekt chï¿½nne azwï¿½nde
 		public static void addKauf(int i){
 			kaufZaehler+=i;
 		}
