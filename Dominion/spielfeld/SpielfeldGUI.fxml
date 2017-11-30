@@ -156,7 +156,7 @@
                      <children>
                         <VBox prefHeight="200.0" prefWidth="100.0">
                            <children>
-                              <Pane fx:id="pSeinDiscardPile" onMouseEntered="#infoDiscard" prefHeight="95.0" prefWidth="90.0">
+                              <Pane fx:id="pSeinDiscardPile" prefHeight="95.0" prefWidth="90.0">
                                  <children>
                                     <ImageView fitHeight="91.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -217,7 +217,7 @@
          <left>
             <VBox prefHeight="616.0" prefWidth="147.0" BorderPane.alignment="CENTER">
                <children>
-                  <HBox prefHeight="52.0" prefWidth="147.0">
+                  <HBox prefHeight="41.0" prefWidth="147.0">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -226,16 +226,19 @@
                      <children>
                         <Pane fx:id="p1" prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="anwesen1" fitHeight="118.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="anwesen1" fitHeight="118.0" fitWidth="86.0" onMousePressed="#pressAnwesen1" onMouseReleased="#releaseAnwesen1" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@estate.jpg" />
                                  </image>
                               </ImageView>
                            </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
                         </Pane>
                         <Pane fx:id="pKupfer" prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="kupfer" fitHeight="118.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="kupfer" fitHeight="118.0" fitWidth="86.0" onMousePressed="#pressKupfer" onMouseReleased="#releaseKupfer" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@copper.jpg" />
                                  </image>
@@ -248,7 +251,7 @@
                      <children>
                         <Pane fx:id="p3" prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="anwesen3" fitHeight="118.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="anwesen3" fitHeight="118.0" fitWidth="86.0" layoutY="14.0" onMousePressed="#pressAnwesen3" onMouseReleased="#releaseAnwesen3" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@duchy.jpg" />
                                  </image>
@@ -257,7 +260,7 @@
                         </Pane>
                         <Pane fx:id="pSilber" prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="silber" fitHeight="118.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="silber" fitHeight="118.0" fitWidth="86.0" layoutY="14.0" onMousePressed="#pressSilber" onMouseReleased="#releaseSilber" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@silver.jpg" />
                                  </image>
@@ -270,7 +273,7 @@
                      <children>
                         <Pane fx:id="p6" prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="anwesen6" fitHeight="118.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="anwesen6" fitHeight="118.0" fitWidth="86.0" layoutY="27.0" onMousePressed="#pressAnwesen6" onMouseReleased="#releaseAnwesen6" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@province.jpg" />
                                  </image>
@@ -279,7 +282,7 @@
                         </Pane>
                         <Pane fx:id="pGold" prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="gold" fitHeight="118.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="gold" fitHeight="118.0" fitWidth="86.0" layoutY="27.0" onMousePressed="#pressGold" onMouseReleased="#releaseGold" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@gold.jpg" />
                                  </image>
@@ -317,7 +320,7 @@
                      <children>
                         <Pane fx:id="pMeinDiscardPile" prefHeight="150.0" prefWidth="99.0">
                            <children>
-                              <ImageView fx:id="rueckseiteNormal" fitHeight="150.0" fitWidth="99.0" onMouseEntered="#infoMeinDiscard" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="rueckseiteNormal" fitHeight="150.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@back.jpg" />
                                  </image>
@@ -338,7 +341,7 @@
                      <children>
                         <Pane fx:id="pMeinDeck" onMouseClicked="#karteZiehen" prefHeight="150.0" prefWidth="99.0">
                            <children>
-                              <ImageView fitHeight="150.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="rueckseiteDeck" fitHeight="150.0" fitWidth="99.0" onMousePressed="#pressDeck" onMouseReleased="#releaseDeck" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@back.jpg" />
                                  </image>
@@ -371,7 +374,7 @@
                      <children>
                         <Pane fx:id="pBazaarMiddle" onMouseEntered="#infoBasar" prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="bazaarMiddle" fitHeight="128.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="bazaarMiddle" fitHeight="128.0" fitWidth="130.0" onMousePressed="#pressBazaarMiddle" onMouseReleased="#releaseBazaarMiddle" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@bazaarMiddle.jpg" />
                                  </image>
@@ -380,7 +383,7 @@
                         </Pane>
                         <Pane fx:id="pCellarMiddle" onMouseEntered="#infoKeller" prefHeight="200.0" prefWidth="0.0">
                            <children>
-                              <ImageView fx:id="cellarMiddle" fitHeight="128.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="cellarMiddle" fitHeight="128.0" fitWidth="130.0" onMousePressed="#pressCellarMiddle" onMouseReleased="#releaseCellarMiddle" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@cellarMiddle.jpg" />
                                  </image>
@@ -396,7 +399,7 @@
                      <children>
                         <Pane fx:id="pChancellorMiddle" onMouseEntered="#infoKanzler" prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="chancellorMiddle" fitHeight="128.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="chancellorMiddle" fitHeight="128.0" fitWidth="130.0" onMousePressed="#pressChancellorMiddle" onMouseReleased="#releaseChancellorMiddle" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@chancellorMiddle.jpg" />
                                  </image>
@@ -405,7 +408,7 @@
                         </Pane>
                         <Pane fx:id="pMarketMiddle" onMouseEntered="#infoMarkt" prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="marketMiddle" fitHeight="128.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="marketMiddle" fitHeight="128.0" fitWidth="130.0" onMousePressed="#pressMarketMiddle" onMouseReleased="#releaseMarketMiddle" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@marketMiddle.jpg" />
                                  </image>
@@ -421,7 +424,7 @@
                      <children>
                         <Pane fx:id="pSmithyMiddle" onMouseEntered="#infoSchmied" prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="smithyMiddle" fitHeight="128.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="smithyMiddle" fitHeight="128.0" fitWidth="130.0" onMousePressed="#pressSmithyMiddle" onMouseReleased="#releaseSmithyMiddle" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@smithyMiddle.jpg" />
                                  </image>
