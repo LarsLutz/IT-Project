@@ -97,8 +97,8 @@ public class Spielfeld_Controller {
 		
 		p.setMaxWidth(66);
 		p.setMinWidth(66);
-		p.setMaxHeight(100);
-		p.setMinHeight(100);
+		p.setMaxHeight(120);
+		p.setMinHeight(120);
 		iv.fitWidthProperty().bind(p.widthProperty());
 		iv.fitHeightProperty().bind(p.heightProperty());
 		
@@ -106,7 +106,7 @@ public class Spielfeld_Controller {
 		hBoxRealHand.getChildren().add(p);
 
 		ivCounter++;
-		if (ivCounter > 600) {
+		if (ivCounter > 4000) {
 			ivCounter = 0;
 		}
 		// testen.... Logger fuer geistig behinderti
