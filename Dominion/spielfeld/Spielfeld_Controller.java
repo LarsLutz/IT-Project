@@ -332,14 +332,4 @@ public class Spielfeld_Controller {
 				"Taste gedrückt.. jetzt noch auf Enter... Bei tastendruck ist es kein MouseEvent sondern ein..?");
 	}
 
-	// weitere Infos ueber Karten, wenn man ueber diese drueber faehrt
-	// @FXML
-	// public void infoDiscard(){
-	// infoLabel.setText("Sein Ablagestapel");
-	// }
-	//
-	// public void infoMeinDiscard(){
-	// infoLabel.setText("MEIN Abwerfstapel");
-	// }
-
 }
