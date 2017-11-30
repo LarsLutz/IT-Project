@@ -106,14 +106,15 @@ public void karteErhalten(SuperKarte K){
 	public void discard(){
 		for(int i = 0; i<handliste.size(); i++){
 			abwerfliste.push(handliste.get(i));
-			//EB --> Nach Abwurf soll Runde um 1 erhöht werden.
-			aktuelleRunde++;
-			Zaehler.setRunde(aktuelleRunde);
-			System.out.println("DAS IST DIE" +Zaehler.getRunde()+" RUNDE");
+
 		}
 		
 		handliste.clear();
 		
+		//EB --> Nach Abwurf soll Runde um 1 erhöht werden.
+				aktuelleRunde++;
+				Zaehler.setRunde(aktuelleRunde);
+				System.out.println("DAS IST DIE ------> " +Zaehler.getRunde()+" RUNDE");	
 
 	}
 	 
@@ -129,12 +130,14 @@ public void karteErhalten(SuperKarte K){
 //	}
 	
 	
-	public void punkteBerechnen(){
-		
-		
-		
-		
-	}
+	
+// Edu
+//	public void punkteBerechnen(){
+//		
+//		
+//		
+//		
+//	}
 	
 
 }
