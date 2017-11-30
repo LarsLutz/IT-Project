@@ -1,6 +1,7 @@
 package spielfeld;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Random;
 
 import com.sun.java_cup.internal.runtime.Symbol;
@@ -17,322 +18,328 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 
 public class Spielfeld_Controller {
-	
-	//Jan Mueller
-	
+
+	// Jan Mueller
+
 	private Spielfeld_Model sm;
 	private Sammlung sam;
 	private Spieler spie;
-	
-	
-	public Spielfeld_Controller(){
+	private int ivCounter = 0;
+	private ArrayList<ImageView> viewList;
+
+	public Spielfeld_Controller() {
 		sm = new Spielfeld_Model(11);
 		sam = new Sammlung();
 		spie = new Spieler(0);
 	}
-	
+
 	@FXML
 	ImageView hintergrund, rueckseite, rueckseiteNormal, rueckseiteDeck;
 	@FXML
 	ImageView kupfer, silber, gold, anwesen1, anwesen3, anwesen6;
 	@FXML
 	ImageView bazaarMiddle, cellarMiddle, chancellorMiddle, marketMiddle, smithyMiddle;
-	
+
 	@FXML
 	Button bSpeichern, bP1, bP2, bP3, bZugBeenden;
-	
+
 	@FXML
 	TextArea tVerlauf, tEingabe;
-	
+
 	@FXML
 	Pane pSeinDeck, pSeinDiscardPile, pKupfer, pSilber, pGold, p1, p3, p6, pMeinDiscardPile, pMeinDeck;
 	@FXML
 	Pane pBazaarMiddle, pCellarMiddle, pChancellorMiddle, pMarketMiddle, pSmithyMiddle;
-	
+
 	@FXML
-	Label anzahlMeinStapel, anzahlAblageStapel, infoLabel, verbAktionen, verbKaeufe, verbGuthaben, startLabel, startLabel1;
-	
+	Label anzahlMeinStapel, anzahlAblageStapel, infoLabel, verbAktionen, verbKaeufe, verbGuthaben, startLabel,
+			startLabel1;
+
 	@FXML
 	HBox hBoxBottom, hBoxRealHand;
-	
-	//wird vor dem oeffnen des Fensters gemacht
+
+	// wird vor dem oeffnen des Fensters gemacht
 	@FXML
-	public void initialize(){
-		
-		for(int i = 0; i<sm.getAnzahlStarthand(); i++){
+	public void initialize() {
+		viewList = new ArrayList<ImageView>();
+		for (int i = 0; i < sm.getAnzahlStarthand(); i++) {
 			this.karteZiehen();
 		}
 		pMeinDeck.setDisable(true);
-		
+
 	}
-	
-	
-	
-	//Löst das Ziehen bzw. Erzeugen einer Karte aus...
+
+	// Löst das Ziehen bzw. Erzeugen einer Karte aus...
 	@FXML
-	public void karteZiehen(){
-		//behandlung des decks wenn dieses leer ist...
-		if(spie.deckliste.size() == 0){
+	public void karteZiehen() {
+		// behandlung des decks wenn dieses leer ist...
+		if (spie.deckliste.size() == 0) {
 			spie.deckIstLeer();
 		}
+
+		// ziehen unter normalen umstaenden
+		StackPane p = new StackPane();
+		ImageView iv = new ImageView(new Image(this.getClass().getResourceAsStream(spie.deckliste.peek().getPfad())));
+		p.setOnMousePressed((event)->{ 
+			p.setOpacity(0.5); 
+			});
+		 p.setOnMouseReleased((event)->{ 
+			 p.setOpacity(1); 
+		});
+
+		spie.KarteZiehen(1);
+		anzahlMeinStapel.setText(spie.deckliste.size() + "");
+		anzahlAblageStapel.setText(spie.abwerfliste.size() + "");
 		
-			//ziehen unter normalen umstaenden
-			Pane p = new Pane();
-			ImageView iv = new ImageView(new Image(this.getClass().getResourceAsStream(spie.deckliste.peek().getPfad())));
-			spie.KarteZiehen(1);
-			anzahlMeinStapel.setText(spie.deckliste.size()+"");
-			anzahlAblageStapel.setText(spie.abwerfliste.size()+"");
 		
-			p.setMaxWidth(66);
-			p.setMaxHeight(100);
-			//p.setStyle("-fx-background-color: red");
-			p.getChildren().add(iv);
-			iv.setScaleX(0.3);
-			iv.setScaleY(0.3);
-			iv.setLayoutY(iv.getLayoutY()-160);
-			hBoxRealHand.getChildren().add(p);
+		p.setMaxWidth(66);
+		p.setMinWidth(66);
+		p.setMaxHeight(100);
+		p.setMinHeight(100);
+		iv.fitWidthProperty().bind(p.widthProperty());
+		iv.fitHeightProperty().bind(p.heightProperty());
 		
-		//testen.... Logger fuer geistig behinderti
-		System.out.println("Deckliste "+spie.deckliste);
-		System.out.println("Handliste "+spie.handliste);
-		System.out.println("Abwerfliste "+spie.abwerfliste);
+		p.getChildren().add(iv);
+		hBoxRealHand.getChildren().add(p);
+
+		ivCounter++;
+		if (ivCounter > 600) {
+			ivCounter = 0;
+		}
+		// testen.... Logger fuer geistig behinderti
+		System.out.println("Deckliste " + spie.deckliste);
+		System.out.println("Handliste " + spie.handliste);
+		System.out.println("Abwerfliste " + spie.abwerfliste);
 	}
-	
-	
-	//Aktionsphasen Knopf geklickt
+
+	// Aktionsphasen Knopf geklickt
 	@FXML
-	public void aktionsPhase(){
+	public void aktionsPhase() {
 		startLabel.setText("Aktionsphase");
 		bP1.setDisable(true);
 		pMeinDeck.setDisable(true);
 	}
-	
-	//Kaufphasen Knopf geklickt
+
+	// Kaufphasen Knopf geklickt
 	@FXML
-	public void kaufPhase(){
+	public void kaufPhase() {
 		startLabel.setText("Kaufphase");
 		bP1.setDisable(true);
 		bP2.setDisable(true);
 		pMeinDeck.setDisable(true);
 	}
-	
-	//Discardphasen Knopf geklickt
+
+	// Discardphasen Knopf geklickt
 	@FXML
-	public void discardPhase(){
-		
-		//lokale Variable damit wir nachher wissen wieviele Karten zu ziehen sind
+	public void discardPhase() {
+
+		// lokale Variable damit wir nachher wissen wieviele Karten zu ziehen
+		// sind
 		int groesseHand = spie.handliste.size();
-		
+
 		spie.discard();
-		
+
 		hBoxRealHand.getChildren().clear();
-		anzahlAblageStapel.setText(spie.abwerfliste.size()+"");
-			
-		
-		
-		for(int i = 0; i<groesseHand; i++){
+		anzahlAblageStapel.setText(spie.abwerfliste.size() + "");
+
+		for (int i = 0; i < groesseHand; i++) {
 			this.karteZiehen();
-		}		
-		
+		}
+
 		bP3.setDisable(true);
 		bP1.setDisable(true);
 		bP2.setDisable(true);
 		bZugBeenden.setDisable(false);
 	}
-	
-	//zugBeenden Knopf Klicken - erst nach abgeschlossenem Discard moeglich
+
+	// zugBeenden Knopf Klicken - erst nach abgeschlossenem Discard moeglich
 	@FXML
-	public void zugBeenden(){
+	public void zugBeenden() {
 		bZugBeenden.setDisable(true);
 		pMeinDeck.setDisable(false);
 		bP1.setDisable(false);
 		bP2.setDisable(false);
 		bP3.setDisable(false);
 	}
-	
-	
-	//folgende 5 geben beim drueberfahren mit der Maus Informationen ueber die jeweilige AktionsKarte
+
+	// folgende 5 geben beim drueberfahren mit der Maus Informationen ueber die
+	// jeweilige AktionsKarte
 	@FXML
-	public void infoKanzler(){
+	public void infoKanzler() {
 		infoLabel.setText(sam.aktionsKarten[1].getBeschreibung());
 	}
-	
+
 	@FXML
-	public void infoSchmied(){
+	public void infoSchmied() {
 		infoLabel.setText(sam.aktionsKarten[4].getBeschreibung());
 	}
-	
+
 	@FXML
-	public void infoKeller(){
+	public void infoKeller() {
 		infoLabel.setText(sam.aktionsKarten[2].getBeschreibung());
 	}
-	
+
 	@FXML
-	public void infoBasar(){
+	public void infoBasar() {
 		infoLabel.setText(sam.aktionsKarten[0].getBeschreibung());
 	}
-	
+
 	@FXML
-	public void infoMarkt(){
+	public void infoMarkt() {
 		infoLabel.setText(sam.aktionsKarten[3].getBeschreibung());
 	}
-	
-	
-	//Klickeffekt wird ausgelöst
-	//Deck
+
+	// Klickeffekt wird ausgelöst
+	// Deck
 	@FXML
-	public void pressDeck(){
+	public void pressDeck() {
 		rueckseiteDeck.setOpacity(0.3);
 	}
-	
+
 	@FXML
-	public void releaseDeck(){
+	public void releaseDeck() {
 		rueckseiteDeck.setOpacity(1);
 	}
-	
-	//Kupfer
+
+	// Kupfer
 	@FXML
-	public void pressKupfer(){
+	public void pressKupfer() {
 		kupfer.setOpacity(0.3);
 	}
-	
+
 	@FXML
-	public void releaseKupfer(){
+	public void releaseKupfer() {
 		kupfer.setOpacity(1);
 	}
-	
-	//Silber
+
+	// Silber
 	@FXML
-	public void pressSilber(){
+	public void pressSilber() {
 		silber.setOpacity(0.3);
 	}
-	
+
 	@FXML
-	public void releaseSilber(){
+	public void releaseSilber() {
 		silber.setOpacity(1);
 	}
-	
-	//Gold
+
+	// Gold
 	@FXML
-	public void pressGold(){
+	public void pressGold() {
 		gold.setOpacity(0.3);
 	}
-	
+
 	@FXML
-	public void releaseGold(){
+	public void releaseGold() {
 		gold.setOpacity(1);
 	}
-	
-	
-	//anwesen1
+
+	// anwesen1
 	@FXML
-	public void pressAnwesen1(){
+	public void pressAnwesen1() {
 		anwesen1.setOpacity(0.3);
 	}
-	
+
 	@FXML
-	public void releaseAnwesen1(){
+	public void releaseAnwesen1() {
 		anwesen1.setOpacity(1);
 	}
-	
-	//anwesen3
+
+	// anwesen3
 	@FXML
-	public void pressAnwesen3(){
+	public void pressAnwesen3() {
 		anwesen3.setOpacity(0.3);
 	}
-	
+
 	@FXML
-	public void releaseAnwesen3(){
+	public void releaseAnwesen3() {
 		anwesen3.setOpacity(1);
 	}
-	
-	
-	//anwesen6
+
+	// anwesen6
 	@FXML
-	public void pressAnwesen6(){
+	public void pressAnwesen6() {
 		anwesen6.setOpacity(0.3);
 	}
-	
+
 	@FXML
-	public void releaseAnwesen6(){
+	public void releaseAnwesen6() {
 		anwesen6.setOpacity(1);
 	}
-	
-	//basar
+
+	// basar
 	@FXML
-	public void pressBazaarMiddle(){
+	public void pressBazaarMiddle() {
 		bazaarMiddle.setOpacity(0.3);
 	}
-	
+
 	@FXML
-	public void releaseBazaarMiddle(){
+	public void releaseBazaarMiddle() {
 		bazaarMiddle.setOpacity(1);
 	}
-	
-	
-	//kanzler
+
+	// kanzler
 	@FXML
-	public void pressChancellorMiddle(){
+	public void pressChancellorMiddle() {
 		chancellorMiddle.setOpacity(0.3);
 	}
-	
+
 	@FXML
-	public void releaseChancellorMiddle(){
+	public void releaseChancellorMiddle() {
 		chancellorMiddle.setOpacity(1);
 	}
-	
-	
-	//Schmied
+
+	// Schmied
 	@FXML
-	public void pressSmithyMiddle(){
+	public void pressSmithyMiddle() {
 		smithyMiddle.setOpacity(0.3);
 	}
-	
+
 	@FXML
-	public void releaseSmithyMiddle(){
+	public void releaseSmithyMiddle() {
 		smithyMiddle.setOpacity(1);
 	}
-	
-	
-	//Keller
+
+	// Keller
 	@FXML
-	public void pressCellarMiddle(){
+	public void pressCellarMiddle() {
 		cellarMiddle.setOpacity(0.3);
 	}
-	
+
 	@FXML
-	public void releaseCellarMiddle(){
+	public void releaseCellarMiddle() {
 		cellarMiddle.setOpacity(1);
 	}
-	
-	
-	//markt
+
+	// markt
 	@FXML
-	public void pressMarketMiddle(){
+	public void pressMarketMiddle() {
 		marketMiddle.setOpacity(0.3);
 	}
-	
+
 	@FXML
-	public void releaseMarketMiddle(){
+	public void releaseMarketMiddle() {
 		marketMiddle.setOpacity(1);
 	}
-	
-	//soll den Text mit einem Klick auf Enter absenden(Chat - TODO)
+
+	// soll den Text mit einem Klick auf Enter absenden(Chat - TODO)
 	@FXML
-	public void enterKlick(){
-		System.out.println("Taste gedrückt.. jetzt noch auf Enter... Bei tastendruck ist es kein MouseEvent sondern ein..?");
+	public void enterKlick() {
+		System.out.println(
+				"Taste gedrückt.. jetzt noch auf Enter... Bei tastendruck ist es kein MouseEvent sondern ein..?");
 	}
-	
-	//weitere Infos ueber Karten, wenn man ueber diese drueber faehrt
-//	@FXML
-//	public void infoDiscard(){
-//		infoLabel.setText("Sein Ablagestapel");
-//	}
-//	
-//	public void infoMeinDiscard(){
-//		infoLabel.setText("MEIN Abwerfstapel");
-//	}
-	
+
+	// weitere Infos ueber Karten, wenn man ueber diese drueber faehrt
+	// @FXML
+	// public void infoDiscard(){
+	// infoLabel.setText("Sein Ablagestapel");
+	// }
+	//
+	// public void infoMeinDiscard(){
+	// infoLabel.setText("MEIN Abwerfstapel");
+	// }
+
 }
