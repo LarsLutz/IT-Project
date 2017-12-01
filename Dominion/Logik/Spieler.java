@@ -23,10 +23,10 @@ public class Spieler {
 	public int spielerNummer;
 
 //	private final int LETZTERUNDE = 10; // Edu --> Zug = 10 --> Spiel endet.
-//
+
 //	//Eduart Bunjaku
-//	final int LETZTERUNDE = 10; // Edu --> Zug = 10 --> Spiel endet.
-//	private int aktuelleRunde = 1; // erster Zug, Spielbeginn TODO getter und setter schreiben
+	final int LETZTERUNDE = 10; // Edu --> Zug = 10 --> Spiel endet.
+	private int aktuelleRunde = 1; // erster Zug, Spielbeginn TODO getter und setter schreiben
 
 
 
@@ -87,16 +87,14 @@ for(Spielfeldkarte sk: Sammlung.feldkarten){
 }
 return null;
 }
-<<<<<<< HEAD
-//dfdfdfdf
-=======
+
 //Robin Widmer
 //Geldcharte spiele
 public void geldKarteSpielen(GeldKarte gk){
 	Zaehler.addGuthaben(gk.getGuthaben());
 }
 //Robin Widmer
->>>>>>> f320eb635e155953c700a98dc65e59124c48972b
+
 //charte chaufe
 public SuperKarte kartenKaufen(SuperKarte K){
 	Spielfeldkarte sk = getSpielfeldkarte(K);
@@ -138,14 +136,14 @@ public void karteErhalten(SuperKarte K){
 	}
 	
 	//Edu Bunjaku
-//	public void setAktuelleRunde(int aktuelleRunde){
-//		this.aktuelleRunde = aktuelleRunde;
-//	}
+	public void setAktuelleRunde(int aktuelleRunde){
+		this.aktuelleRunde = aktuelleRunde;
+	}
 	
-//	public int getAktuelleRunde(){
-//		return this.aktuelleRunde;
-//
-//	}
+	public int getAktuelleRunde(){
+		return this.aktuelleRunde;
+
+	}
 	 
 	
 // Eduart Bunjaku
