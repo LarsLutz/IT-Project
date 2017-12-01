@@ -11,7 +11,7 @@ public final class Zaehler {
 	public static int runde = 0; // Edu --> Runde auf 0 gesetzt.
 	
 	private Zaehler(int aktionsZaehler, int guthaben, int kaufZaehler, int phase, int spielerAmZug, int runde) {
-		super();
+//		super(); -- das super hesch ez nie selber gschribe - oder scho?
 		this.aktionsZaehler = aktionsZaehler;
 		this.guthaben = guthaben;
 		this.kaufZaehler = kaufZaehler;

@@ -293,13 +293,8 @@
                   </HBox>
                   <Label fx:id="startLabel" textFill="#e40303">
                      <VBox.margin>
-                        <Insets top="40.0" />
+                        <Insets top="65.0" />
                      </VBox.margin>
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="startLabel1" textFill="#e40303">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -374,7 +369,7 @@
                      <children>
                         <Pane fx:id="pBazaarMiddle" onMouseEntered="#infoBasar" prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="bazaarMiddle" fitHeight="128.0" fitWidth="130.0" onMousePressed="#pressBazaarMiddle" onMouseReleased="#releaseBazaarMiddle" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="bazaarMiddle" fitHeight="128.0" fitWidth="130.0" onMouseClicked="#clickBazaarMiddle" onMousePressed="#pressBazaarMiddle" onMouseReleased="#releaseBazaarMiddle" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@bazaarMiddle.jpg" />
                                  </image>
@@ -383,7 +378,7 @@
                         </Pane>
                         <Pane fx:id="pCellarMiddle" onMouseEntered="#infoKeller" prefHeight="200.0" prefWidth="0.0">
                            <children>
-                              <ImageView fx:id="cellarMiddle" fitHeight="128.0" fitWidth="130.0" onMousePressed="#pressCellarMiddle" onMouseReleased="#releaseCellarMiddle" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="cellarMiddle" fitHeight="128.0" fitWidth="130.0" onMouseClicked="#clickCellarMiddle" onMousePressed="#pressCellarMiddle" onMouseReleased="#releaseCellarMiddle" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@cellarMiddle.jpg" />
                                  </image>
@@ -399,7 +394,7 @@
                      <children>
                         <Pane fx:id="pChancellorMiddle" onMouseEntered="#infoKanzler" prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="chancellorMiddle" fitHeight="128.0" fitWidth="130.0" onMousePressed="#pressChancellorMiddle" onMouseReleased="#releaseChancellorMiddle" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="chancellorMiddle" fitHeight="128.0" fitWidth="130.0" onMouseClicked="#clickChancellorMiddle" onMousePressed="#pressChancellorMiddle" onMouseReleased="#releaseChancellorMiddle" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@chancellorMiddle.jpg" />
                                  </image>
@@ -408,7 +403,7 @@
                         </Pane>
                         <Pane fx:id="pMarketMiddle" onMouseEntered="#infoMarkt" prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="marketMiddle" fitHeight="128.0" fitWidth="130.0" onMousePressed="#pressMarketMiddle" onMouseReleased="#releaseMarketMiddle" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="marketMiddle" fitHeight="128.0" fitWidth="130.0" onMouseClicked="#clickMarketMiddle" onMousePressed="#pressMarketMiddle" onMouseReleased="#releaseMarketMiddle" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@marketMiddle.jpg" />
                                  </image>
@@ -424,7 +419,7 @@
                      <children>
                         <Pane fx:id="pSmithyMiddle" onMouseEntered="#infoSchmied" prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="smithyMiddle" fitHeight="128.0" fitWidth="130.0" onMousePressed="#pressSmithyMiddle" onMouseReleased="#releaseSmithyMiddle" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="smithyMiddle" fitHeight="128.0" fitWidth="130.0" onMouseClicked="#clickSmithyMiddle" onMousePressed="#pressSmithyMiddle" onMouseReleased="#releaseSmithyMiddle" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@smithyMiddle.jpg" />
                                  </image>

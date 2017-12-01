@@ -57,11 +57,18 @@ public class Spielfeld_Controller {
 	Pane pBazaarMiddle, pCellarMiddle, pChancellorMiddle, pMarketMiddle, pSmithyMiddle;
 
 	@FXML
-	Label anzahlMeinStapel, anzahlAblageStapel, infoLabel, verbAktionen, verbKaeufe, verbGuthaben, startLabel,
-			startLabel1;
+	Label anzahlMeinStapel, anzahlAblageStapel, infoLabel, verbAktionen, verbKaeufe, verbGuthaben, startLabel;
 
 	@FXML
 	HBox hBoxBottom, hBoxRealHand;
+	
+	private void labelsAktualisieren(){
+		verbGuthaben.setText(Zaehler.getGuthaben()+"");
+		verbAktionen.setText(Zaehler.getAktionsZaehler()+"");
+		verbKaeufe.setText(Zaehler.getKaufZaehler()+"");
+		anzahlMeinStapel.setText(spie.deckliste.size() + "");
+		anzahlAblageStapel.setText(spie.abwerfliste.size() + "");
+	}
 
 	// wird vor dem oeffnen des Fensters gemacht
 	@FXML
@@ -71,7 +78,13 @@ public class Spielfeld_Controller {
 			this.karteZiehen();
 		}
 		pMeinDeck.setDisable(true);
-
+		bazaarMiddle.setDisable(true);
+		cellarMiddle.setDisable(true);
+		chancellorMiddle.setDisable(true);
+		marketMiddle.setDisable(true);
+		smithyMiddle.setDisable(true);
+		Zaehler.beginnZug();
+		labelsAktualisieren();
 	}
 
 	// Löst das Ziehen bzw. Erzeugen einer Karte aus.
@@ -93,8 +106,7 @@ public class Spielfeld_Controller {
 		});
 
 		spie.KarteZiehen(1);
-		anzahlMeinStapel.setText(spie.deckliste.size() + "");
-		anzahlAblageStapel.setText(spie.abwerfliste.size() + "");
+		labelsAktualisieren();
 		
 		
 		p.setMaxWidth(66);
@@ -112,9 +124,9 @@ public class Spielfeld_Controller {
 			ivCounter = 0;
 		}
 		// testen.... Logger fuer geistig behinderti
-//		System.out.println("Deckliste " + spie.deckliste);
-//		System.out.println("Handliste " + spie.handliste);
-//		System.out.println("Abwerfliste " + spie.abwerfliste);
+		System.out.println("Deckliste " + spie.deckliste);
+		System.out.println("Handliste " + spie.handliste);
+		System.out.println("Abwerfliste " + spie.abwerfliste);
 	}
 
 	// Aktionsphasen Knopf geklickt
@@ -132,7 +144,60 @@ public class Spielfeld_Controller {
 		bP1.setDisable(true);
 		bP2.setDisable(true);
 		pMeinDeck.setDisable(true);
+		bazaarMiddle.setDisable(false);
+		cellarMiddle.setDisable(false);
+		chancellorMiddle.setDisable(false);
+		marketMiddle.setDisable(false);
+		smithyMiddle.setDisable(false);
+		
+		
+		
 	}
+	
+	//Durch klick auf versch. Aktionskarten in der Mitte des Spielfelds (in der Kaufphase)
+	//werden diese bei entsprechendem Guthaben gekauft
+	@FXML
+	public void clickSmithyMiddle(){
+		spie.karteErhalten(sam.aktionsKarten[4]);
+		
+		labelsAktualisieren();
+	}
+	
+	@FXML
+	public void clickMarketMiddle(){
+		spie.karteErhalten(sam.aktionsKarten[3]);
+		
+		labelsAktualisieren();
+	}
+	
+	@FXML
+	public void clickChancellorMiddle(){
+		spie.karteErhalten(sam.aktionsKarten[1]);
+		
+		labelsAktualisieren();
+	}
+	
+	@FXML
+	public void clickCellarMiddle(){
+		spie.karteErhalten(sam.aktionsKarten[2]);
+		
+		labelsAktualisieren();
+	}
+	
+	@FXML
+	public void clickBazaarMiddle(){
+		spie.karteErhalten(sam.aktionsKarten[0]);
+		
+		labelsAktualisieren();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 
 	// Discardphasen Knopf geklickt
 	@FXML
@@ -145,16 +210,22 @@ public class Spielfeld_Controller {
 		spie.discard();
 
 		hBoxRealHand.getChildren().clear();
-		anzahlAblageStapel.setText(spie.abwerfliste.size() + "");
+		labelsAktualisieren();
 		
 
 		for (int i = 0; i < groesseHand; i++) {
 			this.karteZiehen();
 		}
-
+		
 		bP3.setDisable(true);
 		bP1.setDisable(true);
 		bP2.setDisable(true);
+		pMeinDeck.setDisable(true);
+		bazaarMiddle.setDisable(true);
+		cellarMiddle.setDisable(true);
+		chancellorMiddle.setDisable(true);
+		marketMiddle.setDisable(true);
+		smithyMiddle.setDisable(true);
 		bZugBeenden.setDisable(false);
 	}
 
@@ -166,7 +237,8 @@ public class Spielfeld_Controller {
 		bP1.setDisable(false);
 		bP2.setDisable(false);
 		bP3.setDisable(false);
-		
+		Zaehler.beginnZug();
+		labelsAktualisieren();
 		
 		
 		
@@ -178,7 +250,8 @@ public class Spielfeld_Controller {
 			
 		}
 	}
-
+	
+	//wieder Jan Mueller
 	// folgende 5 geben beim drueberfahren mit der Maus Informationen ueber die
 	// jeweilige AktionsKarte
 	@FXML
@@ -210,7 +283,7 @@ public class Spielfeld_Controller {
 	// Deck
 	@FXML
 	public void pressDeck() {
-		rueckseiteDeck.setOpacity(0.3);
+		rueckseiteDeck.setOpacity(0.5);
 	}
 
 	@FXML
@@ -221,7 +294,7 @@ public class Spielfeld_Controller {
 	// Kupfer
 	@FXML
 	public void pressKupfer() {
-		kupfer.setOpacity(0.3);
+		kupfer.setOpacity(0.5);
 	}
 
 	@FXML
@@ -232,7 +305,7 @@ public class Spielfeld_Controller {
 	// Silber
 	@FXML
 	public void pressSilber() {
-		silber.setOpacity(0.3);
+		silber.setOpacity(0.5);
 	}
 
 	@FXML
@@ -243,7 +316,7 @@ public class Spielfeld_Controller {
 	// Gold
 	@FXML
 	public void pressGold() {
-		gold.setOpacity(0.3);
+		gold.setOpacity(0.5);
 	}
 
 	@FXML
@@ -254,7 +327,7 @@ public class Spielfeld_Controller {
 	// anwesen1
 	@FXML
 	public void pressAnwesen1() {
-		anwesen1.setOpacity(0.3);
+		anwesen1.setOpacity(0.5);
 	}
 
 	@FXML
@@ -265,7 +338,7 @@ public class Spielfeld_Controller {
 	// anwesen3
 	@FXML
 	public void pressAnwesen3() {
-		anwesen3.setOpacity(0.3);
+		anwesen3.setOpacity(0.5);
 	}
 
 	@FXML
@@ -276,7 +349,7 @@ public class Spielfeld_Controller {
 	// anwesen6
 	@FXML
 	public void pressAnwesen6() {
-		anwesen6.setOpacity(0.3);
+		anwesen6.setOpacity(0.5);
 	}
 
 	@FXML
@@ -287,7 +360,7 @@ public class Spielfeld_Controller {
 	// basar
 	@FXML
 	public void pressBazaarMiddle() {
-		bazaarMiddle.setOpacity(0.3);
+		bazaarMiddle.setOpacity(0.5);
 	}
 
 	@FXML
@@ -298,7 +371,7 @@ public class Spielfeld_Controller {
 	// kanzler
 	@FXML
 	public void pressChancellorMiddle() {
-		chancellorMiddle.setOpacity(0.3);
+		chancellorMiddle.setOpacity(0.5);
 	}
 
 	@FXML
@@ -309,7 +382,7 @@ public class Spielfeld_Controller {
 	// Schmied
 	@FXML
 	public void pressSmithyMiddle() {
-		smithyMiddle.setOpacity(0.3);
+		smithyMiddle.setOpacity(0.5);
 	}
 
 	@FXML
@@ -320,7 +393,7 @@ public class Spielfeld_Controller {
 	// Keller
 	@FXML
 	public void pressCellarMiddle() {
-		cellarMiddle.setOpacity(0.3);
+		cellarMiddle.setOpacity(0.5);
 	}
 
 	@FXML
@@ -331,7 +404,7 @@ public class Spielfeld_Controller {
 	// markt
 	@FXML
 	public void pressMarketMiddle() {
-		marketMiddle.setOpacity(0.3);
+		marketMiddle.setOpacity(0.5);
 	}
 
 	@FXML
