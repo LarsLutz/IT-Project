@@ -22,6 +22,7 @@ public class Leaderboard_Model {
 				+ "FROM `spieler` "
 				+ "LEFT JOIN `leaderboard` "
 				+ "ON `leaderboard`.`Spieler_idSpieler` = `spieler`.`idSpieler`"
+				+ "WHERE `leaderboard`.`Resultat` is not null "
 				+ "ORDER BY `leaderboard`.`Resultat` DESC";
 	}
 	
