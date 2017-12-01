@@ -16,7 +16,7 @@ import java.util.Random;
 import Karte.SuperKarte;
 
 
-
+//Robin Widmer
 public class Deck {
 //	//sött Starthand erstelle
 //	public ArrayList<SuperKarte> deckliste;

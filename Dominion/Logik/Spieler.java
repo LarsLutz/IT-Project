@@ -15,7 +15,7 @@ import Logik.Zaehler;
 import java.util.Stack;
 
 public class Spieler {
-	
+	//Robin Widmer
 	//send alli spielbare charte uf de hand
 	public ArrayList<SuperKarte> handliste = new ArrayList<SuperKarte>();
 	public Stack<SuperKarte> deckliste = new Stack<SuperKarte>();
@@ -26,7 +26,7 @@ public class Spieler {
 	private int aktuelleRunde = 1; // erster Zug, Spielbeginn TODO getter und setter schreiben
 
 
-	
+	//Robin Widmer
 	public Spieler(int spielerNummer) {
 		this.spielerNummer = spielerNummer;
 		setupStartdeck();
@@ -35,7 +35,7 @@ public class Spieler {
 	}
 		
 
-	
+	//Robin Widmer
 	public void setupStartdeck(){
 		GeldKarte startGeld = new GeldKarte(1,"Kupfer",0, "copper.jpg");
 		PunkteKarte startPunkte = new PunkteKarte(1,"Anwesen", 1, "estate.jpg");
@@ -48,7 +48,7 @@ public class Spieler {
 	}
 			Schuffel(deckliste);
 	}
-	
+	//Robin Widmer
 	//legt abwerfliste auf deckliste wenn deck leer ist
 	public void deckIstLeer(){
 			deckliste.addAll(abwerfliste);
@@ -56,7 +56,7 @@ public class Spieler {
 			Collections.shuffle(deckliste);
 	}
 	
-	
+	//Robin Widmer
 	// zieht en zuefaelligi charte vom deck, machts Schuffel methode nutzlos, ueberprueft obs deck leer isch und duet demmentsprechend de abwerfstapel ufs deck lege
 	public void KarteZiehen(int anzahlKarten){
 		
@@ -68,10 +68,12 @@ public class Spieler {
 	//public void setupStarthand() {
 		//KarteZiehen(5);
 	//}
+	//Robin Widmer
 	// deck mischle aber im moment useless
 		public void Schuffel(Stack<SuperKarte> toSchuffel){
 			Collections.shuffle(toSchuffel);
 		}
+		//Robin Widmer
 //charte �berpruefe
 public Spielfeldkarte getSpielfeldkarte(SuperKarte K){
 for(Spielfeldkarte sk: Sammlung.feldkarten){
@@ -81,7 +83,16 @@ for(Spielfeldkarte sk: Sammlung.feldkarten){
 }
 return null;
 }
+<<<<<<< HEAD
 
+=======
+//Robin Widmer
+//Geldcharte spiele
+public void geldKarteSpielen(GeldKarte gk){
+	Zaehler.addGuthaben(gk.getGuthaben());
+}
+//Robin Widmer
+>>>>>>> f320eb635e155953c700a98dc65e59124c48972b
 //charte chaufe
 public SuperKarte kartenKaufen(SuperKarte K){
 	Spielfeldkarte sk = getSpielfeldkarte(K);
@@ -96,7 +107,7 @@ public SuperKarte kartenKaufen(SuperKarte K){
 	}
 
 
-
+//Robin Widmer
 	//Methode um gekaufte karte hinzuzuf�gen
 public void karteErhalten(SuperKarte K){
 	abwerfliste.add(K);

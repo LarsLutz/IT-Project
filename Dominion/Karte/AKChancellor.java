@@ -1,5 +1,9 @@
 package Karte;
 
+import Logik.Spieler;
+import Logik.Zaehler;
+
+//Robin Widmer
 public class AKChancellor extends AktionsKarte{
 
 	final int kosten = 3;
@@ -12,6 +16,11 @@ public class AKChancellor extends AktionsKarte{
 	
 	public AKChancellor(boolean deckDiscard){
 		this.deckDiscard = deckDiscard;
+	}
+	
+	public void karteSpielen(Spieler spieler){
+		Zaehler.addGuthaben(guthaben);
+		spieler.discard();
 	}
 	
 	

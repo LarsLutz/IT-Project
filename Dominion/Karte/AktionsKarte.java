@@ -1,5 +1,5 @@
 package Karte;
-
+//Robin Widmer
 public class AktionsKarte extends SuperKarte{
 	
 	// groesse ??

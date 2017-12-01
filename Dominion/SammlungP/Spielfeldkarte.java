@@ -18,7 +18,7 @@ public class Spielfeldkarte {
 	public SuperKarte art;
 	public int anzahlVorhanden;
 	
-	
+	//Robin Widmer
 // KonstrukTorte
 	public Spielfeldkarte(SuperKarte art, int anzahlVorhanden) {
 		this.art = art;
