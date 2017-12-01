@@ -7,6 +7,7 @@ import java.util.Random;
 import com.sun.java_cup.internal.runtime.Symbol;
 
 import Logik.Spieler;
+import Logik.Zaehler;
 import SammlungP.Sammlung;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,6 +30,7 @@ public class Spielfeld_Controller {
 	private Spieler spie;
 	private int ivCounter = 0;
 	private ArrayList<ImageView> viewList;
+	
 
 	public Spielfeld_Controller() {
 		sm = new Spielfeld_Model(11);
@@ -144,6 +146,7 @@ public class Spielfeld_Controller {
 
 		hBoxRealHand.getChildren().clear();
 		anzahlAblageStapel.setText(spie.abwerfliste.size() + "");
+		
 
 		for (int i = 0; i < groesseHand; i++) {
 			this.karteZiehen();
