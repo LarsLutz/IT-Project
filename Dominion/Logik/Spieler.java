@@ -21,8 +21,9 @@ public class Spieler {
 	public Stack<SuperKarte> deckliste = new Stack<SuperKarte>();
 	public Stack<SuperKarte> abwerfliste = new Stack<SuperKarte>();
 	public int spielerNummer;
-//	private final int LETZTERUNDE = 10; // Edu --> Zug = 10 --> Spiel endet.
-//	private int aktuelleRunde = 1; // erster Zug, Spielbeginn
+	//Eduart Bunjaku
+	final int LETZTERUNDE = 10; // Edu --> Zug = 10 --> Spiel endet.
+	private int aktuelleRunde = 1; // erster Zug, Spielbeginn TODO getter und setter schreiben
 
 
 	
@@ -110,11 +111,16 @@ public void karteErhalten(SuperKarte K){
 		}
 		
 		handliste.clear();
-		
-		//EB --> Nach Abwurf soll Runde um 1 erhöht werden.
-//				aktuelleRunde++;
-//				Zaehler.setRunde(aktuelleRunde);
-//				System.out.println("DAS IST DIE ------> " +Zaehler.getRunde()+" RUNDE");	
+			
+	}
+	
+	//Edu Bunjaku
+	public void setAktuelleRunde(int aktuelleRunde){
+		this.aktuelleRunde = aktuelleRunde;
+	}
+	
+	public int getAktuelleRunde(){
+		return this.aktuelleRunde;
 	}
 	 
 	

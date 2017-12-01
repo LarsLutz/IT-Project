@@ -112,9 +112,9 @@ public class Spielfeld_Controller {
 			ivCounter = 0;
 		}
 		// testen.... Logger fuer geistig behinderti
-		System.out.println("Deckliste " + spie.deckliste);
-		System.out.println("Handliste " + spie.handliste);
-		System.out.println("Abwerfliste " + spie.abwerfliste);
+//		System.out.println("Deckliste " + spie.deckliste);
+//		System.out.println("Handliste " + spie.handliste);
+//		System.out.println("Abwerfliste " + spie.abwerfliste);
 	}
 
 	// Aktionsphasen Knopf geklickt
@@ -166,6 +166,17 @@ public class Spielfeld_Controller {
 		bP1.setDisable(false);
 		bP2.setDisable(false);
 		bP3.setDisable(false);
+		
+		
+		
+		
+		
+		//Eduart Bunjaku
+		spie.setAktuelleRunde(spie.getAktuelleRunde()+1);
+		System.out.println(spie.getAktuelleRunde());
+		if(spie.getAktuelleRunde()==10){
+			
+		}
 	}
 
 	// folgende 5 geben beim drueberfahren mit der Maus Informationen ueber die
