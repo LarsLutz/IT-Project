@@ -1,5 +1,5 @@
 package Karte;
-
+//Robin Widmer
 public class GeldKarte extends SuperKarte{
 	private int wert;
 	private String name;

@@ -1,5 +1,5 @@
 package Karte;
-
+//Robin Widmer
 public class PunkteKarte extends SuperKarte{
 	private int punkte;
 	private String name;

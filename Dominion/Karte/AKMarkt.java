@@ -1,5 +1,5 @@
 package Karte;
-
+//Robin Widmer
 public class AKMarkt extends AktionsKarte{
 	
 	final int kosten = 5;
@@ -11,7 +11,7 @@ public class AKMarkt extends AktionsKarte{
 	final String typ = "Aktionskarte";
 	final String pfad = "market";
 	//TODO
-	final String beschreibung = "Ziehe eine Kart\nDu erhaeltst +1 Akton\nDu erhaeltst +1 Kaeufe\nDu erhaeltst +1 Guthaben";
+	final String beschreibung = "Ziehe eine Kart\nDu erhaeltst +1 Aktion\nDu erhaeltst +1 Kaeufe\nDu erhaeltst +1 Guthaben";
 	
 	
 	

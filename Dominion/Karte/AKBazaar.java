@@ -1,5 +1,5 @@
 package Karte;
-
+//Robin Widmer
 public class AKBazaar extends AktionsKarte{
 	
 	final int kosten = 5;

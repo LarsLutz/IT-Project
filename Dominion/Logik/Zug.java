@@ -15,7 +15,7 @@ import SammlungP.Sammlung;
 import Logik.Zaehler;
 import SammlungP.Deck;
 import Logik.Spieler;
-
+//Robin Widmer
 public class Zug{
 	Spieler[] spieler;
 	

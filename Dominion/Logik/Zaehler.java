@@ -1,7 +1,7 @@
 package Logik;
 
 public final class Zaehler {
-
+	//Robin Widmer
 	//w�rt ufem spielfeld
 	public static int aktionsZaehler = 0;
 	public static int guthaben = 0;
@@ -19,13 +19,14 @@ public final class Zaehler {
 		this.spielerAmZug = spielerAmZug;
 		this.runde = runde;
 	}
+	//Robin Widmer
 	//Startwert am afang vo jedem zog
 		public static void beginnZug(){
 			aktionsZaehler = 1;
 			kaufZaehler = 1;
 			guthaben = 1;
 		}
-		
+		//Robin Widmer
 		// Methode um d Charte effekt ch�nne azw�nde
 		public static void addKauf(int i){
 			kaufZaehler+=i;
