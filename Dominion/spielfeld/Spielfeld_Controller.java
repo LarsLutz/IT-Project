@@ -84,6 +84,9 @@ public class Spielfeld_Controller {
 		marketMiddle.setDisable(true);
 		smithyMiddle.setDisable(true);
 		Zaehler.beginnZug();
+		//zum Shopen am anfang
+		Zaehler.addGuthaben(10);
+		
 		labelsAktualisieren();
 	}
 
@@ -158,6 +161,7 @@ public class Spielfeld_Controller {
 	//werden diese bei entsprechendem Guthaben gekauft
 	@FXML
 	public void clickSmithyMiddle(){
+		spie.kartenKaufen(sam.aktionsKarten[4]);
 		spie.karteErhalten(sam.aktionsKarten[4]);
 		
 		labelsAktualisieren();

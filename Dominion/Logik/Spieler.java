@@ -78,7 +78,7 @@ public class Spieler {
 			Collections.shuffle(toSchuffel);
 		}
 		//Robin Widmer
-//charte �berpruefe
+//charte �berpruefe  -- ich checke ned wasi mit dere Methode sell mache
 public Spielfeldkarte getSpielfeldkarte(SuperKarte K){
 for(Spielfeldkarte sk: Sammlung.feldkarten){
 	if(sk.art.equals(K)){
