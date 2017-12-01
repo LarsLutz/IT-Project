@@ -1,4 +1,6 @@
 package Karte;
+import Logik.Zaehler;
+import Logik.Spieler;
 //Robin Widmer
 public class AKBazaar extends AktionsKarte{
 	
@@ -15,6 +17,14 @@ public class AKBazaar extends AktionsKarte{
 	public AKBazaar(){
 		
 	}
+	
+	public void karteSpielen(Spieler spieler){
+		spieler.deckIstLeer();
+		spieler.KarteZiehen(karteZiehen);
+		Zaehler.addAktion(karteKaufen);
+		Zaehler.addGuthaben(guthaben);
+	}
+	
 	
 	
 	public String getTyp() {

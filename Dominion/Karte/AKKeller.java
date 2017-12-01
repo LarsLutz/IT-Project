@@ -1,4 +1,7 @@
 package Karte;
+
+import Logik.Zaehler;
+import Logik.Spieler;
 //Robin Widmer
 public class AKKeller extends AktionsKarte{
 	
@@ -14,6 +17,13 @@ public class AKKeller extends AktionsKarte{
 	public AKKeller(int karteZiehen, int kartenAbwerfen){
 		this.karteZiehen = karteZiehen;
 		this.kartenAbwerfen = kartenAbwerfen;
+	}
+	
+	public void karteSpielen(Spieler spieler){
+		spieler.deckIstLeer();
+		spieler.KarteZiehen(karteZiehen);
+		Zaehler.addKauf(karteKaufen);
+		//TODO any card to discard and draw as much cards as discarded
 	}
 	
 	

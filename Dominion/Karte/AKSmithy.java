@@ -1,5 +1,8 @@
 package Karte;
 //Robin Widmer
+import Logik.Zaehler;
+import Logik.Spieler;
+
 public class AKSmithy extends AktionsKarte{
 	
 	final int kosten = 4;
@@ -10,16 +13,14 @@ public class AKSmithy extends AktionsKarte{
 	//TODO
 	final String beschreibung = "Ziehe 3 Karten";
 	
-	
-	public AKSmithy(){
-		
+	public void karteSpielen(Spieler spieler){
+		spieler.deckIstLeer();
+		spieler.KarteZiehen(karteZiehen);
 	}
 	
 	
-	
-	
-	
-	
+	public AKSmithy(){
+	}
 	
 	public String getTyp() {
 		return typ;

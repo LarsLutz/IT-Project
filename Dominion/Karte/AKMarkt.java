@@ -1,4 +1,6 @@
 package Karte;
+import Logik.Zaehler;
+import Logik.Spieler;
 //Robin Widmer
 public class AKMarkt extends AktionsKarte{
 	
@@ -19,7 +21,13 @@ public class AKMarkt extends AktionsKarte{
 		
 	}
 	
-	
+	public void karteSpielen(Spieler spieler){
+		spieler.deckIstLeer();
+		spieler.KarteZiehen(karteZiehen);
+		Zaehler.addAktion(karteKaufen);
+		Zaehler.addGuthaben(guthaben);
+		Zaehler.addKauf(karteKaufen);
+	}
 	
 	
 	
