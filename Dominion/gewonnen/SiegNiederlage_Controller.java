@@ -34,7 +34,7 @@ public class SiegNiederlage_Controller {
 			    currentStage.close();
 			    
 			    // opens new window 'LoginView.fxml'
-				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../chat/ChatGUI.fxml"));
+				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../lobby/LobbyGui.fxml"));
 		        Parent root1 = (Parent) fxmlLoader.load();
 		        Stage stage = new Stage();
 		        stage.setScene(new Scene(root1));  
