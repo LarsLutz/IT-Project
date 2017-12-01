@@ -15,17 +15,23 @@ import Logik.Zaehler;
 import java.util.Stack;
 
 public class Spieler {
-	
+	//Robin Widmer
 	//send alli spielbare charte uf de hand
 	public ArrayList<SuperKarte> handliste = new ArrayList<SuperKarte>();
 	public Stack<SuperKarte> deckliste = new Stack<SuperKarte>();
 	public Stack<SuperKarte> abwerfliste = new Stack<SuperKarte>();
 	public int spielerNummer;
-	private final int LETZTERUNDE = 10; // Edu --> Zug = 10 --> Spiel endet.
-	private int aktuelleRunde = 1; // erster Zug, Spielbeginn
+//<<<<<<< HEAD
+//	private final int LETZTERUNDE = 10; // Edu --> Zug = 10 --> Spiel endet.
+//	private int aktuelleRunde = 1; // erster Zug, Spielbeginn
+//=======
+//	//Eduart Bunjaku
+//	final int LETZTERUNDE = 10; // Edu --> Zug = 10 --> Spiel endet.
+//	private int aktuelleRunde = 1; // erster Zug, Spielbeginn TODO getter und setter schreiben
+//>>>>>>> f320eb635e155953c700a98dc65e59124c48972b
 
 
-	
+	//Robin Widmer
 	public Spieler(int spielerNummer) {
 		this.spielerNummer = spielerNummer;
 		setupStartdeck();
@@ -34,7 +40,7 @@ public class Spieler {
 	}
 		
 
-	
+	//Robin Widmer
 	public void setupStartdeck(){
 		GeldKarte startGeld = new GeldKarte(1,"Kupfer",0, "copper.jpg");
 		PunkteKarte startPunkte = new PunkteKarte(1,"Anwesen", 1, "estate.jpg");
@@ -47,7 +53,7 @@ public class Spieler {
 	}
 			Schuffel(deckliste);
 	}
-	
+	//Robin Widmer
 	//legt abwerfliste auf deckliste wenn deck leer ist
 	public void deckIstLeer(){
 			deckliste.addAll(abwerfliste);
@@ -55,7 +61,7 @@ public class Spieler {
 			Collections.shuffle(deckliste);
 	}
 	
-	
+	//Robin Widmer
 	// zieht en zuefaelligi charte vom deck, machts Schuffel methode nutzlos, ueberprueft obs deck leer isch und duet demmentsprechend de abwerfstapel ufs deck lege
 	public void KarteZiehen(int anzahlKarten){
 		
@@ -67,10 +73,12 @@ public class Spieler {
 	//public void setupStarthand() {
 		//KarteZiehen(5);
 	//}
+	//Robin Widmer
 	// deck mischle aber im moment useless
 		public void Schuffel(Stack<SuperKarte> toSchuffel){
 			Collections.shuffle(toSchuffel);
 		}
+		//Robin Widmer
 //charte �berpruefe
 public Spielfeldkarte getSpielfeldkarte(SuperKarte K){
 for(Spielfeldkarte sk: Sammlung.feldkarten){
@@ -80,6 +88,12 @@ for(Spielfeldkarte sk: Sammlung.feldkarten){
 }
 return null;
 }
+//Robin Widmer
+//Geldcharte spiele
+public void geldKarteSpielen(GeldKarte gk){
+	Zaehler.addGuthaben(gk.getGuthaben());
+}
+//Robin Widmer
 //charte chaufe
 public SuperKarte kartenKaufen(SuperKarte K){
 	Spielfeldkarte sk = getSpielfeldkarte(K);
@@ -94,7 +108,7 @@ public SuperKarte kartenKaufen(SuperKarte K){
 	}
 
 
-
+//Robin Widmer
 	//Methode um gekaufte karte hinzuzuf�gen
 public void karteErhalten(SuperKarte K){
 	abwerfliste.add(K);
@@ -110,11 +124,24 @@ public void karteErhalten(SuperKarte K){
 		}
 		
 		handliste.clear();
+<<<<<<< HEAD
 		
 //		 Nach Abwurf soll Runde um 1 erhöht werden.
 				aktuelleRunde++;
 				Zaehler.setRunde(aktuelleRunde);
 				System.out.println("DAS IST DIE ------> " +Zaehler.getRunde()+" RUNDE");	
+=======
+			
+	}
+	
+	//Edu Bunjaku
+	public void setAktuelleRunde(int aktuelleRunde){
+		this.aktuelleRunde = aktuelleRunde;
+	}
+	
+	public int getAktuelleRunde(){
+		return this.aktuelleRunde;
+>>>>>>> f320eb635e155953c700a98dc65e59124c48972b
 	}
 	 
 	
