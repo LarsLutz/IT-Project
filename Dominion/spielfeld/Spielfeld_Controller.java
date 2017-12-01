@@ -74,7 +74,7 @@ public class Spielfeld_Controller {
 
 	}
 
-	// Löst das Ziehen bzw. Erzeugen einer Karte aus...
+	// Löst das Ziehen bzw. Erzeugen einer Karte aus.
 	@FXML
 	public void karteZiehen() {
 		// behandlung des decks wenn dieses leer ist...
