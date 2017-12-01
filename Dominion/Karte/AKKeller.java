@@ -1,5 +1,5 @@
 package Karte;
-
+//Robin Widmer
 public class AKKeller extends AktionsKarte{
 	
 	final int kosten = 2;
@@ -9,7 +9,7 @@ public class AKKeller extends AktionsKarte{
 	private int kartenAbwerfen;
 	final String typ = "Aktionskarte";
 	final String pfad = "cellar.jpg";
-	final String beschreibung = "Du erhaeltst +1 Aktion\nRobin was macht die karte?";
+	final String beschreibung = "Du erhaeltst +1 Aktion\nWirf gewünschte Anzahl Karten ab\n+1 Karte ziehen pro abgeworfene Karte";
 	
 	public AKKeller(int karteZiehen, int kartenAbwerfen){
 		this.karteZiehen = karteZiehen;
