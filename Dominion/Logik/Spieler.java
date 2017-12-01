@@ -87,14 +87,16 @@ for(Spielfeldkarte sk: Sammlung.feldkarten){
 }
 return null;
 }
-
+<<<<<<< HEAD
+//dfdfdfdf
+=======
 //Robin Widmer
 //Geldcharte spiele
 public void geldKarteSpielen(GeldKarte gk){
 	Zaehler.addGuthaben(gk.getGuthaben());
 }
 //Robin Widmer
-
+>>>>>>> f320eb635e155953c700a98dc65e59124c48972b
 //charte chaufe
 public SuperKarte kartenKaufen(SuperKarte K){
 	Spielfeldkarte sk = getSpielfeldkarte(K);
@@ -161,10 +163,10 @@ public void karteErhalten(SuperKarte K){
 	
 // Edu
 //	public void punkteBerechnen(){
+//		dfdfdfdf
 //		
 //		
-//		
-//		
+//		dfdfdfdf
 //	}
 	
 
