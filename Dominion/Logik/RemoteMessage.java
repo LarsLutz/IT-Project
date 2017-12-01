@@ -22,6 +22,7 @@ public class RemoteMessage {
 	public void nachrichtBekommen(RemoteMessage m){
 		switch(m.handlung){
 		case aktionsKarteSpielen:
+			m.karte.getAktionsKarteSpielen();
 			break;
 		case karteKaufen:
 			break;
