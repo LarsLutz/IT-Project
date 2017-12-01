@@ -84,6 +84,11 @@ for(Spielfeldkarte sk: Sammlung.feldkarten){
 return null;
 }
 //Robin Widmer
+//Geldcharte spiele
+public void geldKarteSpielen(GeldKarte gk){
+	Zaehler.addGuthaben(gk.getGuthaben());
+}
+//Robin Widmer
 //charte chaufe
 public SuperKarte kartenKaufen(SuperKarte K){
 	Spielfeldkarte sk = getSpielfeldkarte(K);
