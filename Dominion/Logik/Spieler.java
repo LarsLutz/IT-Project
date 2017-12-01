@@ -81,6 +81,7 @@ for(Spielfeldkarte sk: Sammlung.feldkarten){
 }
 return null;
 }
+
 //charte chaufe
 public SuperKarte kartenKaufen(SuperKarte K){
 	Spielfeldkarte sk = getSpielfeldkarte(K);
