@@ -1,5 +1,6 @@
 package Logik;
 import Karte.SuperKarte;
+import Logik.Spieler;
 
 //Robin Widmer
 public class RemoteMessage {
@@ -8,10 +9,14 @@ public class RemoteMessage {
 	public static enum Handlung{aktionsKarteSpielen, karteKaufen, geldkartenSpielen, zugBeenden, kartenAbwerfen}
 	public final Handlung handlung;
 	public final SuperKarte karte;
+	public final int spielerNummer;
 	
-	public RemoteMessage(Handlung handlung, SuperKarte karte){
+	//TODO kei ahnig ob da mitem spieler so goht
+	public RemoteMessage(Handlung handlung, SuperKarte karte, int spielerNummer){
 		this.handlung = handlung;
 		this.karte = karte;
+		this.spielerNummer = spielerNummer;
+		
 	}
 	//um alli aktione vom spielfeld ufem server uszführe
 	public void nachrichtBekommen(RemoteMessage m){
@@ -21,6 +26,8 @@ public class RemoteMessage {
 		case karteKaufen:
 			break;
 		case geldkartenSpielen:
+			//TODO wie zum rechtige spieler objekt cho
+		//	spieler1.geldKarteSpielen(m.karte);
 			break;
 		case zugBeenden:
 			break;
