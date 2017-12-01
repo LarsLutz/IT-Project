@@ -1,6 +1,8 @@
 package spielfeld;
 
-public class Spielfeld_Model {
+import Logik.Spieler;
+
+public class Spielfeld_Model{
 	
 	//Jan Mueller
 	

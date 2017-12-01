@@ -33,7 +33,7 @@ public class Spielfeld_Controller {
 	
 
 	public Spielfeld_Controller() {
-		sm = new Spielfeld_Model(11);
+		sm = new Spielfeld_Model(13);
 		sam = new Sammlung();
 		spie = new Spieler(0);
 	}
