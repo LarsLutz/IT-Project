@@ -63,7 +63,7 @@ public class Spielfeld_Controller {
 
 	// wird vor dem oeffnen des Fensters gemacht
 	@FXML
-	public void initialize() {
+	public void initialize(){
 		viewList = new ArrayList<ImageView>();
 		for (int i = 0; i < sm.getAnzahlStarthand(); i++) {
 			this.karteZiehen();
