@@ -67,7 +67,7 @@ public class Registrieren_Model {
 	}
 	
 	
-public String setSpieler(){
+public void setSpieler(){
 		
 		SQLHandler.setBefehl(getsqlBefehl());
 		
@@ -77,7 +77,6 @@ public String setSpieler(){
 		
 		SQLHandler.dbclose();
 		
-		return ausgabe;
 	}
 	
 }
