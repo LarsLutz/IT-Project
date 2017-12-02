@@ -161,7 +161,7 @@ public class Spielfeld_Controller {
 	//werden diese bei entsprechendem Guthaben gekauft
 	@FXML
 	public void clickSmithyMiddle(){
-		spie.kartenKaufen(sam.aktionsKarten[4]);
+		//spie.kartenKaufen(sam.aktionsKarten[4]);
 		spie.karteErhalten(sam.aktionsKarten[4]);
 		
 		labelsAktualisieren();
