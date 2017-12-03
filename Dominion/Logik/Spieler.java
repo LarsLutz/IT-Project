@@ -166,9 +166,12 @@ public void karteErhalten(SuperKarte K){
 // Edu
 // Summiert die Punktkarten aus der Hand, Deck und Abwerfstapel	
 	public void punkteBerechnen(){
+		int summe = 0;
+		SuperKarte [] handListe = new SuperKarte[handliste.size()];
+		SuperKarte [] deckListe = new SuperKarte[handliste.size()];
+		SuperKarte [] abwerfListe = new SuperKarte[handliste.size()];
 		
-		
-		
+		handliste.toArray(handListe);
 		
 	}
 	
