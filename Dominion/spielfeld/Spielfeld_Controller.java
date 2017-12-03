@@ -250,7 +250,7 @@ public class Spielfeld_Controller {
 		//Eduart Bunjaku
 		spie.setAktuelleRunde(spie.getAktuelleRunde()+1);
 		System.out.println(spie.getAktuelleRunde());
-		if(spie.getAktuelleRunde()==10){
+		if(spie.getAktuelleRunde() == spie.getLetzteRunde()){
 			
 		}
 	}

@@ -144,6 +144,10 @@ public void karteErhalten(SuperKarte K){
 		return this.aktuelleRunde;
 
 	}
+	
+	public int getLetzteRunde(){
+		return this.LETZTERUNDE;
+	}
 	 
 	
 // Eduart Bunjaku
@@ -160,12 +164,13 @@ public void karteErhalten(SuperKarte K){
 	
 	
 // Edu
-//	public void punkteBerechnen(){
-//		dfdfdfdf
-//		
-//		
-//		dfdfdfdf
-//	}
+// Summiert die Punktkarten aus der Hand, Deck und Abwerfstapel	
+	public void punkteBerechnen(){
+		
+		
+		
+		
+	}
 	
 
 }
