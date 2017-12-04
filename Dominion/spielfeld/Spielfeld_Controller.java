@@ -70,6 +70,11 @@ public class Spielfeld_Controller {
 		anzahlAblageStapel.setText(spie.abwerfliste.size() + "");
 			
 	}
+	
+	public void standardAktionsKarteHandler(int no){
+		spie.aktionsKarteSpielen(no);
+		hBoxRealHand.getChildren().remove(no);
+	}
 
 	// wird vor dem oeffnen des Fensters gemacht
 	@FXML
@@ -115,28 +120,42 @@ public class Spielfeld_Controller {
 		});
 		 
 		 
-		// einzelne Karten werden ausgespielt
+		// einzelne Karten werden von der Hand ausgespielt
 		p.setOnMouseClicked((event)->{
 			
 			int aktuellerIndex = hBoxRealHand.getChildren().indexOf(p);
 			
-			//Geldkarten
+			//Geldkarten von Hand spielen
 			if(spie.handliste.get(aktuellerIndex).getWert() >= 1 && sm.getKaufPhase() == true){
 				spie.geldKarteSpielen(aktuellerIndex);
 				hBoxRealHand.getChildren().remove(aktuellerIndex);
 			}
 			
-			//Aktionskarten
-			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Bazaar") ||
-			spie.handliste.get(aktuellerIndex).getName().equals("Chancellor") ||
-			spie.handliste.get(aktuellerIndex).getName().equals("Keller")||
-			spie.handliste.get(aktuellerIndex).getName().equals("Markt") ||
-			spie.handliste.get(aktuellerIndex).getName().equals("Smithy"))){
-				
-				spie.aktionsKarteSpielen(aktuellerIndex);
-				hBoxRealHand.getChildren().remove(aktuellerIndex);
-				
+			
+			//Aktionskarten von Hand spielen
+			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Bazaar"))){
+				standardAktionsKarteHandler(aktuellerIndex);
 			}
+					
+			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Chancellor"))){
+				standardAktionsKarteHandler(aktuellerIndex);
+			}
+			
+			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Keller"))){
+				standardAktionsKarteHandler(aktuellerIndex);
+			}
+			
+			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Markt"))){
+				standardAktionsKarteHandler(aktuellerIndex);
+			}
+			//erst dummy maessig
+			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Smithy"))){
+				standardAktionsKarteHandler(aktuellerIndex);
+				for(int i = 0; i<3; i++) {
+					karteZiehen();
+				}
+			}
+				
 			
 			labelsAktualisieren();
 			

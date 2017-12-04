@@ -17,6 +17,7 @@ public class AKSmithy extends AktionsKarte{
 		spieler.deckIstLeer();
 		spieler.KarteZiehen(karteZiehen);
 	}
+
 	
 	
 	public AKSmithy(){
