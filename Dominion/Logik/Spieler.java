@@ -169,6 +169,18 @@ public void kartenKaufen(SuperKarte K){
 		int summeDeck = 0;
 		int summeAbwurf = 0;
 		
+		for( int i = 0; i < handliste.size(); i++ ){
+			summeHand = summeHand + handliste.get(i).getPunkte();
+		}
+		for( int i = 0; i < deckliste.size(); i++){
+			summeDeck = summeDeck + deckliste.get(i).getPunkte();
+		}
+		for( int i = 0; i < abwerfliste.size(); i++){
+			summeAbwurf = summeAbwurf + abwerfliste.get(i).getPunkte();
+		}
+		
+		System.out.println("AKTUELLE PUNKTE: " + summeHand + summeDeck + summeAbwurf );
+		
 //		int[] punkte = new int[handliste.size() + deckliste.size() + abwerfliste.size()];
 		
 //		for (int i = 0; i < punkte.length; i++){
