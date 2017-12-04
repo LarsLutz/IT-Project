@@ -68,6 +68,9 @@ public class Spieler {
 		
 		for (int i=0; i<anzahlKarten; i++){
 			handliste.add(deckliste.pop());
+			if(deckliste.size() == 0){
+				deckIstLeer();
+			}
 		}
 	}
 	// starthand erstelle --> Auskommentiert da unkonventionell geloest..

@@ -68,16 +68,7 @@ public class Spielfeld_Controller {
 		verbKaeufe.setText(Zaehler.getKaufZaehler()+"");
 		anzahlMeinStapel.setText(spie.deckliste.size() + "");
 		anzahlAblageStapel.setText(spie.abwerfliste.size() + "");
-		if(anzahlMeinStapel.equals(0+"")){
-			rueckseiteDeck.setVisible(false);
-		} else{
-			rueckseiteDeck.setVisible(true);
-		}
-		if(anzahlAblageStapel.equals(0+"")){
-			rueckseiteNormal.setVisible(false);
-		} else{
-			rueckseiteNormal.setVisible(true);
-		}
+			
 	}
 
 	// wird vor dem oeffnen des Fensters gemacht
@@ -109,21 +100,32 @@ public class Spielfeld_Controller {
 	// Löst das Ziehen bzw. Erzeugen einer Karte aus.
 	@FXML
 	public void karteZiehen() {
-		// behandlung des decks wenn dieses leer ist...
-		if (spie.deckliste.size() == 0) {
-			spie.deckIstLeer();
-		}
+		// Behandlung des decks wenn dieses leer ist...
+//		if (spie.deckliste.size() == 0) {
+//			spie.deckIstLeer();
+//		}
 
 		// ziehen unter normalen umstaenden
 		StackPane p = new StackPane();
 		ImageView iv = new ImageView(new Image(this.getClass().getResourceAsStream(spie.deckliste.peek().getPfad())));
+		viewList.add(iv);
 		p.setOnMousePressed((event)->{ 
 			p.setOpacity(0.5); 
 			});
-		 p.setOnMouseReleased((event)->{ 
-			 p.setOpacity(1); 
+		p.setOnMouseReleased((event)->{ 
+			 p.setOpacity(1);
 		});
-
+		 
+		 
+		//TODO -- Karte soll sobald sie gespielt ist auf Ablagestapel landen 
+		p.setOnMouseClicked((event)->{
+			System.out.println();
+		});
+		
+		
+		
+		
+		
 		spie.KarteZiehen(1);
 		labelsAktualisieren();
 		
