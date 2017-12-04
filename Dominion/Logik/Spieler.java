@@ -99,23 +99,17 @@ return null;
 }
 
 //Robin Widmer
-//Aktionscharte spiele
-// TODO neuindexierung der Hand ohne das Kartereihenfolge ge�ndert wird
+//Aktionkarte spielen
 // TODO richtiger spieler
 public void aktionsKarteSpielen(int indexH) {
-	if (Zaehler.aktionsZaehler > 0)
-	handliste.get(indexH).karteSpielen(1);
+	//handliste.get(indexH).karteSpielen(1); -- karteSpielen (ist die Funktion der Aktionskarte nehme ich an?) würde ich se
+	//separat auf dem S_Controller aufrufen...
+	Zaehler.aktionsZaehler--;
 	abwerfliste.push(handliste.get(indexH));
 	handliste.remove(indexH);
-	handliste.add(handliste.get(handliste.size()));
-	handliste.remove(handliste.size());
-	Zaehler.aktionsZaehler--;
 }
 
-//Robin Widmer
-//Geldcharte spiele
-//TODO neuindexierung der Hand ohne das Kartereihenfolge ge�ndert wird
-//TODO richtiger spieler
+//Robin Widmer -- nichts mehr machen.. funktioniert jetzt
 public void geldKarteSpielen(int indexH){
 		Zaehler.addGuthaben(handliste.get(indexH).getWert());
 		abwerfliste.push(handliste.get(indexH));

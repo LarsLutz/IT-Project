@@ -98,7 +98,7 @@ public class Spielfeld_Controller {
 	// Löst das Ziehen bzw. Erzeugen einer Karte aus.
 	@FXML
 	public void karteZiehen() {
-		// Behandlung des decks wenn dieses leer ist...
+		// Behandlung des decks wenn dieses leer ist... -- wird nicht auf der Methode direkt gemacht um eine emptyStackException zu umgehen...
 		if(spie.deckliste.size() == 0){
 			spie.deckIstLeer();
 		}
@@ -127,23 +127,22 @@ public class Spielfeld_Controller {
 			}
 			
 			//Aktionskarten
-			//TODO -- 
-			
+			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Bazaar") ||
+			spie.handliste.get(aktuellerIndex).getName().equals("Chancellor") ||
+			spie.handliste.get(aktuellerIndex).getName().equals("Keller")||
+			spie.handliste.get(aktuellerIndex).getName().equals("Markt") ||
+			spie.handliste.get(aktuellerIndex).getName().equals("Smithy"))){
+				
+				spie.aktionsKarteSpielen(aktuellerIndex);
+				hBoxRealHand.getChildren().remove(aktuellerIndex);
+				
+			}
 			
 			labelsAktualisieren();
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 			//Test
-			//System.out.println(spie.handliste);
-			//System.out.println(spie.abwerfliste);
+			System.out.println(spie.handliste);
+			System.out.println(spie.abwerfliste);
 		});
 		
 		
