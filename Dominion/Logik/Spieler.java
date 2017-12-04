@@ -96,13 +96,13 @@ return null;
 //Robin Widmer
 //Aktionscharte spiele
 // TODO neuindexierung der Hand ohne das Kartereihenfolge geändert wird
-public void aktionsKarteSpielen(AktionsKarte ak, int indexH) {
+public void aktionsKarteSpielen(SuperKarte ak, int indexH) {
 	if (Zaehler.aktionsZaehler > 0)
 	abwerfliste.push(handliste.get(indexH));
 	handliste.remove(indexH);
 	handliste.add(handliste.get(handliste.size()));
 	handliste.remove(handliste.size());
-	ak.getAktionsKarteSpielen();
+	ak.karteSpielen();
 	Zaehler.aktionsZaehler--;
 	
 }
