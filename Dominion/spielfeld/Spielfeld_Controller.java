@@ -309,7 +309,7 @@ public class Spielfeld_Controller {
 		spie.setAktuelleRunde(spie.getAktuelleRunde()+1);
 		System.out.println(spie.getAktuelleRunde());
 		if(spie.getAktuelleRunde() == spie.getLetzteRunde()){
-			
+			spie.punkteBerechnen(); // funktioniert noch nicht 
 		}
 	}
 	
