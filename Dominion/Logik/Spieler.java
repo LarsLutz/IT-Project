@@ -21,6 +21,7 @@ public class Spieler {
 	public Stack<SuperKarte> deckliste = new Stack<SuperKarte>();
 	public Stack<SuperKarte> abwerfliste = new Stack<SuperKarte>();
 	public int spielerNummer;
+	private SuperKarte superkarte;
 
 //	private final int LETZTERUNDE = 10; // Edu --> Zug = 10 --> Spiel endet.
 
@@ -167,11 +168,15 @@ public void karteErhalten(SuperKarte K){
 // Summiert die Punktkarten aus der Hand, Deck und Abwerfstapel	
 	public void punkteBerechnen(){
 		int summe = 0;
-		SuperKarte [] handListe = new SuperKarte[handliste.size()];
-		SuperKarte [] deckListe = new SuperKarte[handliste.size()];
-		SuperKarte [] abwerfListe = new SuperKarte[handliste.size()];
+//		SuperKarte [] handListe = new SuperKarte[handliste.size()];
+//		SuperKarte [] deckListe = new SuperKarte[handliste.size()];
+//		SuperKarte [] abwerfListe = new SuperKarte[handliste.size()];
+//		
+//		handliste.toArray(handListe);
 		
-		handliste.toArray(handListe);
+		int[] punkte = new int[handliste.size() + deckliste.size() + abwerfliste.size()];
+		
+	//	int p = handliste.getClass().getResourceAsStream(superkarte.getPunkte());
 		
 	}
 	
