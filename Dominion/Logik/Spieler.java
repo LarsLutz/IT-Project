@@ -150,7 +150,9 @@ public void kartenKaufen(SuperKarte K){
 	 
 	
 // Eduart Bunjaku
-// Nach Spielende werden Punkte berechnet und Sieger/Verlierer bekannt gegeben
+/**
+ * @param Beendet Spiel, wenn 10 Züge vorbei sind und ruft Methode punkteBerechnen() auf.
+ */
 	public void beendeSpiel(){
 		if(aktuelleRunde == LETZTERUNDE){
 			punkteBerechnen();
@@ -162,7 +164,9 @@ public void kartenKaufen(SuperKarte K){
 	
 	
 // Edu
-// Summiert die Punktkarten aus der Hand, Deck und Abwerfstapel	
+/**
+ * @param Summiert die Punktkarten aus der Hand, Deck und Abwerfstapel.	
+ */
 	public void punkteBerechnen(){
 		int summeHand = 0;
 		int summeDeck = 0;
@@ -179,14 +183,7 @@ public void kartenKaufen(SuperKarte K){
 		}
 		
 		System.out.println("AKTUELLE PUNKTE: " + (summeHand + summeDeck + summeAbwurf) );
-		
-//		int[] punkte = new int[handliste.size() + deckliste.size() + abwerfliste.size()];
-		
-//		for (int i = 0; i < punkte.length; i++){
-//			summe = summe + handliste.get(i).getPunkte() + deckliste.get(i).getPunkte() + abwerfliste.get(i).getPunkte();
-//		}
-//	System.out.println("PUNKTEANZAHL: " + summe);
-		
+	
 	}
 	
 
