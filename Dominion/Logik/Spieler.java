@@ -182,7 +182,9 @@ public void kartenKaufen(SuperKarte K){
 			summeAbwurf = summeAbwurf + abwerfliste.get(i).getPunkte();
 		}
 		
-		System.out.println("AKTUELLE PUNKTE: " + (summeHand + summeDeck + summeAbwurf) );
+		int gesamtsumme = summeHand + summeDeck + summeAbwurf;
+		
+		System.out.println("AKTUELLE PUNKTE: " + gesamtsumme );
 	
 	}
 	
