@@ -49,4 +49,7 @@ public class SuperKarte {
 	public String getPfad(){
 		return pfad;
 	}
+	public void karteSpielen(int i) {
+		
+	}
 }
