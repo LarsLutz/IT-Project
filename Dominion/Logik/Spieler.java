@@ -94,6 +94,20 @@ return null;
 }
 
 //Robin Widmer
+//Aktionscharte spiele
+// TODO neuindexierung der Hand ohne das Kartereihenfolge geändert wird
+public void aktionsKarteSpielen(AktionsKarte ak, int indexH) {
+	if (Zaehler.aktionsZaehler > 0)
+	abwerfliste.push(handliste.get(indexH));
+	handliste.remove(indexH);
+	handliste.add(handliste.get(handliste.size()));
+	handliste.remove(handliste.size());
+	ak.getAktionsKarteSpielen();
+	Zaehler.aktionsZaehler--;
+	
+}
+
+//Robin Widmer
 //Geldcharte spiele
 public void geldKarteSpielen(GeldKarte gk){
 	Zaehler.addGuthaben(gk.getGuthaben());
