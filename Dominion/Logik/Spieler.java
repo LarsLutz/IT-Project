@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 import SammlungP.Spielfeldkarte;
+import javafx.application.Platform;
 import Karte.AktionsKarte;
 import Karte.GeldKarte;
 import Karte.PunkteKarte;
@@ -150,14 +151,14 @@ public void kartenKaufen(SuperKarte K){
 	
 // Eduart Bunjaku
 // Nach Spielende werden Punkte berechnet und Sieger/Verlierer bekannt gegeben
-//	public void beendeSpiel(){
-//	if(Spieler1.spielerNummer.getRunde() == LETZTERUNDE && Spieler2.spielerNummer.getRunde() == LETZTERUNDE){
-//		this.punkteBerechnen();
-//
-//	
-//	}
-//		
-//	}
+	public void beendeSpiel(){
+		if(aktuelleRunde == LETZTERUNDE){
+			punkteBerechnen();
+
+			Platform.exit();
+	}
+		
+	}
 	
 	
 	
