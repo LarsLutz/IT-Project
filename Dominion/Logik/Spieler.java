@@ -177,6 +177,7 @@ public void karteErhalten(SuperKarte K){
 		int[] punkte = new int[handliste.size() + deckliste.size() + abwerfliste.size()];
 		
 	//	int p = handliste.getClass().getResourceAsStream(superkarte.getPunkte());
+	//	int p = handliste.get(0).getPunkte();
 		
 	}
 	
