@@ -68,6 +68,16 @@ public class Spielfeld_Controller {
 		verbKaeufe.setText(Zaehler.getKaufZaehler()+"");
 		anzahlMeinStapel.setText(spie.deckliste.size() + "");
 		anzahlAblageStapel.setText(spie.abwerfliste.size() + "");
+		if(anzahlMeinStapel.equals(0+"")){
+			rueckseiteDeck.setVisible(false);
+		} else{
+			rueckseiteDeck.setVisible(true);
+		}
+		if(anzahlAblageStapel.equals(0+"")){
+			rueckseiteNormal.setVisible(false);
+		} else{
+			rueckseiteNormal.setVisible(true);
+		}
 	}
 
 	// wird vor dem oeffnen des Fensters gemacht
