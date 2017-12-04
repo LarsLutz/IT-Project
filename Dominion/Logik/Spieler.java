@@ -165,13 +165,16 @@ public void kartenKaufen(SuperKarte K){
 // Edu
 // Summiert die Punktkarten aus der Hand, Deck und Abwerfstapel	
 	public void punkteBerechnen(){
-		int summe = 0;
-		int[] punkte = new int[handliste.size() + deckliste.size() + abwerfliste.size()];
+		int summeHand = 0;
+		int summeDeck = 0;
+		int summeAbwurf = 0;
 		
-		for (int i = 0; i < punkte.length; i++){
-			summe = summe + handliste.get(i).getPunkte() + deckliste.get(i).getPunkte() + abwerfliste.get(i).getPunkte();
-		}
-		System.out.println("PUNKTEANZAHL: " + summe);
+//		int[] punkte = new int[handliste.size() + deckliste.size() + abwerfliste.size()];
+		
+//		for (int i = 0; i < punkte.length; i++){
+//			summe = summe + handliste.get(i).getPunkte() + deckliste.get(i).getPunkte() + abwerfliste.get(i).getPunkte();
+//		}
+//	System.out.println("PUNKTEANZAHL: " + summe);
 		
 	}
 	
