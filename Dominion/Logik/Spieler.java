@@ -97,24 +97,21 @@ public void geldKarteSpielen(GeldKarte gk){
 //Robin Widmer
 
 //charte chaufe
-public SuperKarte kartenKaufen(SuperKarte K){
-	Spielfeldkarte sk = getSpielfeldkarte(K);
-	if(sk.anzahlVorhanden > 0){
-		if(sk.art.getKosten() > Zaehler.getGuthaben()){
-	}
-			return null;
-		}else
-		Zaehler.setGuthaben(Zaehler.getGuthaben() - sk.art.getKosten());
-		sk.anzahlVorhanden--;
-		return K;
+public void kartenKaufen(SuperKarte K){
+	if(K.getKosten() <= Zaehler.getGuthaben()&&Zaehler.getKaufZaehler()>0){
+		abwerfliste.add(K);
+		int guthabenNachher = Zaehler.guthaben - K.getKosten();
+		Zaehler.guthaben = guthabenNachher;
+		Zaehler.kaufZaehler --;
+		}	
 	}
 
 
 //Robin Widmer
-	//Methode um gekaufte karte hinzuzuf�gen
-public void karteErhalten(SuperKarte K){
-	abwerfliste.add(K);
-	}
+	//Methode um gekaufte karte hinzuzuf�gen -- diese Methode ist mit karten Kaufen zusammengefügt worden :)
+//public void karteErhalten(SuperKarte K){
+//	abwerfliste.add(K);
+//	}
 
 
 //Jan Mueller

@@ -24,7 +24,7 @@ public final class Zaehler {
 		public static void beginnZug(){
 			aktionsZaehler = 1;
 			kaufZaehler = 1;
-			guthaben = 1;
+			guthaben = 0;
 		}
 		//Robin Widmer
 		// Methode um d Charte effekt ch�nne azw�nde

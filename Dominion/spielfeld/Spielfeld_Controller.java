@@ -91,7 +91,7 @@ public class Spielfeld_Controller {
 		anwesen6.setDisable(true);
 		Zaehler.beginnZug();
 		//zum Shopen am anfang
-		Zaehler.addGuthaben(10);
+		Zaehler.guthaben = 4;
 		
 		labelsAktualisieren();
 	}
@@ -133,9 +133,9 @@ public class Spielfeld_Controller {
 			ivCounter = 0;
 		}
 		// testen.... Logger fuer geistig behinderti
-		System.out.println("Deckliste " + spie.deckliste);
-		System.out.println("Handliste " + spie.handliste);
-		System.out.println("Abwerfliste " + spie.abwerfliste);
+//		System.out.println("Deckliste " + spie.deckliste);
+//		System.out.println("Handliste " + spie.handliste);
+//		System.out.println("Abwerfliste " + spie.abwerfliste);
 	}
 
 	// Aktionsphasen Knopf geklickt
@@ -173,78 +173,77 @@ public class Spielfeld_Controller {
 	//werden diese bei entsprechendem Guthaben gekauft
 	@FXML
 	public void clickSmithyMiddle(){
-		//spie.kartenKaufen(sam.aktionsKarten[4]);
-		spie.karteErhalten(sam.aktionsKarten[4]);
+		spie.kartenKaufen(sam.aktionsKarten[4]);
 		
 		labelsAktualisieren();
 	}
 	
 	@FXML
 	public void clickMarketMiddle(){
-		spie.karteErhalten(sam.aktionsKarten[3]);
+		spie.kartenKaufen(sam.aktionsKarten[3]);
 		
 		labelsAktualisieren();
 	}
 	
 	@FXML
 	public void clickChancellorMiddle(){
-		spie.karteErhalten(sam.aktionsKarten[1]);
+		spie.kartenKaufen(sam.aktionsKarten[1]);
 		
 		labelsAktualisieren();
 	}
 	
 	@FXML
 	public void clickCellarMiddle(){
-		spie.karteErhalten(sam.aktionsKarten[2]);
+		spie.kartenKaufen(sam.aktionsKarten[2]);
 		
 		labelsAktualisieren();
 	}
 	
 	@FXML
 	public void clickBazaarMiddle(){
-		spie.karteErhalten(sam.aktionsKarten[0]);
+		spie.kartenKaufen(sam.aktionsKarten[0]);
 		
 		labelsAktualisieren();
 	}
 	
 	@FXML
 	public void clickKupfer(){
-		spie.karteErhalten(sam.geldKarten[0]);
+		spie.kartenKaufen(sam.geldKarten[0]);
 		
 		labelsAktualisieren();
 	}
 	
 	@FXML
 	public void clickSilber(){
-		spie.karteErhalten(sam.geldKarten[1]);
+		spie.kartenKaufen(sam.geldKarten[1]);
 		
 		labelsAktualisieren();
 	}
 	
 	@FXML
 	public void clickGold(){
-		spie.karteErhalten(sam.geldKarten[2]);
+		spie.kartenKaufen(sam.geldKarten[2]);
 		
 		labelsAktualisieren();
 	}
 	
 	@FXML
 	public void clickAnwesen1(){
-		spie.karteErhalten(sam.punkteKarten[0]);
+		spie.kartenKaufen(sam.punkteKarten[0]);
 		
 		labelsAktualisieren();
 	}
 	
 	@FXML
 	public void clickAnwesen3(){
-		spie.karteErhalten(sam.punkteKarten[2]);
+		spie.kartenKaufen(sam.punkteKarten[2]);
 		
 		labelsAktualisieren();
 	}
 	
 	@FXML
 	public void clickAnwesen6(){
-		spie.karteErhalten(sam.punkteKarten[1]);
+		spie.kartenKaufen(sam.punkteKarten[1]);
 		
 		labelsAktualisieren();
 	}
