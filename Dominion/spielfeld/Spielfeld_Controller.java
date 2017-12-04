@@ -91,8 +91,6 @@ public class Spielfeld_Controller {
 		anwesen3.setDisable(true);
 		anwesen6.setDisable(true);
 		Zaehler.beginnZug();
-		//zum Shopen am anfang
-		Zaehler.guthaben = 4;
 		
 		labelsAktualisieren();
 	}
@@ -101,9 +99,9 @@ public class Spielfeld_Controller {
 	@FXML
 	public void karteZiehen() {
 		// Behandlung des decks wenn dieses leer ist...
-//		if (spie.deckliste.size() == 0) {
-//			spie.deckIstLeer();
-//		}
+		if(spie.deckliste.size() == 0){
+			spie.deckIstLeer();
+		}
 
 		// ziehen unter normalen umstaenden
 		StackPane p = new StackPane();
@@ -117,17 +115,35 @@ public class Spielfeld_Controller {
 		});
 		 
 		 
-		//TODO -- Karte soll sobald sie gespielt ist auf Ablagestapel landen
+		// einzelne Karten werden ausgespielt
 		p.setOnMouseClicked((event)->{
-			System.out.println(hBoxRealHand.getChildren().indexOf(p));
-			spie.geldKarteSpielen(hBoxRealHand.getChildren().indexOf(p));
-			hBoxRealHand.getChildren().remove(hBoxRealHand.getChildren().indexOf(p));
+			
+			int aktuellerIndex = hBoxRealHand.getChildren().indexOf(p);
+			
+			//Geldkarten
+			if(spie.handliste.get(aktuellerIndex).getWert() >= 1 && sm.getKaufPhase() == true){
+				spie.geldKarteSpielen(aktuellerIndex);
+				hBoxRealHand.getChildren().remove(aktuellerIndex);
+			}
+			
+			//Aktionskarten
+			//TODO -- 
 			
 			
 			labelsAktualisieren();
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			//Test
-			System.out.println(spie.handliste);
-			System.out.println(spie.abwerfliste);
+			//System.out.println(spie.handliste);
+			//System.out.println(spie.abwerfliste);
 		});
 		
 		
@@ -161,6 +177,7 @@ public class Spielfeld_Controller {
 	// Aktionsphasen Knopf geklickt
 	@FXML
 	public void aktionsPhase() {
+		sm.setAktionsPhase(true);
 		startLabel.setText("Aktionsphase");
 		bP1.setDisable(true);
 		pMeinDeck.setDisable(true);
@@ -169,6 +186,8 @@ public class Spielfeld_Controller {
 	// Kaufphasen Knopf geklickt
 	@FXML
 	public void kaufPhase() {
+		sm.setAktionsPhase(false);
+		sm.setKaufPhase(true);
 		startLabel.setText("Kaufphase");
 		bP1.setDisable(true);
 		bP2.setDisable(true);
@@ -278,7 +297,8 @@ public class Spielfeld_Controller {
 	// Discardphasen Knopf geklickt
 	@FXML
 	public void discardPhase() {
-
+		sm.setKaufPhase(false);
+		sm.setDiscardPhase(true);
 		// lokale Variable damit wir nachher wissen wieviele Karten zu ziehen
 		// sind
 		int groesseHand = spie.handliste.size();
@@ -291,6 +311,7 @@ public class Spielfeld_Controller {
 
 		for (int i = 0; i < groesseHand; i++) {
 			this.karteZiehen();
+			sm.setDiscardPhase(false);
 		}
 		
 		bP3.setDisable(true);

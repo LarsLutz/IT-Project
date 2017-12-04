@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Random;
 import SammlungP.Spielfeldkarte;
 import javafx.application.Platform;
+import spielfeld.Spielfeld_Model;
 import Karte.AktionsKarte;
 import Karte.GeldKarte;
 import Karte.PunkteKarte;
@@ -29,7 +30,7 @@ public class Spieler {
 //	//Eduart Bunjaku
 	final int LETZTERUNDE = 10; // Edu --> Zug = 10 --> Spiel endet.
 	private int aktuelleRunde = 1; // erster Zug, Spielbeginn TODO getter und setter schreiben
-
+	
 
 
 	//Robin Widmer
@@ -68,9 +69,6 @@ public class Spieler {
 		
 		for (int i=0; i<anzahlKarten; i++){
 			handliste.add(deckliste.pop());
-			if(deckliste.size() == 0){
-				deckIstLeer();
-			}
 		}
 	}
 	// starthand erstelle --> Auskommentiert da unkonventionell geloest..
@@ -112,12 +110,9 @@ public void aktionsKarteSpielen(int indexH) {
 //TODO neuindexierung der Hand ohne das Kartereihenfolge ge�ndert wird
 //TODO richtiger spieler
 public void geldKarteSpielen(int indexH){
-	//Zaehler.guthaben = Zaehler.guthaben+handliste.get(indexH).getGuthaben();
-	Zaehler.addGuthaben(handliste.get(indexH).getGuthaben());
-	abwerfliste.push(handliste.get(indexH));
-	handliste.remove(indexH);
-	//handliste.add(handliste.get(handliste.size()));
-	//handliste.remove(handliste.size());
+		Zaehler.addGuthaben(handliste.get(indexH).getWert());
+		abwerfliste.push(handliste.get(indexH));
+		handliste.remove(indexH);
 }
 //Robin Widmer
 
