@@ -226,7 +226,7 @@
                      <children>
                         <Pane fx:id="p1" prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="anwesen1" fitHeight="118.0" fitWidth="86.0" onMousePressed="#pressAnwesen1" onMouseReleased="#releaseAnwesen1" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="anwesen1" fitHeight="118.0" fitWidth="86.0" onMouseClicked="#clickAnwesen1" onMousePressed="#pressAnwesen1" onMouseReleased="#releaseAnwesen1" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@estate.jpg" />
                                  </image>
@@ -238,7 +238,7 @@
                         </Pane>
                         <Pane fx:id="pKupfer" prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="kupfer" fitHeight="118.0" fitWidth="86.0" onMousePressed="#pressKupfer" onMouseReleased="#releaseKupfer" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="kupfer" fitHeight="118.0" fitWidth="86.0" onMouseClicked="#clickKupfer" onMousePressed="#pressKupfer" onMouseReleased="#releaseKupfer" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@copper.jpg" />
                                  </image>
@@ -251,7 +251,7 @@
                      <children>
                         <Pane fx:id="p3" prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="anwesen3" fitHeight="118.0" fitWidth="86.0" layoutY="14.0" onMousePressed="#pressAnwesen3" onMouseReleased="#releaseAnwesen3" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="anwesen3" fitHeight="118.0" fitWidth="86.0" layoutY="14.0" onMouseClicked="#clickAnwesen3" onMousePressed="#pressAnwesen3" onMouseReleased="#releaseAnwesen3" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@duchy.jpg" />
                                  </image>
@@ -260,7 +260,7 @@
                         </Pane>
                         <Pane fx:id="pSilber" prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="silber" fitHeight="118.0" fitWidth="86.0" layoutY="14.0" onMousePressed="#pressSilber" onMouseReleased="#releaseSilber" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="silber" fitHeight="118.0" fitWidth="86.0" layoutY="14.0" onMouseClicked="#clickSilber" onMousePressed="#pressSilber" onMouseReleased="#releaseSilber" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@silver.jpg" />
                                  </image>
@@ -273,7 +273,7 @@
                      <children>
                         <Pane fx:id="p6" prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="anwesen6" fitHeight="118.0" fitWidth="86.0" layoutY="27.0" onMousePressed="#pressAnwesen6" onMouseReleased="#releaseAnwesen6" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="anwesen6" fitHeight="118.0" fitWidth="86.0" layoutY="27.0" onMouseClicked="#clickAnwesen6" onMousePressed="#pressAnwesen6" onMouseReleased="#releaseAnwesen6" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@province.jpg" />
                                  </image>
@@ -282,7 +282,7 @@
                         </Pane>
                         <Pane fx:id="pGold" prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <ImageView fx:id="gold" fitHeight="118.0" fitWidth="86.0" layoutY="27.0" onMousePressed="#pressGold" onMouseReleased="#releaseGold" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="gold" fitHeight="118.0" fitWidth="86.0" layoutY="27.0" onMouseClicked="#clickGold" onMousePressed="#pressGold" onMouseReleased="#releaseGold" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@gold.jpg" />
                                  </image>

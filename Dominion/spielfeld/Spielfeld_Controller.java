@@ -83,6 +83,12 @@ public class Spielfeld_Controller {
 		chancellorMiddle.setDisable(true);
 		marketMiddle.setDisable(true);
 		smithyMiddle.setDisable(true);
+		kupfer.setDisable(true);
+		silber.setDisable(true);
+		gold.setDisable(true);
+		anwesen1.setDisable(true);
+		anwesen3.setDisable(true);
+		anwesen6.setDisable(true);
 		Zaehler.beginnZug();
 		//zum Shopen am anfang
 		Zaehler.addGuthaben(10);
@@ -152,12 +158,18 @@ public class Spielfeld_Controller {
 		chancellorMiddle.setDisable(false);
 		marketMiddle.setDisable(false);
 		smithyMiddle.setDisable(false);
+		kupfer.setDisable(false);
+		silber.setDisable(false);
+		gold.setDisable(false);
+		anwesen1.setDisable(false);
+		anwesen3.setDisable(false);
+		anwesen6.setDisable(false);
 		
 		
 		
 	}
 	
-	//Durch klick auf versch. Aktionskarten in der Mitte des Spielfelds (in der Kaufphase)
+	//Durch klick auf versch. Aktions- , Geld- und Punktekarten (in der Kaufphase)
 	//werden diese bei entsprechendem Guthaben gekauft
 	@FXML
 	public void clickSmithyMiddle(){
@@ -195,6 +207,47 @@ public class Spielfeld_Controller {
 		labelsAktualisieren();
 	}
 	
+	@FXML
+	public void clickKupfer(){
+		spie.karteErhalten(sam.geldKarten[0]);
+		
+		labelsAktualisieren();
+	}
+	
+	@FXML
+	public void clickSilber(){
+		spie.karteErhalten(sam.geldKarten[1]);
+		
+		labelsAktualisieren();
+	}
+	
+	@FXML
+	public void clickGold(){
+		spie.karteErhalten(sam.geldKarten[2]);
+		
+		labelsAktualisieren();
+	}
+	
+	@FXML
+	public void clickAnwesen1(){
+		spie.karteErhalten(sam.punkteKarten[0]);
+		
+		labelsAktualisieren();
+	}
+	
+	@FXML
+	public void clickAnwesen3(){
+		spie.karteErhalten(sam.punkteKarten[2]);
+		
+		labelsAktualisieren();
+	}
+	
+	@FXML
+	public void clickAnwesen6(){
+		spie.karteErhalten(sam.punkteKarten[1]);
+		
+		labelsAktualisieren();
+	}
 	
 	
 	
@@ -230,6 +283,12 @@ public class Spielfeld_Controller {
 		chancellorMiddle.setDisable(true);
 		marketMiddle.setDisable(true);
 		smithyMiddle.setDisable(true);
+		kupfer.setDisable(true);
+		silber.setDisable(true);
+		gold.setDisable(true);
+		anwesen1.setDisable(true);
+		anwesen3.setDisable(true);
+		anwesen6.setDisable(true);
 		bZugBeenden.setDisable(false);
 	}
 
