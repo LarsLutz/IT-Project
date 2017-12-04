@@ -95,7 +95,7 @@ return null;
 
 //Robin Widmer
 //Aktionscharte spiele
-// TODO neuindexierung der Hand ohne das Kartereihenfolge geändert wird
+// TODO neuindexierung der Hand ohne das Kartereihenfolge geï¿½ndert wird
 // TODO richtiger spieler
 public void aktionsKarteSpielen(int indexH) {
 	if (Zaehler.aktionsZaehler > 0)
@@ -109,14 +109,15 @@ public void aktionsKarteSpielen(int indexH) {
 
 //Robin Widmer
 //Geldcharte spiele
-//TODO neuindexierung der Hand ohne das Kartereihenfolge geändert wird
+//TODO neuindexierung der Hand ohne das Kartereihenfolge geï¿½ndert wird
 //TODO richtiger spieler
 public void geldKarteSpielen(int indexH){
+	//Zaehler.guthaben = Zaehler.guthaben+handliste.get(indexH).getGuthaben();
 	Zaehler.addGuthaben(handliste.get(indexH).getGuthaben());
 	abwerfliste.push(handliste.get(indexH));
 	handliste.remove(indexH);
-	handliste.add(handliste.get(handliste.size()));
-	handliste.remove(handliste.size());
+	//handliste.add(handliste.get(handliste.size()));
+	//handliste.remove(handliste.size());
 }
 //Robin Widmer
 

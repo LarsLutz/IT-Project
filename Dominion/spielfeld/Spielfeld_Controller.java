@@ -120,6 +120,14 @@ public class Spielfeld_Controller {
 		//TODO -- Karte soll sobald sie gespielt ist auf Ablagestapel landen
 		p.setOnMouseClicked((event)->{
 			System.out.println(hBoxRealHand.getChildren().indexOf(p));
+			spie.geldKarteSpielen(hBoxRealHand.getChildren().indexOf(p));
+			hBoxRealHand.getChildren().remove(hBoxRealHand.getChildren().indexOf(p));
+			
+			
+			labelsAktualisieren();
+			//Test
+			System.out.println(spie.handliste);
+			System.out.println(spie.abwerfliste);
 		});
 		
 		
