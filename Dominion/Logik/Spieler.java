@@ -154,7 +154,6 @@ public void kartenKaufen(SuperKarte K){
 	public void beendeSpiel(){
 		if(aktuelleRunde == LETZTERUNDE){
 			punkteBerechnen();
-
 			Platform.exit();
 	}
 		
@@ -179,7 +178,7 @@ public void kartenKaufen(SuperKarte K){
 			summeAbwurf = summeAbwurf + abwerfliste.get(i).getPunkte();
 		}
 		
-		System.out.println("AKTUELLE PUNKTE: " + summeHand + summeDeck + summeAbwurf );
+		System.out.println("AKTUELLE PUNKTE: " + (summeHand + summeDeck + summeAbwurf) );
 		
 //		int[] punkte = new int[handliste.size() + deckliste.size() + abwerfliste.size()];
 		
