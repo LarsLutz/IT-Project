@@ -117,9 +117,9 @@ public class Spielfeld_Controller {
 		});
 		 
 		 
-		//TODO -- Karte soll sobald sie gespielt ist auf Ablagestapel landen 
+		//TODO -- Karte soll sobald sie gespielt ist auf Ablagestapel landen
 		p.setOnMouseClicked((event)->{
-			System.out.println();
+			System.out.println(hBoxRealHand.getChildren().indexOf(p));
 		});
 		
 		
