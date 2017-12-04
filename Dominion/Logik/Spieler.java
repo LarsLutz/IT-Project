@@ -1,10 +1,16 @@
 package Logik;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 import SammlungP.Spielfeldkarte;
+import gewonnen.SiegNiederlage_Main;
 import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import spielfeld.Spielfeld_Model;
 import Karte.AktionsKarte;
 import Karte.GeldKarte;
@@ -24,6 +30,7 @@ public class Spieler {
 	public Stack<SuperKarte> abwerfliste = new Stack<SuperKarte>();
 	public int spielerNummer;
 	private SuperKarte superkarte;
+	private SiegNiederlage_Main bedingung;
 
 //	private final int LETZTERUNDE = 10; // Edu --> Zug = 10 --> Spiel endet.
 
@@ -171,11 +178,15 @@ public void kartenKaufen(SuperKarte K){
 // Eduart Bunjaku
 /**
  * @param Beendet Spiel, wenn 10 Züge vorbei sind und ruft Methode punkteBerechnen() auf.
+ * @throws IOException 
  */
 	public void beendeSpiel(){
+		
 		if(aktuelleRunde == LETZTERUNDE){
 			punkteBerechnen();
 			Platform.exit();
+			
+//			bedingung.launch(); --> sollte GUI von Sieg/Niederlage laden.
 	}
 		
 	}
@@ -204,6 +215,8 @@ public void kartenKaufen(SuperKarte K){
 		int gesamtsumme = summeHand + summeDeck + summeAbwurf;
 		
 		System.out.println("AKTUELLE PUNKTE: " + gesamtsumme );
+		
+		
 	
 	}
 	
