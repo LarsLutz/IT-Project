@@ -142,17 +142,11 @@ public void kartenKaufen(SuperKarte K){
 			abwerfliste.push(handliste.get(i));
 
 		}
-		
-		handliste.clear();
 
-		
-//		 Nach Abwurf soll Runde um 1 erhöht werden.
-//				aktuelleRunde++;
-//				Zaehler.setRunde(aktuelleRunde);
-//				System.out.println("DAS IST DIE ------> " +Zaehler.getRunde()+" RUNDE");	
-
-			
+		handliste.clear();	
 	}
+	
+	
 	
 	//Edu Bunjaku
 	public void setAktuelleRunde(int aktuelleRunde){

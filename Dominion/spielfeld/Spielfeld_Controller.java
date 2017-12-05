@@ -96,6 +96,8 @@ public class Spielfeld_Controller {
 		anwesen3.setDisable(true);
 		anwesen6.setDisable(true);
 		Zaehler.beginnZug();
+		Zaehler.addGuthaben(50);
+		Zaehler.kaufZaehler = 100;
 		
 		labelsAktualisieren();
 	}
@@ -133,23 +135,23 @@ public class Spielfeld_Controller {
 			
 			
 			//Aktionskarten von Hand spielen
-			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Bazaar"))){
+			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Bazaar")) && Zaehler.aktionsZaehler > 0){
 				standardAktionsKarteHandler(aktuellerIndex);
 			}
 					
-			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Chancellor"))){
+			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Chancellor")) && Zaehler.aktionsZaehler > 0){
 				standardAktionsKarteHandler(aktuellerIndex);
 			}
 			
-			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Keller"))){
+			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Keller")) && Zaehler.aktionsZaehler > 0){
 				standardAktionsKarteHandler(aktuellerIndex);
 			}
 			
-			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Markt"))){
+			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Markt")) && Zaehler.aktionsZaehler > 0){
 				standardAktionsKarteHandler(aktuellerIndex);
 			}
 			//erst dummy maessig
-			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Smithy"))){
+			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Smithy")) && Zaehler.aktionsZaehler > 0){
 				standardAktionsKarteHandler(aktuellerIndex);
 				for(int i = 0; i<3; i++) {
 					karteZiehen();
@@ -293,14 +295,14 @@ public class Spielfeld_Controller {
 	
 	@FXML
 	public void clickAnwesen3(){
-		spie.kartenKaufen(sam.punkteKarten[2]);
+		spie.kartenKaufen(sam.punkteKarten[1]);
 		
 		labelsAktualisieren();
 	}
 	
 	@FXML
 	public void clickAnwesen6(){
-		spie.kartenKaufen(sam.punkteKarten[1]);
+		spie.kartenKaufen(sam.punkteKarten[2]);
 		
 		labelsAktualisieren();
 	}
@@ -317,9 +319,6 @@ public class Spielfeld_Controller {
 	public void discardPhase() {
 		sm.setKaufPhase(false);
 		sm.setDiscardPhase(true);
-		// lokale Variable damit wir nachher wissen wieviele Karten zu ziehen
-		// sind
-		int groesseHand = spie.handliste.size();
 
 		spie.discard();
 
@@ -327,10 +326,11 @@ public class Spielfeld_Controller {
 		labelsAktualisieren();
 		
 
-		for (int i = 0; i < groesseHand; i++) {
+		for (int i = 0; i < 5; i++) {
 			this.karteZiehen();
-			sm.setDiscardPhase(false);
 		}
+		
+		sm.setDiscardPhase(false);
 		
 		bP3.setDisable(true);
 		bP1.setDisable(true);
@@ -354,7 +354,7 @@ public class Spielfeld_Controller {
 	@FXML
 	public void zugBeenden() {
 		bZugBeenden.setDisable(true);
-		pMeinDeck.setDisable(false);
+		pMeinDeck.setDisable(true);
 		bP1.setDisable(false);
 		bP2.setDisable(false);
 		bP3.setDisable(false);
