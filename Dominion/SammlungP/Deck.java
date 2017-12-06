@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import Karte.SuperKarte;
 import Karte.AKBazaar;
 import Karte.AKChancellor;
-import Karte.AKKeller;
+import Karte.AKVillage;
 import Karte.AKMarkt;
 import Karte.AKSmithy;
 import Karte.GeldKarte;
@@ -18,7 +18,7 @@ import Karte.SuperKarte;
 
 //Robin Widmer
 public class Deck {
-//	//sött Starthand erstelle
+//	//sï¿½tt Starthand erstelle
 //	public ArrayList<SuperKarte> deckliste;
 //	
 //	GeldKarte startGeld = new GeldKarte(1,"Kupfer",0);
@@ -34,7 +34,7 @@ public class Deck {
 //	
 //}
 //	
-//	// zieht en zuefälligi charte vom deck, machts Schöffel metode nutzlos
+//	// zieht en zuefï¿½lligi charte vom deck, machts Schï¿½ffel metode nutzlos
 //	
 //	public SuperKarte KarteZiehen(){
 //		Random zufall = new Random();
