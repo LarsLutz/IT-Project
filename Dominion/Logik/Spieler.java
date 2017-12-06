@@ -175,7 +175,7 @@ public void kartenKaufen(SuperKarte K){
 			Platform.exit();
 			
 //			bedingung.launch(); --> sollte GUI von Sieg/Niederlage laden.
-	}
+		}
 		
 	}
 	
