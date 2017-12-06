@@ -39,7 +39,7 @@ public class Spielfeld_Controller {
 	}
 
 	@FXML
-	ImageView hintergrund, rueckseite, rueckseiteNormal, rueckseiteDeck;
+	ImageView hintergrund, rueckseiteNormal, rueckseiteDeck;
 	@FXML
 	ImageView kupfer, silber, gold, anwesen1, anwesen3, anwesen6;
 	@FXML
@@ -52,12 +52,12 @@ public class Spielfeld_Controller {
 	TextArea tVerlauf, tEingabe;
 
 	@FXML
-	Pane pSeinDeck, pSeinDiscardPile, pKupfer, pSilber, pGold, p1, p3, p6, pMeinDiscardPile, pMeinDeck;
+	Pane pKupfer, pSilber, pGold, p1, p3, p6, pMeinDiscardPile, pMeinDeck, pTop;
 	@FXML
 	Pane pBazaarMiddle, pCellarMiddle, pChancellorMiddle, pMarketMiddle, pSmithyMiddle;
 
 	@FXML
-	Label anzahlMeinStapel, anzahlAblageStapel, infoLabel, verbAktionen, verbKaeufe, verbGuthaben, startLabel;
+	Label anzahlMeinStapel, anzahlAblageStapel, infoLabel, verbAktionen, verbKaeufe, verbGuthaben, startLabel, opLogger;
 
 	@FXML
 	HBox hBoxBottom, hBoxRealHand;
