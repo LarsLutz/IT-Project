@@ -204,8 +204,6 @@ public void kartenKaufen(SuperKarte K){
 		
 		System.out.println("AKTUELLE PUNKTE: " + gesamtsumme );
 		
-		
-	
 	}
 	
 
