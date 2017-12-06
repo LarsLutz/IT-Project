@@ -3,6 +3,7 @@ package kommunikation;
 import java.io.IOException;
 
 import chat.Chat_Model;
+import spielfeld.Spielfeld_Model;
 
 public class Decoder {
 	
@@ -28,14 +29,16 @@ public class Decoder {
 		
 		String[] parts = eingang.split("-");
 		
-		String kopf= parts[0];
-		String variable =parts[1];
-		String wert = parts[2];
+		String kopf= parts[1];
+		String variable =parts[2];
+		String wert = parts[3];
 		
 		System.out.println(wert+"  "+kopf);
 		
 		switch (kopf){
         case "chat":   Chat_Model.verarbeiteChat(variable+"-"+wert);
+        break;
+        case "spiel": 
         break;
 		}
 		

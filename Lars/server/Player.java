@@ -54,7 +54,7 @@ public class Player{
     }
 
     synchronized public void setDataOut(String data){
-        this.dataOut = data;
+        this.dataOut = "player"+ this.id+"-"+data;
         this.dataOutAvailable = true;
     }
 

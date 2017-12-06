@@ -42,7 +42,6 @@ public class Kommunikation {
 // Methode für den Update Button (nur zum Test). Sendet die Daten
 	synchronized public static  void sendenClient(String c) throws IOException{
 		System.out.println("Senden...");
-		String antwort=null;
 		String c1=c;
 		output.println(c1); //Sendet den Text im Textfeld
 		output.flush();	// Leert den Cache des Readers
