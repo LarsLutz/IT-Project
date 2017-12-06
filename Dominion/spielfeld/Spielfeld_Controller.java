@@ -43,7 +43,7 @@ public class Spielfeld_Controller {
 	@FXML
 	ImageView kupfer, silber, gold, anwesen1, anwesen3, anwesen6;
 	@FXML
-	ImageView bazaarMiddle, cellarMiddle, chancellorMiddle, marketMiddle, smithyMiddle;
+	ImageView bazaarMiddle, villageMiddle, chancellorMiddle, marketMiddle, smithyMiddle;
 
 	@FXML
 	Button bSpeichern, bP1, bP2, bP3, bZugBeenden;
@@ -54,7 +54,7 @@ public class Spielfeld_Controller {
 	@FXML
 	Pane pKupfer, pSilber, pGold, p1, p3, p6, pMeinDiscardPile, pMeinDeck, pTop;
 	@FXML
-	Pane pBazaarMiddle, pCellarMiddle, pChancellorMiddle, pMarketMiddle, pSmithyMiddle;
+	Pane pBazaarMiddle, pVillageMiddle, pChancellorMiddle, pMarketMiddle, pSmithyMiddle;
 
 	@FXML
 	Label anzahlMeinStapel, anzahlAblageStapel, infoLabel, verbAktionen, verbKaeufe, verbGuthaben, startLabel, opLogger;
@@ -85,7 +85,7 @@ public class Spielfeld_Controller {
 		}
 		pMeinDeck.setDisable(true);
 		bazaarMiddle.setDisable(true);
-		cellarMiddle.setDisable(true);
+		villageMiddle.setDisable(true);
 		chancellorMiddle.setDisable(true);
 		marketMiddle.setDisable(true);
 		smithyMiddle.setDisable(true);
@@ -146,8 +146,10 @@ public class Spielfeld_Controller {
 				spie.deckDiscard();
 			}
 			
-			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Keller")) && Zaehler.aktionsZaehler > 0){
+			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Dorf")) && Zaehler.aktionsZaehler > 0){
 				standardAktionsKarteHandler(aktuellerIndex);
+				sam.aktionsKarten[2].karteSpielen();
+				karteZiehen();
 			}
 			
 			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Markt")) && Zaehler.aktionsZaehler > 0){
@@ -219,7 +221,7 @@ public class Spielfeld_Controller {
 		bP2.setDisable(true);
 		pMeinDeck.setDisable(true);
 		bazaarMiddle.setDisable(false);
-		cellarMiddle.setDisable(false);
+		villageMiddle.setDisable(false);
 		chancellorMiddle.setDisable(false);
 		marketMiddle.setDisable(false);
 		smithyMiddle.setDisable(false);
@@ -343,7 +345,7 @@ public class Spielfeld_Controller {
 		bP2.setDisable(true);
 		pMeinDeck.setDisable(true);
 		bazaarMiddle.setDisable(true);
-		cellarMiddle.setDisable(true);
+		villageMiddle.setDisable(true);
 		chancellorMiddle.setDisable(true);
 		marketMiddle.setDisable(true);
 		smithyMiddle.setDisable(true);
@@ -520,12 +522,12 @@ public class Spielfeld_Controller {
 	// Keller
 	@FXML
 	public void pressCellarMiddle() {
-		cellarMiddle.setOpacity(0.5);
+		villageMiddle.setOpacity(0.5);
 	}
 
 	@FXML
 	public void releaseCellarMiddle() {
-		cellarMiddle.setOpacity(1);
+		villageMiddle.setOpacity(1);
 	}
 
 	// markt

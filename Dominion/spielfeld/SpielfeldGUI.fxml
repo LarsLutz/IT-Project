@@ -330,11 +330,11 @@
                               </ImageView>
                            </children>
                         </Pane>
-                        <Pane fx:id="pCellarMiddle" onMouseEntered="#infoKeller" prefHeight="200.0" prefWidth="0.0">
+                        <Pane fx:id="pVillageMiddle" onMouseEntered="#infoKeller" prefHeight="200.0" prefWidth="0.0">
                            <children>
-                              <ImageView fx:id="cellarMiddle" fitHeight="128.0" fitWidth="130.0" onMouseClicked="#clickCellarMiddle" onMousePressed="#pressCellarMiddle" onMouseReleased="#releaseCellarMiddle" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="villageMiddle" fitHeight="128.0" fitWidth="130.0" onMouseClicked="#clickCellarMiddle" onMousePressed="#pressCellarMiddle" onMouseReleased="#releaseCellarMiddle" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@cellarMiddle.jpg" />
+                                    <Image url="@villageMiddle.jpg" />
                                  </image>
                               </ImageView>
                            </children>

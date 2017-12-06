@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import Karte.SuperKarte;
 import Karte.AKBazaar;
 import Karte.AKChancellor;
-import Karte.AKKeller;
+import Karte.AKVillage;
 import Karte.AKMarkt;
 import Karte.AKSmithy;
 import Karte.GeldKarte;
