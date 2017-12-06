@@ -137,10 +137,13 @@ public class Spielfeld_Controller {
 			//Aktionskarten von Hand spielen
 			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Bazaar")) && Zaehler.aktionsZaehler > 0){
 				standardAktionsKarteHandler(aktuellerIndex);
+				sam.aktionsKarten[0].karteSpielen();
 			}
 					
 			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Chancellor")) && Zaehler.aktionsZaehler > 0){
 				standardAktionsKarteHandler(aktuellerIndex);
+				sam.aktionsKarten[1].karteSpielen();
+				spie.deckDiscard();
 			}
 			
 			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Keller")) && Zaehler.aktionsZaehler > 0){
@@ -149,13 +152,16 @@ public class Spielfeld_Controller {
 			
 			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Markt")) && Zaehler.aktionsZaehler > 0){
 				standardAktionsKarteHandler(aktuellerIndex);
+				karteZiehen();
+				sam.aktionsKarten[3].karteSpielen();
 			}
 			//erst dummy maessig
 			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Smithy")) && Zaehler.aktionsZaehler > 0){
 				standardAktionsKarteHandler(aktuellerIndex);
-				for(int i = 0; i<3; i++) {
+			for(int i = 0; i<3; i++) {
 					karteZiehen();
 				}
+				
 			}
 				
 			

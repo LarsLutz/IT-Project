@@ -135,15 +135,23 @@ public void kartenKaufen(SuperKarte K){
 //	}
 
 
-//Jan Mueller
+//Jan Mueller -- Robin Widmer
 //Methode leert ganze Hand und fuegt diese dem Abwerstapel hinzu. Dieser wird anschliessend gemischt
 	public void discard(){
 		for(int i = 0; i<handliste.size(); i++){
 			abwerfliste.push(handliste.get(i));
-
 		}
 
 		handliste.clear();	
+	}
+	
+	public void deckDiscard(){
+		if(!deckliste.isEmpty()){
+			while(!deckliste.isEmpty()){
+				abwerfliste.push(deckliste.pop());
+			}
+			deckliste.clear();
+		}
 	}
 	
 	

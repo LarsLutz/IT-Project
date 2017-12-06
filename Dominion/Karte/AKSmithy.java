@@ -13,9 +13,8 @@ public class AKSmithy extends AktionsKarte{
 	//TODO
 	final String beschreibung = "Ziehe 3 Karten";
 	
-	public void karteSpielen(Spieler spieler){
-		spieler.deckIstLeer();
-		spieler.KarteZiehen(karteZiehen);
+	public void karteSpielen(){
+//		spieler.KarteZiehen(this.karteZiehen); -- brauchts nicht.. wird direkt auf Controller gemacht...
 	}
 
 	

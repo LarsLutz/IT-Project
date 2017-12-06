@@ -17,7 +17,7 @@ public class AktionsKarte extends SuperKarte{
 	}
 	public void aktionsDiscard(){
 	}
-	public void karteSpielen(int i) {
+	public void karteSpielen() {
 		
 	}
 	

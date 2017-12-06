@@ -13,14 +13,15 @@ public class AKChancellor extends AktionsKarte{
 	final String typ = "Aktionskarte";
 	final String pfad = "chancellor.jpg";
 	final String beschreibung = "Du erhaeltst +2 Guthaben\nDein Deck landet auf dem Abwerfstapel ";
+	private Spieler s;
 	
 	public AKChancellor(boolean deckDiscard){
 		this.deckDiscard = deckDiscard;
+		s = new Spieler(0);
 	}
 	
-	public void karteSpielen(Spieler spieler){
-		Zaehler.addGuthaben(guthaben);
-		spieler.discard();
+	public void karteSpielen(){
+		Zaehler.addGuthaben(this.guthaben);
 	}
 	
 	

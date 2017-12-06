@@ -18,11 +18,9 @@ public class AKBazaar extends AktionsKarte{
 		
 	}
 	
-	public void karteSpielen(Spieler spieler){
-		spieler.deckIstLeer();
-		spieler.KarteZiehen(karteZiehen);
-		Zaehler.addAktion(karteKaufen);
-		Zaehler.addGuthaben(guthaben);
+	public void karteSpielen(){
+		Zaehler.addAktion(this.aktionsKarteSpielen);
+		Zaehler.addGuthaben(this.guthaben);
 	}
 	
 	
