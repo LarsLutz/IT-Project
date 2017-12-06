@@ -12,15 +12,22 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import kommunikation.Decoder;
+import kommunikation.Kommunikation;
+import kommunikation.Updater;
 
 // Eduart Bunjaku - Jan Mueller
 
 public class Lobby_Controller {
 	
 	private Lobby_Model lm;
+	private Updater update;
+	//private Kommunikation kom;
 	
 	public Lobby_Controller(){
 		lm = new Lobby_Model();
+		//kom =new Kommunikation();
+		
 	}
 	
 	//Eduart Bunjaku
@@ -44,6 +51,18 @@ public class Lobby_Controller {
 
     @FXML
     private Button leaderBoardButton;
+    
+    @FXML
+	public void initialize(){
+		try {
+			Kommunikation.clientcon();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+    
+
     
     
     //Jan Müller
@@ -124,6 +143,12 @@ public class Lobby_Controller {
     public void beenden(ActionEvent event) {
     	Stage currentStage = (Stage) leaderBoardButton.getScene().getWindow();
     	currentStage.close();
+    	try {
+			Kommunikation.conclose();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     	
     	Platform.exit();
     }

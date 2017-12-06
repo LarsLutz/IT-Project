@@ -40,7 +40,7 @@ public class ClientController {
 @FXML
 // Methode für den Connect Button
 public void startclient(ActionEvent event) throws IOException{
-		model.clientcon();
+		
 }
 
 @FXML
