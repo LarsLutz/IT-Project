@@ -10,7 +10,9 @@ public class Updater implements Runnable{
 	
 		    private Decoder decoder;
 		    private String up;
-		    private Chat_Controller controller;
+		    private volatile boolean running = true;
+
+
 		    
 	
 		    public String getUp() {
@@ -28,12 +30,16 @@ public class Updater implements Runnable{
 		        
 		        
 		    }
+			
+			public void schliessen(){
+				running=false;
+			}
 	
 		    @Override
 		    public void run() {
 		    	
 		    	
-		    	while(true){
+		    	while(running){
 		    		System.out.println("Decoder liesst");
 		        this.decoder.lesen(); 
 		               
@@ -42,6 +48,7 @@ public class Updater implements Runnable{
 		            Thread.sleep(1000);
 		        } catch (InterruptedException e) {
 		            e.printStackTrace();
+		            running =false;
 		        }
 		    }
 		    }

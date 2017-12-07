@@ -1,5 +1,6 @@
 package spielfeld;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Random;
@@ -20,6 +21,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import kommunikation.Kommunikation;
+import kommunikation.Updater;
 
 public class Spielfeld_Controller {
 
@@ -58,6 +61,7 @@ public class Spielfeld_Controller {
 
 	@FXML
 	Label anzahlMeinStapel, anzahlAblageStapel, infoLabel, verbAktionen, verbKaeufe, verbGuthaben, startLabel, opLogger;
+//opLogger --> label zeigt an was gegner macht
 
 	@FXML
 	HBox hBoxBottom, hBoxRealHand;
@@ -75,6 +79,25 @@ public class Spielfeld_Controller {
 		spie.aktionsKarteSpielen(no);
 		hBoxRealHand.getChildren().remove(no);
 	}
+	
+	//Lars Lutz
+	public void nachrichtSenden(String nachricht){
+		
+		String c1 =nachricht;
+		 
+		if (c1 != null && !c1.isEmpty()) { //Checkt ob überhaupt etwas gesendet werden kann
+			try {
+				Kommunikation.sendenClient(c1);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
+	
+	
+	
 
 	// wird vor dem oeffnen des Fensters gemacht
 	@FXML
@@ -131,6 +154,8 @@ public class Spielfeld_Controller {
 			if(spie.handliste.get(aktuellerIndex).getWert() >= 1 && sm.getKaufPhase() == true){
 				spie.geldKarteSpielen(aktuellerIndex);
 				hBoxRealHand.getChildren().remove(aktuellerIndex);
+				//TODO -- hier sagen wieviel Geld der gegner gespielt hat
+				nachrichtSenden("Gegner hat Geld gespielt");
 			}
 			
 			
@@ -138,32 +163,40 @@ public class Spielfeld_Controller {
 			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Bazaar")) && Zaehler.aktionsZaehler > 0){
 				standardAktionsKarteHandler(aktuellerIndex);
 				sam.aktionsKarten[0].karteSpielen();
+				//TODO -- Gegner spielt Basar
+				nachrichtSenden("Gegner hat Aktionskarte Basar gespielt");
 			}
 					
 			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Chancellor")) && Zaehler.aktionsZaehler > 0){
 				standardAktionsKarteHandler(aktuellerIndex);
 				sam.aktionsKarten[1].karteSpielen();
 				spie.deckDiscard();
+				nachrichtSenden("Gegner hat Aktionskarte Kanzler gespielt");
 			}
 			
 			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Dorf")) && Zaehler.aktionsZaehler > 0){
 				standardAktionsKarteHandler(aktuellerIndex);
 				sam.aktionsKarten[2].karteSpielen();
 				karteZiehen();
+				//TODO -- Gegner spielt Aktionskarte Dorf
+				nachrichtSenden("Gegner hat Aktionskarte Dorf gespielt");
 			}
 			
 			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Markt")) && Zaehler.aktionsZaehler > 0){
 				standardAktionsKarteHandler(aktuellerIndex);
 				karteZiehen();
 				sam.aktionsKarten[3].karteSpielen();
+				//TODO -- Gegner spielt Aktionskarte Markt
+				nachrichtSenden("Gegner hat Aktionskarte Markt gespielt");
 			}
-			//erst dummy maessig
+			
 			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Smithy")) && Zaehler.aktionsZaehler > 0){
 				standardAktionsKarteHandler(aktuellerIndex);
 			for(int i = 0; i<3; i++) {
 					karteZiehen();
 				}
-				
+			//TODO -- Gegner spielt Schmied	
+			nachrichtSenden("Gegner hat Aktionskarte Schmied gespielt");
 			}
 				
 			
@@ -205,6 +238,8 @@ public class Spielfeld_Controller {
 	// Aktionsphasen Knopf geklickt
 	@FXML
 	public void aktionsPhase() {
+		//TODO -- Gegner wechselt in Aktionsphase
+		nachrichtSenden("Gegner wechselt in die Aktionsphase");
 		sm.setAktionsPhase(true);
 		startLabel.setText("Aktionsphase");
 		bP1.setDisable(true);
@@ -214,6 +249,8 @@ public class Spielfeld_Controller {
 	// Kaufphasen Knopf geklickt
 	@FXML
 	public void kaufPhase() {
+		//TODO -- Gegner wechselt in Kaufphase
+		nachrichtSenden("Gegner wechselt in Kaufphase");
 		sm.setAktionsPhase(false);
 		sm.setKaufPhase(true);
 		startLabel.setText("Kaufphase");
@@ -243,6 +280,8 @@ public class Spielfeld_Controller {
 		spie.kartenKaufen(sam.aktionsKarten[4]);
 		
 		labelsAktualisieren();
+		//TODO -- Gegner kauft Schmied
+		nachrichtSenden("Gegner kauft Schmied");
 	}
 	
 	@FXML
@@ -250,6 +289,8 @@ public class Spielfeld_Controller {
 		spie.kartenKaufen(sam.aktionsKarten[3]);
 		
 		labelsAktualisieren();
+		//TODO -- Gegner kauft Markt
+		nachrichtSenden("Gegner kauft Markt");
 	}
 	
 	@FXML
@@ -257,6 +298,8 @@ public class Spielfeld_Controller {
 		spie.kartenKaufen(sam.aktionsKarten[1]);
 		
 		labelsAktualisieren();
+		//TODO -- Gegner kauft Kanzler
+		nachrichtSenden("Gegner kauft Kanzler");
 	}
 	
 	@FXML
@@ -264,6 +307,8 @@ public class Spielfeld_Controller {
 		spie.kartenKaufen(sam.aktionsKarten[2]);
 		
 		labelsAktualisieren();
+		//TODO -- Gegner kauft Dorf
+		nachrichtSenden("Gegner kauft Dorf");
 	}
 	
 	@FXML
@@ -271,6 +316,8 @@ public class Spielfeld_Controller {
 		spie.kartenKaufen(sam.aktionsKarten[0]);
 		
 		labelsAktualisieren();
+		//TODO -- Gegner kauft Basar
+		nachrichtSenden("Gegner kauft Basar");
 	}
 	
 	@FXML
@@ -278,6 +325,8 @@ public class Spielfeld_Controller {
 		spie.kartenKaufen(sam.geldKarten[0]);
 		
 		labelsAktualisieren();
+		//TODO -- Gegner kauft Kupfer
+		nachrichtSenden("Gegner kauft Kupfer");
 	}
 	
 	@FXML
@@ -285,6 +334,8 @@ public class Spielfeld_Controller {
 		spie.kartenKaufen(sam.geldKarten[1]);
 		
 		labelsAktualisieren();
+		//TODO -- Gegner kauft Silber
+		nachrichtSenden("Gegner kauft Silber");
 	}
 	
 	@FXML
@@ -292,6 +343,8 @@ public class Spielfeld_Controller {
 		spie.kartenKaufen(sam.geldKarten[2]);
 		
 		labelsAktualisieren();
+		//TODO -- Gegner kauft Gold
+		nachrichtSenden("Gegner kauft Gold");
 	}
 	
 	@FXML
@@ -299,6 +352,8 @@ public class Spielfeld_Controller {
 		spie.kartenKaufen(sam.punkteKarten[0]);
 		
 		labelsAktualisieren();
+		//TODO -- Gegner kauft Anwesen
+		nachrichtSenden("Gegner kauft Anwesen");
 	}
 	
 	@FXML
@@ -306,6 +361,8 @@ public class Spielfeld_Controller {
 		spie.kartenKaufen(sam.punkteKarten[1]);
 		
 		labelsAktualisieren();
+		//TODO -- Gegner kauft Herzogtum
+		nachrichtSenden("Gegner kauft Herzogtum");
 	}
 	
 	@FXML
@@ -313,6 +370,8 @@ public class Spielfeld_Controller {
 		spie.kartenKaufen(sam.punkteKarten[2]);
 		
 		labelsAktualisieren();
+		//TODO -- Gegner kauft Provinz
+		nachrichtSenden("Gegner kauft Provinz");
 	}
 	
 	
@@ -325,6 +384,8 @@ public class Spielfeld_Controller {
 	// Discardphasen Knopf geklickt
 	@FXML
 	public void discardPhase() {
+		//TODO -- Gegner wirft seine Hand ab
+		nachrichtSenden("Gegner wirft seine Hand ab");
 		sm.setKaufPhase(false);
 		sm.setDiscardPhase(true);
 
@@ -361,6 +422,16 @@ public class Spielfeld_Controller {
 	// zugBeenden Knopf Klicken - erst nach abgeschlossenem Discard moeglich
 	@FXML
 	public void zugBeenden() {
+		//TODO -- Gegner beendet seinen Zug
+		nachrichtSenden("Gegner beendet seinen Zug");
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//TODO -- Du bist am Zug
+		nachrichtSenden("Du bist am Zug");
 		bZugBeenden.setDisable(true);
 		pMeinDeck.setDisable(true);
 		bP1.setDisable(false);

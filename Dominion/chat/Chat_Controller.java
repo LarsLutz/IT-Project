@@ -6,8 +6,10 @@ import java.util.TimerTask;
 
 import com.sun.org.omg.CORBA.Initializer;
 
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -42,9 +44,24 @@ public class Chat_Controller  {
 	
 	
 	
-//@FXML
+	
+	
+@FXML
 
-//public void initialize(){
+public void initialize(){
+	
+	String c2= "chat-text-$START";
+	try {
+		Kommunikation.sendenClient(c2);
+	} catch (IOException e) {
+		e.printStackTrace();
+	}
+	
+	
+	this.thread=new Thread(new Updater(dec));
+	this.thread.start();
+	//leuft =false;
+	
 //	
 //	textArea1.textProperty().addListener(new ChangeListener<String>() {
 //	    @Override
@@ -53,9 +70,14 @@ public class Chat_Controller  {
 //
 //	        textArea1.appendText(Chat_Model.getUpdate()+"\n");
 //	    }
-//	});
+//});
 //	
-//}
+}
+
+public void stop(){
+    System.err.println("Stage is closing");
+    // Save file
+}
 	
 	@FXML
 	
@@ -88,22 +110,27 @@ public class Chat_Controller  {
 			}
 			textArea2.clear();
 			
-			if (leuft){
-				
-				this.thread=new Thread(new Updater(dec));
-				this.thread.start();
-				leuft =false;
-				
-			}
+//			if (leuft){
+//				
+//				this.thread=new Thread(new Updater(dec));
+//				this.thread.start();
+//				leuft =false;
+//				
+//			}
 			
 			
 			
-		}	
+		}
 		
 		
 		
 	}
 
+	
+	@FXML
+	public void exitApplication(ActionEvent event) {
+	   Platform.exit();
+	}
 	
 	
 	

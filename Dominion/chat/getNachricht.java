@@ -21,9 +21,12 @@ public class getNachricht extends TimerTask{
 		System.err.println("Time "+temp);
 		
 		if (!temp.isEmpty()&& Chat_Model.getIstneu()){
-		
+		if (temp.equals("$START")){
+			System.out.println("Chat startet");
+		}else{
 		controller.textArea1.appendText(temp+ "\n");
 		Chat_Model.setIstneu(false);
+		}
 		}
 		
 	}
