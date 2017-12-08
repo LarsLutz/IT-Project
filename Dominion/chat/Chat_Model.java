@@ -5,6 +5,7 @@ public class Chat_Model {
 	private static String text;
 	private static String update ="";
 	private static Boolean istneu;
+	private static String spielername;
 	
 	
 	public static Boolean getIstneu() {
@@ -52,18 +53,29 @@ public class Chat_Model {
 		
 		String variable= parts[0];
 		String wert = parts[1];
+		String name = parts[2];
 		
 		System.err.println("verarbeite: "+ wert);
 		
 		switch (variable){
-        case "text":   Chat_Model.setUpdate(wert);
-        				
+        case "text":   Chat_Model.setUpdate(name+":     "+wert);
         break;
+        case "ini":		Chat_Model.setUpdate(wert);
 		}
 		
 		
 		
 		
+	}
+
+
+	public static String getSpielername() {
+		return spielername;
+	}
+
+
+	public static void setSpielername(String spielername) {
+		Chat_Model.spielername = spielername;
 	}
 	
 	

@@ -2,6 +2,8 @@ package chat;
 
 import java.util.TimerTask;
 
+import spielfeld.Spielfeld_Model;
+
 public class getNachricht extends TimerTask{
 	
 	private Chat_Controller controller;
@@ -23,6 +25,7 @@ public class getNachricht extends TimerTask{
 		if (!temp.isEmpty()&& Chat_Model.getIstneu()){
 		if (temp.equals("$START")){
 			System.out.println("Chat startet");
+			Spielfeld_Model.setIstneu(false);
 		}else{
 		controller.textArea1.appendText(temp+ "\n");
 		Chat_Model.setIstneu(false);

@@ -2,6 +2,7 @@ package login;
 
 import java.io.IOException;
 
+import chat.Chat_Model;
 // Eduart Bunjaku
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -18,11 +19,15 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lobby.*;
+import registrieren.Registrieren_Model;
+import spielfeld.Spielfeld_Model;
 
 public class Login_Controller {
 
+	private Login_Model model;
 	
 	public Login_Controller(){
+		model= new Login_Model();
 
 	}
 	
@@ -57,6 +62,10 @@ public class Login_Controller {
     @FXML
     private ImageView waldBildLogin;
     
+    @FXML 
+    
+    private Label infolabel;
+    
     
     
     // Schliesst Login-Fenster, wenn man auf "Abbrechen-Button" klickt.   
@@ -69,6 +78,35 @@ public class Login_Controller {
     @FXML
     public void oeffneLobby(ActionEvent event) throws IOException {
     	
+    	
+    	String name = usernameTextfeld.getText();
+    	String password =passwortFeld.getText();
+    	
+    	if (!name.isEmpty() && !password.isEmpty()){
+    	
+    	model.setName(name);
+		model.setPasswort(password);
+		
+		String ausgabe= model.getLogin();
+		
+		if (ausgabe =="leer$"){
+			infolabel.setText("Falscher Username");
+		}else{
+		
+		String teile[]= ausgabe.split("-");
+		
+		String bname = teile[1];
+		String bpasswort = teile[2];
+		
+		
+    	if( name.equals(bname)&& password.equals(bpasswort)){
+    		
+    		model.setSessionID();
+    		Chat_Model.setSpielername(bname);
+    		Spielfeld_Model.setSpielername(bname);
+    	
+    	
+    	
     	// schliesst aktuelles Fenster
 		Stage currentStage = (Stage) loginButton.getScene().getWindow();
 	    currentStage.close();
@@ -80,8 +118,19 @@ public class Login_Controller {
         stage.setScene(new Scene(root1));  
         stage.show();
         stage.setResizable(false);
-  
+    	}else {
+    		
+    		infolabel.setText("Login Daten Falsch");
+    	}
+    	
+		}
+    }else{
+    	
+    	infolabel.setText("Kein Wert eingegeben");
     }
+    	
+    }
+    
     
     
     // Oeffnet Registrieren-Fenster, wenn man auf "Registrieren-Button" klickt.
@@ -101,6 +150,7 @@ public class Login_Controller {
         stage.setResizable(false);
     	
     }
+    
     
     
     

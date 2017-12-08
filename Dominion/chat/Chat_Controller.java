@@ -6,6 +6,8 @@ import java.util.TimerTask;
 
 import com.sun.org.omg.CORBA.Initializer;
 
+import javafx.animation.Animation;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -32,13 +34,11 @@ public class Chat_Controller  {
 	public Chat_Controller(){
 		dec= new Decoder();
 		model= new Chat_Model();
-		//kom =new Kommunikation();
-		//this.thread=new Thread(new Updater(dec));
-		//this.thread.start();
 		
 		Timer timer = new Timer();
 		
 		timer.scheduleAtFixedRate(new getNachricht(this, model), 0,1000);
+
 		
 	}
 	
@@ -50,7 +50,7 @@ public class Chat_Controller  {
 
 public void initialize(){
 	
-	String c2= "chat-text-$START";
+	String c2= "halter-chat-ini-$START";
 	try {
 		Kommunikation.sendenClient(c2);
 	} catch (IOException e) {
@@ -101,7 +101,7 @@ public void stop(){
 
 		
 		String c1;
-		c1="chat-text-"+ textArea2.getText();
+		c1= Chat_Model.getSpielername()+"-chat-text-"+ textArea2.getText();
 		if (c1 != null && !c1.isEmpty()) { //Checkt ob überhaupt etwas gesendet werden kann
 			try {
 				Kommunikation.sendenClient(c1);

@@ -4,12 +4,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Timer;
 
 import com.sun.java_cup.internal.runtime.Symbol;
 
 import Logik.Spieler;
 import Logik.Zaehler;
 import SammlungP.Sammlung;
+import chat.getNachricht;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -18,9 +20,11 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import kommunikation.Decoder;
 import kommunikation.Kommunikation;
 import kommunikation.Updater;
 
@@ -33,13 +37,25 @@ public class Spielfeld_Controller {
 	private Spieler spie;
 	private int ivCounter = 0;
 	private ArrayList<ImageView> viewList;
+	private Decoder dec;
+	private Thread thread;
+	
 	
 
 	public Spielfeld_Controller() {
 		sm = new Spielfeld_Model(13);
 		sam = new Sammlung();
 		spie = new Spieler(0);
+		dec= new Decoder();
+		
+		
+		Timer timer = new Timer();
+		
+		timer.scheduleAtFixedRate(new getLabel(this, sm), 0,1000);
 	}
+	
+	@FXML
+	BorderPane grundbp;
 
 	@FXML
 	ImageView hintergrund, rueckseiteNormal, rueckseiteDeck;
@@ -72,7 +88,16 @@ public class Spielfeld_Controller {
 		verbKaeufe.setText(Zaehler.getKaufZaehler()+"");
 		anzahlMeinStapel.setText(spie.deckliste.size() + "");
 		anzahlAblageStapel.setText(spie.abwerfliste.size() + "");
-			
+		
+		//TODO Variable senden
+		
+//		if (Spielfeld_Model.getZug().equals("ich")){
+//		grundbp.setDisable(false);
+//		}
+//		if (Spielfeld_Model.getZug().equals("er")){
+//			grundbp.setDisable(true);
+//		}
+		
 	}
 	
 	public void standardAktionsKarteHandler(int no){
@@ -102,6 +127,19 @@ public class Spielfeld_Controller {
 	// wird vor dem oeffnen des Fensters gemacht
 	@FXML
 	public void initialize(){
+		
+		String c2= Spielfeld_Model.getPlayername()+"-spielf-init-$START";
+		try {
+			Kommunikation.sendenClient(c2);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		
+		this.thread=new Thread(new Updater(dec));
+		this.thread.start();
+		
+		
 		viewList = new ArrayList<ImageView>();
 		for (int i = 0; i < sm.getAnzahlStarthand(); i++) {
 			this.karteZiehen();
@@ -155,7 +193,7 @@ public class Spielfeld_Controller {
 				spie.geldKarteSpielen(aktuellerIndex);
 				hBoxRealHand.getChildren().remove(aktuellerIndex);
 				//TODO -- hier sagen wieviel Geld der gegner gespielt hat
-				nachrichtSenden("Gegner hat Geld gespielt");
+				nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner hat Geld gespielt");
 			}
 			
 			
@@ -164,14 +202,14 @@ public class Spielfeld_Controller {
 				standardAktionsKarteHandler(aktuellerIndex);
 				sam.aktionsKarten[0].karteSpielen();
 				//TODO -- Gegner spielt Basar
-				nachrichtSenden("Gegner hat Aktionskarte Basar gespielt");
+				nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner hat Aktionskarte Basar gespielt");
 			}
 					
 			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Chancellor")) && Zaehler.aktionsZaehler > 0){
 				standardAktionsKarteHandler(aktuellerIndex);
 				sam.aktionsKarten[1].karteSpielen();
 				spie.deckDiscard();
-				nachrichtSenden("Gegner hat Aktionskarte Kanzler gespielt");
+				nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner hat Aktionskarte Kanzler gespielt");
 			}
 			
 			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Dorf")) && Zaehler.aktionsZaehler > 0){
@@ -179,7 +217,7 @@ public class Spielfeld_Controller {
 				sam.aktionsKarten[2].karteSpielen();
 				karteZiehen();
 				//TODO -- Gegner spielt Aktionskarte Dorf
-				nachrichtSenden("Gegner hat Aktionskarte Dorf gespielt");
+				nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner hat Aktionskarte Dorf gespielt");
 			}
 			
 			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Markt")) && Zaehler.aktionsZaehler > 0){
@@ -187,7 +225,7 @@ public class Spielfeld_Controller {
 				karteZiehen();
 				sam.aktionsKarten[3].karteSpielen();
 				//TODO -- Gegner spielt Aktionskarte Markt
-				nachrichtSenden("Gegner hat Aktionskarte Markt gespielt");
+				nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner hat Aktionskarte Markt gespielt");
 			}
 			
 			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Smithy")) && Zaehler.aktionsZaehler > 0){
@@ -196,7 +234,7 @@ public class Spielfeld_Controller {
 					karteZiehen();
 				}
 			//TODO -- Gegner spielt Schmied	
-			nachrichtSenden("Gegner hat Aktionskarte Schmied gespielt");
+			nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner hat Aktionskarte Schmied gespielt");
 			}
 				
 			
@@ -239,7 +277,7 @@ public class Spielfeld_Controller {
 	@FXML
 	public void aktionsPhase() {
 		//TODO -- Gegner wechselt in Aktionsphase
-		nachrichtSenden("Gegner wechselt in die Aktionsphase");
+		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner wechselt in die Aktionsphase");
 		sm.setAktionsPhase(true);
 		startLabel.setText("Aktionsphase");
 		bP1.setDisable(true);
@@ -250,7 +288,7 @@ public class Spielfeld_Controller {
 	@FXML
 	public void kaufPhase() {
 		//TODO -- Gegner wechselt in Kaufphase
-		nachrichtSenden("Gegner wechselt in Kaufphase");
+		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner wechselt in Kaufphase");
 		sm.setAktionsPhase(false);
 		sm.setKaufPhase(true);
 		startLabel.setText("Kaufphase");
@@ -281,7 +319,7 @@ public class Spielfeld_Controller {
 		
 		labelsAktualisieren();
 		//TODO -- Gegner kauft Schmied
-		nachrichtSenden("Gegner kauft Schmied");
+		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Schmied");
 	}
 	
 	@FXML
@@ -290,7 +328,7 @@ public class Spielfeld_Controller {
 		
 		labelsAktualisieren();
 		//TODO -- Gegner kauft Markt
-		nachrichtSenden("Gegner kauft Markt");
+		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Markt");
 	}
 	
 	@FXML
@@ -299,7 +337,7 @@ public class Spielfeld_Controller {
 		
 		labelsAktualisieren();
 		//TODO -- Gegner kauft Kanzler
-		nachrichtSenden("Gegner kauft Kanzler");
+		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Kanzler");
 	}
 	
 	@FXML
@@ -308,7 +346,7 @@ public class Spielfeld_Controller {
 		
 		labelsAktualisieren();
 		//TODO -- Gegner kauft Dorf
-		nachrichtSenden("Gegner kauft Dorf");
+		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Dorf");
 	}
 	
 	@FXML
@@ -317,7 +355,7 @@ public class Spielfeld_Controller {
 		
 		labelsAktualisieren();
 		//TODO -- Gegner kauft Basar
-		nachrichtSenden("Gegner kauft Basar");
+		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Basar");
 	}
 	
 	@FXML
@@ -326,7 +364,7 @@ public class Spielfeld_Controller {
 		
 		labelsAktualisieren();
 		//TODO -- Gegner kauft Kupfer
-		nachrichtSenden("Gegner kauft Kupfer");
+		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Kupfer");
 	}
 	
 	@FXML
@@ -335,7 +373,7 @@ public class Spielfeld_Controller {
 		
 		labelsAktualisieren();
 		//TODO -- Gegner kauft Silber
-		nachrichtSenden("Gegner kauft Silber");
+		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Silber");
 	}
 	
 	@FXML
@@ -344,7 +382,7 @@ public class Spielfeld_Controller {
 		
 		labelsAktualisieren();
 		//TODO -- Gegner kauft Gold
-		nachrichtSenden("Gegner kauft Gold");
+		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Gold");
 	}
 	
 	@FXML
@@ -353,7 +391,7 @@ public class Spielfeld_Controller {
 		
 		labelsAktualisieren();
 		//TODO -- Gegner kauft Anwesen
-		nachrichtSenden("Gegner kauft Anwesen");
+		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Anwesen");
 	}
 	
 	@FXML
@@ -362,7 +400,7 @@ public class Spielfeld_Controller {
 		
 		labelsAktualisieren();
 		//TODO -- Gegner kauft Herzogtum
-		nachrichtSenden("Gegner kauft Herzogtum");
+		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Herzogtum");
 	}
 	
 	@FXML
@@ -371,7 +409,7 @@ public class Spielfeld_Controller {
 		
 		labelsAktualisieren();
 		//TODO -- Gegner kauft Provinz
-		nachrichtSenden("Gegner kauft Provinz");
+		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Provinz");
 	}
 	
 	
@@ -385,7 +423,7 @@ public class Spielfeld_Controller {
 	@FXML
 	public void discardPhase() {
 		//TODO -- Gegner wirft seine Hand ab
-		nachrichtSenden("Gegner wirft seine Hand ab");
+		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner wirft seine Hand ab");
 		sm.setKaufPhase(false);
 		sm.setDiscardPhase(true);
 
@@ -423,7 +461,7 @@ public class Spielfeld_Controller {
 	@FXML
 	public void zugBeenden() {
 		//TODO -- Gegner beendet seinen Zug
-		nachrichtSenden("Gegner beendet seinen Zug");
+		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner beendet seinen Zug");
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
@@ -431,7 +469,7 @@ public class Spielfeld_Controller {
 			e.printStackTrace();
 		}
 		//TODO -- Du bist am Zug
-		nachrichtSenden("Du bist am Zug");
+		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Du bist am Zug");
 		bZugBeenden.setDisable(true);
 		pMeinDeck.setDisable(true);
 		bP1.setDisable(false);
@@ -449,6 +487,8 @@ public class Spielfeld_Controller {
 		if(spie.getAktuelleRunde() == spie.getLetzteRunde()){
 			spie.beendeSpiel(); // funktioniert noch nicht 
 		}
+		
+		
 	}
 	
 	//wieder Jan Mueller

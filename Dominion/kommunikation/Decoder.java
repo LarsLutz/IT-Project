@@ -29,20 +29,27 @@ public class Decoder {
 		
 		String[] parts = eingang.split("-");
 		
-		String kopf= parts[1];
-		String variable =parts[2];
-		String wert = parts[3];
+		String player =parts[0];
+		String spieler= parts[1];
+		String kopf= parts[2];
+		String variable =parts[3];
+		String wert = parts[4];
+		
+		if(spieler.equals(Spielfeld_Model.getPlayername())|| spieler.equals("johndoe")){
+			System.err.println("Nicht für mich");
+			Spielfeld_Model.setPlayername(player);
+		}else{
 		
 		System.out.println(wert+"  "+kopf);
 		
 		switch (kopf){
-        case "chat":   Chat_Model.verarbeiteChat(variable+"-"+wert);
+        case "chat":   Chat_Model.verarbeiteChat(variable+"-"+wert+"-"+spieler);
         break;
-        case "spiel": 
+        case "spielf": Spielfeld_Model.verarbeiteString(variable+"-"+wert+"-"+spieler+"-"+player);
         break;
 		}
 		
-		
+		}
 		}
 		
 	}
