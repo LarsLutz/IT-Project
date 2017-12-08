@@ -30,7 +30,7 @@ class Handler implements Runnable {
         }
         processConnection();
     }
-// Überprüft das nur gesendet und empfangen wird wennauch wirklich Daten vorhanden sind
+// ï¿½berprï¿½ft das nur gesendet und empfangen wird wennauch wirklich Daten vorhanden sind
     private void processConnection() {
         try {
             String message;

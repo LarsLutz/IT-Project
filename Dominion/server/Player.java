@@ -70,7 +70,7 @@ public class Player{
     }
 
     
-    //Schaut ob der Thread noch läuft und schliesst ihn bei bedarf
+    //Schaut ob der Thread noch lï¿½uft und schliesst ihn bei bedarf
     synchronized public boolean isRunning(){
         if (!thread.isAlive()){
             close();
