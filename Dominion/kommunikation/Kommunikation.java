@@ -28,7 +28,7 @@ public class Kommunikation {
 		System.out.println("Client buffer");
 
 		try {
-			sockel = new Socket(address,8080); //Sucht den Server Socket
+			sockel = new Socket(address,50663); //Sucht den Server Socket
 			input = new BufferedReader(new InputStreamReader(sockel.getInputStream())); //Instansiert den Input Reader (Empfängt Daten)
 			output = new PrintWriter(sockel.getOutputStream()); //Instansiert den Writter welcher die Daten versendet
 
@@ -56,7 +56,7 @@ public class Kommunikation {
 		if (input.ready()){
 			textin = input.readLine();
 		}
-		System.out.println("lesen"+textin);
+		System.out.println("lesen "+textin);
 		return textin;
 	}
 	
