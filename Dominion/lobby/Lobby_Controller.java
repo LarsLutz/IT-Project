@@ -79,7 +79,7 @@ public class Lobby_Controller {
         stage.setTitle("Dominion");
         stage.setScene(new Scene(root1));
         stage.show();
-        stage.setResizable(true);
+        stage.setResizable(false);
         stage.setFullScreen(true);
     }
    

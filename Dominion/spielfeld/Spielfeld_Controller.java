@@ -27,6 +27,7 @@ import javafx.scene.layout.StackPane;
 import kommunikation.Decoder;
 import kommunikation.Kommunikation;
 import kommunikation.Updater;
+import lobby.Lobby_Model;
 
 public class Spielfeld_Controller {
 
@@ -37,6 +38,7 @@ public class Spielfeld_Controller {
 	private Spieler spie;
 	private int ivCounter = 0;
 	private ArrayList<ImageView> viewList;
+	private Lobby_Model lm;
 	private Decoder dec;
 	private Thread thread;
 	
@@ -46,6 +48,7 @@ public class Spielfeld_Controller {
 		sm = new Spielfeld_Model(13);
 		sam = new Sammlung();
 		spie = new Spieler(0);
+		lm = new Lobby_Model();
 		dec= new Decoder();
 		
 		
@@ -71,7 +74,7 @@ public class Spielfeld_Controller {
 	TextArea tVerlauf, tEingabe;
 
 	@FXML
-	Pane pKupfer, pSilber, pGold, p1, p3, p6, pMeinDiscardPile, pMeinDeck, pTop;
+	Pane pKupfer, pSilber, pGold, p1, p3, p6, pMeinDiscardPile, pMeinDeck, pTop, grundPane;
 	@FXML
 	Pane pBazaarMiddle, pVillageMiddle, pChancellorMiddle, pMarketMiddle, pSmithyMiddle;
 
@@ -102,7 +105,7 @@ public class Spielfeld_Controller {
 		
 		String c1 =nachricht;
 		 
-		if (c1 != null && !c1.isEmpty()) { //Checkt ob überhaupt etwas gesendet werden kann
+		if (c1 != null && !c1.isEmpty()) { //Checkt ob ï¿½berhaupt etwas gesendet werden kann
 			try {
 				Kommunikation.sendenClient(c1);
 			} catch (IOException e) {
@@ -115,11 +118,9 @@ public class Spielfeld_Controller {
 		grundbp.setDisable(false);
 		pMeinDeck.setDisable(true);
 		bZugBeenden.setDisable(true);
-		//TODO Jan Müller
+		//TODO Jan Mï¿½ller
 		
 	}
-	
-	
 	
 	
 	
@@ -127,6 +128,10 @@ public class Spielfeld_Controller {
 	// wird vor dem oeffnen des Fensters gemacht
 	@FXML
 	public void initialize(){
+		//Quelle fuer jeglichen Code mit .bind StackOverflow
+		
+		hintergrund.fitWidthProperty().bind(grundPane.widthProperty());
+		hintergrund.fitHeightProperty().bind(grundPane.heightProperty());
 		
 		
 		String c2= Spielfeld_Model.getPlayername()+"-spielf-init-$START";
@@ -476,7 +481,7 @@ public class Spielfeld_Controller {
 		opLogger.setDisable(false);
 		Zaehler.beginnZug();
 		labelsAktualisieren();
-		//Sobald gegner Zug beenden drückt wird folgendes ausgefuehrt:
+		//Sobald gegner Zug beenden drï¿½ckt wird folgendes ausgefuehrt:
 		
 		
 		

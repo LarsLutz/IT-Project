@@ -11,14 +11,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<Pane fx:id="pSeinStapel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spielfeld.Spielfeld_Controller">
+<Pane fx:id="grundPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spielfeld.Spielfeld_Controller">
    <children>
-      <ImageView fx:id="hintergrund" fitHeight="720.0" fitWidth="1080.0" pickOnBounds="true">
+      <ImageView fx:id="hintergrund" fitHeight="780.0" fitWidth="1104.0" pickOnBounds="true">
          <image>
             <Image url="@BildSpielbrett.jpg" />
          </image>
       </ImageView>
-      <BorderPane fx:id="grundbp" prefHeight="720.0" prefWidth="1080.0">
+      <BorderPane fx:id="grundbp" prefHeight="780.0" prefWidth="1104.0">
          <right>
             <VBox prefHeight="200.0" prefWidth="250.0" BorderPane.alignment="CENTER">
                <children>
@@ -316,7 +316,7 @@
          <center>
             <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <VBox prefHeight="200.0" prefWidth="130.0">
+                  <VBox prefHeight="0.0" prefWidth="130.0">
                      <HBox.margin>
                         <Insets bottom="100.0" left="160.0" top="100.0" />
                      </HBox.margin>
@@ -329,8 +329,11 @@
                                  </image>
                               </ImageView>
                            </children>
+                           <VBox.margin>
+                              <Insets top="60.0" />
+                           </VBox.margin>
                         </Pane>
-                        <Pane fx:id="pVillageMiddle" onMouseEntered="#infoKeller" prefHeight="200.0" prefWidth="0.0">
+                        <Pane fx:id="pVillageMiddle" onMouseEntered="#infoKeller" prefHeight="200.0" prefWidth="130.0">
                            <children>
                               <ImageView fx:id="villageMiddle" fitHeight="128.0" fitWidth="130.0" onMouseClicked="#clickCellarMiddle" onMousePressed="#pressCellarMiddle" onMouseReleased="#releaseCellarMiddle" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -338,6 +341,9 @@
                                  </image>
                               </ImageView>
                            </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
                         </Pane>
                      </children>
                   </VBox>
@@ -354,6 +360,9 @@
                                  </image>
                               </ImageView>
                            </children>
+                           <VBox.margin>
+                              <Insets top="60.0" />
+                           </VBox.margin>
                         </Pane>
                         <Pane fx:id="pMarketMiddle" onMouseEntered="#infoMarkt" prefHeight="200.0" prefWidth="200.0">
                            <children>
@@ -363,6 +372,9 @@
                                  </image>
                               </ImageView>
                            </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
                         </Pane>
                      </children>
                   </VBox>
@@ -379,6 +391,9 @@
                                  </image>
                               </ImageView>
                            </children>
+                           <VBox.margin>
+                              <Insets top="60.0" />
+                           </VBox.margin>
                         </Pane>
                         <Pane prefHeight="200.0" prefWidth="200.0" />
                      </children>

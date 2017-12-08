@@ -11,8 +11,10 @@ public class Lobby_Model {
 	
 	//Jan Müller 
 	private boolean chatIstOffen = false;
+	private double hoheSpielfeld;
+
 	
-	
+
 	public Lobby_Model(){
 		
 	}
@@ -23,6 +25,14 @@ public class Lobby_Model {
 	
 	public boolean getChatIstOffen(){
 		return this.chatIstOffen;
+	}
+
+	public double getHoheSpielfeld() {
+		return hoheSpielfeld;
+	}
+
+	public void setHoheSpielfeld(double hoheSpielfeld) {
+		this.hoheSpielfeld = hoheSpielfeld;
 	}
 	
 	
