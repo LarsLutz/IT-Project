@@ -79,7 +79,8 @@ public class Lobby_Controller {
         stage.setTitle("Dominion");
         stage.setScene(new Scene(root1));
         stage.show();
-        stage.setResizable(false);
+        stage.setResizable(true);
+        stage.setFullScreen(true);
     }
    
     @FXML
