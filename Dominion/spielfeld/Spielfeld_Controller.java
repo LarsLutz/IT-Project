@@ -89,14 +89,6 @@ public class Spielfeld_Controller {
 		anzahlMeinStapel.setText(spie.deckliste.size() + "");
 		anzahlAblageStapel.setText(spie.abwerfliste.size() + "");
 		
-		//TODO Variable senden
-		
-//		if (Spielfeld_Model.getZug().equals("ich")){
-//		grundbp.setDisable(false);
-//		}
-//		if (Spielfeld_Model.getZug().equals("er")){
-//			grundbp.setDisable(true);
-//		}
 		
 	}
 	
@@ -119,6 +111,14 @@ public class Spielfeld_Controller {
 		}
 	}
 	
+	public void spielerEnabeln() {
+		grundbp.setDisable(false);
+		pMeinDeck.setDisable(true);
+		bZugBeenden.setDisable(true);
+		//TODO Jan Müller
+		
+	}
+	
 	
 	
 	
@@ -127,6 +127,7 @@ public class Spielfeld_Controller {
 	// wird vor dem oeffnen des Fensters gemacht
 	@FXML
 	public void initialize(){
+		
 		
 		String c2= Spielfeld_Model.getPlayername()+"-spielf-init-$START";
 		try {
@@ -462,6 +463,7 @@ public class Spielfeld_Controller {
 	public void zugBeenden() {
 		//TODO -- Gegner beendet seinen Zug
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner beendet seinen Zug");
+		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-zug-1");
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
@@ -470,13 +472,12 @@ public class Spielfeld_Controller {
 		}
 		//TODO -- Du bist am Zug
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Du bist am Zug");
-		bZugBeenden.setDisable(true);
-		pMeinDeck.setDisable(true);
-		bP1.setDisable(false);
-		bP2.setDisable(false);
-		bP3.setDisable(false);
+		grundbp.setDisable(true);
+		opLogger.setDisable(false);
 		Zaehler.beginnZug();
 		labelsAktualisieren();
+		//Sobald gegner Zug beenden drückt wird folgendes ausgefuehrt:
+		
 		
 		
 		

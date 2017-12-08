@@ -38,6 +38,9 @@ public class getLabel extends TimerTask{
 		Spielfeld_Model.setIstneu(false);
 			 });
 		}
+		if(Spielfeld_Model.getZug().equals("1")){
+			controller.spielerEnabeln();
+		}
 		}
 		
 	}

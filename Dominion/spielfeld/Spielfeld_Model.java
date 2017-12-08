@@ -17,7 +17,7 @@ public class Spielfeld_Model{
 	private static String update ="";
 	private static String spielername;
 	private static String playername="johndoe";
-	private static String zug;
+	private static String zug="0";
 	
 	
 
