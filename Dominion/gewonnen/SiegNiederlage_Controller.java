@@ -27,6 +27,13 @@ public class SiegNiederlage_Controller {
 	@FXML
 	ImageView gameOver;
 	
+	public Label getLabNachricht(){
+		return this.labNachricht;
+	}
+	public void setLabNachricht(Label labNachricht){
+		this.labNachricht = labNachricht;
+	}
+	
 	
 	public void okKlick(MouseEvent e) throws IOException{
 				// closes current window

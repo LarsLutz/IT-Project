@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 import SammlungP.Spielfeldkarte;
+import gewonnen.SiegNiederlage_Controller;
 import gewonnen.SiegNiederlage_Main;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -22,7 +23,7 @@ import SammlungP.Sammlung;
 import Logik.Zaehler;
 import java.util.Stack;
 
-public class Spieler {
+public class Spieler{
 	//Robin Widmer
 	//send alli spielbare charte uf de hand
 	public ArrayList<SuperKarte> handliste = new ArrayList<SuperKarte>();
@@ -37,6 +38,8 @@ public class Spieler {
 //	//Eduart Bunjaku
 	final int LETZTERUNDE = 10; // Edu --> Zug = 10 --> Spiel endet.
 	private int aktuelleRunde = 1; // erster Zug, Spielbeginn TODO getter und setter schreiben
+	private int gesamtpunkte;
+	SiegNiederlage_Controller sgc;
 	
 
 
@@ -155,7 +158,6 @@ public void kartenKaufen(SuperKarte K){
 	}
 	
 	
-	
 	//Edu Bunjaku
 	public void setAktuelleRunde(int aktuelleRunde){
 		this.aktuelleRunde = aktuelleRunde;
@@ -169,6 +171,13 @@ public void kartenKaufen(SuperKarte K){
 	public int getLetzteRunde(){
 		return this.LETZTERUNDE;
 	}
+	
+	public int getGesamtpunkte(){
+		return this.gesamtpunkte;
+	}
+	public void setGesamtpunkte(int gesamtpunkte){
+		this.gesamtpunkte = gesamtpunkte;
+	}
 	 
 	
 // Eduart Bunjaku
@@ -180,6 +189,7 @@ public void kartenKaufen(SuperKarte K){
 		
 		if(aktuelleRunde == LETZTERUNDE){
 			punkteBerechnen();
+			punkteVergleich(null, null); // 
 			Platform.exit();
 			
 //			bedingung.launch(); --> sollte GUI von Sieg/Niederlage laden.
@@ -208,11 +218,29 @@ public void kartenKaufen(SuperKarte K){
 			summeAbwurf = summeAbwurf + abwerfliste.get(i).getPunkte();
 		}
 		
-		int gesamtsumme = summeHand + summeDeck + summeAbwurf;
+		this.gesamtpunkte = summeHand + summeDeck + summeAbwurf;
 		
-		System.out.println("AKTUELLE PUNKTE: " + gesamtsumme );
+		System.out.println("AKTUELLE PUNKTE: " + gesamtpunkte);
 		
 	}
+
+
+/**
+ * 
+ * @param s1 
+ * @param s2
+ * Vergleicht zwei Spieler Objekte miteinander und gibt den Text Sieger/Verlierer Text aus.
+ * 
+ */
+public void punkteVergleich(Spieler s1, Spieler s2){
+	if (s1.getGesamtpunkte() > s2.getGesamtpunkte()){
+		sgc.getLabNachricht().setText("Sie haben gewonnen");
+	}if(s1.getGesamtpunkte() < s2.getGesamtpunkte()){
+		sgc.getLabNachricht().setText("Sie haben verloren");
+	}else{
+		sgc.getLabNachricht().setText("Unentschieden");
+	}
+}
 	
 
 }
