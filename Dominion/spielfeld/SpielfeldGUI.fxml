@@ -11,396 +11,391 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<Pane fx:id="grundPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spielfeld.Spielfeld_Controller">
-   <children>
-      <ImageView fx:id="hintergrund" fitHeight="780.0" fitWidth="1104.0" pickOnBounds="true">
-         <image>
-            <Image url="@BildSpielbrett.jpg" />
-         </image>
-      </ImageView>
-      <BorderPane fx:id="grundbp" prefHeight="780.0" prefWidth="1104.0">
-         <right>
-            <VBox prefHeight="200.0" prefWidth="250.0" BorderPane.alignment="CENTER">
+
+<BorderPane fx:id="grundbp" prefHeight="780.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spielfeld.Spielfeld_Controller">
+   <right>
+      <VBox prefHeight="200.0" prefWidth="250.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="2.0" prefWidth="250.0" />
+            <HBox prefHeight="185.0" prefWidth="250.0">
                <children>
-                  <HBox prefHeight="2.0" prefWidth="250.0" />
-                  <HBox prefHeight="185.0" prefWidth="250.0">
-                     <children>
-                        <TextArea fx:id="tVerlauf" disable="true" editable="false" mouseTransparent="true" prefHeight="146.0" prefWidth="245.0" style="-fx-background-color: rgba(0,0,0,0.0);" text="User1: Hallo aöldfjsjdsf&#10;User2: asölkfjasdöklfjasd&#10;">
-                           <cursor>
-                              <Cursor fx:constant="NONE" />
-                           </cursor>
-                        </TextArea>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="12.0" prefWidth="250.0" />
-                  <HBox prefHeight="62.0" prefWidth="250.0">
-                     <children>
-                        <TextArea fx:id="tEingabe" onKeyTyped="#enterKlick" prefHeight="43.0" prefWidth="245.0" />
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="157.0" prefWidth="250.0">
-                     <children>
-                        <Label fx:id="infoLabel" text="Bewege den Cursor auf eine Karte" textFill="#eef1f2">
-                           <HBox.margin>
-                              <Insets top="15.0" />
-                           </HBox.margin>
-                        </Label>
-                     </children></HBox>
-                  <Pane prefHeight="100.0" prefWidth="250.0">
-                     <children>
-                        <VBox layoutY="-13.0" prefHeight="95.0" prefWidth="250.0">
-                           <children>
-                              <HBox prefHeight="100.0" prefWidth="200.0">
-                                 <children>
-                                    <Label text="Aktionen" textFill="#eef1f2" />
-                                    <Label fx:id="verbAktionen" text="0" textFill="#18da3c">
-                                       <HBox.margin>
-                                          <Insets left="50.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                 </children>
-                              </HBox>
-                              <HBox prefHeight="100.0" prefWidth="200.0">
-                                 <children>
-                                    <Label text="Kaeufe" textFill="#eef1f2" />
-                                    <Label fx:id="verbKaeufe" text="0" textFill="#18da3c">
-                                       <HBox.margin>
-                                          <Insets left="61.5" />
-                                       </HBox.margin>
-                                    </Label>
-                                 </children>
-                              </HBox>
-                              <HBox prefHeight="100.0" prefWidth="200.0">
-                                 <children>
-                                    <Label text="Guthaben" textFill="#eef1f2" />
-                                    <Label fx:id="verbGuthaben" text="0" textFill="#18da3c">
-                                       <HBox.margin>
-                                          <Insets left="45.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                 </children>
-                              </HBox>
-                              <Button fx:id="bZugBeenden" disable="true" mnemonicParsing="false" onMouseClicked="#zugBeenden" prefHeight="27.0" prefWidth="234.0" text="Zug Beenden">
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </VBox.margin>
-                                 <effect>
-                                    <Lighting>
-                                       <bumpInput>
-                                          <Shadow />
-                                       </bumpInput>
-                                       <light>
-                                          <Light.Distant />
-                                       </light>
-                                    </Lighting>
-                                 </effect>
-                              </Button>
-                           </children>
-                        </VBox>
-                     </children>
-                  </Pane>
-                  <HBox prefHeight="0.0" prefWidth="250.0">
-                     <children>
-                        <Button fx:id="bP1" mnemonicParsing="false" onMouseClicked="#aktionsPhase" prefWidth="70.0" text="Aktion">
-                           <effect>
-                              <Lighting>
-                                 <bumpInput>
-                                    <Shadow />
-                                 </bumpInput>
-                                 <light>
-                                    <Light.Distant />
-                                 </light>
-                              </Lighting>
-                           </effect>
-                        </Button>
-                        <Button fx:id="bP2" mnemonicParsing="false" onMouseClicked="#kaufPhase" prefWidth="70.0" text="Kauf">
-                           <HBox.margin>
-                              <Insets left="12.0" />
-                           </HBox.margin>
-                           <effect>
-                              <Lighting>
-                                 <bumpInput>
-                                    <Shadow />
-                                 </bumpInput>
-                                 <light>
-                                    <Light.Distant />
-                                 </light>
-                              </Lighting>
-                           </effect>
-                        </Button>
-                        <Button fx:id="bP3" mnemonicParsing="false" onMouseClicked="#discardPhase" prefWidth="70.0" text="Discard">
-                           <HBox.margin>
-                              <Insets left="12.0" />
-                           </HBox.margin>
-                           <effect>
-                              <Lighting>
-                                 <bumpInput>
-                                    <Shadow />
-                                 </bumpInput>
-                                 <light>
-                                    <Light.Distant />
-                                 </light>
-                              </Lighting>
-                           </effect>
-                        </Button>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="0.0" prefWidth="250.0" />
+                  <TextArea fx:id="tVerlauf" disable="true" editable="false" mouseTransparent="true" prefHeight="146.0" prefWidth="245.0" style="-fx-background-color: rgba(0,0,0,0.0);" text="User1: Hallo aöldfjsjdsf&#10;User2: asölkfjasdöklfjasd&#10;">
+                     <cursor>
+                        <Cursor fx:constant="NONE" />
+                     </cursor>
+                  </TextArea>
                </children>
-            </VBox>
-         </right>
-         <top>
-            <VBox>
+            </HBox>
+            <HBox prefHeight="12.0" prefWidth="250.0" />
+            <HBox prefHeight="62.0" prefWidth="250.0">
                <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Pane fx:id="pTop" prefHeight="100.0" prefWidth="1081.0">
-                           <children>
-                              <Label fx:id="opLogger" alignment="CENTER" contentDisplay="CENTER" layoutX="122.0" layoutY="24.0" mouseTransparent="true" prefHeight="45.0" prefWidth="690.0" text="Hier steht was der Gegner macht" textAlignment="CENTER" textFill="#0e1ae5">
-                                 <font>
-                                    <Font size="30.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                     </children>
-                  </HBox>
+                  <TextArea fx:id="tEingabe" onKeyTyped="#enterKlick" prefHeight="43.0" prefWidth="245.0" />
                </children>
-            </VBox>
-         </top>
-         <left>
-            <VBox prefHeight="616.0" prefWidth="147.0" BorderPane.alignment="CENTER">
+            </HBox>
+            <HBox prefHeight="157.0" prefWidth="250.0">
                <children>
-                  <HBox prefHeight="41.0" prefWidth="147.0">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Pane fx:id="p1" prefHeight="200.0" prefWidth="200.0">
-                           <children>
-                              <ImageView fx:id="anwesen1" fitHeight="118.0" fitWidth="86.0" onMouseClicked="#clickAnwesen1" onMousePressed="#pressAnwesen1" onMouseReleased="#releaseAnwesen1" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@estate.jpg" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                        </Pane>
-                        <Pane fx:id="pKupfer" prefHeight="200.0" prefWidth="200.0">
-                           <children>
-                              <ImageView fx:id="kupfer" fitHeight="118.0" fitWidth="86.0" onMouseClicked="#clickKupfer" onMousePressed="#pressKupfer" onMouseReleased="#releaseKupfer" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@copper.jpg" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </Pane>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Pane fx:id="p3" prefHeight="200.0" prefWidth="200.0">
-                           <children>
-                              <ImageView fx:id="anwesen3" fitHeight="118.0" fitWidth="86.0" layoutY="14.0" onMouseClicked="#clickAnwesen3" onMousePressed="#pressAnwesen3" onMouseReleased="#releaseAnwesen3" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@duchy.jpg" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </Pane>
-                        <Pane fx:id="pSilber" prefHeight="200.0" prefWidth="200.0">
-                           <children>
-                              <ImageView fx:id="silber" fitHeight="118.0" fitWidth="86.0" layoutY="14.0" onMouseClicked="#clickSilber" onMousePressed="#pressSilber" onMouseReleased="#releaseSilber" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@silver.jpg" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </Pane>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Pane fx:id="p6" prefHeight="200.0" prefWidth="200.0">
-                           <children>
-                              <ImageView fx:id="anwesen6" fitHeight="118.0" fitWidth="86.0" layoutY="27.0" onMouseClicked="#clickAnwesen6" onMousePressed="#pressAnwesen6" onMouseReleased="#releaseAnwesen6" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@province.jpg" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </Pane>
-                        <Pane fx:id="pGold" prefHeight="200.0" prefWidth="200.0">
-                           <children>
-                              <ImageView fx:id="gold" fitHeight="118.0" fitWidth="86.0" layoutY="27.0" onMouseClicked="#clickGold" onMousePressed="#pressGold" onMouseReleased="#releaseGold" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@gold.jpg" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </Pane>
-                     </children>
-                  </HBox>
-                  <Label fx:id="startLabel" textFill="#e40303">
-                     <VBox.margin>
-                        <Insets top="65.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="20.0" />
-                     </font>
+                  <Label fx:id="infoLabel" text="Bewege den Cursor auf eine Karte" textFill="#eef1f2">
+                     <HBox.margin>
+                        <Insets top="15.0" />
+                     </HBox.margin>
                   </Label>
                </children>
+            </HBox>
+            <Pane prefHeight="100.0" prefWidth="250.0">
+               <children>
+                  <VBox layoutY="-13.0" prefHeight="95.0" prefWidth="250.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Aktionen" textFill="#eef1f2" />
+                              <Label fx:id="verbAktionen" text="0" textFill="#18da3c">
+                                 <HBox.margin>
+                                    <Insets left="50.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Kaeufe" textFill="#eef1f2" />
+                              <Label fx:id="verbKaeufe" text="0" textFill="#18da3c">
+                                 <HBox.margin>
+                                    <Insets left="61.5" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Guthaben" textFill="#eef1f2" />
+                              <Label fx:id="verbGuthaben" text="0" textFill="#18da3c">
+                                 <HBox.margin>
+                                    <Insets left="45.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <Button fx:id="bZugBeenden" disable="true" mnemonicParsing="false" onMouseClicked="#zugBeenden" prefHeight="27.0" prefWidth="234.0" text="Zug Beenden">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant />
+                                 </light>
+                              </Lighting>
+                           </effect>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+            <HBox prefHeight="0.0" prefWidth="250.0">
+               <children>
+                  <Button fx:id="bP1" mnemonicParsing="false" onMouseClicked="#aktionsPhase" prefWidth="70.0" text="Aktion">
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect>
+                  </Button>
+                  <Button fx:id="bP2" mnemonicParsing="false" onMouseClicked="#kaufPhase" prefWidth="70.0" text="Kauf">
+                     <HBox.margin>
+                        <Insets left="12.0" />
+                     </HBox.margin>
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect>
+                  </Button>
+                  <Button fx:id="bP3" mnemonicParsing="false" onMouseClicked="#discardPhase" prefWidth="70.0" text="Discard">
+                     <HBox.margin>
+                        <Insets left="12.0" />
+                     </HBox.margin>
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="0.0" prefWidth="250.0" />
+         </children>
+      </VBox>
+   </right>
+   <top>
+      <VBox>
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Pane fx:id="pTop" prefHeight="100.0" prefWidth="1081.0">
+                     <children>
+                        <Label fx:id="opLogger" alignment="CENTER" contentDisplay="CENTER" layoutX="122.0" layoutY="24.0" mouseTransparent="true" prefHeight="45.0" prefWidth="690.0" text="Hier steht was der Gegner macht" textAlignment="CENTER" textFill="#0e1ae5">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+   <left>
+      <VBox prefHeight="616.0" prefWidth="147.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="41.0" prefWidth="147.0">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
-               <BorderPane.margin>
-                  <Insets left="15.0" />
-               </BorderPane.margin>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Pane fx:id="p1" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="anwesen1" fitHeight="118.0" fitWidth="86.0" onMouseClicked="#clickAnwesen1" onMousePressed="#pressAnwesen1" onMouseReleased="#releaseAnwesen1" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@estate.jpg" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Pane>
+                  <Pane fx:id="pKupfer" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="kupfer" fitHeight="118.0" fitWidth="86.0" onMouseClicked="#clickKupfer" onMousePressed="#pressKupfer" onMouseReleased="#releaseKupfer" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@copper.jpg" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Pane fx:id="p3" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="anwesen3" fitHeight="118.0" fitWidth="86.0" layoutY="14.0" onMouseClicked="#clickAnwesen3" onMousePressed="#pressAnwesen3" onMouseReleased="#releaseAnwesen3" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@duchy.jpg" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="pSilber" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="silber" fitHeight="118.0" fitWidth="86.0" layoutY="14.0" onMouseClicked="#clickSilber" onMousePressed="#pressSilber" onMouseReleased="#releaseSilber" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@silver.jpg" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Pane fx:id="p6" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="anwesen6" fitHeight="118.0" fitWidth="86.0" layoutY="27.0" onMouseClicked="#clickAnwesen6" onMousePressed="#pressAnwesen6" onMouseReleased="#releaseAnwesen6" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@province.jpg" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="pGold" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="gold" fitHeight="118.0" fitWidth="86.0" layoutY="27.0" onMouseClicked="#clickGold" onMousePressed="#pressGold" onMouseReleased="#releaseGold" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@gold.jpg" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+            <Label fx:id="startLabel" textFill="#e40303">
+               <VBox.margin>
+                  <Insets top="65.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets left="15.0" />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+   <bottom>
+      <HBox fx:id="hBoxBottom" prefHeight="150.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Pane fx:id="pMeinDiscardPile" prefHeight="150.0" prefWidth="99.0">
+                     <children>
+                        <ImageView fx:id="rueckseiteNormal" fitHeight="150.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@back.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="anzahlAblageStapel" text="0" textFill="#05f026">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="5.0" />
+                     </VBox.margin>
+                  </Pane>
+               </children>
             </VBox>
-         </left>
-         <bottom>
-            <HBox fx:id="hBoxBottom" prefHeight="150.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+                  <Pane fx:id="pMeinDeck" onMouseClicked="#karteZiehen" prefHeight="150.0" prefWidth="99.0">
                      <children>
-                        <Pane fx:id="pMeinDiscardPile" prefHeight="150.0" prefWidth="99.0">
-                           <children>
-                              <ImageView fx:id="rueckseiteNormal" fitHeight="150.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@back.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label fx:id="anzahlAblageStapel" text="0" textFill="#05f026">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <VBox.margin>
-                              <Insets left="5.0" />
-                           </VBox.margin>
-                        </Pane>
+                        <ImageView fx:id="rueckseiteDeck" fitHeight="150.0" fitWidth="99.0" onMousePressed="#pressDeck" onMouseReleased="#releaseDeck" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@back.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="anzahlMeinStapel" text="10" textFill="#05f026">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
                      </children>
-                  </VBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
-                     <children>
-                        <Pane fx:id="pMeinDeck" onMouseClicked="#karteZiehen" prefHeight="150.0" prefWidth="99.0">
-                           <children>
-                              <ImageView fx:id="rueckseiteDeck" fitHeight="150.0" fitWidth="99.0" onMousePressed="#pressDeck" onMouseReleased="#releaseDeck" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@back.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label fx:id="anzahlMeinStapel" text="10" textFill="#05f026">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font></Label>
-                           </children>
-                           <VBox.margin>
-                              <Insets left="5.0" />
-                           </VBox.margin>
-                        </Pane>
-                     </children></VBox>
-                  <VBox prefHeight="150.0" prefWidth="6.0" />
-                  <HBox fx:id="hBoxRealHand" prefHeight="150.0" prefWidth="874.0" />
+                     <VBox.margin>
+                        <Insets left="5.0" />
+                     </VBox.margin>
+                  </Pane>
                </children>
-               <BorderPane.margin>
-                  <Insets bottom="10.0" />
-               </BorderPane.margin>
-            </HBox>
-         </bottom>
-         <center>
-            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            </VBox>
+            <VBox prefHeight="150.0" prefWidth="6.0" />
+            <HBox fx:id="hBoxRealHand" prefHeight="150.0" prefWidth="874.0" />
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="10.0" />
+         </BorderPane.margin>
+      </HBox>
+   </bottom>
+   <center>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="0.0" prefWidth="130.0">
+               <HBox.margin>
+                  <Insets bottom="100.0" left="160.0" top="100.0" />
+               </HBox.margin>
                <children>
-                  <VBox prefHeight="0.0" prefWidth="130.0">
-                     <HBox.margin>
-                        <Insets bottom="100.0" left="160.0" top="100.0" />
-                     </HBox.margin>
+                  <Pane fx:id="pBazaarMiddle" onMouseEntered="#infoBasar" prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <Pane fx:id="pBazaarMiddle" onMouseEntered="#infoBasar" prefHeight="200.0" prefWidth="200.0">
-                           <children>
-                              <ImageView fx:id="bazaarMiddle" fitHeight="128.0" fitWidth="130.0" onMouseClicked="#clickBazaarMiddle" onMousePressed="#pressBazaarMiddle" onMouseReleased="#releaseBazaarMiddle" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@bazaarMiddle.jpg" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                           <VBox.margin>
-                              <Insets top="60.0" />
-                           </VBox.margin>
-                        </Pane>
-                        <Pane fx:id="pVillageMiddle" onMouseEntered="#infoKeller" prefHeight="200.0" prefWidth="130.0">
-                           <children>
-                              <ImageView fx:id="villageMiddle" fitHeight="128.0" fitWidth="130.0" onMouseClicked="#clickCellarMiddle" onMousePressed="#pressCellarMiddle" onMouseReleased="#releaseCellarMiddle" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@villageMiddle.jpg" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </Pane>
+                        <ImageView fx:id="bazaarMiddle" fitHeight="128.0" fitWidth="130.0" onMouseClicked="#clickBazaarMiddle" onMousePressed="#pressBazaarMiddle" onMouseReleased="#releaseBazaarMiddle" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@bazaarMiddle.jpg" />
+                           </image>
+                        </ImageView>
                      </children>
-                  </VBox>
-                  <VBox prefHeight="200.0" prefWidth="130.0">
-                     <HBox.margin>
-                        <Insets bottom="100.0" top="100.0" />
-                     </HBox.margin>
+                     <VBox.margin>
+                        <Insets top="60.0" />
+                     </VBox.margin>
+                  </Pane>
+                  <Pane fx:id="pVillageMiddle" onMouseEntered="#infoKeller" prefHeight="200.0" prefWidth="130.0">
                      <children>
-                        <Pane fx:id="pChancellorMiddle" onMouseEntered="#infoKanzler" prefHeight="200.0" prefWidth="200.0">
-                           <children>
-                              <ImageView fx:id="chancellorMiddle" fitHeight="128.0" fitWidth="130.0" onMouseClicked="#clickChancellorMiddle" onMousePressed="#pressChancellorMiddle" onMouseReleased="#releaseChancellorMiddle" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@chancellorMiddle.jpg" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                           <VBox.margin>
-                              <Insets top="60.0" />
-                           </VBox.margin>
-                        </Pane>
-                        <Pane fx:id="pMarketMiddle" onMouseEntered="#infoMarkt" prefHeight="200.0" prefWidth="200.0">
-                           <children>
-                              <ImageView fx:id="marketMiddle" fitHeight="128.0" fitWidth="130.0" onMouseClicked="#clickMarketMiddle" onMousePressed="#pressMarketMiddle" onMouseReleased="#releaseMarketMiddle" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@marketMiddle.jpg" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </Pane>
+                        <ImageView fx:id="villageMiddle" fitHeight="128.0" fitWidth="130.0" onMouseClicked="#clickCellarMiddle" onMousePressed="#pressCellarMiddle" onMouseReleased="#releaseCellarMiddle" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@villageMiddle.jpg" />
+                           </image>
+                        </ImageView>
                      </children>
-                  </VBox>
-                  <VBox prefHeight="200.0" prefWidth="130.0">
-                     <HBox.margin>
-                        <Insets bottom="100.0" top="100.0" />
-                     </HBox.margin>
-                     <children>
-                        <Pane fx:id="pSmithyMiddle" onMouseEntered="#infoSchmied" prefHeight="200.0" prefWidth="200.0">
-                           <children>
-                              <ImageView fx:id="smithyMiddle" fitHeight="128.0" fitWidth="130.0" onMouseClicked="#clickSmithyMiddle" onMousePressed="#pressSmithyMiddle" onMouseReleased="#releaseSmithyMiddle" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@smithyMiddle.jpg" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                           <VBox.margin>
-                              <Insets top="60.0" />
-                           </VBox.margin>
-                        </Pane>
-                        <Pane prefHeight="200.0" prefWidth="200.0" />
-                     </children>
-                  </VBox>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Pane>
                </children>
-            </HBox>
-         </center>
-      </BorderPane>
-   </children>
-</Pane>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="130.0">
+               <HBox.margin>
+                  <Insets bottom="100.0" top="100.0" />
+               </HBox.margin>
+               <children>
+                  <Pane fx:id="pChancellorMiddle" onMouseEntered="#infoKanzler" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="chancellorMiddle" fitHeight="128.0" fitWidth="130.0" onMouseClicked="#clickChancellorMiddle" onMousePressed="#pressChancellorMiddle" onMouseReleased="#releaseChancellorMiddle" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@chancellorMiddle.jpg" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="60.0" />
+                     </VBox.margin>
+                  </Pane>
+                  <Pane fx:id="pMarketMiddle" onMouseEntered="#infoMarkt" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="marketMiddle" fitHeight="128.0" fitWidth="130.0" onMouseClicked="#clickMarketMiddle" onMousePressed="#pressMarketMiddle" onMouseReleased="#releaseMarketMiddle" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@marketMiddle.jpg" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Pane>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="130.0">
+               <HBox.margin>
+                  <Insets bottom="100.0" top="100.0" />
+               </HBox.margin>
+               <children>
+                  <Pane fx:id="pSmithyMiddle" onMouseEntered="#infoSchmied" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="smithyMiddle" fitHeight="128.0" fitWidth="130.0" onMouseClicked="#clickSmithyMiddle" onMousePressed="#pressSmithyMiddle" onMouseReleased="#releaseSmithyMiddle" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@smithyMiddle.jpg" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="60.0" />
+                     </VBox.margin>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="200.0" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>

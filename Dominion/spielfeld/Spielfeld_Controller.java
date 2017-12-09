@@ -20,6 +20,11 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -61,7 +66,7 @@ public class Spielfeld_Controller {
 	BorderPane grundbp;
 
 	@FXML
-	ImageView hintergrund, rueckseiteNormal, rueckseiteDeck;
+	ImageView rueckseiteNormal, rueckseiteDeck;
 	@FXML
 	ImageView kupfer, silber, gold, anwesen1, anwesen3, anwesen6;
 	@FXML
@@ -74,7 +79,7 @@ public class Spielfeld_Controller {
 	TextArea tVerlauf, tEingabe;
 
 	@FXML
-	Pane pKupfer, pSilber, pGold, p1, p3, p6, pMeinDiscardPile, pMeinDeck, pTop, grundPane;
+	Pane pKupfer, pSilber, pGold, p1, p3, p6, pMeinDiscardPile, pMeinDeck, pTop;
 	@FXML
 	Pane pBazaarMiddle, pVillageMiddle, pChancellorMiddle, pMarketMiddle, pSmithyMiddle;
 
@@ -128,10 +133,9 @@ public class Spielfeld_Controller {
 	// wird vor dem oeffnen des Fensters gemacht
 	@FXML
 	public void initialize(){
-		//Quelle fuer jeglichen Code mit .bind StackOverflow
 		
-		hintergrund.fitWidthProperty().bind(grundPane.widthProperty());
-		hintergrund.fitHeightProperty().bind(grundPane.heightProperty());
+		//Code von Stack overflow (nur naechste Zeile mit css um Hintergrundbild zu setzen...
+		grundbp.setStyle("-fx-background-image: url(\"/spielfeld/BildSpielbrett.jpg\");-fx-background-size: cover, auto;-fx-background-repeat: no-repeat;");
 		
 		
 		String c2= Spielfeld_Model.getPlayername()+"-spielf-init-$START";
