@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-
 <BorderPane fx:id="grundbp" prefHeight="780.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spielfeld.Spielfeld_Controller">
    <right>
       <VBox prefHeight="200.0" prefWidth="250.0" BorderPane.alignment="CENTER">
@@ -315,10 +314,10 @@
          <children>
             <VBox prefHeight="0.0" prefWidth="130.0">
                <HBox.margin>
-                  <Insets bottom="100.0" left="160.0" top="100.0" />
+                  <Insets bottom="100.0" left="160.0" top="15.0" />
                </HBox.margin>
                <children>
-                  <Pane fx:id="pBazaarMiddle" onMouseEntered="#infoBasar" prefHeight="200.0" prefWidth="200.0">
+                  <Pane fx:id="pBazaarMiddle" onMouseEntered="#infoBasar" prefHeight="130.0" prefWidth="130.0">
                      <children>
                         <ImageView fx:id="bazaarMiddle" fitHeight="128.0" fitWidth="130.0" onMouseClicked="#clickBazaarMiddle" onMousePressed="#pressBazaarMiddle" onMouseReleased="#releaseBazaarMiddle" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -330,7 +329,7 @@
                         <Insets top="60.0" />
                      </VBox.margin>
                   </Pane>
-                  <Pane fx:id="pVillageMiddle" onMouseEntered="#infoKeller" prefHeight="200.0" prefWidth="130.0">
+                  <Pane fx:id="pVillageMiddle" onMouseEntered="#infoKeller" prefHeight="130.0" prefWidth="130.0">
                      <children>
                         <ImageView fx:id="villageMiddle" fitHeight="128.0" fitWidth="130.0" onMouseClicked="#clickCellarMiddle" onMousePressed="#pressCellarMiddle" onMouseReleased="#releaseCellarMiddle" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -346,10 +345,10 @@
             </VBox>
             <VBox prefHeight="200.0" prefWidth="130.0">
                <HBox.margin>
-                  <Insets bottom="100.0" top="100.0" />
+                  <Insets bottom="100.0" top="15.0" />
                </HBox.margin>
                <children>
-                  <Pane fx:id="pChancellorMiddle" onMouseEntered="#infoKanzler" prefHeight="200.0" prefWidth="200.0">
+                  <Pane fx:id="pChancellorMiddle" onMouseEntered="#infoKanzler" prefHeight="130.0" prefWidth="130.0">
                      <children>
                         <ImageView fx:id="chancellorMiddle" fitHeight="128.0" fitWidth="130.0" onMouseClicked="#clickChancellorMiddle" onMousePressed="#pressChancellorMiddle" onMouseReleased="#releaseChancellorMiddle" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -361,7 +360,7 @@
                         <Insets top="60.0" />
                      </VBox.margin>
                   </Pane>
-                  <Pane fx:id="pMarketMiddle" onMouseEntered="#infoMarkt" prefHeight="200.0" prefWidth="200.0">
+                  <Pane fx:id="pMarketMiddle" onMouseEntered="#infoMarkt" prefHeight="130.0" prefWidth="130.0">
                      <children>
                         <ImageView fx:id="marketMiddle" fitHeight="128.0" fitWidth="130.0" onMouseClicked="#clickMarketMiddle" onMousePressed="#pressMarketMiddle" onMouseReleased="#releaseMarketMiddle" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -377,10 +376,10 @@
             </VBox>
             <VBox prefHeight="200.0" prefWidth="130.0">
                <HBox.margin>
-                  <Insets bottom="100.0" top="100.0" />
+                  <Insets bottom="100.0" top="15.0" />
                </HBox.margin>
                <children>
-                  <Pane fx:id="pSmithyMiddle" onMouseEntered="#infoSchmied" prefHeight="200.0" prefWidth="200.0">
+                  <Pane fx:id="pSmithyMiddle" onMouseEntered="#infoSchmied" prefHeight="130.0" prefWidth="130.0">
                      <children>
                         <ImageView fx:id="smithyMiddle" fitHeight="128.0" fitWidth="130.0" onMouseClicked="#clickSmithyMiddle" onMousePressed="#pressSmithyMiddle" onMouseReleased="#releaseSmithyMiddle" pickOnBounds="true" preserveRatio="true">
                            <image>
