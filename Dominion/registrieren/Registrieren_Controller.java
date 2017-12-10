@@ -18,6 +18,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import leaderboard.Leaderboard_Model;
+import sound.MP3;
 
 // Eduart Bunjaku
 
@@ -64,6 +65,7 @@ public class Registrieren_Controller {
     // Nach erfolgreicher Registrierung gelangt man mit dem "Registrieren-Button" zum Login.
     @FXML
    public void lobbyOeffnen(ActionEvent event) throws IOException {
+    	MP3.spieleMusik();
     	
     	String name = usernameRegistrierenTextfeld.getText();
     	String password =pwFeld.getText();
@@ -80,7 +82,7 @@ public class Registrieren_Controller {
     	}
     	
     	if (!password.equals(pwWiederholenFeld.getText())&& komform){
-    		infolabel.setText("Zwei verschiedene Passw�rter eingegeben");
+    		infolabel.setText("Zwei verschiedene Passw�rter eingegeben");
     		komform=false;
     	}
     	
@@ -115,6 +117,7 @@ public class Registrieren_Controller {
     // Mit dem Betätigen des "Abbrechen-Buttons", kehrt man zum Login Fenster zurück
     @FXML
    public void fensterSchliessen() throws IOException {
+    	MP3.spieleMusik();
     	// schliesst aktuelles Fenster
     			Stage currentStage = (Stage) abbrechenButton.getScene().getWindow();
     		    currentStage.close();

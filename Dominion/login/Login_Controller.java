@@ -73,6 +73,7 @@ public class Login_Controller {
     // Schliesst Login-Fenster, wenn man auf "Abbrechen-Button" klickt.   
     @FXML
     public void schliessen(){
+    	MP3.spieleMusik();
     	Platform.exit();
     }
     

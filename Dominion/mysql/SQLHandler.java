@@ -32,7 +32,7 @@ public class SQLHandler {
 	public static ResultSet doAbfrage(){
 		
 		try {
-		    conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/dominion?" +"user=root&password=");
+		    conn = (Connection) DriverManager.getConnection("jdbc:mysql://192.168.64.2/dominion?" +"user=admin&password=1234567");
 		    System.out.println("Login erfolgreich");
 		    
 
@@ -59,7 +59,7 @@ public class SQLHandler {
 		        
 		    }
 		    catch (SQLException ex){
-		        // Für Fehler
+		        // Fï¿½r Fehler
 		        System.out.println("SQLException: " + ex.getMessage());
 		        System.out.println("SQLState: " + ex.getSQLState());
 		        System.out.println("VendorError: " + ex.getErrorCode());
@@ -111,7 +111,7 @@ public static  void doManipulation(){
 		        
 		    }
 		    catch (SQLException ex){
-		        // Für Fehler
+		        // Fï¿½r Fehler
 		        System.out.println("SQLException: " + ex.getMessage());
 		        System.out.println("SQLState: " + ex.getSQLState());
 		        System.out.println("VendorError: " + ex.getErrorCode());

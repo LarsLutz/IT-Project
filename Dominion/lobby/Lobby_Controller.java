@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import kommunikation.Decoder;
 import kommunikation.Kommunikation;
 import kommunikation.Updater;
+import sound.MP3;
 import spielfeld.Spielfeld_Controller;
 
 // Eduart Bunjaku - Jan Mueller
@@ -70,6 +71,7 @@ public class Lobby_Controller {
     //Jan Müller
     @FXML
     public void neuesSpiel(ActionEvent event) throws IOException {
+    	MP3.spieleMusik();
     	// schliesst aktuelles Fenster
     	Stage currentStage = (Stage) neuesSpielButton.getScene().getWindow();
     	currentStage.close();
@@ -96,12 +98,14 @@ public class Lobby_Controller {
    
     @FXML
     public void spielLaden(ActionEvent event) {
+    	MP3.spieleMusik();
     	System.out.println("TODO... SpielLaden");
     }
 
     //Jan Mueller
     @FXML
     public void chatOeffnen(ActionEvent event) throws IOException {
+    	MP3.spieleMusik();
     	// oeffnet neues fenster wenn noch keins offen ist
     		
     		if(lm.getChatIstOffen() == false){
@@ -123,6 +127,7 @@ public class Lobby_Controller {
     //Jan Mueller
     @FXML
     public void leaderboardAnzeigen(ActionEvent event) throws IOException {
+    	MP3.spieleMusik();
     	// schliesst aktuelles Fenster
     	Stage currentStage = (Stage) leaderBoardButton.getScene().getWindow();
     	currentStage.close();
@@ -140,6 +145,7 @@ public class Lobby_Controller {
     //Jan Mueller
     @FXML
     public void anleitungAnzeigen(ActionEvent event)throws IOException {
+    	MP3.spieleMusik();
     	// schliesst aktuelles Fenster
     	Stage currentStage = (Stage) anleitungButton.getScene().getWindow();
     	currentStage.close();
@@ -157,6 +163,7 @@ public class Lobby_Controller {
     //Edu Bunjaku
     @FXML
     public void beenden(ActionEvent event) {
+    	MP3.spieleMusik();
     	Stage currentStage = (Stage) leaderBoardButton.getScene().getWindow();
     	currentStage.close();
     	try {
