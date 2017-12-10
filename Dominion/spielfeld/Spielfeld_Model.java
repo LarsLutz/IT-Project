@@ -121,7 +121,7 @@ public static void verarbeiteString(String c){
 		switch (variable){
         case "label":   Spielfeld_Model.setUpdate(wert);       				
         break;
-        case "init": Spielfeld_Model.setPlayername(head);
+        case "init": Spielfeld_Model.setUpdate(wert);
         break;
         case "zug" : Spielfeld_Model.setZug(wert);
         break;
