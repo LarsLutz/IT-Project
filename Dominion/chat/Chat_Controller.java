@@ -28,6 +28,8 @@ public class Chat_Controller  {
 	private Decoder dec;
 	private Thread thread;
 	private Boolean leuft =true;
+	private Timer timer;
+	private Updater updater;
 	
 	//Jan Müller
 	
@@ -35,7 +37,7 @@ public class Chat_Controller  {
 		dec= new Decoder();
 		model= new Chat_Model();
 		
-		Timer timer = new Timer();
+		timer = new Timer();
 		
 		timer.scheduleAtFixedRate(new getNachricht(this, model), 0,1000);
 
@@ -57,8 +59,8 @@ public void initialize(){
 		e.printStackTrace();
 	}
 	
-	
-	this.thread=new Thread(new Updater(dec));
+	updater=new Updater(dec);
+	this.thread=new Thread(updater);
 	this.thread.start();
 	//leuft =false;
 	
@@ -74,7 +76,11 @@ public void initialize(){
 //	
 }
 
-public void stop(){
+public void stopStage(){
+	timer.cancel();
+	timer.purge();
+	updater.schliessen();
+
     System.err.println("Stage is closing");
     // Save file
 }

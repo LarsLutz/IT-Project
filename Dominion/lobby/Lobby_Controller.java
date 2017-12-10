@@ -2,6 +2,7 @@ package lobby;
 
 import java.io.IOException;
 
+import chat.Chat_Controller;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -101,6 +102,10 @@ public class Lobby_Controller {
 	    		stage.setScene(new Scene(root1)); 
 	    		stage.show();
 	    		stage.setResizable(false);
+	    		
+	    		stage.setOnCloseRequest(event1 -> {
+                    fxmlLoader.<Chat_Controller>getController().stopStage();
+                });
     		}
     		lm.setChatIstOffen(true);
     }
