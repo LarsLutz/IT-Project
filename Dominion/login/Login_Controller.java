@@ -25,7 +25,7 @@ import spielfeld.Spielfeld_Model;
 
 public class Login_Controller {
 
-	MP3 mp3 = new MP3();
+	
 	private Login_Model model;
 	
 	public Login_Controller(){
@@ -79,7 +79,7 @@ public class Login_Controller {
     // Oeffnet Lobby-Fenster, wenn man auf "Login-Button" klickt.
     @FXML
     public void oeffneLobby(ActionEvent event) throws IOException {
-    	mp3.spieleMusik();
+    	MP3.spieleMusik();
     	
     	String name = usernameTextfeld.getText();
     	String password =passwortFeld.getText();
@@ -139,7 +139,8 @@ public class Login_Controller {
     @FXML
    public void oeffneRegistrieren(ActionEvent event) throws IOException{
 
-    	mp3.spieleMusik();
+    	MP3.spieleMusik();
+    	
     	// closes current window
 		Stage currentStage = (Stage) registrierenButton.getScene().getWindow();
 	    currentStage.close();

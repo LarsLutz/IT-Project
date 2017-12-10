@@ -17,13 +17,13 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
-public class MP3{ //extends Application{
+public final class MP3{ //extends Application{
 	
 	Button b;
 	
 
 	
-	public void spieleMusik(){
+	public static void spieleMusik(){
 		//String titel = "Bitch Better Have My Money (Lyrics).mp3";
 		try{
 			
