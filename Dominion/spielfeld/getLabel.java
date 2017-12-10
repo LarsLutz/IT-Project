@@ -23,11 +23,16 @@ public class getLabel extends TimerTask{
 	public void run() {
 
 		String temp = Spielfeld_Model.getUpdate();
+		String player=Spielfeld_Model.getPlayername();
+		System.out.println("Getlabel: "+player);
 		System.err.println("Labeltime "+temp);
 		
 		if (!temp.isEmpty()&& Chat_Model.getIstneu()){
 		if (temp.equals("$START")){
-			System.out.println("Chat startet");
+			System.out.println("Spiel startet");
+			if (player.equals("player2")){
+				controller.grundbp.setDisable(true);
+			}
 			Spielfeld_Model.setIstneu(false);
 		}else{
 			Platform.runLater(() -> {

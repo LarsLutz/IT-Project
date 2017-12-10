@@ -15,7 +15,7 @@ public class Decoder {
 	}
 	
 	
-	public  void lesen(){
+	synchronized public  void lesen(){
 		
 		try {
 			System.out.println("In Methode lesen");
@@ -36,8 +36,14 @@ public class Decoder {
 		String wert = parts[4];
 		
 		if(spieler.equals(Spielfeld_Model.getPlayername())|| spieler.equals("johndoe")){
-			System.err.println("Nicht für mich");
+			if (spieler.equals("johndoe")){
 			Spielfeld_Model.setPlayername(player);
+			Spielfeld_Model.verarbeiteString(variable+"-"+wert+"-"+spieler+"-"+player);
+			System.err.println("Decoder "+player);
+		}else{
+			
+			System.err.println("Nicht für mich");
+		}
 		}else{
 		
 		System.out.println(wert+"  "+kopf);

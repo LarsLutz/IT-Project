@@ -46,6 +46,8 @@ public class Spielfeld_Controller {
 	private Lobby_Model lm;
 	private Decoder dec;
 	private Thread thread;
+	private Timer timer;
+	private Updater updater;
 	
 	
 
@@ -57,7 +59,7 @@ public class Spielfeld_Controller {
 		dec= new Decoder();
 		
 		
-		Timer timer = new Timer();
+		timer = new Timer();
 		
 		timer.scheduleAtFixedRate(new getLabel(this, sm), 0,1000);
 	}
@@ -128,6 +130,16 @@ public class Spielfeld_Controller {
 	}
 	
 	
+	public void stopStage(){
+		timer.cancel();
+		timer.purge();
+		updater.schliessen();
+
+	    System.err.println("Stage is closing");
+	    // Save file
+	}
+	
+	
 	
 
 	// wird vor dem oeffnen des Fensters gemacht
@@ -141,12 +153,13 @@ public class Spielfeld_Controller {
 		String c2= Spielfeld_Model.getPlayername()+"-spielf-init-$START";
 		try {
 			Kommunikation.sendenClient(c2);
+			System.out.println("Sende startbefehl");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
-		
-		this.thread=new Thread(new Updater(dec));
+		updater= new Updater(dec);
+		this.thread=new Thread(updater);
 		this.thread.start();
 		
 		
@@ -154,6 +167,9 @@ public class Spielfeld_Controller {
 		for (int i = 0; i < sm.getAnzahlStarthand(); i++) {
 			this.karteZiehen();
 		}
+		System.err.println("Gibt Inahlt von Playername "+Spielfeld_Model.getPlayername());
+		
+		
 		pMeinDeck.setDisable(true);
 		bazaarMiddle.setDisable(true);
 		villageMiddle.setDisable(true);
@@ -171,6 +187,10 @@ public class Spielfeld_Controller {
 		Zaehler.kaufZaehler = 100;
 		
 		labelsAktualisieren();
+	
+		
+		
+	
 	}
 
 	// Löst das Ziehen bzw. Erzeugen einer Karte aus.

@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import kommunikation.Decoder;
 import kommunikation.Kommunikation;
 import kommunikation.Updater;
+import spielfeld.Spielfeld_Controller;
 
 // Eduart Bunjaku - Jan Mueller
 
@@ -82,6 +83,15 @@ public class Lobby_Controller {
         stage.show();
         stage.setResizable(false);
         stage.setFullScreen(true);
+        stage.setOnCloseRequest(event1 -> {
+            fxmlLoader.<Spielfeld_Controller>getController().stopStage();
+            try {
+    			Kommunikation.conclose();
+    		} catch (IOException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+        });
     }
    
     @FXML
