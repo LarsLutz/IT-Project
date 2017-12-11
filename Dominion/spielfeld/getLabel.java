@@ -45,6 +45,7 @@ public class getLabel extends TimerTask{
 		}
 		if(Spielfeld_Model.getZug().equals("1")){
 			controller.spielerEnabeln();
+			Spielfeld_Model.setZug(0+"");
 		}
 		}
 		

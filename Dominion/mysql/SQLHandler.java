@@ -83,7 +83,7 @@ public class SQLHandler {
 public static  void doManipulation(){
 		
 		try {
-		    conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/dominion?" +"user=root&password=");
+		    conn = (Connection) DriverManager.getConnection("jdbc:mysql://192.168.64.2/dominion?" +"user=admin&password=1234567");
 		    System.out.println("Login erfolgreich");
 		    
 

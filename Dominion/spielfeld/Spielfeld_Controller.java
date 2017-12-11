@@ -125,7 +125,9 @@ public class Spielfeld_Controller {
 		grundbp.setDisable(false);
 		pMeinDeck.setDisable(true);
 		bZugBeenden.setDisable(true);
-		//TODO Jan M�ller
+		bP1.setDisable(false);
+		bP2.setDisable(false);
+		bP3.setDisable(false);
 		
 	}
 	
@@ -183,8 +185,6 @@ public class Spielfeld_Controller {
 		anwesen3.setDisable(true);
 		anwesen6.setDisable(true);
 		Zaehler.beginnZug();
-		Zaehler.addGuthaben(50);
-		Zaehler.kaufZaehler = 100;
 		
 		labelsAktualisieren();
 	
@@ -501,8 +501,7 @@ public class Spielfeld_Controller {
 		}
 		//TODO -- Du bist am Zug
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Du bist am Zug");
-		grundbp.setDisable(true);
-		opLogger.setDisable(false);
+		bZugBeenden.setDisable(true);
 		Zaehler.beginnZug();
 		labelsAktualisieren();
 		//Sobald gegner Zug beenden dr�ckt wird folgendes ausgefuehrt:
