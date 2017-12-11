@@ -151,7 +151,7 @@ public class Spielfeld_Controller {
 		//Code von Stack overflow (nur naechste Zeile mit css um Hintergrundbild zu setzen...
 		grundbp.setStyle("-fx-background-image: url(\"/spielfeld/BildSpielbrett.jpg\");-fx-background-size: cover, auto;-fx-background-repeat: no-repeat;");
 		
-		
+		opLogger.setText("Du bist am Zug" );
 		String c2= Spielfeld_Model.getPlayername()+"-spielf-init-$START";
 		try {
 			Kommunikation.sendenClient(c2);
@@ -503,7 +503,9 @@ public class Spielfeld_Controller {
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Du bist am Zug");
 		bZugBeenden.setDisable(true);
 		Zaehler.beginnZug();
+		
 		labelsAktualisieren();
+		opLogger.setText("Gegner am Zug");
 		//Sobald gegner Zug beenden dr�ckt wird folgendes ausgefuehrt:
 		
 		
