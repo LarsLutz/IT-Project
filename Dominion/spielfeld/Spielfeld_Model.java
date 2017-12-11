@@ -13,7 +13,7 @@ public class Spielfeld_Model{
 	private boolean aktionsPhase;
 	private boolean kaufPhase;
 	private boolean discardPhase;
-	private static Boolean istneu;
+	private static Boolean istneu= false;
 	private static String update ="";
 	private static String spielername;
 	private static String playername="johndoe";
@@ -106,7 +106,7 @@ public class Spielfeld_Model{
 	
 public static void verarbeiteString(String c){
 		
-		Chat_Model.setIstneu(true);
+		Spielfeld_Model.setIstneu(true);
 		String daten=c;
 		
 		String[] parts = daten.split("-");
