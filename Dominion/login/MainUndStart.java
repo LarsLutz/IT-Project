@@ -80,6 +80,7 @@ public class MainUndStart extends Application{
 			
 			try {
 				   Runtime.getRuntime().exec("c:\\xampp\\xampp-control.exe");
+				   //Runtime.getRuntime().exec(open /Applications/xampp.app); 
 				 }
 				 catch (Exception e) {
 				    System.err.println(e.toString());
