@@ -1,24 +1,42 @@
 package login;
 	
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
+
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.DataLine;
+import javax.sound.sampled.Line;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 // Eduart Bunjaku - Jan Müller
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import sun.audio.AudioData;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
+import sun.audio.ContinuousAudioDataStream;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 
 //Eduart Bunjaku - Jan Müller
 
-public class MainUndStart extends Application {
+public class MainUndStart extends Application{
 	
 	//private Login_View v;
 	//private Login_Model m;
 	//private Login_Controller c;
-	
+
 	@Override
 	public void start(Stage primaryStage) {
 		
@@ -26,7 +44,13 @@ public class MainUndStart extends Application {
 		//v = new Login_View(primaryStage);
 		//m = new Login_Model();
 		//c = new Login_Controller();
+		
+		Media media = new Media(new File("Dominion/login/Domini.mp3").toURI().toString());
+		MediaPlayer mediaPlayer = new MediaPlayer(media);
+		mediaPlayer.play();
 
+		
+		
 		try {
 			
 			URL fxmlUrl = getClass().getResource("LoginGUI.fxml");
