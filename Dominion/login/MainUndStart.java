@@ -19,6 +19,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import sound.HintergrundSound;
 import sun.audio.AudioData;
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
@@ -36,7 +37,8 @@ public class MainUndStart extends Application{
 	//private Login_View v;
 	//private Login_Model m;
 	//private Login_Controller c;
-
+	HintergrundSound s = new HintergrundSound();
+	
 	@Override
 	public void start(Stage primaryStage) {
 		
@@ -45,10 +47,11 @@ public class MainUndStart extends Application{
 		//m = new Login_Model();
 		//c = new Login_Controller();
 		
-		Media media = new Media(new File("Dominion/login/Domini.mp3").toURI().toString());
-		MediaPlayer mediaPlayer = new MediaPlayer(media);
-		mediaPlayer.play();
-
+//		Media media = new Media(new File("Dominion/login/Domini.mp3").toURI().toString());
+//		MediaPlayer mediaPlayer = new MediaPlayer(media);
+//		mediaPlayer.play();
+		
+		s.playHintergrundLoop();
 		
 		
 		try {

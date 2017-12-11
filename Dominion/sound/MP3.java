@@ -27,7 +27,7 @@ public final class MP3{ //extends Application{
 		//String titel = "Bitch Better Have My Money (Lyrics).mp3";
 		try{
 			
-		Media media = new Media(new File("Dominion/sound/button-09.wav").toURI().toString());
+		Media media = new Media(new File("Dominion/sound/Button.mp3").toURI().toString());
 		MediaPlayer mediaPlayer = new MediaPlayer(media);
 		mediaPlayer.play();
 
