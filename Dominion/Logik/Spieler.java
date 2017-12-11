@@ -12,6 +12,8 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import spielfeld.Spielfeld_Model;
 import Karte.AktionsKarte;
 import Karte.GeldKarte;
@@ -23,7 +25,7 @@ import SammlungP.Sammlung;
 import Logik.Zaehler;
 import java.util.Stack;
 
-public class Spieler{
+public class Spieler {//implements Comparable<Spieler>{
 	//Robin Widmer
 	//send alli spielbare charte uf de hand
 	public ArrayList<SuperKarte> handliste = new ArrayList<SuperKarte>();
@@ -40,6 +42,7 @@ public class Spieler{
 	private int aktuelleRunde = 1; // erster Zug, Spielbeginn TODO getter und setter schreiben
 	private int gesamtpunkte;
 	SiegNiederlage_Controller sgc;
+	private Pane sieg;
 	//Spielfeld_Model spielfModel;
 	
 
@@ -223,6 +226,7 @@ public void kartenKaufen(SuperKarte K){
 		
 		System.out.println("AKTUELLE PUNKTE: " + gesamtpunkte);
 		
+		
 	}
 
 
@@ -233,19 +237,44 @@ public void kartenKaufen(SuperKarte K){
  * Vergleicht zwei Spieler Objekte miteinander und gibt den Text Sieger/Verlierer Text aus.
  * 
  */
-public void punkteVergleich(Spieler s1, Spieler s2){
-	if (s1.getGesamtpunkte() > s2.getGesamtpunkte()){
-		sgc.getLabNachricht().setText("Sie haben gewonnen");
-	}if(s1.getGesamtpunkte() < s2.getGesamtpunkte()){
-		sgc.getLabNachricht().setText("Sie haben verloren");
-	}else{
-		sgc.getLabNachricht().setText("Unentschieden");
-	}
-}
+//public void punkteVergleich(Spieler s1, Spieler s2){
+//	if (s1.getGesamtpunkte() > s2.getGesamtpunkte()){
+//		sgc.getLabNachricht().setText("Sie haben gewonnen");
+//	}if(s1.getGesamtpunkte() < s2.getGesamtpunkte()){
+//		sgc.getLabNachricht().setText("Sie haben verloren");
+//	}else{
+//		sgc.getLabNachricht().setText("Unentschieden");
+//	}
+//	this.laden();
+//}
 
 
+//@Override
+//public int compareTo(Spieler o) {
+//	if(this.getGesamtpunkte() > o.getGesamtpunkte()){
+//		 sgc.getLabNachricht().setText("Sie haben gewonnen");
+//	}if(this.getGesamtpunkte() < o.getGesamtpunkte()){
+//		sgc.getLabNachricht().setText("Sie haben verloren");
+//	}else{
+//		sgc.getLabNachricht().setText("Unentschieden");
+//	}
+//	return 0;
+//	
+//}
 
 
+//private void start(Stage primaryStage) throws IOException{
+//	URL fxmlUrl = getClass().getResource("SiegNiederlageGUI.fxml");
+//	FXMLLoader fxmlLoader = new FXMLLoader(fxmlUrl); 
+//	Parent root = fxmlLoader.load(); 
+//	Scene scene = new Scene(root); 
+//	primaryStage.setScene(scene);
+//	primaryStage.show();
+//}
+
+public void laden(){
+    SiegNiederlage_Main.main(null);
+ }
 	
 
 }

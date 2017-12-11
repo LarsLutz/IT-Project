@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class SiegNiederlage_Controller {
@@ -17,6 +18,13 @@ public class SiegNiederlage_Controller {
 	public SiegNiederlage_Controller(){
 		
 	}
+	
+    @FXML
+    private Pane wurzel;
+    
+    public Pane getWurzel(){
+    	return this.wurzel;
+    }
 	
 	@FXML
 	Button bOk;
@@ -47,6 +55,7 @@ public class SiegNiederlage_Controller {
 		        stage.setScene(new Scene(root1));  
 		        stage.show();
 	}
+
 	
 
 }
