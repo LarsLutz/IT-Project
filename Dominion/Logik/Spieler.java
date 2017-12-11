@@ -40,6 +40,7 @@ public class Spieler{
 	private int aktuelleRunde = 1; // erster Zug, Spielbeginn TODO getter und setter schreiben
 	private int gesamtpunkte;
 	SiegNiederlage_Controller sgc;
+	//Spielfeld_Model spielfModel;
 	
 
 
@@ -189,7 +190,7 @@ public void kartenKaufen(SuperKarte K){
 		
 		if(aktuelleRunde == LETZTERUNDE){
 			punkteBerechnen();
-			punkteVergleich(null, null); // 
+			//punkteVergleich(null, null); // 
 			Platform.exit();
 			
 //			bedingung.launch(); --> sollte GUI von Sieg/Niederlage laden.
@@ -241,6 +242,10 @@ public void punkteVergleich(Spieler s1, Spieler s2){
 		sgc.getLabNachricht().setText("Unentschieden");
 	}
 }
+
+
+
+
 	
 
 }
