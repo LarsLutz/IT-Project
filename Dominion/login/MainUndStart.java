@@ -78,6 +78,13 @@ public class MainUndStart extends Application{
 		        ex.printStackTrace();
 		    }
 			
+			try {
+				   Runtime.getRuntime().exec("c:\\xampp\\xampp-control.exe");
+				 }
+				 catch (Exception e) {
+				    System.err.println(e.toString());
+				 }
+			
 			//SQLInjection sqln = new SQLInjection(); - evt später für larsiboy?
 			//sqln.connectDatabase();
 			
