@@ -197,6 +197,7 @@ public void kartenKaufen(SuperKarte K){
 			Platform.exit();
 			
 //			bedingung.launch(); --> sollte GUI von Sieg/Niederlage laden.
+			this.laden();
 		}
 		
 	}
@@ -225,7 +226,7 @@ public void kartenKaufen(SuperKarte K){
 		this.gesamtpunkte = summeHand + summeDeck + summeAbwurf;
 		
 		System.out.println("AKTUELLE PUNKTE: " + gesamtpunkte);
-		
+		// eventuel statt syso das Label von siegniederlage-Controller ausgeben
 		
 	}
 
