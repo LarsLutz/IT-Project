@@ -697,29 +697,29 @@ public class Spielfeld_Controller {
 				"Taste gedrückt.. jetzt noch auf Enter... Bei tastendruck ist es kein MouseEvent sondern ein..?");
 	}
 	
-//	@FXML
+	@FXML
 	// Code wir mit namen und nicht player gesendet damit beide antworten ankommen
-//	public void sendenEnter(KeyEvent keyevent) throws InterruptedException{
-//
-//		if (keyevent.getCode() == KeyCode.ENTER)  {
-//
-//		String c1;
-//		c1= Chat_Model.getSpielername()+"-chat-text-"+ textArea2.getText();
-//		if (c1 != null && !c1.isEmpty()) { //Checkt ob �berhaupt etwas gesendet werden kann
-//			try {
-//				Kommunikation.sendenClient(c1);
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
-//			
-//			textArea2.clear();
-//			
-//			
-//		}
-//		
-//		}
-//		
-//		
-//	}
+	public void sendenEnter(KeyEvent keyevent) throws InterruptedException{
+
+		if (keyevent.getCode() == KeyCode.ENTER)  {
+
+		String c1;
+		c1= Spielfeld_Model.getSpielername()+"-spielf-chat-"+ tEingabe.getText();
+		if (c1 != null && !c1.isEmpty()) { //Checkt ob �berhaupt etwas gesendet werden kann
+			try {
+				Kommunikation.sendenClient(c1);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			tEingabe.clear();
+			
+			
+		}
+		
+		}
+		
+		
+	}
 
 }

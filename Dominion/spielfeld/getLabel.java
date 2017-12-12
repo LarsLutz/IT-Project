@@ -22,8 +22,14 @@ public class getLabel extends TimerTask{
 
 		String temp = Spielfeld_Model.getUpdate();
 		String player=Spielfeld_Model.getPlayername();
-		System.out.println("Getlabel: "+player);
+		String chat = Spielfeld_Model.getChat();
+		System.out.println("Getlabel: "+chat);
 		System.err.println("Labeltime "+temp);
+		
+		if (!chat.isEmpty()){
+			controller.tVerlauf.appendText(chat+"\n");
+			Spielfeld_Model.setChat("");
+			}
 
 		if (!temp.isEmpty()&& Spielfeld_Model.getIstneu()){
 			if (temp.equals("$START")){
@@ -37,7 +43,6 @@ public class getLabel extends TimerTask{
 				Spielfeld_Model.setIstneu(false);
 			}else{
 				Platform.runLater(() -> {
-
 					controller.opLogger.setText(temp);
 					System.out.println("In Label geschrieben");
 					//controller.tEingabe.appendText(temp+"\n");;
@@ -45,10 +50,13 @@ public class getLabel extends TimerTask{
 				});
 				Spielfeld_Model.setIstneu(false);
 			}
+			
+			
 			if(Spielfeld_Model.getZug().equals("1")){
 				controller.spielerEnabeln();
 				Spielfeld_Model.setZug(0+"");
 			}
+			
 		}
 
 	}

@@ -19,6 +19,7 @@ public class Spielfeld_Model{
 	private static String playername="johndoe";
 	private static String zug="0";
 	private static String punkte="0";
+	private static String chat="";
 	
 	
 
@@ -128,6 +129,8 @@ public static void verarbeiteString(String c){
         break;
         case "punkte": Spielfeld_Model.setPunkte(wert);
         break;
+        case "chat":	Spielfeld_Model.setChat(name+"    "+wert);
+        break;
 		}
 		
 		
@@ -158,6 +161,16 @@ public static int getPunkte() {
 public static void setPunkte(String punkte) {
 	Spielfeld_Model.punkte = punkte;
 }
+
+public static String getChat() {
+	return chat;
+}
+
+public static void setChat(String chat) {
+	Spielfeld_Model.chat = chat;
+}
+
+
 	
 	
 }
