@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import kommunikation.Kommunikation;
 import spielfeld.Spielfeld_Model;
 import Karte.AktionsKarte;
 import Karte.GeldKarte;
@@ -25,7 +26,7 @@ import SammlungP.Sammlung;
 import Logik.Zaehler;
 import java.util.Stack;
 
-public class Spieler {//implements Comparable<Spieler>{
+public class Spieler implements Comparable<Spieler>{
 	//Robin Widmer
 	//send alli spielbare charte uf de hand
 	public ArrayList<SuperKarte> handliste = new ArrayList<SuperKarte>();
@@ -44,6 +45,7 @@ public class Spieler {//implements Comparable<Spieler>{
 	SiegNiederlage_Controller sgc;
 	private Pane sieg;
 	//Spielfeld_Model spielfModel;
+	private int spie2Punkte;
 	
 
 
@@ -182,6 +184,13 @@ public void kartenKaufen(SuperKarte K){
 	public void setGesamtpunkte(int gesamtpunkte){
 		this.gesamtpunkte = gesamtpunkte;
 	}
+	
+	public int getSpie2Punkte(){
+		return this.spie2Punkte;
+	}
+	public void setSpie2Punkte(int spie2Punkte){
+		this.spie2Punkte = spie2Punkte;
+	}
 	 
 	
 // Eduart Bunjaku
@@ -195,6 +204,13 @@ public void kartenKaufen(SuperKarte K){
 			punkteBerechnen();
 			//punkteVergleich(null, null); // 
 			Platform.exit();
+			
+			try {
+				Kommunikation.sendenClient(Spielfeld_Model.getPlayername() + "-player-punkte-" + this.gesamtpunkte );
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 //			bedingung.launch(); --> sollte GUI von Sieg/Niederlage laden.
 			this.laden();
@@ -250,18 +266,18 @@ public void kartenKaufen(SuperKarte K){
 //}
 
 
-//@Override
-//public int compareTo(Spieler o) {
-//	if(this.getGesamtpunkte() > o.getGesamtpunkte()){
-//		 sgc.getLabNachricht().setText("Sie haben gewonnen");
-//	}if(this.getGesamtpunkte() < o.getGesamtpunkte()){
-//		sgc.getLabNachricht().setText("Sie haben verloren");
-//	}else{
-//		sgc.getLabNachricht().setText("Unentschieden");
-//	}
-//	return 0;
-//	
-//}
+@Override
+public int compareTo(Spieler o) {
+	if(this.getGesamtpunkte() > o.getGesamtpunkte()){
+		 sgc.getLabNachricht().setText("Sie haben gewonnen");
+	}if(this.getGesamtpunkte() < o.getGesamtpunkte()){
+		sgc.getLabNachricht().setText("Sie haben verloren");
+	}else{
+		sgc.getLabNachricht().setText("Unentschieden");
+	}
+	return 0;
+	
+}
 
 
 //private void start(Stage primaryStage) throws IOException{
