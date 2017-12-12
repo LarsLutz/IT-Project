@@ -11,6 +11,7 @@ import com.sun.java_cup.internal.runtime.Symbol;
 import Logik.Spieler;
 import Logik.Zaehler;
 import SammlungP.Sammlung;
+import chat.Chat_Model;
 import chat.getNachricht;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,6 +20,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
@@ -689,5 +692,29 @@ public class Spielfeld_Controller {
 		System.out.println(
 				"Taste gedrÃ¼ckt.. jetzt noch auf Enter... Bei tastendruck ist es kein MouseEvent sondern ein..?");
 	}
+	
+//	@FXML
+//	public void sendenEnter(KeyEvent keyevent) throws InterruptedException{
+//
+//		if (keyevent.getCode() == KeyCode.ENTER)  {
+//
+//		String c1;
+//		c1= Chat_Model.getSpielername()+"-chat-text-"+ textArea2.getText();
+//		if (c1 != null && !c1.isEmpty()) { //Checkt ob überhaupt etwas gesendet werden kann
+//			try {
+//				Kommunikation.sendenClient(c1);
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//			
+//			textArea2.clear();
+//			
+//			
+//		}
+//		
+//		}
+//		
+//		
+//	}
 
 }
