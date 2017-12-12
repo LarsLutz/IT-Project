@@ -28,7 +28,7 @@
             <HBox prefHeight="12.0" prefWidth="250.0" />
             <HBox prefHeight="62.0" prefWidth="250.0">
                <children>
-                  <TextArea fx:id="tEingabe" onKeyTyped="#enterKlick" prefHeight="43.0" prefWidth="245.0" />
+                  <TextField fx:id="tEingabe" onKeyPressed="#enterKlick" prefHeight="43.0" prefWidth="245.0" />
                </children>
             </HBox>
             <HBox prefHeight="157.0" prefWidth="250.0">
