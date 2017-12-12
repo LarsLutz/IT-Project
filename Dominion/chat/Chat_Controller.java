@@ -12,9 +12,12 @@ import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import kommunikation.Decoder;
 import kommunikation.Kommunikation;
@@ -131,13 +134,42 @@ public void stopStage(){
 		
 		
 	}
+	
+	
+	@FXML
+	public void sendenEnter(KeyEvent keyevent) throws InterruptedException{
+
+		if (keyevent.getCode() == KeyCode.ENTER)  {
+
+		String c1;
+		c1= Chat_Model.getSpielername()+"-chat-text-"+ textArea2.getText();
+		if (c1 != null && !c1.isEmpty()) { //Checkt ob überhaupt etwas gesendet werden kann
+			try {
+				Kommunikation.sendenClient(c1);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			textArea2.clear();
+			
+			
+		}
+		
+		}
+		
+		
+	}
+	
 
 	
 	@FXML
 	public void exitApplication(ActionEvent event) {
 	   Platform.exit();
 	}
-	
+
+
+
+
 	
 	
 	
