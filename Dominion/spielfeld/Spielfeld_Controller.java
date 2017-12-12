@@ -1,5 +1,6 @@
 package spielfeld;
 
+import java.awt.TextField;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -81,7 +82,10 @@ public class Spielfeld_Controller {
 	Button bSpeichern, bP1, bP2, bP3, bZugBeenden;
 
 	@FXML
-	TextArea tVerlauf, tEingabe;
+	TextArea tVerlauf;
+	
+	@FXML
+	TextField tEingabe;
 
 	@FXML
 	Pane pKupfer, pSilber, pGold, p1, p3, p6, pMeinDiscardPile, pMeinDeck, pTop;
@@ -701,7 +705,7 @@ public class Spielfeld_Controller {
 //
 //		String c1;
 //		c1= Chat_Model.getSpielername()+"-chat-text-"+ textArea2.getText();
-//		if (c1 != null && !c1.isEmpty()) { //Checkt ob überhaupt etwas gesendet werden kann
+//		if (c1 != null && !c1.isEmpty()) { //Checkt ob ï¿½berhaupt etwas gesendet werden kann
 //			try {
 //				Kommunikation.sendenClient(c1);
 //			} catch (IOException e) {

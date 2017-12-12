@@ -16,6 +16,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -96,7 +97,7 @@ public void stopStage(){
 
 
 	@FXML
-	TextArea textArea2;
+	TextField textArea2;
 	
 	
 	
@@ -111,7 +112,7 @@ public void stopStage(){
 		
 		String c1;
 		c1= Chat_Model.getSpielername()+"-chat-text-"+ textArea2.getText();
-		if (c1 != null && !c1.isEmpty()) { //Checkt ob überhaupt etwas gesendet werden kann
+		if (c1 != null && !c1.isEmpty()) { //Checkt ob ï¿½berhaupt etwas gesendet werden kann
 			try {
 				Kommunikation.sendenClient(c1);
 			} catch (IOException e) {
@@ -143,7 +144,7 @@ public void stopStage(){
 
 		String c1;
 		c1= Chat_Model.getSpielername()+"-chat-text-"+ textArea2.getText();
-		if (c1 != null && !c1.isEmpty()) { //Checkt ob überhaupt etwas gesendet werden kann
+		if (c1 != null && !c1.isEmpty()) { //Checkt ob ï¿½berhaupt etwas gesendet werden kann
 			try {
 				Kommunikation.sendenClient(c1);
 			} catch (IOException e) {
