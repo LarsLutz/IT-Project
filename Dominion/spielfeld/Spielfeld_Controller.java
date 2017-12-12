@@ -694,6 +694,7 @@ public class Spielfeld_Controller {
 	}
 	
 //	@FXML
+	// Code wir mit namen und nicht player gesendet damit beide antworten ankommen
 //	public void sendenEnter(KeyEvent keyevent) throws InterruptedException{
 //
 //		if (keyevent.getCode() == KeyCode.ENTER)  {
