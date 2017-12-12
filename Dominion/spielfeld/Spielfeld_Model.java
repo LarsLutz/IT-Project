@@ -18,6 +18,7 @@ public class Spielfeld_Model{
 	private static String spielername;
 	private static String playername="johndoe";
 	private static String zug="0";
+	private static String punkte="0";
 	
 	
 
@@ -125,6 +126,8 @@ public static void verarbeiteString(String c){
         break;
         case "zug" : Spielfeld_Model.setZug(wert);
         break;
+        case "punkte": Spielfeld_Model.setPunkte(wert);
+        break;
 		}
 		
 		
@@ -144,6 +147,16 @@ public static String getPlayername() {
 
 public static void setPlayername(String playername) {
 	Spielfeld_Model.playername = playername;
+}
+
+public static int getPunkte() {
+	
+	int punkt= Integer.parseInt(punkte);
+	return punkt;
+}
+
+public static void setPunkte(String punkte) {
+	Spielfeld_Model.punkte = punkte;
 }
 	
 	

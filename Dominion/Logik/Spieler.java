@@ -26,7 +26,7 @@ import SammlungP.Sammlung;
 import Logik.Zaehler;
 import java.util.Stack;
 
-public class Spieler implements Comparable<Spieler>{
+public class Spieler {
 	//Robin Widmer
 	//send alli spielbare charte uf de hand
 	public ArrayList<SuperKarte> handliste = new ArrayList<SuperKarte>();
@@ -185,12 +185,7 @@ public void kartenKaufen(SuperKarte K){
 		this.gesamtpunkte = gesamtpunkte;
 	}
 	
-	public int getSpie2Punkte(){
-		return this.spie2Punkte;
-	}
-	public void setSpie2Punkte(int spie2Punkte){
-		this.spie2Punkte = spie2Punkte;
-	}
+	
 	 
 	
 // Eduart Bunjaku
@@ -206,7 +201,7 @@ public void kartenKaufen(SuperKarte K){
 			Platform.exit();
 			
 			try {
-				Kommunikation.sendenClient(Spielfeld_Model.getPlayername() + "-player-punkte-" + this.gesamtpunkte );
+				Kommunikation.sendenClient(Spielfeld_Model.getPlayername() + "-spieler-punkte-" + this.gesamtpunkte );
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -266,11 +261,10 @@ public void kartenKaufen(SuperKarte K){
 //}
 
 
-@Override
-public int compareTo(Spieler o) {
-	if(this.getGesamtpunkte() > o.getGesamtpunkte()){
+public int compareTo() {
+	if(this.getGesamtpunkte() > Spielfeld_Model.getPunkte()){
 		 sgc.getLabNachricht().setText("Sie haben gewonnen");
-	}if(this.getGesamtpunkte() < o.getGesamtpunkte()){
+	}if(this.getGesamtpunkte() < Spielfeld_Model.getPunkte()){
 		sgc.getLabNachricht().setText("Sie haben verloren");
 	}else{
 		sgc.getLabNachricht().setText("Unentschieden");

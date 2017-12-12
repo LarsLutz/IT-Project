@@ -53,6 +53,8 @@ public class Decoder {
         break;
         case "spielf": Spielfeld_Model.verarbeiteString(variable+"-"+wert+"-"+spieler+"-"+player);
         break;
+        case "spieler": Spielfeld_Model.verarbeiteString(variable+"-"+wert+"-"+spieler+"-"+player);
+        break;
 		}
 		
 		}
