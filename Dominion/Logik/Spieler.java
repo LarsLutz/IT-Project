@@ -238,7 +238,7 @@ public void kartenKaufen(SuperKarte K){
 		this.gesamtpunkte = summeHand + summeDeck + summeAbwurf;
 		
 		this.compareTo();
-		System.out.println("AKTUELLE PUNKTE: " + gesamtpunkte);
+		System.out.println("AKTUELLE PUNKTE: " + gesamtpunkte+" <----------------------------");
 		// eventuel statt syso das Label von siegniederlage-Controller ausgeben
 		
 	}
@@ -264,6 +264,7 @@ public void kartenKaufen(SuperKarte K){
 
 
 public void compareTo() {
+	
 	if(this.getGesamtpunkte() > Spielfeld_Model.getPunkte()){
 		 sgc.getLabNachricht().setText("Sie haben gewonnen");
 	}if(this.getGesamtpunkte() < Spielfeld_Model.getPunkte()){
@@ -281,15 +282,6 @@ public void compareTo() {
 	
 }
 
-
-//private void start(Stage primaryStage) throws IOException{
-//	URL fxmlUrl = getClass().getResource("SiegNiederlageGUI.fxml");
-//	FXMLLoader fxmlLoader = new FXMLLoader(fxmlUrl); 
-//	Parent root = fxmlLoader.load(); 
-//	Scene scene = new Scene(root); 
-//	primaryStage.setScene(scene);
-//	primaryStage.show();
-//}
 
 public void laden() throws IOException{
 	
