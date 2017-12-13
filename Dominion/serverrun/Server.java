@@ -2,17 +2,26 @@ package serverrun;
 
 import java.io.IOException;
 import java.net.ServerSocket;
+import java.net.URL;
 
-public class Server {
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class Server{
+
     static boolean running = true;
-    public static void main(String[] args){
+    
+    
+    public static void serverStart(){
         try {
         	System.out.println("Sever startet");
             ServerSocket serverSocket = new ServerSocket(50663); // Generiert Serversocket
             Player player1 = new Player(serverSocket.accept(), 1); //Instansiert die Klasse Player
             Player player2 = new Player(serverSocket.accept(), 2);
             while (player1.isRunning()&player2.isRunning()){ //Soblad beide Verbunden sind
-
                 //Daten zuerst verarbeiten bevor weitergeleitet wird
 
                 if(player1.isDataInAvailable()){
@@ -35,4 +44,5 @@ public class Server {
             ex.printStackTrace();
         }
     }
+	
 }
