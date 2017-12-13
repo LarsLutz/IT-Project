@@ -40,7 +40,7 @@ public class Spieler {
 //	private final int LETZTERUNDE = 10; // Edu --> Zug = 10 --> Spiel endet.
 
 //	//Eduart Bunjaku
-	final int LETZTERUNDE = 5; // Edu --> Zug = 10 --> Spiel endet.
+	final int LETZTERUNDE = 3; // Edu --> Zug = 10 --> Spiel endet.
 	private int aktuelleRunde = 1; // erster Zug, Spielbeginn TODO getter und setter schreiben
 	private int gesamtpunkte;
 	SiegNiederlage_Controller sgc;
@@ -198,18 +198,15 @@ public void kartenKaufen(SuperKarte K){
 	public void beendeSpiel(){
 		
 		if(aktuelleRunde == LETZTERUNDE){
+			punkteBerechnen();
 			
 			
 			try {
 				Kommunikation.sendenClient(Spielfeld_Model.getPlayername() + "-spieler-punkte-" + this.gesamtpunkte );
-				punkteBerechnen();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
-			
-
 		}
 		Platform.exit();
 	}
@@ -237,9 +234,11 @@ public void kartenKaufen(SuperKarte K){
 		
 		this.gesamtpunkte = summeHand + summeDeck + summeAbwurf;
 		
-		this.compareTo();
+
 		System.out.println("AKTUELLE PUNKTE: " + gesamtpunkte+" <----------------------------");
 		// eventuel statt syso das Label von siegniederlage-Controller ausgeben
+		
+		this.compareTo();
 		
 	}
 
@@ -272,13 +271,15 @@ public void compareTo() {
 	}else{
 		sgc.getLabNachricht().setText("Unentschieden");
 	}
+	System.out.println(" **************** Punkte beider SPIELER " + this.gesamtpunkte + " vs " + Spielfeld_Model.getPunkte());
+	
 	try {
 		this.laden();
 	} catch (IOException e) {
 		e.printStackTrace();
 		System.out.println("Siegesfenster geht nicht auf");
 	}
-	System.out.println(" **************** Punkte beider SPIELER " + this.gesamtpunkte + " vs " + Spielfeld_Model.getPunkte());
+	
 	
 }
 
