@@ -2,6 +2,8 @@ package login;
 
 import java.io.IOException;
 
+import org.omg.CORBA.INITIALIZE;
+
 import chat.Chat_Model;
 // Eduart Bunjaku
 import javafx.application.Platform;
@@ -65,9 +67,21 @@ public class Login_Controller {
     private ImageView waldBildLogin;
     
     @FXML 
-    
     private Label infolabel;
     
+    public void initialize() throws IOException{
+    	
+    	// oeffnet neues fenster
+  		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../login/IPGui.fxml"));
+    	Parent root1 = (Parent) fxmlLoader.load();
+    	Stage stage = new Stage();
+    	stage.setScene(new Scene(root1));  
+        stage.show();
+    	stage.setResizable(false);
+    	stage.setAlwaysOnTop(true);
+
+    	
+    }
     
     
     // Schliesst Login-Fenster, wenn man auf "Abbrechen-Button" klickt.   
@@ -81,6 +95,12 @@ public class Login_Controller {
     @FXML
     public void oeffneLobby(ActionEvent event) throws IOException {
     	MP3.spieleMusik();
+    	
+    	//TODO Lars
+//    	if(ipEMpty){
+//    		start das IP Eingabefenster nochmals
+//    	}
+    	
     	
     	String name = usernameTextfeld.getText();
     	String password =passwortFeld.getText();

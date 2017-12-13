@@ -154,7 +154,8 @@ public class Spielfeld_Controller {
 	// wird vor dem oeffnen des Fensters gemacht
 	@FXML
 	public void initialize(){
-		
+		tVerlauf.setStyle("-fx-text-inner-color: red;");
+		tVerlauf.setOpacity(0.45);
 		//Code von Stack overflow (nur naechste Zeile mit css um Hintergrundbild zu setzen...
 		grundbp.setStyle("-fx-background-image: url(\"/spielfeld/BildSpielbrett.jpg\");-fx-background-size: cover, auto;-fx-background-repeat: no-repeat;");
 		
