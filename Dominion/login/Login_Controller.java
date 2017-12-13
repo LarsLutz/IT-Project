@@ -96,6 +96,12 @@ public class Login_Controller {
     public void oeffneLobby(ActionEvent event) throws IOException {
     	MP3.spieleMusik();
     	
+    	//TODO Lars
+//    	if(ipEMpty){
+//    		start das IP Eingabefenster nochmals
+//    	}
+    	
+    	
     	String name = usernameTextfeld.getText();
     	String password =passwortFeld.getText();
     	
