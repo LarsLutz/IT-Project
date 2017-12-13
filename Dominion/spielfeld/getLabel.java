@@ -35,7 +35,20 @@ public class getLabel extends TimerTask{
 			if (temp.equals("$START")){
 				System.out.println("Spiel startet");
 				if (player.equals("player2")){
-					controller.grundbp.setDisable(true);
+					
+					
+					
+					
+					//controller.grundbp.setDisable(true);
+					controller.bP1.setDisable(true);
+					controller.bP2.setDisable(true);
+					controller.bP3.setDisable(true);
+					controller.bZugBeenden.setDisable(true);
+					controller.pMeinDeck.setDisable(true);
+					
+					
+					
+					
 					Platform.runLater(() -> {
 						controller.opLogger.setText("Gegner am Zug");
 					});
