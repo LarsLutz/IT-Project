@@ -8,6 +8,7 @@ import java.util.Random;
 import SammlungP.Spielfeldkarte;
 import gewonnen.SiegNiederlage_Controller;
 import gewonnen.SiegNiederlage_Main;
+import gewonnen.SiegNiederlage_View;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -39,13 +40,14 @@ public class Spieler {
 //	private final int LETZTERUNDE = 10; // Edu --> Zug = 10 --> Spiel endet.
 
 //	//Eduart Bunjaku
-	final int LETZTERUNDE = 10; // Edu --> Zug = 10 --> Spiel endet.
+	final int LETZTERUNDE = 5; // Edu --> Zug = 10 --> Spiel endet.
 	private int aktuelleRunde = 1; // erster Zug, Spielbeginn TODO getter und setter schreiben
 	private int gesamtpunkte;
 	SiegNiederlage_Controller sgc;
 	private Pane sieg;
 	//Spielfeld_Model spielfModel;
 	private int spie2Punkte;
+	Stage primaryStage;
 	
 
 
@@ -196,21 +198,20 @@ public void kartenKaufen(SuperKarte K){
 	public void beendeSpiel(){
 		
 		if(aktuelleRunde == LETZTERUNDE){
-			punkteBerechnen();
-			//punkteVergleich(null, null); // 
-			Platform.exit();
+			
 			
 			try {
 				Kommunikation.sendenClient(Spielfeld_Model.getPlayername() + "-spieler-punkte-" + this.gesamtpunkte );
+				punkteBerechnen();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
-//			bedingung.launch(); --> sollte GUI von Sieg/Niederlage laden.
-			this.laden();
+			
+
 		}
-		
+		Platform.exit();
 	}
 	
 	
@@ -236,6 +237,7 @@ public void kartenKaufen(SuperKarte K){
 		
 		this.gesamtpunkte = summeHand + summeDeck + summeAbwurf;
 		
+		this.compareTo();
 		System.out.println("AKTUELLE PUNKTE: " + gesamtpunkte);
 		// eventuel statt syso das Label von siegniederlage-Controller ausgeben
 		
@@ -261,7 +263,7 @@ public void kartenKaufen(SuperKarte K){
 //}
 
 
-public int compareTo() {
+public void compareTo() {
 	if(this.getGesamtpunkte() > Spielfeld_Model.getPunkte()){
 		 sgc.getLabNachricht().setText("Sie haben gewonnen");
 	}if(this.getGesamtpunkte() < Spielfeld_Model.getPunkte()){
@@ -269,7 +271,13 @@ public int compareTo() {
 	}else{
 		sgc.getLabNachricht().setText("Unentschieden");
 	}
-	return 0;
+	try {
+		this.laden();
+	} catch (IOException e) {
+		e.printStackTrace();
+		System.out.println("Siegesfenster geht nicht auf");
+	}
+	System.out.println(" **************** Punkte beider SPIELER " + this.gesamtpunkte + " vs " + Spielfeld_Model.getPunkte());
 	
 }
 
@@ -283,9 +291,15 @@ public int compareTo() {
 //	primaryStage.show();
 //}
 
-public void laden(){
-    SiegNiederlage_Main.main(null);
- }
+public void laden() throws IOException{
+	
+	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../gewonnen/SiegNiederlageGUI.fxml"));
+    Parent root1 = (Parent) fxmlLoader.load();
+    Stage stage = new Stage();
+    stage.setScene(new Scene(root1));  
+    stage.show();
+    
+}
 	
 
 }
