@@ -13,6 +13,7 @@ import Logik.Zaehler;
 import SammlungP.Sammlung;
 import chat.Chat_Model;
 import chat.getNachricht;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -497,7 +498,7 @@ public class Spielfeld_Controller {
 
 	// zugBeenden Knopf Klicken - erst nach abgeschlossenem Discard moeglich
 	@FXML
-	public void zugBeenden() {
+	public void zugBeenden(){
 		//TODO -- Gegner beendet seinen Zug
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner beendet seinen Zug");
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-zug-1");

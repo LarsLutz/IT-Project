@@ -193,6 +193,7 @@ public void kartenKaufen(SuperKarte K){
 // Eduart Bunjaku
 /**
  * @param Beendet Spiel, wenn 10 Züge vorbei sind und ruft Methode punkteBerechnen() auf.
+ * @throws InterruptedException 
  * @throws IOException 
  */
 	public void beendeSpiel(){
@@ -207,8 +208,16 @@ public void kartenKaufen(SuperKarte K){
 				e.printStackTrace();
 			}
 			
+			//this.compareTo();
+			
+			try {
+				this.laden();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
-		Platform.exit();
+		//Platform.exit();
 	}
 	
 	
@@ -232,13 +241,13 @@ public void kartenKaufen(SuperKarte K){
 			summeAbwurf = summeAbwurf + abwerfliste.get(i).getPunkte();
 		}
 		
-		this.gesamtpunkte = summeHand + summeDeck + summeAbwurf;
+		this.setGesamtpunkte(summeHand + summeDeck + summeAbwurf);
 		
 
 		System.out.println("AKTUELLE PUNKTE: " + gesamtpunkte+" <----------------------------");
 		// eventuel statt syso das Label von siegniederlage-Controller ausgeben
 		
-		this.compareTo();
+		
 		
 	}
 
