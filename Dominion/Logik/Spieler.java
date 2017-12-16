@@ -40,7 +40,7 @@ public class Spieler {
 //	private final int LETZTERUNDE = 10; // Edu --> Zug = 10 --> Spiel endet.
 
 //	//Eduart Bunjaku
-	final int LETZTERUNDE = 3; // Edu --> Zug = 10 --> Spiel endet.
+	final int LETZTERUNDE = 4; // Edu --> Zug = 10 --> Spiel endet.
 	private int aktuelleRunde = 1; // erster Zug, Spielbeginn TODO getter und setter schreiben
 	private int gesamtpunkte;
 	SiegNiederlage_Controller sgc;
@@ -197,8 +197,10 @@ public void kartenKaufen(SuperKarte K){
  * @throws IOException 
  */
 	public void beendeSpiel(){
-		
-		if(aktuelleRunde == LETZTERUNDE){
+		//--Spielfeld_Model.getZugGegner()
+		//if( aktuelleRunde == LETZTERUNDE && Spielfeld_Model.getZugGegner() == LETZTERUNDE +1){
+			int gegnerZug = Spielfeld_Model.getZugGegner() + 1;
+			System.out.println("++++++++++++++++++++++++++++++++++++++++++DAS IST RUNDE "+ gegnerZug);
 			punkteBerechnen();
 			
 			
@@ -208,15 +210,8 @@ public void kartenKaufen(SuperKarte K){
 				e.printStackTrace();
 			}
 			
-			//this.compareTo();
 			
-			try {
-				this.laden();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+		//}
 		//Platform.exit();
 	}
 	
@@ -248,7 +243,7 @@ public void kartenKaufen(SuperKarte K){
 		// eventuel statt syso das Label von siegniederlage-Controller ausgeben
 		
 		
-		
+			
 	}
 
 
@@ -259,49 +254,50 @@ public void kartenKaufen(SuperKarte K){
  * Vergleicht zwei Spieler Objekte miteinander und gibt den Text Sieger/Verlierer Text aus.
  * 
  */
-//public void punkteVergleich(Spieler s1, Spieler s2){
-//	if (s1.getGesamtpunkte() > s2.getGesamtpunkte()){
-//		sgc.getLabNachricht().setText("Sie haben gewonnen");
-//	}if(s1.getGesamtpunkte() < s2.getGesamtpunkte()){
+//public void punkteVergleich(){
+//	if (this.gesamtpunkte > Spielfeld_Model.getPunkte()){
+//		System.err.println("GEWONNEN");
+//		//sgc.getLabNachricht().setText("Sie haben gewonnen");
+//	}if(this.gesamtpunkte < Spielfeld_Model.getPunkte()){
+//		System.err.println("VERLOREN");
+//		//sgc.getLabNachricht().setText("Sie haben verloren");
+//	}else{
+//		if(this.gesamtpunkte == Spielfeld_Model.getPunkte())
+//		System.err.println("UNENTSCHIEDEN");
+//		sgc.getLabNachricht().setText("Unentschieden");
+//	}
+//	
+//}
+
+
+	//Ist jetzt im Controller Spielfeld
+//public void compareTo() {
+//	
+//	if(this.getGesamtpunkte() > Spielfeld_Model.getPunkte()){
+//		 sgc.getLabNachricht().setText("Sie haben gewonnen");
+//	}if(this.getGesamtpunkte() < Spielfeld_Model.getPunkte()){
 //		sgc.getLabNachricht().setText("Sie haben verloren");
 //	}else{
 //		sgc.getLabNachricht().setText("Unentschieden");
 //	}
-//	this.laden();
+//	System.out.println(" **************** Punkte beider SPIELER " + this.gesamtpunkte + " vs " + Spielfeld_Model.getPunkte());
+//	
+//	try {
+//		this.laden();
+//	} catch (IOException e) {
+//		e.printStackTrace();
+//		System.out.println("Siegesfenster geht nicht auf");
+//	}
+//	
+//	
 //}
 
 
-public void compareTo() {
-	
-	if(this.getGesamtpunkte() > Spielfeld_Model.getPunkte()){
-		 sgc.getLabNachricht().setText("Sie haben gewonnen");
-	}if(this.getGesamtpunkte() < Spielfeld_Model.getPunkte()){
-		sgc.getLabNachricht().setText("Sie haben verloren");
-	}else{
-		sgc.getLabNachricht().setText("Unentschieden");
-	}
-	System.out.println(" **************** Punkte beider SPIELER " + this.gesamtpunkte + " vs " + Spielfeld_Model.getPunkte());
-	
-	try {
-		this.laden();
-	} catch (IOException e) {
-		e.printStackTrace();
-		System.out.println("Siegesfenster geht nicht auf");
-	}
-	
-	
-}
-
-
-public void laden() throws IOException{
-	
-	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../gewonnen/SiegNiederlageGUI.fxml"));
-    Parent root1 = (Parent) fxmlLoader.load();
-    Stage stage = new Stage();
-    stage.setScene(new Scene(root1));  
-    stage.show();
-    
-}
+//public void laden() throws IOException{
+//	
+//	
+//    
+//}
 	
 
 }

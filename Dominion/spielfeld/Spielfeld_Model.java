@@ -20,6 +20,7 @@ public class Spielfeld_Model{
 	private static String zug="0";
 	private static String punkte="0";
 	private static String chat="";
+	private static String zugGegner;
 	
 	
 
@@ -33,6 +34,8 @@ public class Spielfeld_Model{
 	public static String getZug() {
 		return zug;
 	}
+	
+
 
 
 
@@ -131,6 +134,7 @@ public static void verarbeiteString(String c){
         break;
         case "chat":	Spielfeld_Model.setChat(name+"    "+wert);
         break;
+        case "runde": Spielfeld_Model.setZugGegner(wert);
 		}
 		
 		
@@ -168,6 +172,15 @@ public static String getChat() {
 
 public static void setChat(String chat) {
 	Spielfeld_Model.chat = chat;
+}
+
+public static int getZugGegner() {
+	System.err.println("Gegner Zug: "+zugGegner);
+	return Integer.parseInt(zugGegner);
+}
+
+public static void setZugGegner(String zugGegner) {
+	Spielfeld_Model.zugGegner = zugGegner;
 }
 
 

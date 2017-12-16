@@ -2,6 +2,7 @@ package gewonnen;
 
 import java.io.IOException;
 
+import Logik.Spieler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,8 +13,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import spielfeld.Spielfeld_Model;
 
 public class SiegNiederlage_Controller {
+	
+	Spieler s;
+	
+	
 	//Jan Müller
 	public SiegNiederlage_Controller(){
 		
@@ -34,6 +40,21 @@ public class SiegNiederlage_Controller {
 	
 	@FXML
 	ImageView gameOver;
+	
+	//quasi unsere CompareTo Methode
+	public void initialize(){
+		if(s.getGesamtpunkte() > Spielfeld_Model.getPunkte()){
+			this.labNachricht.setText(" Du hast verloren ");
+		}	
+		if(s.getGesamtpunkte() < Spielfeld_Model.getPunkte()){
+			this.labNachricht.setText(" Du hast verloren ");
+		}else{
+			this.labNachricht.setText(" Unentschieden ");
+		}
+		
+		
+		
+	}
 	
 	public Label getLabNachricht(){
 		return this.labNachricht;

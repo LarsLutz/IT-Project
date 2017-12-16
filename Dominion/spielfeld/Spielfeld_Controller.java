@@ -16,6 +16,9 @@ import chat.getNachricht;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -34,6 +37,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 import kommunikation.Decoder;
 import kommunikation.Kommunikation;
 import kommunikation.Updater;
@@ -498,10 +502,12 @@ public class Spielfeld_Controller {
 
 	// zugBeenden Knopf Klicken - erst nach abgeschlossenem Discard moeglich
 	@FXML
-	public void zugBeenden(){
+	public void zugBeenden() throws IOException{
 		//TODO -- Gegner beendet seinen Zug
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner beendet seinen Zug");
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-zug-1");
+		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-runde-"+ spie.getAktuelleRunde());
+		
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
@@ -519,13 +525,31 @@ public class Spielfeld_Controller {
 		
 		
 		
-		
-		
 		//Eduart Bunjaku
+		//---------------------Spielfeld_Model.getZugGegner()+1
 		spie.setAktuelleRunde(spie.getAktuelleRunde()+1);
-		System.out.println(spie.getAktuelleRunde()+" <-- AKTUELLER ZUG");
+//		if(Spielfeld_Model.getPlayername().equals("player2")){
+//			
+//		}
+		System.out.println(spie.getAktuelleRunde()+" <------------------------------------------------ AKTUELLER ZUG");
+	
 		if(spie.getAktuelleRunde() == spie.getLetzteRunde()){
+			System.out.println(spie.getAktuelleRunde()+" <-----------------------------------> "+ spie.getLetzteRunde());
+			
 			spie.beendeSpiel(); // funktioniert noch nicht 
+			
+			//TODO aktuelles Fenster schliessen -- das muss in Controller!!!!
+			Stage currentStage = (Stage) bZugBeenden.getScene().getWindow();
+		    currentStage.close();
+			
+			//Game OVer Screen einblenden
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gewonnen/SiegNiederlageGUI.fxml"));
+		    Parent root1 = (Parent) fxmlLoader.load();
+		    Stage stage = new Stage();
+		    stage.setFullScreen(false);
+		    stage.setScene(new Scene(root1));  
+		    stage.show();
+			
 		}
 		
 		
