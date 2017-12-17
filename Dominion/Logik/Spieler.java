@@ -203,6 +203,7 @@ public void kartenKaufen(SuperKarte K){
 			System.out.println("++++++++++++++++++++++++++++++++++++++++++DAS IST RUNDE "+ gegnerZug);
 			
 			punkteBerechnen();
+			
 			try {
 				Kommunikation.sendenClient(Spielfeld_Model.getPlayername() + "-spieler-punkte-" + this.gesamtpunkte);
 			} catch (IOException e) {
@@ -214,7 +215,6 @@ public void kartenKaufen(SuperKarte K){
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			
 			
 			
 		//}

@@ -537,10 +537,11 @@ public class Spielfeld_Controller {
 		spie.setAktuelleRunde(spie.getAktuelleRunde()+1);
 		if(spie.getAktuelleRunde() == spie.getLetzteRunde()){
 			System.out.println(spie.getAktuelleRunde()+" <-----------------------------------> "+ spie.getLetzteRunde());
+			
+			spie.beendeSpiel();
 			//String an P1 schicken
 			nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-ende-$Ende");
-			
-			spie.beendeSpiel();  
+			  
 			//spie.punkteVergleich();
 			
 			this.neuesFenster();
