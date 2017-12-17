@@ -22,6 +22,7 @@ public class Spielfeld_Model{
 	private static String chat="";
 	private static String zugGegner;
 	private static String ende = "johndoe";
+	private static String gewinner="";
 	
 
 
@@ -146,6 +147,8 @@ public static void verarbeiteString(String c){
         break;
         case "ende": Spielfeld_Model.setEnde(wert);
         break;
+        case "finale": Spielfeld_Model.setGewinner(wert);
+        break;
 		}
 		
 		
@@ -194,6 +197,16 @@ public static int getZugGegner() {
 public static void setZugGegner(String zugGegner) {
 	Spielfeld_Model.zugGegner = zugGegner;
 }
+
+public static String getGewinner() {
+	return gewinner;
+}
+
+public static void setGewinner(String gewinner) {
+	Spielfeld_Model.gewinner = gewinner;
+}
+
+
 
 
 	

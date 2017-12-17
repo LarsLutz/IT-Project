@@ -245,14 +245,6 @@ public void kartenKaufen(SuperKarte K){
 		
 		System.err.println("Gesamtpunkte: " +getGesamtpunkte());
 		
-		//noch nicht getestet
-		try {
-			if(Spielfeld_Model.getPlayername().equals("player2")){
-				Kommunikation.sendenClient(Spielfeld_Model.getPlayername() + "-spieler-punkte-" + getGesamtpunkte());
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 		
 			
 	}
@@ -265,7 +257,7 @@ public void kartenKaufen(SuperKarte K){
  * Vergleicht zwei Spieler Objekte miteinander und gibt den Text Sieger/Verlierer Text aus.
  * 
  */
-public String punkteVergleich(){
+public void punkteVergleich(){
 
 	System.err.println("Gesamtpunkte "+getGesamtpunkte()+"_______ Gegener Punkte "+Spielfeld_Model.getPunkte());
 	
@@ -273,22 +265,22 @@ public String punkteVergleich(){
 	if (getGesamtpunkte() > Spielfeld_Model.getPunkte()){
 			System.err.println("GEWONNEN");
 			System.out.println("GETPUNKTE METHODE: "+Spielfeld_Model.getPunkte());
-			return "Gewonnen";		
+			Spielfeld_Model.setGewinner("GEWONNEN");		
 	}
 	
 	if(getGesamtpunkte() < Spielfeld_Model.getPunkte()){
 		System.err.println("VERLOREN");
 		System.out.println("GETPUNKTE METHODE: "+Spielfeld_Model.getPunkte());
-		return "Verloren";
+		Spielfeld_Model.setGewinner("VERLOREN");
 	}
 	
 	if(getGesamtpunkte() == Spielfeld_Model.getPunkte()) {
 		System.err.println("UNENTSCHIEDEN");
 		System.out.println("GETPUNKTE METHODE: "+Spielfeld_Model.getPunkte());
-		return "Unentschieden";
+		Spielfeld_Model.setGewinner("UNENTSCHIEDEN");
 	}
 	
-	return null;
+	
 	
 }
 

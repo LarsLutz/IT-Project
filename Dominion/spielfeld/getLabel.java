@@ -13,6 +13,8 @@ public class getLabel extends TimerTask{
 
 	private Spielfeld_Controller controller;
 	private Spielfeld_Model model;
+	private int i =0;
+	private int c=0;
 
 	public getLabel(Spielfeld_Controller c,Spielfeld_Model m) {
 		// TODO Auto-generated constructor stub
@@ -29,6 +31,7 @@ public class getLabel extends TimerTask{
 		String player=Spielfeld_Model.getPlayername();
 		String chat = Spielfeld_Model.getChat();
 		String ende = Spielfeld_Model.getEnde();
+		String finale = Spielfeld_Model.getGewinner();
 		//System.out.println("Getlabel: "+chat);
 		//System.err.println("Labeltime "+temp);
 		
@@ -36,6 +39,33 @@ public class getLabel extends TimerTask{
 			controller.tVerlauf.appendText(chat+"\n");
 			Spielfeld_Model.setChat("");
 			}
+		
+		if(ende.equals("$Ende") && player.equals("player1")){
+			Platform.runLater(() -> {
+				
+				if (i==0){
+					controller.setResultat();
+					i=1;
+				
+				}
+			});
+			
+	}
+		
+		if (!finale.isEmpty() && player.equals("player2")){
+			Platform.runLater(() -> {
+				
+				if (c==0){
+					try {
+						controller.neuesFenster();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					c=1;
+				}
+			});
+		}
 
 		if (!temp.isEmpty()&& Spielfeld_Model.getIstneu()){
 			if (temp.equals("$START")){
@@ -77,18 +107,7 @@ public class getLabel extends TimerTask{
 			}
 			
 			
-			if(ende.equals("$Ende") && player.equals("player1")){
-					Platform.runLater(() -> {
-						try {
-							controller.neuesFenster();
-							Spielfeld_Model.setEnde("john");
-						} catch (IOException e) {
-							e.printStackTrace();
-							
-						}
-					});
-					
-			}
+			
 			
 		}
 

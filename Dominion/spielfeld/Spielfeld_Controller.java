@@ -555,14 +555,35 @@ public class Spielfeld_Controller {
 		System.out.println("Aktuelle Runde: " +spie.getAktuelleRunde());
 		
 		if(spie.getAktuelleRunde() == spie.getLetzteRunde()){
+			spie.punkteBerechnen();
+			nachrichtSenden(Spielfeld_Model.getPlayername() + "-spieler-punkte-" + spie.getGesamtpunkte());
 			nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-ende-$Ende");
+			
 						
-			this.neuesFenster();	
+			//this.neuesFenster();	
 		}
 	}
 
 	
 }
+	
+	public void setResultat(){
+		grundbp.setDisable(true);
+		spie.punkteBerechnen();
+		spie.punkteVergleich();
+		
+		try {
+			nachrichtSenden(Spielfeld_Model.getPlayername() + "-spieler-finale-" + Spielfeld_Model.getGewinner());
+			neuesFenster();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+	}
 	
 	
 	
@@ -570,7 +591,7 @@ public class Spielfeld_Controller {
 	//neues Fenster (siegNiederlage oeffnen)
 	public void neuesFenster() throws IOException{
 		
-		spie.punkteBerechnen();
+		
 		//spie.punkteVergleich();
 		
 		Stage currentStage = (Stage) bZugBeenden.getScene().getWindow();

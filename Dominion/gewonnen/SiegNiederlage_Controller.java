@@ -58,6 +58,26 @@ public class SiegNiederlage_Controller {
 //			this.labNachricht.setText("Unentschieden");
 //
 //		
+		if (Spielfeld_Model.getPlayername().equals("player1")){
+			
+			labNachricht.setText(Spielfeld_Model.getGewinner());
+		}else {
+			
+			if (Spielfeld_Model.getGewinner().equals("GEWONNEN")){
+				labNachricht.setText("VERLOREN");
+			}
+			if (Spielfeld_Model.getGewinner().equals("VERLOREN")){
+				labNachricht.setText("GEWONNEN");
+			}
+			if (Spielfeld_Model.getGewinner().equals("UNENTSCHIEDEN")){
+				labNachricht.setText("UNENTSCHIEDEN");
+			}
+			
+			
+			
+		}
+		
+		
 	}
 	
 	public Label getLabNachricht(){
