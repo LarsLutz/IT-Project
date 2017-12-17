@@ -81,7 +81,7 @@ public class getLabel extends TimerTask{
 					Platform.runLater(() -> {
 						try {
 							controller.neuesFenster();
-//							Spielfeld_Model.setEnde("john");
+							Spielfeld_Model.setEnde("john");
 						} catch (IOException e) {
 							e.printStackTrace();
 							

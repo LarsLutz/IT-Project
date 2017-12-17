@@ -556,12 +556,7 @@ public class Spielfeld_Controller {
 		
 		if(spie.getAktuelleRunde() == spie.getLetzteRunde()){
 			nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-ende-$Ende");
-			
-			
-			
-			
-			
-			
+						
 			
 			this.neuesFenster();	
 		}
