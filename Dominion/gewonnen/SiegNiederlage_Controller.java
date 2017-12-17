@@ -22,7 +22,7 @@ public class SiegNiederlage_Controller {
 	
 	//Jan Müller
 	public SiegNiederlage_Controller(){
-		
+		s = new Spieler(0);
 	}
 	
     @FXML
@@ -43,14 +43,25 @@ public class SiegNiederlage_Controller {
 	
 	//quasi unsere CompareTo Methode
 	public void initialize(){
-		if(s.getGesamtpunkte() > Spielfeld_Model.getPunkte()){
-			this.labNachricht.setText(" Du hast verloren ");
-		}	
-		if(s.getGesamtpunkte() < Spielfeld_Model.getPunkte()){
-			this.labNachricht.setText(" Du hast verloren ");
-		}else{
-			this.labNachricht.setText(" Unentschieden ");
-		}
+//		if(s.getGesamtpunkte() > Spielfeld_Model.getPunkte()){
+//			this.labNachricht.setText(" Du hast verloren ");
+//		}	
+//		if(s.getGesamtpunkte() < Spielfeld_Model.getPunkte()){
+//			this.labNachricht.setText(" Du hast verloren ");
+//		}else{
+//			this.labNachricht.setText(" Unentschieden ");
+//		}
+		if(s.punkteVergleich().equals("Gewonnen"))
+				this.labNachricht.setText("Du hast Gewonnen");
+		
+		if(s.punkteVergleich().equals("Verloren"))
+			this.labNachricht.setText("Du hast Verloren");
+		
+		if(s.punkteVergleich().equals("Unentschieden"))
+			this.labNachricht.setText("Unentschieden");
+		
+		
+		
 		
 		
 		

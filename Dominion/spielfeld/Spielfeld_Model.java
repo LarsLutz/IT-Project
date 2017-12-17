@@ -21,11 +21,19 @@ public class Spielfeld_Model{
 	private static String punkte="0";
 	private static String chat="";
 	private static String zugGegner;
+	private static String ende = "johndoe";
 	
-	
 
 
 
+
+	public static String getEnde() {
+		return ende;
+	}
+
+	public static void setEnde(String ende) {
+		Spielfeld_Model.ende = ende;
+	}
 
 	public Spielfeld_Model(int wannDisablen){
 		this.wannDisabeln = wannDisablen;
@@ -135,6 +143,9 @@ public static void verarbeiteString(String c){
         case "chat":	Spielfeld_Model.setChat(name+"    "+wert);
         break;
         case "runde": Spielfeld_Model.setZugGegner(wert);
+        break;
+        case "ende": Spielfeld_Model.setEnde(wert);
+        break;
 		}
 		
 		

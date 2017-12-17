@@ -51,7 +51,7 @@ public class MainUndStart extends Application{
 //		MediaPlayer mediaPlayer = new MediaPlayer(media);
 //		mediaPlayer.play();
 		
-		s.playHintergrundLoop();
+		//s.playHintergrundLoop();
 		
 		
 		try {

@@ -1,8 +1,13 @@
 package spielfeld;
 
+import java.io.IOException;
 import java.util.TimerTask;
 
 import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 public class getLabel extends TimerTask{
 
@@ -23,6 +28,7 @@ public class getLabel extends TimerTask{
 		String temp = Spielfeld_Model.getUpdate();
 		String player=Spielfeld_Model.getPlayername();
 		String chat = Spielfeld_Model.getChat();
+		String ende = Spielfeld_Model.getEnde();
 		System.out.println("Getlabel: "+chat);
 		System.err.println("Labeltime "+temp);
 		
@@ -68,6 +74,22 @@ public class getLabel extends TimerTask{
 			if(Spielfeld_Model.getZug().equals("1")){
 				controller.spielerEnabeln();
 				Spielfeld_Model.setZug(0+"");
+			}
+			
+			
+			if(ende.equals("$Ende") && player.equals("player1")){
+					Platform.runLater(() -> {
+						try {
+							controller.neuesFenster();
+							Spielfeld_Model.setEnde("john");
+							controller.grundbp.setDisable(true);
+							System.out.println("sjkldfsjkladfskjldsafjkldsajkadsfjka");
+						} catch (IOException e) {
+							e.printStackTrace();
+							
+						}
+					});
+					
 			}
 			
 		}

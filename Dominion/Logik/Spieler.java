@@ -201,14 +201,20 @@ public void kartenKaufen(SuperKarte K){
 		//if( aktuelleRunde == LETZTERUNDE && Spielfeld_Model.getZugGegner() == LETZTERUNDE +1){
 			int gegnerZug = Spielfeld_Model.getZugGegner() + 1;
 			System.out.println("++++++++++++++++++++++++++++++++++++++++++DAS IST RUNDE "+ gegnerZug);
+			
 			punkteBerechnen();
-			
-			
 			try {
-				Kommunikation.sendenClient(Spielfeld_Model.getPlayername() + "-spieler-punkte-" + this.gesamtpunkte );
+				Kommunikation.sendenClient(Spielfeld_Model.getPlayername() + "-spieler-punkte-" + this.gesamtpunkte);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
 			
 			
 		//}
@@ -254,20 +260,33 @@ public void kartenKaufen(SuperKarte K){
  * Vergleicht zwei Spieler Objekte miteinander und gibt den Text Sieger/Verlierer Text aus.
  * 
  */
-//public void punkteVergleich(){
-//	if (this.gesamtpunkte > Spielfeld_Model.getPunkte()){
-//		System.err.println("GEWONNEN");
-//		//sgc.getLabNachricht().setText("Sie haben gewonnen");
-//	}if(this.gesamtpunkte < Spielfeld_Model.getPunkte()){
-//		System.err.println("VERLOREN");
-//		//sgc.getLabNachricht().setText("Sie haben verloren");
-//	}else{
-//		if(this.gesamtpunkte == Spielfeld_Model.getPunkte())
-//		System.err.println("UNENTSCHIEDEN");
-//		sgc.getLabNachricht().setText("Unentschieden");
-//	}
-//	
-//}
+public String punkteVergleich(){
+
+	
+	
+	if (this.gesamtpunkte > Spielfeld_Model.getPunkte()){
+			System.err.println("GEWONNEN");
+			System.out.println("GETPUNKTE METHODE: "+Spielfeld_Model.getPunkte());
+			return "Gewonnen";		
+	}
+	
+	if(this.gesamtpunkte < Spielfeld_Model.getPunkte()){
+		System.err.println("VERLOREN");
+		System.out.println("GETPUNKTE METHODE: "+Spielfeld_Model.getPunkte());
+		return "Verloren";
+	}
+	
+	if(this.gesamtpunkte == Spielfeld_Model.getPunkte()) {
+		System.err.println("UNENTSCHIEDEN");
+		System.out.println("GETPUNKTE METHODE: "+Spielfeld_Model.getPunkte());
+		return "Unentschieden";
+	}
+	
+	return null;
+	
+	
+	
+}
 
 
 	//Ist jetzt im Controller Spielfeld

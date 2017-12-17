@@ -506,6 +506,8 @@ public class Spielfeld_Controller {
 		//TODO -- Gegner beendet seinen Zug
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner beendet seinen Zug");
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-zug-1");
+		
+		//relevant fuer SiegNiederlage
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-runde-"+ spie.getAktuelleRunde());
 		
 		try {
@@ -527,32 +529,39 @@ public class Spielfeld_Controller {
 		
 		//Eduart Bunjaku
 		//---------------------Spielfeld_Model.getZugGegner()+1
-		spie.setAktuelleRunde(spie.getAktuelleRunde()+1);
 //		if(Spielfeld_Model.getPlayername().equals("player2")){
 //			
 //		}
 		System.out.println(spie.getAktuelleRunde()+" <------------------------------------------------ AKTUELLER ZUG");
-	
+	if(Spielfeld_Model.getPlayername().equals("player2")){
+		spie.setAktuelleRunde(spie.getAktuelleRunde()+1);
 		if(spie.getAktuelleRunde() == spie.getLetzteRunde()){
 			System.out.println(spie.getAktuelleRunde()+" <-----------------------------------> "+ spie.getLetzteRunde());
+			//String an P1 schicken
+			nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-ende-$Ende");
 			
-			spie.beendeSpiel(); // funktioniert noch nicht 
+			spie.beendeSpiel();  
+			//spie.punkteVergleich();
 			
-			//TODO aktuelles Fenster schliessen -- das muss in Controller!!!!
-			Stage currentStage = (Stage) bZugBeenden.getScene().getWindow();
-		    currentStage.close();
-			
-			//Game OVer Screen einblenden
-			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gewonnen/SiegNiederlageGUI.fxml"));
-		    Parent root1 = (Parent) fxmlLoader.load();
-		    Stage stage = new Stage();
-		    stage.setFullScreen(false);
-		    stage.setScene(new Scene(root1));  
-		    stage.show();
-			
+			this.neuesFenster();
 		}
+	}
 		
 		
+	}
+	
+	//TODO aktuelles Fenster schliessen -- das muss in Controller!!!!
+	public void neuesFenster() throws IOException{
+		Stage currentStage = (Stage) bZugBeenden.getScene().getWindow();
+		currentStage.close();
+	
+		//Game OVer Screen einblenden
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gewonnen/SiegNiederlageGUI.fxml"));
+		Parent root1 = (Parent) fxmlLoader.load();
+		Stage stage = new Stage();
+		stage.setFullScreen(false);
+		stage.setScene(new Scene(root1));  
+		stage.show();
 	}
 	
 	//wieder Jan Mueller
