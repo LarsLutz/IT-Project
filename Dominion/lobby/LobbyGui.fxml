@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.GridPane?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lobby.Lobby_Controller">
    <children>
       <ImageView fx:id="lobbyFoto" fitHeight="400.0" fitWidth="400.0" opacity="0.68" pickOnBounds="true" preserveRatio="true">
@@ -20,7 +19,7 @@
             <DropShadow />
          </effect>
       </Button>
-      <Button fx:id="spielLadenButton" layoutX="142.0" layoutY="166.0" mnemonicParsing="false" onAction="#spielLaden" prefWidth="117.0" style="-fx-background-color: #000000;" text="Spiel laden" textFill="#fcfcfc">
+      <Button fx:id="soundButton" layoutX="142.0" layoutY="166.0" mnemonicParsing="false" onAction="#soundAbspielen" prefWidth="117.0" style="-fx-background-color: #000000;" text="Sound" textFill="#fcfcfc">
          <effect>
             <DropShadow />
          </effect>
