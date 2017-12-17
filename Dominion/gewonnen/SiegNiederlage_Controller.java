@@ -45,19 +45,19 @@ public class SiegNiederlage_Controller {
 	public void initialize(){
 
 		
-		String vergleich = s.punkteVergleich();
-
-		System.out.println("Punktevergleich= "+vergleich);
-		if(vergleich.equals("Gewonnen"))
-				this.labNachricht.setText("Du hast Gewonnen");
-		
-		if(vergleich.equals("Verloren"))
-			this.labNachricht.setText("Du hast Verloren");
-		
-		if(vergleich.equals("Unentschieden"))
-			this.labNachricht.setText("Unentschieden");
-
-		
+//		String vergleich = s.punkteVergleich();
+//
+//		System.out.println("Punktevergleich= "+vergleich);
+//		if(vergleich.equals("Gewonnen"))
+//				this.labNachricht.setText("Du hast Gewonnen");
+//		
+//		if(vergleich.equals("Verloren"))
+//			this.labNachricht.setText("Du hast Verloren");
+//		
+//		if(vergleich.equals("Unentschieden"))
+//			this.labNachricht.setText("Unentschieden");
+//
+//		
 	}
 	
 	public Label getLabNachricht(){

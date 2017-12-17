@@ -557,20 +557,22 @@ public class Spielfeld_Controller {
 		if(spie.getAktuelleRunde() == spie.getLetzteRunde()){
 			nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-ende-$Ende");
 						
-			
 			this.neuesFenster();	
 		}
 	}
-		
-		
-		
-	}
+
+	
+}
+	
+	
+	
 	
 	//neues Fenster (siegNiederlage oeffnen)
 	public void neuesFenster() throws IOException{
+		
 		spie.punkteBerechnen();
-		spie.punkteVergleich();
-
+		//spie.punkteVergleich();
+		
 		Stage currentStage = (Stage) bZugBeenden.getScene().getWindow();
 		currentStage.close();
 	

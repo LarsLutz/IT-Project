@@ -247,16 +247,13 @@ public void kartenKaufen(SuperKarte K){
 		
 		//noch nicht getestet
 		try {
-			Kommunikation.sendenClient(Spielfeld_Model.getPlayername() + "-spieler-punkte-" + getGesamtpunkte());
+			if(Spielfeld_Model.getPlayername().equals("player2")){
+				Kommunikation.sendenClient(Spielfeld_Model.getPlayername() + "-spieler-punkte-" + getGesamtpunkte());
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 			
 	}
 
