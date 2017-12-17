@@ -37,7 +37,7 @@ public class MainUndStart extends Application{
 	//private Login_View v;
 	//private Login_Model m;
 	//private Login_Controller c;
-	HintergrundSound s = new HintergrundSound();
+	//HintergrundSound s = new HintergrundSound();
 	
 	@Override
 	public void start(Stage primaryStage) {
@@ -51,7 +51,7 @@ public class MainUndStart extends Application{
 //		MediaPlayer mediaPlayer = new MediaPlayer(media);
 //		mediaPlayer.play();
 		
-		//s.playHintergrundLoop();
+//		s.playHintergrundLoop();
 		
 		
 		try {

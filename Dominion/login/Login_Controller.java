@@ -22,6 +22,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lobby.*;
 import registrieren.Registrieren_Model;
+import sound.HintergrundSound;
 import sound.MP3;
 import spielfeld.Spielfeld_Model;
 
@@ -29,10 +30,10 @@ public class Login_Controller {
 
 	
 	private Login_Model model;
+	private HintergrundSound hs;
 	
 	public Login_Controller(){
 		model= new Login_Model();
-
 	}
 	
     @FXML
@@ -79,7 +80,7 @@ public class Login_Controller {
         stage.show();
     	stage.setResizable(false);
     	stage.setAlwaysOnTop(true);
-
+    	
     	
     }
     

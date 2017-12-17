@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import kommunikation.Decoder;
 import kommunikation.Kommunikation;
@@ -26,10 +27,12 @@ public class Lobby_Controller {
 	
 	private Lobby_Model lm;
 	private Updater update;
+	private HintergrundSound hs;
 	//private Kommunikation kom;
 	
 	public Lobby_Controller(){
 		lm = new Lobby_Model();
+		hs = new HintergrundSound();
 		//kom =new Kommunikation();
 		
 	}
@@ -42,7 +45,7 @@ public class Lobby_Controller {
     private Button chatButton;
 
     @FXML
-    private Button soundButton;
+    private Button soundButton, soundAn;
 
     @FXML
     private Button neuesSpielButton;
@@ -98,9 +101,21 @@ public class Lobby_Controller {
     }
    
     @FXML
-    public void soundAbspielen(ActionEvent event) {
-    	HintergrundSound.playHintergrundLoop();
-
+    public void soundAbspielen(MouseEvent event) {
+    	MP3.spieleMusik();
+    	hs.playHintergrundLoop();
+    	
+//    	if(soundButton.getText().equals("soundAus"))
+//    		soundButton.setText("Hallo");
+//    	
+//    	soundButton.setText("soundAus");
+//    	soundButton.setDisable(false);
+    }
+    
+    @FXML
+    public void soundAus(){
+    	MP3.spieleMusik();
+    	hs.stopHintergrundLoop();
     }
 
     //Jan Mueller

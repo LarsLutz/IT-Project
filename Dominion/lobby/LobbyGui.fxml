@@ -14,12 +14,12 @@
             <Image url="@Lobby.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="neuesSpielButton" layoutX="142.0" layoutY="124.0" mnemonicParsing="false" onAction="#neuesSpiel" opacity="0.79" prefWidth="117.0" style="-fx-background-color: #000000;" text="Neues Spiel" textFill="#fcfcfc">
+      <Button fx:id="neuesSpielButton" layoutX="142.0" layoutY="88.0" mnemonicParsing="false" onAction="#neuesSpiel" opacity="0.79" prefWidth="117.0" style="-fx-background-color: #000000;" text="Neues Spiel" textFill="#fcfcfc">
          <effect>
             <DropShadow />
          </effect>
       </Button>
-      <Button fx:id="soundButton" layoutX="142.0" layoutY="166.0" mnemonicParsing="false" onAction="#soundAbspielen" prefWidth="117.0" style="-fx-background-color: #000000;" text="Sound" textFill="#fcfcfc">
+      <Button fx:id="soundButton" layoutX="142.0" layoutY="166.0" mnemonicParsing="false" onMouseClicked="#soundAus" prefWidth="117.0" style="-fx-background-color: #000000;" text="Musik aus" textFill="#fcfcfc">
          <effect>
             <DropShadow />
          </effect>
@@ -40,6 +40,11 @@
          </effect>
       </Button>
       <Button fx:id="beendenButton" layoutX="142.0" layoutY="332.0" mnemonicParsing="false" onAction="#beenden" prefWidth="117.0" style="-fx-background-color: #000000;" text="Beenden" textFill="#fcfcfc">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Button fx:id="soundAn" layoutX="142.0" layoutY="127.0" mnemonicParsing="false" onMouseClicked="#soundAbspielen" opacity="0.79" prefWidth="117.0" style="-fx-background-color: #000000;" text="Musik an" textFill="#fcfcfc">
          <effect>
             <DropShadow />
          </effect>
