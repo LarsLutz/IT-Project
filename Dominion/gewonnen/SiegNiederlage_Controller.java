@@ -50,14 +50,17 @@ public class SiegNiederlage_Controller {
 //			this.labNachricht.setText(" Du hast verloren ");
 //		}else{
 //			this.labNachricht.setText(" Unentschieden ");
+		
+		String vergleich = s.punkteVergleich();
 //		}
-		if(s.punkteVergleich().equals("Gewonnen"))
+		System.out.println("Punktevergleich= "+vergleich);
+		if(vergleich.equals("Gewonnen"))
 				this.labNachricht.setText("Du hast Gewonnen");
 		
-		if(s.punkteVergleich().equals("Verloren"))
+		if(vergleich.equals("Verloren"))
 			this.labNachricht.setText("Du hast Verloren");
 		
-		if(s.punkteVergleich().equals("Unentschieden"))
+		if(vergleich.equals("Unentschieden"))
 			this.labNachricht.setText("Unentschieden");
 		
 		
