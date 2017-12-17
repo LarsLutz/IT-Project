@@ -21,31 +21,45 @@ import sun.audio.AudioStream;
 import sun.audio.ContinuousAudioDataStream;
 
 
-public class HintergrundSound {
+public final class HintergrundSound {
 	
 
 // ohne wiederholung	
-//	public void playHintergrund(){
+//	public static void playHintergrund(){
 //		Media media = new Media(new File("Dominion/sound/Domini.mp3").toURI().toString());
 //		MediaPlayer mp = new MediaPlayer(media);
 //		mp.play();
 //	}
 	
-	public void playHintergrundLoop() {
+//	public static void sound(){
+//		//String titel = "Bitch Better Have My Money (Lyrics).mp3";
+//		try{
+//			
+//		Media media = new Media(new File("Dominion/sound/Domini.mp3").toURI().toString());
+//		MediaPlayer mediaPlayer = new MediaPlayer(media);
+//		mediaPlayer.play();
+//
+//	
+//		}catch(Exception e){
+//			e.printStackTrace();
+//		}
+//	}
+	
+	
+	public static void playHintergrundLoop() {
 		//Stack overflow...
 		try {
 			Media media = new Media(new File("Dominion/sound/Domini.mp3").toURI().toString());
 			MediaPlayer player = new MediaPlayer(media);
-			player.setAutoPlay(true);
+			//player.setAutoPlay(true);
+			player.play();
 			player.setCycleCount(MediaPlayer.INDEFINITE);
 		} catch (Exception e) {
 			e.printStackTrace();
 			
-		}
-		
-		
-		
+		}	
 	}
 	
+
 
 }

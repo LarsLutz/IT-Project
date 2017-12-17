@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import kommunikation.Decoder;
 import kommunikation.Kommunikation;
 import kommunikation.Updater;
+import sound.HintergrundSound;
 import sound.MP3;
 import spielfeld.Spielfeld_Controller;
 
@@ -41,7 +42,7 @@ public class Lobby_Controller {
     private Button chatButton;
 
     @FXML
-    private Button spielLadenButton;
+    private Button soundButton;
 
     @FXML
     private Button neuesSpielButton;
@@ -97,9 +98,9 @@ public class Lobby_Controller {
     }
    
     @FXML
-    public void spielLaden(ActionEvent event) {
-    	MP3.spieleMusik();
-    	System.out.println("TODO... SpielLaden");
+    public void soundAbspielen(ActionEvent event) {
+    	HintergrundSound.playHintergrundLoop();
+
     }
 
     //Jan Mueller
