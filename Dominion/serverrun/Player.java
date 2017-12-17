@@ -5,6 +5,8 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+import javafx.application.Platform;
+
 public class Player{
 
     private Socket socket;
@@ -89,6 +91,7 @@ public class Player{
         } catch (IOException e){
             e.printStackTrace();
         }
+        Platform.exit();
         System.out.println("closed");
     }
 

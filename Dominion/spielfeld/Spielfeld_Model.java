@@ -175,6 +175,7 @@ public static int getPunkte() {
 
 public static void setPunkte(String punkte) {
 	Spielfeld_Model.punkte = punkte;
+	System.err.println("Gegner Punkte "+ Spielfeld_Model.getPunkte());
 }
 
 public static String getChat() {
@@ -186,7 +187,7 @@ public static void setChat(String chat) {
 }
 
 public static int getZugGegner() {
-	System.err.println("Gegner Zug: "+zugGegner);
+	System.out.println("Gegner Zug: "+zugGegner);
 	return Integer.parseInt(zugGegner);
 }
 

@@ -29,8 +29,8 @@ public class getLabel extends TimerTask{
 		String player=Spielfeld_Model.getPlayername();
 		String chat = Spielfeld_Model.getChat();
 		String ende = Spielfeld_Model.getEnde();
-		System.out.println("Getlabel: "+chat);
-		System.err.println("Labeltime "+temp);
+		//System.out.println("Getlabel: "+chat);
+		//System.err.println("Labeltime "+temp);
 		
 		if (!chat.isEmpty()){
 			controller.tVerlauf.appendText(chat+"\n");
@@ -77,20 +77,18 @@ public class getLabel extends TimerTask{
 			}
 			
 			
-			if(ende.equals("$Ende") && player.equals("player1")){
-					Platform.runLater(() -> {
-						try {
-							controller.neuesFenster();
-							Spielfeld_Model.setEnde("john");
-							controller.grundbp.setDisable(true);
-							System.out.println("sjkldfsjkladfskjldsafjkldsajkadsfjka");
-						} catch (IOException e) {
-							e.printStackTrace();
-							
-						}
-					});
-					
-			}
+//			if(ende.equals("$Ende") && player.equals("player1")){
+//					Platform.runLater(() -> {
+//						try {
+//							controller.neuesFenster();
+//							Spielfeld_Model.setEnde("john");
+//						} catch (IOException e) {
+//							e.printStackTrace();
+//							
+//						}
+//					});
+//					
+//			}
 			
 		}
 

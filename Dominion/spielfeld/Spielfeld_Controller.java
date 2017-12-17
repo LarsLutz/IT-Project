@@ -532,27 +532,30 @@ public class Spielfeld_Controller {
 //		if(Spielfeld_Model.getPlayername().equals("player2")){
 //			
 //		}
-		System.out.println(spie.getAktuelleRunde()+" <------------------------------------------------ AKTUELLER ZUG");
-	if(Spielfeld_Model.getPlayername().equals("player2")){
-		spie.setAktuelleRunde(spie.getAktuelleRunde()+1);
-		if(spie.getAktuelleRunde() == spie.getLetzteRunde()){
-			System.out.println(spie.getAktuelleRunde()+" <-----------------------------------> "+ spie.getLetzteRunde());
-			
-			spie.beendeSpiel();
-			//String an P1 schicken
-			nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-ende-$Ende");
-			  
-			//spie.punkteVergleich();
-			
-			this.neuesFenster();
-		}
-	}
-		
+//		System.out.println(spie.getAktuelleRunde()+" <------------------------------------------------ AKTUELLER ZUG");
+//	if(Spielfeld_Model.getPlayername().equals("player2")){
+//		spie.setAktuelleRunde(spie.getAktuelleRunde()+1);
+//		if(spie.getAktuelleRunde() == spie.getLetzteRunde()){
+//			System.out.println(spie.getAktuelleRunde()+" <-----------------------------------> "+ spie.getLetzteRunde());
+//			
+//			
+//			//String an P1 schicken
+//			nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-ende-$Ende");
+//			  
+//			//spie.punkteVergleich();
+//			
+//			this.neuesFenster();
+//		}
+//	}
+//		
 		
 	}
 	
 	//TODO aktuelles Fenster schliessen -- das muss in Controller!!!!
 	public void neuesFenster() throws IOException{
+//		spie.beendeSpiel();
+//		
+
 		Stage currentStage = (Stage) bZugBeenden.getScene().getWindow();
 		currentStage.close();
 	
