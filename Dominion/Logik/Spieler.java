@@ -222,6 +222,7 @@ public void kartenKaufen(SuperKarte K){
 // Edu
 /**
  * @param Summiert die Punktkarten aus der Hand, Deck und Abwerfstapel.	
+ * @throws InterruptedException 
  */
 	public void punkteBerechnen(){
 		int summeHand = 0;
@@ -238,13 +239,24 @@ public void kartenKaufen(SuperKarte K){
 			summeAbwurf = summeAbwurf + abwerfliste.get(i).getPunkte();
 		}
 		
+		
+		
 		setGesamtpunkte(summeHand + summeDeck + summeAbwurf);
 		
-
-		System.err.println("AKTUELLE PUNKTE: " + gesamtpunkte+" <----------------------------");
-		// eventuel statt syso das Label von siegniederlage-Controller ausgeben
+		System.err.println("Gesamtpunkte: " +getGesamtpunkte());
 		
+		//noch nicht getestet
+		try {
+			Kommunikation.sendenClient(Spielfeld_Model.getPlayername() + "-spieler-punkte-" + getGesamtpunkte());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 			
 	}
 
@@ -258,7 +270,7 @@ public void kartenKaufen(SuperKarte K){
  */
 public String punkteVergleich(){
 
-	System.err.println("Gesamtpunkte "+gesamtpunkte+"_______ Gegener Punkte "+Spielfeld_Model.getPunkte());
+	System.err.println("Gesamtpunkte "+getGesamtpunkte()+"_______ Gegener Punkte "+Spielfeld_Model.getPunkte());
 	
 	
 	if (getGesamtpunkte() > Spielfeld_Model.getPunkte()){
@@ -281,9 +293,9 @@ public String punkteVergleich(){
 	
 	return null;
 	
-	
-	
 }
+
+
 
 
 	//Ist jetzt im Controller Spielfeld

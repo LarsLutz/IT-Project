@@ -549,12 +549,32 @@ public class Spielfeld_Controller {
 //	}
 //		
 		
+		
+	if(Spielfeld_Model.getPlayername().equals("player2")){
+		spie.setAktuelleRunde(spie.getAktuelleRunde()+1);
+		System.out.println("Aktuelle Runde: " +spie.getAktuelleRunde());
+		
+		if(spie.getAktuelleRunde() == spie.getLetzteRunde()){
+			nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-ende-$Ende");
+			
+			
+			
+			
+			
+			
+			
+			this.neuesFenster();	
+		}
+	}
+		
+		
+		
 	}
 	
-	//TODO aktuelles Fenster schliessen -- das muss in Controller!!!!
+	//neues Fenster (siegNiederlage oeffnen)
 	public void neuesFenster() throws IOException{
-//		spie.beendeSpiel();
-//		
+		spie.punkteBerechnen();
+		spie.punkteVergleich();
 
 		Stage currentStage = (Stage) bZugBeenden.getScene().getWindow();
 		currentStage.close();

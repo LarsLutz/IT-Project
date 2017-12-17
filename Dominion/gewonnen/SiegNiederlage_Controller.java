@@ -43,16 +43,10 @@ public class SiegNiederlage_Controller {
 	
 	//quasi unsere CompareTo Methode
 	public void initialize(){
-//		if(s.getGesamtpunkte() > Spielfeld_Model.getPunkte()){
-//			this.labNachricht.setText(" Du hast verloren ");
-//		}	
-//		if(s.getGesamtpunkte() < Spielfeld_Model.getPunkte()){
-//			this.labNachricht.setText(" Du hast verloren ");
-//		}else{
-//			this.labNachricht.setText(" Unentschieden ");
+
 		
 		String vergleich = s.punkteVergleich();
-//		}
+
 		System.out.println("Punktevergleich= "+vergleich);
 		if(vergleich.equals("Gewonnen"))
 				this.labNachricht.setText("Du hast Gewonnen");
@@ -62,11 +56,7 @@ public class SiegNiederlage_Controller {
 		
 		if(vergleich.equals("Unentschieden"))
 			this.labNachricht.setText("Unentschieden");
-		
-		
-		
-		
-		
+
 		
 	}
 	

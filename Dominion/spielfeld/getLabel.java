@@ -77,18 +77,18 @@ public class getLabel extends TimerTask{
 			}
 			
 			
-//			if(ende.equals("$Ende") && player.equals("player1")){
-//					Platform.runLater(() -> {
-//						try {
-//							controller.neuesFenster();
+			if(ende.equals("$Ende") && player.equals("player1")){
+					Platform.runLater(() -> {
+						try {
+							controller.neuesFenster();
 //							Spielfeld_Model.setEnde("john");
-//						} catch (IOException e) {
-//							e.printStackTrace();
-//							
-//						}
-//					});
-//					
-//			}
+						} catch (IOException e) {
+							e.printStackTrace();
+							
+						}
+					});
+					
+			}
 			
 		}
 
