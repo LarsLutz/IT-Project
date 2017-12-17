@@ -61,6 +61,7 @@ public class Lobby_Controller {
     
     @FXML
 	public void initialize(){
+    	hs.playHintergrundLoop();
 		try {
 			Kommunikation.clientcon();
 		} catch (IOException e) {
