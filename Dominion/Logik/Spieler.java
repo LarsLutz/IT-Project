@@ -42,12 +42,12 @@ public class Spieler {
 //	//Eduart Bunjaku
 	final int LETZTERUNDE = 4; // Edu --> Zug = 10 --> Spiel endet.
 	private int aktuelleRunde = 1; // erster Zug, Spielbeginn TODO getter und setter schreiben
-	private int gesamtpunkte;
-	SiegNiederlage_Controller sgc;
+	private int gesamtpunkte=0;
+	private SiegNiederlage_Controller sgc;
 	private Pane sieg;
 	//Spielfeld_Model spielfModel;
 	private int spie2Punkte;
-	Stage primaryStage;
+	private Stage primaryStage;
 	
 
 
@@ -196,31 +196,27 @@ public void kartenKaufen(SuperKarte K){
  * @throws InterruptedException 
  * @throws IOException 
  */
-	public void beendeSpiel(){
-		//--Spielfeld_Model.getZugGegner()
-		//if( aktuelleRunde == LETZTERUNDE && Spielfeld_Model.getZugGegner() == LETZTERUNDE +1){
-			int gegnerZug = Spielfeld_Model.getZugGegner() + 1;
-			System.out.println("++++++++++++++++++++++++++++++++++++++++++DAS IST RUNDE "+ gegnerZug);
-			
-			punkteBerechnen();
-			
-			try {
-				Kommunikation.sendenClient(Spielfeld_Model.getPlayername() + "-spieler-punkte-" + this.gesamtpunkte);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			
-			try {
-				Thread.sleep(2000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			
-			
-		//}
-		//Platform.exit();
-	}
-	
+//	public void beendeSpiel(){
+//		//--Spielfeld_Model.getZugGegner()
+//		//if( aktuelleRunde == LETZTERUNDE && Spielfeld_Model.getZugGegner() == LETZTERUNDE +1){
+//			int gegnerZug = Spielfeld_Model.getZugGegner() + 1;
+//			System.out.println("++++++++++++++++++++++++++++++++++++++++++DAS IST RUNDE "+ gegnerZug);
+//			
+//			punkteBerechnen();
+//			
+//			try {
+//				Kommunikation.sendenClient(Spielfeld_Model.getPlayername() + "-spieler-punkte-" + this.gesamtpunkte);
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//			
+//			
+//			
+//			
+//		//}
+//		//Platform.exit();
+//	}
+//	
 	
 	
 // Edu
@@ -242,10 +238,10 @@ public void kartenKaufen(SuperKarte K){
 			summeAbwurf = summeAbwurf + abwerfliste.get(i).getPunkte();
 		}
 		
-		this.setGesamtpunkte(summeHand + summeDeck + summeAbwurf);
+		setGesamtpunkte(summeHand + summeDeck + summeAbwurf);
 		
 
-		System.out.println("AKTUELLE PUNKTE: " + gesamtpunkte+" <----------------------------");
+		System.err.println("AKTUELLE PUNKTE: " + gesamtpunkte+" <----------------------------");
 		// eventuel statt syso das Label von siegniederlage-Controller ausgeben
 		
 		
@@ -262,21 +258,22 @@ public void kartenKaufen(SuperKarte K){
  */
 public String punkteVergleich(){
 
+	System.err.println("Gesamtpunkte "+gesamtpunkte+"_______ Gegener Punkte "+Spielfeld_Model.getPunkte());
 	
 	
-	if (this.gesamtpunkte > Spielfeld_Model.getPunkte()){
+	if (getGesamtpunkte() > Spielfeld_Model.getPunkte()){
 			System.err.println("GEWONNEN");
 			System.out.println("GETPUNKTE METHODE: "+Spielfeld_Model.getPunkte());
 			return "Gewonnen";		
 	}
 	
-	if(this.gesamtpunkte < Spielfeld_Model.getPunkte()){
+	if(getGesamtpunkte() < Spielfeld_Model.getPunkte()){
 		System.err.println("VERLOREN");
 		System.out.println("GETPUNKTE METHODE: "+Spielfeld_Model.getPunkte());
 		return "Verloren";
 	}
 	
-	if(this.gesamtpunkte == Spielfeld_Model.getPunkte()) {
+	if(getGesamtpunkte() == Spielfeld_Model.getPunkte()) {
 		System.err.println("UNENTSCHIEDEN");
 		System.out.println("GETPUNKTE METHODE: "+Spielfeld_Model.getPunkte());
 		return "Unentschieden";
