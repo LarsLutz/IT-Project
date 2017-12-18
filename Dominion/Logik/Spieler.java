@@ -40,7 +40,7 @@ public class Spieler {
 //	private final int LETZTERUNDE = 10; // Edu --> Zug = 10 --> Spiel endet.
 
 //	//Eduart Bunjaku
-	final int LETZTERUNDE = 4; // Edu --> Zug = 10 --> Spiel endet.
+	final int LETZTERUNDE = 10; // Edu --> Zug = 10 --> Spiel endet.
 	private int aktuelleRunde = 1; // erster Zug, Spielbeginn TODO getter und setter schreiben
 	private int gesamtpunkte=0;
 	private SiegNiederlage_Controller sgc;

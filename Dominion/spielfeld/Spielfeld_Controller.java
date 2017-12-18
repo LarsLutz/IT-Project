@@ -244,6 +244,7 @@ public class Spielfeld_Controller {
 			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Bazaar")) && Zaehler.aktionsZaehler > 0){
 				standardAktionsKarteHandler(aktuellerIndex);
 				sam.aktionsKarten[0].karteSpielen();
+				karteZiehen();
 				//TODO -- Gegner spielt Basar
 				nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner hat Aktionskarte Basar gespielt");
 			}
@@ -252,6 +253,7 @@ public class Spielfeld_Controller {
 				standardAktionsKarteHandler(aktuellerIndex);
 				sam.aktionsKarten[1].karteSpielen();
 				spie.deckDiscard();
+				labelsAktualisieren();
 				nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner hat Aktionskarte Kanzler gespielt");
 			}
 			

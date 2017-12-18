@@ -12,7 +12,7 @@ public class AKMarkt extends AktionsKarte{
 	final int guthaben = 1;
 	final String typ = "Aktionskarte";
 	final String pfad = "market.jpg";
-	final String beschreibung = "Ziehe eine Kart\nDu erhaeltst +1 Aktion\nDu erhaeltst +1 Kaeufe\nDu erhaeltst +1 Guthaben";
+	final String beschreibung = "Ziehe eine Karte\nDu erhaeltst +1 Aktion\nDu erhaeltst +1 Kaeufe\nDu erhaeltst +1 Guthaben";
 	
 	
 	
