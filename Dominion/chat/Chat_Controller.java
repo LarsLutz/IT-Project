@@ -111,7 +111,7 @@ public void stopStage(){
 
 		
 		String c1;
-		c1= Chat_Model.getSpielername()+"-chat-text-"+ textArea2.getText();
+		c1= Chat_Model.getSpielername()+"-chat-text-"+ textArea2.getText().replaceAll("-", "_");
 		if (c1 != null && !c1.isEmpty()) { //Checkt ob �berhaupt etwas gesendet werden kann
 			try {
 				Kommunikation.sendenClient(c1);
@@ -143,7 +143,7 @@ public void stopStage(){
 		if (keyevent.getCode() == KeyCode.ENTER)  {
 
 		String c1;
-		c1= Chat_Model.getSpielername()+"-chat-text-"+ textArea2.getText();
+		c1= Chat_Model.getSpielername()+"-chat-text-"+ textArea2.getText().replaceAll("-", "_");
 		if (c1 != null && !c1.isEmpty()) { //Checkt ob �berhaupt etwas gesendet werden kann
 			try {
 				Kommunikation.sendenClient(c1);

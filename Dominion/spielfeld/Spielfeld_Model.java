@@ -23,6 +23,8 @@ public class Spielfeld_Model{
 	private static String zugGegner;
 	private static String ende = "johndoe";
 	private static String gewinner="";
+	private static String spielerid="";
+	private static int gesamtpunkte=0;
 	
 
 
@@ -204,6 +206,22 @@ public static String getGewinner() {
 
 public static void setGewinner(String gewinner) {
 	Spielfeld_Model.gewinner = gewinner;
+}
+
+public static String getSpielerid() {
+	return spielerid;
+}
+
+public static void setSpielerid(String spielerid) {
+	Spielfeld_Model.spielerid = spielerid;
+}
+
+public static int getGesamtpunkte() {
+	return gesamtpunkte;
+}
+
+public static void setGesamtpunkte(int gesamtpunkte) {
+	Spielfeld_Model.gesamtpunkte = gesamtpunkte;
 }
 
 

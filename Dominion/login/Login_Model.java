@@ -103,7 +103,7 @@ public String getLogin(){
 			queri= SQLHandler.doAbfrage();
 			while (queri.next()) {
 		
-			  ausgabe = ausgabe + queri.getString(1)+"-"+queri.getString(2)+"-"+queri.getString(3)+"-"+queri.getString(3);
+			  ausgabe = ausgabe + queri.getString(1)+"-"+queri.getString(2)+"-"+queri.getString(3)+"-"+queri.getString(4);
 			  setId(queri.getInt(1));
      }
 			System.out.println("Abfrage erfolgt");

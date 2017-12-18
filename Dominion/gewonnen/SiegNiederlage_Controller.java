@@ -17,12 +17,14 @@ import spielfeld.Spielfeld_Model;
 
 public class SiegNiederlage_Controller {
 	
-	Spieler s;
+	private Spieler s;
+	private SiegNiederlage_Model model;
 	
 	
 	//Jan Müller
 	public SiegNiederlage_Controller(){
 		s = new Spieler(0);
+		model =new SiegNiederlage_Model();
 	}
 	
     @FXML
@@ -90,6 +92,9 @@ public class SiegNiederlage_Controller {
 	
 	public void okKlick(MouseEvent e) throws IOException{
 				// closes current window
+				
+				model.setLeaderboard();
+		
 				Stage currentStage = (Stage) bOk.getScene().getWindow();
 			    currentStage.close();
 			    

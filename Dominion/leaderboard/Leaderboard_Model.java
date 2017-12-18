@@ -23,7 +23,8 @@ public class Leaderboard_Model {
 				+ "LEFT JOIN `leaderboard` "
 				+ "ON `leaderboard`.`Spieler_idSpieler` = `spieler`.`idSpieler`"
 				+ "WHERE `leaderboard`.`Resultat` is not null "
-				+ "ORDER BY `leaderboard`.`Resultat` DESC";
+				+ "ORDER BY `leaderboard`.`Resultat` DESC "
+				+ "LIMIT 10";
 	}
 	
 	
