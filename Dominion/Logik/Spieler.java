@@ -220,22 +220,11 @@ public void aktionsKarteSpielen(int indexH) {
 		this.gesamtpunkte = gesamtpunkte;
 	}
 	
-	
-	 
-	
 
-/**
- * @param Beendet Spiel, wenn 10 Züge vorbei sind und ruft Methode punkteBerechnen() auf.
- * @throws InterruptedException 
- * @throws IOException 
- */
-
-	
-	
-// Edu
-/**
- * @param Summiert die Punktkarten aus der Hand, Deck und Abwerfstapel.	
- * @throws InterruptedException 
+/**Diese Methode iteriert durch die verschiedenen Stapel (Deck, Abwurfstapel und Hand)
+ * und summiert die Punkte der Punktekarten.
+ * @author Eduart Bunjaku
+ * 
  */
 	public void punkteBerechnen(){
 		int summeHand = 0;
@@ -264,11 +253,9 @@ public void aktionsKarteSpielen(int indexH) {
 	}
 
 
-/**
- * 
- * @param s1 
- * @param s2
- * Vergleicht zwei Spieler Objekte miteinander und gibt den Text Sieger/Verlierer Text aus.
+/**Diese Methode vergleicht die Punte der beiden Spieler und legt den Sieger bzw.
+ * den Verlierer fest.
+ * @author Eduart Bunjaku
  * 
  */
 public void punkteVergleich(){
