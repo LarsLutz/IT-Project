@@ -22,13 +22,19 @@ import javafx.stage.Stage;
 import kommunikation.Kommunikation;
 import spielfeld.Spielfeld_Model;
 
+/**
+ * 
+ * @author Eduart Bunjaku
+ *
+ */
+
 public class SiegNiederlage_Controller {
 	
 	private Spieler s;
 	private SiegNiederlage_Model model;
 	
 	
-	//Jan Müller
+	
 	public SiegNiederlage_Controller(){
 		s = new Spieler(0);
 		model =new SiegNiederlage_Model();
