@@ -8,6 +8,9 @@ import java.util.Random;
 import javafx.scene.input.MouseEvent;
 import mysql.SQLHandler;
 
+/**
+ * @author Lars Lutz
+ */
 public class Login_Model {
 	
 	private String ausgabe="";

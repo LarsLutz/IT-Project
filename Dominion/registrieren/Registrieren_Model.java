@@ -4,7 +4,9 @@ import java.sql.SQLException;
 
 import mysql.SQLHandler;
 
-// Eduart Bunjaku
+/**
+ * @author Lars Lutz
+ */
 
 public class Registrieren_Model {
 

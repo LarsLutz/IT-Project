@@ -20,7 +20,9 @@ import javafx.stage.Stage;
 import leaderboard.Leaderboard_Model;
 import sound.MP3;
 
-// Eduart Bunjaku
+/**
+ * @author Lars Lutz
+ */
 
 public class Registrieren_Controller {
 	
