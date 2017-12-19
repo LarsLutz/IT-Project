@@ -1,5 +1,8 @@
 package chat;
 
+/**
+ * @author Lars Lutz
+ */
 public class Chat_Model {
 	
 	private static String text;

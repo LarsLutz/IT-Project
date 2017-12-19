@@ -25,17 +25,19 @@ import kommunikation.Kommunikation;
 import kommunikation.Updater;
 import lobby.Lobby_Model;
 
+/**
+ * @author Lars Lutz
+ * Gui @author Eduard Bunjaku
+ */
 public class Chat_Controller  {
 	
 	private Chat_Model model;
-	//private Kommunikation kom;
 	private Decoder dec;
 	private Thread thread;
 	private Boolean leuft =true;
 	private Timer timer;
 	private Updater updater;
 	
-	//Jan Müller
 	
 	public Chat_Controller(){
 		dec= new Decoder();
@@ -66,18 +68,7 @@ public void initialize(){
 	updater=new Updater(dec);
 	this.thread=new Thread(updater);
 	this.thread.start();
-	//leuft =false;
 	
-//	
-//	textArea1.textProperty().addListener(new ChangeListener<String>() {
-//	    @Override
-//	    public void changed(ObservableValue<? extends String> observable,
-//	            String oldValue, String newValue) {
-//
-//	        textArea1.appendText(Chat_Model.getUpdate()+"\n");
-//	    }
-//});
-//	
 }
 
 public void stopStage(){
@@ -120,14 +111,6 @@ public void stopStage(){
 			}
 			textArea2.clear();
 			
-//			if (leuft){
-//				
-//				this.thread=new Thread(new Updater(dec));
-//				this.thread.start();
-//				leuft =false;
-//				
-//			}
-			
 			
 			
 		}
@@ -167,14 +150,6 @@ public void stopStage(){
 	public void exitApplication(ActionEvent event) {
 	   Platform.exit();
 	}
-
-
-
-
-	
-	
-	
-	
 
 	
 }

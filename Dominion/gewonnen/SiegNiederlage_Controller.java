@@ -2,6 +2,11 @@ package gewonnen;
 
 import java.io.IOException;
 
+/**
+ * @author Lars Lutz
+ */
+
+
 import Logik.Spieler;
 import javafx.application.Platform;
 import javafx.fxml.FXML;

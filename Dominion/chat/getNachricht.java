@@ -4,6 +4,9 @@ import java.util.TimerTask;
 
 import spielfeld.Spielfeld_Model;
 
+/**
+ * @author Lars Lutz
+ */
 public class getNachricht extends TimerTask{
 	
 	private Chat_Controller controller;
