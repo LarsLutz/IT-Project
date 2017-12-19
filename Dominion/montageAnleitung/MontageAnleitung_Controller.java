@@ -12,7 +12,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class MontageAnleitung_Controller {
-	//Jan Müller
+    /**
+     * 
+     * @author  Jan Mueller
+     *
+     */
 	public MontageAnleitung_Controller(){
 		
 	}
