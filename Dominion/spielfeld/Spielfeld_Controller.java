@@ -43,14 +43,19 @@ import kommunikation.Kommunikation;
 import kommunikation.Updater;
 import lobby.Lobby_Model;
 
+/**
+ * 
+ * @author  Jan Mueller / Lars Lutz
+ * FXML GUI @author Jan Mueller 
+ */
+
 public class Spielfeld_Controller {
 
-	// Jan Mueller
 
 	private Spielfeld_Model sm;
 	private Sammlung sam;
 	private Spieler spie;
-	private int ivCounter = 0;
+//	private int ivCounter = 0;
 	private ArrayList<ImageView> viewList;
 	private Lobby_Model lm;
 	private Decoder dec;
@@ -59,7 +64,11 @@ public class Spielfeld_Controller {
 	private Updater updater;
 	
 	
-
+    /**
+     * 
+     * @author  Jan Mueller
+     *
+     */
 	public Spielfeld_Controller() {
 		sm = new Spielfeld_Model(13);
 		sam = new Sammlung();
@@ -72,6 +81,12 @@ public class Spielfeld_Controller {
 		
 		timer.scheduleAtFixedRate(new getLabel(this, sm), 0,1000);
 	}
+	
+    /**
+     * 
+     * @author  Jan Mueller
+     *
+     */
 	
 	@FXML
 	BorderPane grundbp;
@@ -99,10 +114,16 @@ public class Spielfeld_Controller {
 
 	@FXML
 	Label anzahlMeinStapel, anzahlAblageStapel, infoLabel, verbAktionen, verbKaeufe, verbGuthaben, startLabel, opLogger;
-//opLogger --> label zeigt an was gegner macht
 
 	@FXML
 	HBox hBoxBottom, hBoxRealHand;
+	
+    /**
+     * 
+     * @author Jan Mueller
+     * @param wird oft zu aktualisieren
+     *
+     */
 	
 	private void labelsAktualisieren(){
 		verbGuthaben.setText(Zaehler.getGuthaben()+"");
@@ -114,12 +135,22 @@ public class Spielfeld_Controller {
 		
 	}
 	
+    /**
+     * 
+     * @author  Jan Mueller
+     *
+     */
+	
 	public void standardAktionsKarteHandler(int no){
 		spie.aktionsKarteSpielen(no);
 		hBoxRealHand.getChildren().remove(no);
 	}
 	
-	//Lars Lutz
+    /**
+     * 
+     * @author  Lars Lutz
+     *
+     */
 	public void nachrichtSenden(String nachricht){
 		
 		String c1 =nachricht;
@@ -133,6 +164,12 @@ public class Spielfeld_Controller {
 		}
 	}
 	
+	
+    /**
+     * 
+     * @author  Jan Mueller
+     *
+     */
 	public void spielerEnabeln() {
 		grundbp.setDisable(false);
 		pMeinDeck.setDisable(true);
@@ -144,6 +181,11 @@ public class Spielfeld_Controller {
 	}
 	
 	
+    /**
+     * 
+     * @author  Lars Lutz
+     *
+     */
 	public void stopStage(){
 		timer.cancel();
 		timer.purge();
@@ -156,14 +198,20 @@ public class Spielfeld_Controller {
 	
 	
 
-	// wird vor dem oeffnen des Fensters gemacht
+    /**
+     * 
+     * @author  Jan Mueller / Lars Lutz
+     *
+     */
 	@FXML
 	public void initialize(){
+		//Jan Mueller
 		tVerlauf.setStyle("-fx-text-inner-color: red;");
 		tVerlauf.setOpacity(0.45);
-		//Code von Stack overflow (nur naechste Zeile mit css um Hintergrundbild zu setzen...
+		//css Code von Stack overflow
 		grundbp.setStyle("-fx-background-image: url(\"/spielfeld/BildSpielbrett.jpg\");-fx-background-size: cover, auto;-fx-background-repeat: no-repeat;");
 		
+		//Lars Lutz
 		opLogger.setText("Du bist am Zug" );
 		String c2= Spielfeld_Model.getPlayername()+"-spielf-init-$START";
 		try {
@@ -177,7 +225,7 @@ public class Spielfeld_Controller {
 		this.thread=new Thread(updater);
 		this.thread.start();
 		
-		
+	    //Jan Mueller
 		viewList = new ArrayList<ImageView>();
 		for (int i = 0; i < sm.getAnzahlStarthand(); i++) {
 			this.karteZiehen();
@@ -206,7 +254,13 @@ public class Spielfeld_Controller {
 	
 	}
 
-	// Löst das Ziehen bzw. Erzeugen einer Karte aus.
+    /**
+     * 
+     * @author  Jan Mueller
+     *
+     * Nachrichten @author Lars Lutz
+     */
+	
 	@FXML
 	public void karteZiehen() {
 		// Behandlung des decks wenn dieses leer ist... -- wird nicht auf der Methode direkt gemacht um eine emptyStackException zu umgehen...
@@ -235,7 +289,7 @@ public class Spielfeld_Controller {
 			if(spie.handliste.get(aktuellerIndex).getWert() >= 1 && sm.getKaufPhase() == true){
 				spie.geldKarteSpielen(aktuellerIndex);
 				hBoxRealHand.getChildren().remove(aktuellerIndex);
-				//TODO -- hier sagen wieviel Geld der gegner gespielt hat
+				
 				nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner hat Geld gespielt");
 			}
 			
@@ -245,7 +299,7 @@ public class Spielfeld_Controller {
 				standardAktionsKarteHandler(aktuellerIndex);
 				sam.aktionsKarten[0].karteSpielen();
 				karteZiehen();
-				//TODO -- Gegner spielt Basar
+				
 				nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner hat Aktionskarte Basar gespielt");
 			}
 					
@@ -254,6 +308,7 @@ public class Spielfeld_Controller {
 				sam.aktionsKarten[1].karteSpielen();
 				spie.deckDiscard();
 				labelsAktualisieren();
+				
 				nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner hat Aktionskarte Kanzler gespielt");
 			}
 			
@@ -261,7 +316,7 @@ public class Spielfeld_Controller {
 				standardAktionsKarteHandler(aktuellerIndex);
 				sam.aktionsKarten[2].karteSpielen();
 				karteZiehen();
-				//TODO -- Gegner spielt Aktionskarte Dorf
+				
 				nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner hat Aktionskarte Dorf gespielt");
 			}
 			
@@ -269,7 +324,7 @@ public class Spielfeld_Controller {
 				standardAktionsKarteHandler(aktuellerIndex);
 				karteZiehen();
 				sam.aktionsKarten[3].karteSpielen();
-				//TODO -- Gegner spielt Aktionskarte Markt
+				
 				nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner hat Aktionskarte Markt gespielt");
 			}
 			
@@ -278,22 +333,14 @@ public class Spielfeld_Controller {
 			for(int i = 0; i<3; i++) {
 					karteZiehen();
 				}
-			//TODO -- Gegner spielt Schmied	
+			
 			nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner hat Aktionskarte Schmied gespielt");
 			}
 				
 			
-			labelsAktualisieren();
-			
-			//Test
-			System.out.println(spie.handliste);
-			System.out.println(spie.abwerfliste);
+			labelsAktualisieren();			
 		});
-		
-		
-		
-		
-		
+
 		spie.KarteZiehen(1);
 		labelsAktualisieren();
 		
@@ -307,21 +354,24 @@ public class Spielfeld_Controller {
 		
 		p.getChildren().add(iv);
 		hBoxRealHand.getChildren().add(p);
+		
+		
+//		ivCounter++;
+//		if (ivCounter > 4000) {
+//			ivCounter = 0;
+//		}
 
-		ivCounter++;
-		if (ivCounter > 4000) {
-			ivCounter = 0;
-		}
-		// testen.... Logger fuer geistig behinderti
-//		System.out.println("Deckliste " + spie.deckliste);
-//		System.out.println("Handliste " + spie.handliste);
-//		System.out.println("Abwerfliste " + spie.abwerfliste);
 	}
-
+	
+    /**
+     * 
+     * @author  Jan Mueller
+     *
+     */
 	// Aktionsphasen Knopf geklickt
 	@FXML
 	public void aktionsPhase() {
-		//TODO -- Gegner wechselt in Aktionsphase
+		// Nachrichten von Lars Lutz
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner wechselt in die Aktionsphase");
 		sm.setAktionsPhase(true);
 		startLabel.setText("Aktionsphase");
@@ -329,10 +379,16 @@ public class Spielfeld_Controller {
 		pMeinDeck.setDisable(true);
 	}
 
+	
+    /**
+     * 
+     * @author  Jan Mueller
+     * ausser Nachrichten...
+     */
+	
 	// Kaufphasen Knopf geklickt
 	@FXML
 	public void kaufPhase() {
-		//TODO -- Gegner wechselt in Kaufphase
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner wechselt in Kaufphase");
 		sm.setAktionsPhase(false);
 		sm.setKaufPhase(true);
@@ -356,6 +412,11 @@ public class Spielfeld_Controller {
 		
 	}
 	
+    /**
+     * 
+     * @author  Jan Mueller
+     *Nachrichten @author Lars Lutz
+     */
 	//Durch klick auf versch. Aktions- , Geld- und Punktekarten (in der Kaufphase)
 	//werden diese bei entsprechendem Guthaben gekauft
 	@FXML
@@ -363,111 +424,100 @@ public class Spielfeld_Controller {
 		spie.kartenKaufen(sam.aktionsKarten[4]);
 		
 		labelsAktualisieren();
-		//TODO -- Gegner kauft Schmied
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Schmied");
 	}
 	
 	@FXML
 	public void clickMarketMiddle(){
 		spie.kartenKaufen(sam.aktionsKarten[3]);
-		
 		labelsAktualisieren();
-		//TODO -- Gegner kauft Markt
+		
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Markt");
 	}
 	
 	@FXML
 	public void clickChancellorMiddle(){
 		spie.kartenKaufen(sam.aktionsKarten[1]);
-		
 		labelsAktualisieren();
-		//TODO -- Gegner kauft Kanzler
+		
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Kanzler");
 	}
 	
 	@FXML
 	public void clickCellarMiddle(){
 		spie.kartenKaufen(sam.aktionsKarten[2]);
-		
 		labelsAktualisieren();
-		//TODO -- Gegner kauft Dorf
+		
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Dorf");
 	}
 	
 	@FXML
 	public void clickBazaarMiddle(){
 		spie.kartenKaufen(sam.aktionsKarten[0]);
-		
 		labelsAktualisieren();
-		//TODO -- Gegner kauft Basar
+		
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Basar");
 	}
 	
 	@FXML
 	public void clickKupfer(){
 		spie.kartenKaufen(sam.geldKarten[0]);
-		
 		labelsAktualisieren();
-		//TODO -- Gegner kauft Kupfer
+		
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Kupfer");
 	}
 	
 	@FXML
 	public void clickSilber(){
 		spie.kartenKaufen(sam.geldKarten[1]);
-		
 		labelsAktualisieren();
-		//TODO -- Gegner kauft Silber
+		
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Silber");
 	}
 	
 	@FXML
 	public void clickGold(){
 		spie.kartenKaufen(sam.geldKarten[2]);
-		
 		labelsAktualisieren();
-		//TODO -- Gegner kauft Gold
+		
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Gold");
 	}
 	
 	@FXML
 	public void clickAnwesen1(){
 		spie.kartenKaufen(sam.punkteKarten[0]);
-		
 		labelsAktualisieren();
-		//TODO -- Gegner kauft Anwesen
+		
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Anwesen");
 	}
 	
 	@FXML
 	public void clickAnwesen3(){
 		spie.kartenKaufen(sam.punkteKarten[1]);
-		
 		labelsAktualisieren();
-		//TODO -- Gegner kauft Herzogtum
+
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Herzogtum");
 	}
 	
 	@FXML
 	public void clickAnwesen6(){
 		spie.kartenKaufen(sam.punkteKarten[2]);
-		
 		labelsAktualisieren();
-		//TODO -- Gegner kauft Provinz
+		
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Provinz");
 	}
-	
-	
-	
-	
-	
-	
-	
 
+    /**
+     * 
+     * @author  Jan Mueller
+     *Nachtrichten @author Lars Lutz
+     *
+     *
+     */
+	
 	// Discardphasen Knopf geklickt
 	@FXML
 	public void discardPhase() {
-		//TODO -- Gegner wirft seine Hand ab
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner wirft seine Hand ab");
 		sm.setKaufPhase(false);
 		sm.setDiscardPhase(true);
@@ -501,57 +551,41 @@ public class Spielfeld_Controller {
 		anwesen6.setDisable(true);
 		bZugBeenden.setDisable(false);
 	}
-
+	
+	
+    /**
+     * 
+     * @author  Jan Mueller
+     *Nachrichten @author Lars Lutz
+     *	
+     */
+	
+	
 	// zugBeenden Knopf Klicken - erst nach abgeschlossenem Discard moeglich
 	@FXML
 	public void zugBeenden() throws IOException{
-		//TODO -- Gegner beendet seinen Zug
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner beendet seinen Zug");
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-zug-1");
 		
 		//relevant fuer SiegNiederlage
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-runde-"+ spie.getAktuelleRunde());
-		
+		//Lars Lutz
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//TODO -- Du bist am Zug
+		
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Du bist am Zug");
+		//Jan Mueller
 		bZugBeenden.setDisable(true);
 		Zaehler.beginnZug();
 		
 		labelsAktualisieren();
 		opLogger.setText("Gegner am Zug");
-		//Sobald gegner Zug beenden dr�ckt wird folgendes ausgefuehrt:
-		
-		
-		
-		//Eduart Bunjaku
-		//---------------------Spielfeld_Model.getZugGegner()+1
-//		if(Spielfeld_Model.getPlayername().equals("player2")){
-//			
-//		}
-//		System.out.println(spie.getAktuelleRunde()+" <------------------------------------------------ AKTUELLER ZUG");
-//	if(Spielfeld_Model.getPlayername().equals("player2")){
-//		spie.setAktuelleRunde(spie.getAktuelleRunde()+1);
-//		if(spie.getAktuelleRunde() == spie.getLetzteRunde()){
-//			System.out.println(spie.getAktuelleRunde()+" <-----------------------------------> "+ spie.getLetzteRunde());
-//			
-//			
-//			//String an P1 schicken
-//			nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-ende-$Ende");
-//			  
-//			//spie.punkteVergleich();
-//			
-//			this.neuesFenster();
-//		}
-//	}
-//		
-		
-		
+
+	//Lars Lutz und Jan Mueller	
 	if(Spielfeld_Model.getPlayername().equals("player2")){
 		spie.setAktuelleRunde(spie.getAktuelleRunde()+1);
 		System.out.println("Aktuelle Runde: " +spie.getAktuelleRunde());
@@ -561,14 +595,17 @@ public class Spielfeld_Controller {
 			nachrichtSenden(Spielfeld_Model.getPlayername() + "-spieler-punkte-" + spie.getGesamtpunkte());
 			nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-ende-$Ende");
 			
-						
-			//this.neuesFenster();	
 		}
 	}
 
 	
 }
 	
+    /**
+     * 
+     * @author  Lars Lutz
+     *
+     */
 	public void setResultat(){
 		grundbp.setDisable(true);
 		spie.punkteBerechnen();
@@ -590,11 +627,12 @@ public class Spielfeld_Controller {
 	
 	
 	
-	//neues Fenster (siegNiederlage oeffnen)
+    /**
+     * 
+     * @author  Jan Mueller
+     *
+     */
 	public void neuesFenster() throws IOException{
-		
-		
-		//spie.punkteVergleich();
 		
 		Stage currentStage = (Stage) bZugBeenden.getScene().getWindow();
 		currentStage.close();
@@ -608,9 +646,12 @@ public class Spielfeld_Controller {
 		stage.show();
 	}
 	
-	//wieder Jan Mueller
-	// folgende 5 geben beim drueberfahren mit der Maus Informationen ueber die
-	// jeweilige AktionsKarte
+    /**
+     * 
+     * @author  Jan Mueller
+     *
+     */
+	
 	@FXML
 	public void infoKanzler() {
 		infoLabel.setText(sam.aktionsKarten[1].getBeschreibung());
@@ -636,8 +677,11 @@ public class Spielfeld_Controller {
 		infoLabel.setText(sam.aktionsKarten[3].getBeschreibung());
 	}
 
-	// Klickeffekt wird ausgelöst
-	// Deck
+    /**
+     * 
+     * @author  Jan Mueller
+     *
+     */
 	@FXML
 	public void pressDeck() {
 		rueckseiteDeck.setOpacity(0.5);
@@ -769,7 +813,13 @@ public class Spielfeld_Controller {
 		marketMiddle.setOpacity(1);
 	}
 
-	// soll den Text mit einem Klick auf Enter absenden(Chat - TODO)
+	
+    /**
+     * 
+     * @author  Lars Lutz     
+     * 
+     */
+	
 	@FXML
 	public void enterKlick() {
 		System.out.println(
@@ -777,7 +827,6 @@ public class Spielfeld_Controller {
 	}
 	
 	@FXML
-	// Code wir mit namen und nicht player gesendet damit beide antworten ankommen
 	public void sendenEnter(KeyEvent keyevent) throws InterruptedException{
 
 		if (keyevent.getCode() == KeyCode.ENTER)  {
@@ -795,9 +844,7 @@ public class Spielfeld_Controller {
 			
 			
 		}
-		
 		}
-		
 		
 	}
 

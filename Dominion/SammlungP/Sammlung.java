@@ -12,7 +12,14 @@ import Karte.AKSmithy;
 import Karte.GeldKarte;
 import Karte.PunkteKarte;
 import Karte.SuperKarte;
-//Robin Widmer
+
+/**
+ * 
+ * @author  Robin Widmer
+ *
+ */
+
+
 public class Sammlung {
 
 	public static ArrayList<Spielfeldkarte> feldkarten;

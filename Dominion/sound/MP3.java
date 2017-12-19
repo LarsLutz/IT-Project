@@ -17,14 +17,20 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
-public final class MP3{ //extends Application{
+/**
+ * 
+ * @author  Eduart Bunjaku / Jan Mueller
+ *
+ */
+
+public final class MP3{ 
 	
 	Button b;
 	
 
 	
 	public static void spieleMusik(){
-		//String titel = "Bitch Better Have My Money (Lyrics).mp3";
+		//Stack overflow
 		try{
 			
 		Media media = new Media(new File("Dominion/sound/Button.mp3").toURI().toString());

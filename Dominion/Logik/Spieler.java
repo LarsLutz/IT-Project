@@ -19,7 +19,6 @@ import Karte.AktionsKarte;
 import Karte.GeldKarte;
 import Karte.PunkteKarte;
 import Karte.SuperKarte;
-import SammlungP.Deck;
 import java.util.Random;
 import SammlungP.Sammlung;
 import Logik.Zaehler;

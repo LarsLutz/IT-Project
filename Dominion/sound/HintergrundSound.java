@@ -23,13 +23,17 @@ import sun.audio.ContinuousAudioDataStream;
 
 public final class HintergrundSound {
 	
-
+    /**
+     * 
+     * @author  Jan Mueller / Eduart Bunjaku
+     *
+     */
 
 	Media media = new Media(new File("Dominion/sound/Domini.mp3").toURI().toString());
 	MediaPlayer player = new MediaPlayer(media);
 	
 	public void playHintergrundLoop() {
-		//Stack overflow...
+		//Stack overflow
 		if(!player.isAutoPlay()) {
 		try {
 			

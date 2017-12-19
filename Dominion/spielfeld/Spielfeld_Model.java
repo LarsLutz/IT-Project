@@ -5,9 +5,11 @@ import chat.Chat_Model;
 
 public class Spielfeld_Model{
 	
-	//Jan Mueller
-	
-	//bei wievielen Karten in der Hand wird das Deck disabelt? - zu beginn bei 5 da diese Anzahl Karten gezogen werden muss...
+    /**
+     * 
+     * @author  Lars Lutz     
+     *
+     */
 	private int wannDisabeln;
 	private final int ANZAHL_START_HAND = 5;
 	private boolean aktionsPhase;
