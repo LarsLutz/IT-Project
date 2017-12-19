@@ -3,9 +3,14 @@ package gewonnen;
 import mysql.SQLHandler;
 import spielfeld.Spielfeld_Model;
 
+/**
+ * 
+ * @author Eduart Bunjaku
+ *
+ */
+
 public class SiegNiederlage_Model {
 	
-	//Jan Müller
 	
 	//instanzdaten
 	private String befehl =null;

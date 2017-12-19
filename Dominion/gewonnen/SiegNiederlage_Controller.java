@@ -3,7 +3,7 @@ package gewonnen;
 import java.io.IOException;
 
 /**
- * @author Lars Lutz
+ * @autor Eduart Bunjaku
  */
 
 
@@ -54,19 +54,7 @@ public class SiegNiederlage_Controller {
 	public void initialize(){
 
 		
-//		String vergleich = s.punkteVergleich();
-//
-//		System.out.println("Punktevergleich= "+vergleich);
-//		if(vergleich.equals("Gewonnen"))
-//				this.labNachricht.setText("Du hast Gewonnen");
-//		
-//		if(vergleich.equals("Verloren"))
-//			this.labNachricht.setText("Du hast Verloren");
-//		
-//		if(vergleich.equals("Unentschieden"))
-//			this.labNachricht.setText("Unentschieden");
-//
-//		
+	
 		if (Spielfeld_Model.getPlayername().equals("player1")){
 			
 			labNachricht.setText(Spielfeld_Model.getGewinner());
@@ -102,15 +90,6 @@ public class SiegNiederlage_Controller {
 				
 				model.setLeaderboard();
 		
-//				Stage currentStage = (Stage) bOk.getScene().getWindow();
-//			    currentStage.close();
-			    
-			    // opens new window 'LoginView.fxml'
-//				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../lobby/LobbyGui.fxml"));
-//		        Parent root1 = (Parent) fxmlLoader.load();
-//		        Stage stage = new Stage();
-//		        stage.setScene(new Scene(root1));  
-//		        stage.show();
 				Kommunikation.conclose();
 				Platform.exit();
 	}
