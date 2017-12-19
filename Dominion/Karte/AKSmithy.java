@@ -1,5 +1,14 @@
 package Karte;
-//Robin Widmer
+
+
+/**
+ * 
+ * @author Robin Widmer
+ *
+ */
+
+
+
 import Logik.Zaehler;
 import Logik.Spieler;
 

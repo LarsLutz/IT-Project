@@ -1,5 +1,12 @@
 package Karte;
-//Robin Widmer
+
+/**
+ * 
+ * @author Robin Widmer
+ *
+ */
+
+
 public class GeldKarte extends SuperKarte{
 	private int wert;
 	private String name;

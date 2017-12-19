@@ -1,7 +1,14 @@
 package Karte;
 import Logik.Zaehler;
 import Logik.Spieler;
-//Robin Widmer
+
+/**
+ * 
+ * @author Robin Widmer
+ *
+ */
+
+
 public class AKMarkt extends AktionsKarte{
 	
 	final int kosten = 5;
