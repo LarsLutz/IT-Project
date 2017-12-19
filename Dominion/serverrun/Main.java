@@ -9,7 +9,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-	
+	/**
+	 * @author Lars Lutz
+	 */
 	
 	@Override
 	public void start(Stage primaryStage) {

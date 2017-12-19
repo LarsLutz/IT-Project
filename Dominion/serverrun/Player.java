@@ -7,6 +7,9 @@ import java.net.Socket;
 
 import javafx.application.Platform;
 
+/**
+ * @author Lars Lutz
+ */
 public class Player{
 
     private Socket socket;

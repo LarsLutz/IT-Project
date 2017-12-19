@@ -2,7 +2,9 @@ package serverrun;
 
 import java.io.*;
 import java.net.Socket;
-
+/**
+ * @author Lars Lutz
+ */
 class Handler implements Runnable {
     private final Socket socket;
     private Player player;

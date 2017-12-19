@@ -1,5 +1,8 @@
 package serverrun;
 
+/**
+ * @author Lars Lutz
+ */
 public class Decoder {
 	
 
