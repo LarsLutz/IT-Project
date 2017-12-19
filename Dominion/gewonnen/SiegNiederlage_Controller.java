@@ -30,11 +30,12 @@ import spielfeld.Spielfeld_Model;
 
 public class SiegNiederlage_Controller {
 	
+	// Instanzdaten
 	private Spieler s;
 	private SiegNiederlage_Model model;
 	
 	
-	
+	// Konstruktor
 	public SiegNiederlage_Controller(){
 		s = new Spieler(0);
 		model =new SiegNiederlage_Model();
@@ -59,8 +60,6 @@ public class SiegNiederlage_Controller {
 	//quasi unsere CompareTo Methode
 	public void initialize(){
 
-		
-	
 		if (Spielfeld_Model.getPlayername().equals("player1")){
 			
 			labNachricht.setText(Spielfeld_Model.getGewinner());
@@ -75,12 +74,7 @@ public class SiegNiederlage_Controller {
 			if (Spielfeld_Model.getGewinner().equals("UNENTSCHIEDEN")){
 				labNachricht.setText("UNENTSCHIEDEN");
 			}
-			
-			
-			
 		}
-		
-		
 	}
 	
 	public Label getLabNachricht(){
@@ -90,12 +84,15 @@ public class SiegNiederlage_Controller {
 		this.labNachricht = labNachricht;
 	}
 	
+	/**
+	 * Wenn man auf den OK-Button klickt, wird das Programm beendet.
+	 * 
+	 * @param e Mausklick.
+	 * @throws IOException
+	 */
 	
 	public void okKlick(MouseEvent e) throws IOException{
-				// closes current window
-				
 				model.setLeaderboard();
-		
 				Kommunikation.conclose();
 				Platform.exit();
 	}
