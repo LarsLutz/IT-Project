@@ -3,6 +3,7 @@ package gewonnen;
 import java.io.IOException;
 
 import Logik.Spieler;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -95,15 +96,17 @@ public class SiegNiederlage_Controller {
 				
 				model.setLeaderboard();
 		
-				Stage currentStage = (Stage) bOk.getScene().getWindow();
-			    currentStage.close();
+//				Stage currentStage = (Stage) bOk.getScene().getWindow();
+//			    currentStage.close();
 			    
 			    // opens new window 'LoginView.fxml'
-				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../lobby/LobbyGui.fxml"));
-		        Parent root1 = (Parent) fxmlLoader.load();
-		        Stage stage = new Stage();
-		        stage.setScene(new Scene(root1));  
-		        stage.show();
+//				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../lobby/LobbyGui.fxml"));
+//		        Parent root1 = (Parent) fxmlLoader.load();
+//		        Stage stage = new Stage();
+//		        stage.setScene(new Scene(root1));  
+//		        stage.show();
+				
+				Platform.exit();
 	}
 
 	
