@@ -7,8 +7,6 @@ import java.util.Collections;
 import java.util.Random;
 import SammlungP.Spielfeldkarte;
 import gewonnen.SiegNiederlage_Controller;
-import gewonnen.SiegNiederlage_Main;
-import gewonnen.SiegNiederlage_View;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -35,7 +33,6 @@ public class Spieler {
 	public Stack<SuperKarte> abwerfliste = new Stack<SuperKarte>();
 	public int spielerNummer;
 	private SuperKarte superkarte;
-	private SiegNiederlage_Main bedingung;
 
 //	private final int LETZTERUNDE = 10; // Edu --> Zug = 10 --> Spiel endet.
 
