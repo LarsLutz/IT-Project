@@ -99,6 +99,12 @@ public class Lobby_Controller {
     			e.printStackTrace();
     		}
         });
+        stage.setOnHiding(event2 -> {
+        	 fxmlLoader.<Spielfeld_Controller>getController().stopStage();
+        	
+        	
+        });
+        
     }
    
     @FXML
