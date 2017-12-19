@@ -29,36 +29,27 @@ import javafx.scene.Scene;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
-
-//Eduart Bunjaku - Jan Müller
+/**
+ * 
+ * @author  Eduart Bunjaku / Jan Mueller (Code um neues Fenster aufzurufen)
+ * @author  Lars Lutz (Treiber laden)
+ */
 
 public class MainUndStart extends Application{
 	
-	//private Login_View v;
-	//private Login_Model m;
-	//private Login_Controller c;
-	//HintergrundSound s = new HintergrundSound();
+
 	
 	@Override
 	public void start(Stage primaryStage) {
 		
 		primaryStage.setResizable(false);
-		//v = new Login_View(primaryStage);
-		//m = new Login_Model();
-		//c = new Login_Controller();
-		
-//		Media media = new Media(new File("Dominion/login/Domini.mp3").toURI().toString());
-//		MediaPlayer mediaPlayer = new MediaPlayer(media);
-//		mediaPlayer.play();
-		
-//		s.playHintergrundLoop();
+
 		
 		
 		try {
 			
 			URL fxmlUrl = getClass().getResource("LoginGUI.fxml");
 			FXMLLoader fxmlLoader = new FXMLLoader(fxmlUrl); 
-			//fxmlLoader.setController(sn_c); - dieser Code teil wirft eine komische Exception.. habe ausserdem nicht verstanden was der Code macht...
 			Parent root = fxmlLoader.load(); 
 			Scene scene = new Scene(root);
 			
@@ -78,19 +69,7 @@ public class MainUndStart extends Application{
 		        ex.printStackTrace();
 		    }
 			
-			//try {
-				  // Runtime.getRuntime().exec("c:\\xampp\\xampp-control.exe");
-				   //Runtime.getRuntime().exec(open /Applications/xampp.app); 
-				// }
-//				 catch (Exception e) {
-//				    System.err.println(e.toString());
-//				 }
-			
-			//SQLInjection sqln = new SQLInjection(); - evt später für larsiboy?
-			//sqln.connectDatabase();
-			
-			//Loading LobbyView into Class
-			//FXMLLoader.load(getClass().getResource("LobbyView.fxml"));
+
 					
 		} catch(Exception e) {
 			e.printStackTrace();
