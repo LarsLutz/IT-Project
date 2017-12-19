@@ -14,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import kommunikation.Kommunikation;
 import spielfeld.Spielfeld_Model;
 
 public class SiegNiederlage_Controller {
@@ -105,7 +106,7 @@ public class SiegNiederlage_Controller {
 //		        Stage stage = new Stage();
 //		        stage.setScene(new Scene(root1));  
 //		        stage.show();
-				
+				Kommunikation.conclose();
 				Platform.exit();
 	}
 
