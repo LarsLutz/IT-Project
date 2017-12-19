@@ -270,15 +270,15 @@ public void punkteVergleich(){
 	}
 	
 	if(getGesamtpunkte() < Spielfeld_Model.getPunkte()){
-		System.err.println("VERLOREN");
-		System.out.println("GETPUNKTE METHODE: "+Spielfeld_Model.getPunkte());
-		Spielfeld_Model.setGewinner("VERLOREN");
+			System.err.println("VERLOREN");
+			System.out.println("GETPUNKTE METHODE: "+Spielfeld_Model.getPunkte());
+			Spielfeld_Model.setGewinner("VERLOREN");
 	}
 	
 	if(getGesamtpunkte() == Spielfeld_Model.getPunkte()) {
-		System.err.println("UNENTSCHIEDEN");
-		System.out.println("GETPUNKTE METHODE: "+Spielfeld_Model.getPunkte());
-		Spielfeld_Model.setGewinner("UNENTSCHIEDEN");
+			System.err.println("UNENTSCHIEDEN");
+			System.out.println("GETPUNKTE METHODE: "+Spielfeld_Model.getPunkte());
+			Spielfeld_Model.setGewinner("UNENTSCHIEDEN");
 	}
 	
 	
