@@ -21,7 +21,12 @@ import sound.HintergrundSound;
 import sound.MP3;
 import spielfeld.Spielfeld_Controller;
 
-// Eduart Bunjaku - Jan Mueller
+/**
+ * 
+ * GUI @author Eduart Bunjaku
+ * GUI @author Jan Mueller	
+ *
+ */
 
 public class Lobby_Controller {
 	
@@ -37,7 +42,12 @@ public class Lobby_Controller {
 		
 	}
 	
-	//Eduart Bunjaku
+	/**
+	 * 
+	 * @author Eduart Bunjaku
+	 * @author Jan Mueller
+	 *
+	 */
 	@FXML
     private ImageView lobbyFoto;
 
@@ -59,6 +69,13 @@ public class Lobby_Controller {
     @FXML
     private Button leaderBoardButton;
     
+    
+    /**
+     * 
+     * @author Lars Lutz
+     *
+     */
+    
     @FXML
 	public void initialize(){
     	hs.playHintergrundLoop();
@@ -73,7 +90,12 @@ public class Lobby_Controller {
 
     
     
-    //Jan Müller
+    /**
+     * 
+     * Lambdas @author Lars Lutz
+     * rest @author Eduart Bunjaku / Jan Mueller		
+     *
+     */
     @FXML
     public void neuesSpiel(ActionEvent event) throws IOException {
     	MP3.spieleMusik();
@@ -107,17 +129,24 @@ public class Lobby_Controller {
         
     }
    
+    /**
+     * 
+     * @author Eduart Bunjaku / Jan Mueller
+     *
+     */
+    
     @FXML
     public void soundAbspielen(MouseEvent event) {
     	MP3.spieleMusik();
     	hs.playHintergrundLoop();
     	
-//    	if(soundButton.getText().equals("soundAus"))
-//    		soundButton.setText("Hallo");
-//    	
-//    	soundButton.setText("soundAus");
-//    	soundButton.setDisable(false);
     }
+    
+    /**
+     * 
+     * @author Eduart Bunjaku / Jan Mueller
+     *
+     */
     
     @FXML
     public void soundAus(){
@@ -125,7 +154,11 @@ public class Lobby_Controller {
     	hs.stopHintergrundLoop();
     }
 
-    //Jan Mueller
+    /**
+     * 
+     * @author Lars Lutz / Jan Mueller
+     *
+     */
     @FXML
     public void chatOeffnen(ActionEvent event) throws IOException {
     	MP3.spieleMusik();
@@ -147,7 +180,13 @@ public class Lobby_Controller {
     		lm.setChatIstOffen(true);
     }
 
-    //Jan Mueller
+    /**
+     * 
+     * @author Eduart Bunjaku
+     *
+     */
+
+    
     @FXML
     public void leaderboardAnzeigen(ActionEvent event) throws IOException {
     	MP3.spieleMusik();
@@ -165,7 +204,13 @@ public class Lobby_Controller {
     }
 
 
-    //Jan Mueller
+    
+    /**
+     * 
+     * @author Jan Mueller
+     *
+     */
+    
     @FXML
     public void anleitungAnzeigen(ActionEvent event)throws IOException {
     	MP3.spieleMusik();
@@ -183,7 +228,12 @@ public class Lobby_Controller {
     }
 
 
-    //Edu Bunjaku
+    /**
+     * 
+     * @author Eduart Bunjaku
+     *
+     */
+    
     @FXML
     public void beenden(ActionEvent event) {
     	MP3.spieleMusik();

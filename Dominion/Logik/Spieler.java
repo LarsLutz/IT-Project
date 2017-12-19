@@ -26,38 +26,40 @@ import Logik.Zaehler;
 import java.util.Stack;
 
 public class Spieler {
-	//Robin Widmer
-	//send alli spielbare charte uf de hand
+    /**
+     * 
+     * @author Robin Widmer
+     *
+     */
 	public ArrayList<SuperKarte> handliste = new ArrayList<SuperKarte>();
 	public Stack<SuperKarte> deckliste = new Stack<SuperKarte>();
 	public Stack<SuperKarte> abwerfliste = new Stack<SuperKarte>();
 	public int spielerNummer;
 	private SuperKarte superkarte;
-
-//	private final int LETZTERUNDE = 10; // Edu --> Zug = 10 --> Spiel endet.
-
-//	//Eduart Bunjaku
-	final int LETZTERUNDE = 3; // Edu --> Zug = 10 --> Spiel endet.
-	private int aktuelleRunde = 1; // erster Zug, Spielbeginn TODO getter und setter schreiben
+	final int LETZTERUNDE = 3;
+	private int aktuelleRunde = 1;
 	private int gesamtpunkte=0;
-	private SiegNiederlage_Controller sgc;
-	private Pane sieg;
-	//Spielfeld_Model spielfModel;
-	private int spie2Punkte;
-	private Stage primaryStage;
 	
 
 
-	//Robin Widmer
+    /**
+     * 
+     * @author Robin Widmer
+     *
+     */
 	public Spieler(int spielerNummer) {
 		this.spielerNummer = spielerNummer;
 		setupStartdeck();
-		//setupStarthand();
-	
 	}
 		
 
-	//Robin Widmer
+	
+    /**
+     * 
+     * @author Robin Widmer
+     *
+     */
+	
 	public void setupStartdeck(){
 		GeldKarte startGeld = new GeldKarte(1,"Kupfer",0, "copper.jpg");
 		PunkteKarte startPunkte = new PunkteKarte(1,"Anwesen", 1, "estate.jpg");
@@ -70,7 +72,14 @@ public class Spieler {
 	}
 			Schuffel(deckliste);
 	}
-	//Robin Widmer
+	
+    /**
+     * 
+     * @author Robin Widmer
+     *
+     */
+	
+	
 	//legt abwerfliste auf deckliste wenn deck leer ist
 	public void deckIstLeer(){
 			deckliste.addAll(abwerfliste);
@@ -78,37 +87,45 @@ public class Spieler {
 			Collections.shuffle(deckliste);
 	}
 	
-	//Robin Widmer
-	// zieht en zuefaelligi charte vom deck, machts Schuffel methode nutzlos, ueberprueft obs deck leer isch und duet demmentsprechend de abwerfstapel ufs deck lege
+	
+    /**
+     * 
+     * @author Robin Widmer
+     *
+     */
+	
 	public void KarteZiehen(int anzahlKarten){
 		
 		for (int i=0; i<anzahlKarten; i++){
 			handliste.add(deckliste.pop());
 		}
 	}
-	// starthand erstelle --> Auskommentiert da unkonventionell geloest..
-	//public void setupStarthand() {
-		//KarteZiehen(5);
-	//}
-	//Robin Widmer
-	// deck mischle aber im moment useless
+
 		public void Schuffel(Stack<SuperKarte> toSchuffel){
 			Collections.shuffle(toSchuffel);
 		}
-		//Robin Widmer
-//charte �berpruefe  -- ich checke ned wasi mit dere Methode sell mache
-public Spielfeldkarte getSpielfeldkarte(SuperKarte K){
-for(Spielfeldkarte sk: Sammlung.feldkarten){
-	if(sk.art.equals(K)){
-		return sk;}
-	
-}
-return null;
-}
+		
+	    /**
+	     * 
+	     * @author Robin Widmer
+	     *
+	     */
 
-//Robin Widmer
-//Aktionkarte spielen
-// TODO richtiger spieler
+		public Spielfeldkarte getSpielfeldkarte(SuperKarte K){
+			for(Spielfeldkarte sk: Sammlung.feldkarten){
+				if(sk.art.equals(K)){
+					return sk;}
+	
+			}
+			return null;
+		}
+
+	    /**
+	     * 
+	     * @author  Robin Widmer
+	     *
+	     */
+		
 public void aktionsKarteSpielen(int indexH) {
 	//handliste.get(indexH).karteSpielen(1); -- karteSpielen (ist die Funktion der Aktionskarte nehme ich an?) würde ich se
 	//separat auf dem S_Controller aufrufen...
@@ -117,34 +134,43 @@ public void aktionsKarteSpielen(int indexH) {
 	handliste.remove(indexH);
 }
 
-//Robin Widmer -- nichts mehr machen.. funktioniert jetzt
-public void geldKarteSpielen(int indexH){
+
+/**
+ * 
+ * @author  Robin Widmer
+ *
+ */
+
+	public void geldKarteSpielen(int indexH){
 		Zaehler.addGuthaben(handliste.get(indexH).getWert());
 		abwerfliste.push(handliste.get(indexH));
 		handliste.remove(indexH);
 }
-//Robin Widmer
 
-//charte chaufe
-public void kartenKaufen(SuperKarte K){
-	if(K.getKosten() <= Zaehler.getGuthaben()&&Zaehler.getKaufZaehler()>0){
-		abwerfliste.add(K);
-		int guthabenNachher = Zaehler.guthaben - K.getKosten();
-		Zaehler.guthaben = guthabenNachher;
-		Zaehler.kaufZaehler --;
+
+/**
+ * 
+ * @author  Robin Widmer
+ *
+ */
+
+	public void kartenKaufen(SuperKarte K){
+		if(K.getKosten() <= Zaehler.getGuthaben()&&Zaehler.getKaufZaehler()>0){
+			abwerfliste.add(K);
+			int guthabenNachher = Zaehler.guthaben - K.getKosten();
+			Zaehler.guthaben = guthabenNachher;
+			Zaehler.kaufZaehler --;
 		}	
 	}
 
 
-//Robin Widmer
-	//Methode um gekaufte karte hinzuzuf�gen -- diese Methode ist mit karten Kaufen zusammengefügt worden :)
-//public void karteErhalten(SuperKarte K){
-//	abwerfliste.add(K);
-//	}
 
-
-//Jan Mueller -- Robin Widmer
-//Methode leert ganze Hand und fuegt diese dem Abwerstapel hinzu. Dieser wird anschliessend gemischt
+    /**
+     * 
+     * @author  Robin Widmer / Jan Mueller
+     *
+     */
+	
 	public void discard(){
 		for(int i = 0; i<handliste.size(); i++){
 			abwerfliste.push(handliste.get(i));
@@ -152,6 +178,12 @@ public void kartenKaufen(SuperKarte K){
 
 		handliste.clear();	
 	}
+	
+    /**
+     * 
+     * @author  Robin Widmer / Jan Mueller
+     *
+     */
 	
 	public void deckDiscard(){
 		if(!deckliste.isEmpty()){
@@ -163,7 +195,12 @@ public void kartenKaufen(SuperKarte K){
 	}
 	
 	
-	//Edu Bunjaku
+    /**
+     * 
+     * @author  Robin Widmer
+     *
+     */
+	
 	public void setAktuelleRunde(int aktuelleRunde){
 		this.aktuelleRunde = aktuelleRunde;
 	}
@@ -187,33 +224,13 @@ public void kartenKaufen(SuperKarte K){
 	
 	 
 	
-// Eduart Bunjaku
+
 /**
  * @param Beendet Spiel, wenn 10 Züge vorbei sind und ruft Methode punkteBerechnen() auf.
  * @throws InterruptedException 
  * @throws IOException 
  */
-//	public void beendeSpiel(){
-//		//--Spielfeld_Model.getZugGegner()
-//		//if( aktuelleRunde == LETZTERUNDE && Spielfeld_Model.getZugGegner() == LETZTERUNDE +1){
-//			int gegnerZug = Spielfeld_Model.getZugGegner() + 1;
-//			System.out.println("++++++++++++++++++++++++++++++++++++++++++DAS IST RUNDE "+ gegnerZug);
-//			
-//			punkteBerechnen();
-//			
-//			try {
-//				Kommunikation.sendenClient(Spielfeld_Model.getPlayername() + "-spieler-punkte-" + this.gesamtpunkte);
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
-//			
-//			
-//			
-//			
-//		//}
-//		//Platform.exit();
-//	}
-//	
+
 	
 	
 // Edu
@@ -281,39 +298,6 @@ public void punkteVergleich(){
 	
 	
 }
-
-
-
-
-	//Ist jetzt im Controller Spielfeld
-//public void compareTo() {
-//	
-//	if(this.getGesamtpunkte() > Spielfeld_Model.getPunkte()){
-//		 sgc.getLabNachricht().setText("Sie haben gewonnen");
-//	}if(this.getGesamtpunkte() < Spielfeld_Model.getPunkte()){
-//		sgc.getLabNachricht().setText("Sie haben verloren");
-//	}else{
-//		sgc.getLabNachricht().setText("Unentschieden");
-//	}
-//	System.out.println(" **************** Punkte beider SPIELER " + this.gesamtpunkte + " vs " + Spielfeld_Model.getPunkte());
-//	
-//	try {
-//		this.laden();
-//	} catch (IOException e) {
-//		e.printStackTrace();
-//		System.out.println("Siegesfenster geht nicht auf");
-//	}
-//	
-//	
-//}
-
-
-//public void laden() throws IOException{
-//	
-//	
-//    
-//}
-	
 
 }
 

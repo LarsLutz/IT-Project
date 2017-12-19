@@ -9,7 +9,12 @@ import java.net.Socket;
 
 public class Lobby_Model {
 	
-	//Jan Müller 
+    /**
+     * 
+     * @author Jan Mueller
+     *
+     */
+	
 	private boolean chatIstOffen = false;
 	private double hoheSpielfeld;
 

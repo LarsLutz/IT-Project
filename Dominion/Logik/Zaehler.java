@@ -1,8 +1,13 @@
 package Logik;
 
 public final class Zaehler {
-	//Robin Widmer
-	//w�rt ufem spielfeld
+
+    /**
+     * 
+     * @author  Robin Widmer
+     *
+     */
+	
 	public static int aktionsZaehler = 0;
 	public static int guthaben = 0;
 	public static int kaufZaehler = 0;
