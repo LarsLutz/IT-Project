@@ -15,6 +15,7 @@ public class MontageAnleitung_Controller {
     /**
      * 
      * @author  Jan Mueller
+     * Text Anleitung @author Robin Widmer
      *
      */
 	public MontageAnleitung_Controller(){
