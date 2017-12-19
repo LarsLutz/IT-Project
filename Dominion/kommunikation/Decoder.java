@@ -5,6 +5,9 @@ import java.io.IOException;
 import chat.Chat_Model;
 import spielfeld.Spielfeld_Model;
 
+/**
+ * @author Lars Lutz
+ */
 public class Decoder {
 	
 	private  String eingang;
