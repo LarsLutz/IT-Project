@@ -1,5 +1,13 @@
 package Karte;
-//Robin Widmer
+
+/**
+ * 
+ * @author Robin Widmer
+ *
+ */
+
+
+
 public class PunkteKarte extends SuperKarte{
 	private int punkte;
 	private String name;

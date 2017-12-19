@@ -1,8 +1,15 @@
 package Karte;
-//Robin Widmer
+
+/**
+ * 
+ * @author Robin Widmer
+ *
+ */
+
+
 public class AktionsKarte extends SuperKarte{
 	
-	// groesse ??
+
 	
 
 	public void aktionsAbwerfen(){	

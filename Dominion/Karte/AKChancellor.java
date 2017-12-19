@@ -3,7 +3,11 @@ package Karte;
 import Logik.Spieler;
 import Logik.Zaehler;
 
-//Robin Widmer
+/**
+* 
+* @author Robin Widmer
+*
+*/
 public class AKChancellor extends AktionsKarte{
 
 	final int kosten = 3;
@@ -53,8 +57,4 @@ public class AKChancellor extends AktionsKarte{
 	}
 	
 
-	
-		// guthaben +2
-		// setKosten 3
-		// deckDiscard ja/nein
 }

@@ -1,5 +1,13 @@
 package Karte;
-//Robin Widmer
+
+/**
+ * 
+ * @author Robin Widmer
+ *
+ */
+
+
+
 public class SuperKarte {
 
 	protected double groesse;
