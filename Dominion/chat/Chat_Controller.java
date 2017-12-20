@@ -27,7 +27,7 @@ import lobby.Lobby_Model;
 
 /**
  * @author Lars Lutz
- * Gui @author Eduard Bunjaku
+ * Gui @author Eduart Bunjaku
  */
 public class Chat_Controller  {
 	
@@ -38,6 +38,10 @@ public class Chat_Controller  {
 	private Timer timer;
 	private Updater updater;
 	
+	
+	/**
+	 * timer starte ein neues Timer Objekt welches jede Sekunde ausgeführt wird.
+	 */
 	
 	public Chat_Controller(){
 		dec= new Decoder();
@@ -52,7 +56,12 @@ public class Chat_Controller  {
 	
 	
 	
-	
+	/**
+	 * Beim starten des Guis wird eine Nachricht gesendet damit die Kommunikation
+	 * initialisiert wird.
+	 * 
+	 * Der Thread wird gestartet welcher die eingehenden Nachrichten verarbeitet.
+	 */
 	
 @FXML
 
@@ -70,6 +79,8 @@ public void initialize(){
 	this.thread.start();
 	
 }
+
+
 
 public void stopStage(){
 	timer.cancel();
@@ -96,14 +107,18 @@ public void stopStage(){
 	@FXML
 	Button bSenden;
 	
-	//hehehehe
+/**
+ * Sendet die Nachricht welche im Textfeld eingegeben wurde
+ * @throws InterruptedException falls der Thread fehler aufweist
+ */
+	
 	@FXML
 	public void sendenKlick() throws InterruptedException{
 
 		
 		String c1;
 		c1= Chat_Model.getSpielername()+"-chat-text-"+ textArea2.getText().replaceAll("-", "_");
-		if (c1 != null && !c1.isEmpty()) { //Checkt ob ï¿½berhaupt etwas gesendet werden kann
+		if (c1 != null && !c1.isEmpty()) { //Checkt ob überhaupt etwas gesendet werden kann
 			try {
 				Kommunikation.sendenClient(c1);
 			} catch (IOException e) {
@@ -118,6 +133,12 @@ public void stopStage(){
 		
 		
 	}
+	
+	/**
+	 * 
+	 * @param keyevent Nihmt einen Tastendruck entgegen.
+	 * @throws InterruptedException falls der Thread fehler aufweist
+	 */
 	
 	
 	@FXML

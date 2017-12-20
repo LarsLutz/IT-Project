@@ -6,17 +6,18 @@ import spielfeld.Spielfeld_Model;
 
 /**
  * @author Lars Lutz
+ * 
+ * Ist ein Timerthread welcher das gui laufend anpasst sobald änderungen via Stream reinkommen.
+ * Updatet die Textare
  */
 public class getNachricht extends TimerTask{
 	
 	private Chat_Controller controller;
-    private Chat_Model model;
+    
 
 	public getNachricht(Chat_Controller c,Chat_Model m) {
-		// TODO Auto-generated constructor stub
 		
 		 this.controller = c;
-	        this.model = m;
 
 	}
 	

@@ -46,7 +46,10 @@ public class Chat_Model {
 		
 	}
 	
-	
+	/**
+	 * 
+	 * @param c Nimmt den Wert des Decoders entgegen und verarbeitet diesen weiter.
+	 */
 	public static void verarbeiteChat(String c){
 		
 		Chat_Model.setIstneu(true);
