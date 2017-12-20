@@ -26,6 +26,13 @@ import sound.HintergrundSound;
 import sound.MP3;
 import spielfeld.Spielfeld_Model;
 
+/**
+ * 
+ * @author Eduart Bunjaku GUI
+ * @author Lars Lutz
+ *
+ */
+
 public class Login_Controller {
 
 	
@@ -102,7 +109,7 @@ public class Login_Controller {
 //    		start das IP Eingabefenster nochmals
 //    	}
     	
-    	
+    	// Lars Lutz
     	String name = usernameTextfeld.getText();
     	String password =passwortFeld.getText();
     	
