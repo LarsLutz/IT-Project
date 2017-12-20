@@ -47,6 +47,8 @@ import lobby.Lobby_Model;
  * 
  * @author  Jan Mueller / Lars Lutz
  * FXML GUI @author Jan Mueller 
+ * "Logik" @author Jan Mueller
+ * 
  */
 
 public class Spielfeld_Controller {
