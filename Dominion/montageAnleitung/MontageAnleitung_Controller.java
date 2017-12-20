@@ -18,6 +18,11 @@ public class MontageAnleitung_Controller {
      * Text Anleitung @author Robin Widmer
      *
      */
+	public void initialize(){
+		AnleitungsText.setOpacity(0.5);
+	}
+	
+	
 	public MontageAnleitung_Controller(){
 		
 	}
