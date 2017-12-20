@@ -12,13 +12,19 @@ import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+/**
+ * 
+ * @author Edu
+ *
+ */
+
 public class Leaderboard_Controller {
 	
 	private Leaderboard_Model model;
-	// Jan Müller
+	
 	public Leaderboard_Controller(){
 		
-		//Lars Lutz 
+		
 		model= new Leaderboard_Model();
 			
 		

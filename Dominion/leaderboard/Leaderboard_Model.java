@@ -5,6 +5,12 @@ import java.sql.SQLException;
 
 import mysql.SQLHandler;
 
+/**
+ * 
+ * @author Edu
+ *
+ */
+
 public class Leaderboard_Model {
 	
 	
