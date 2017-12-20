@@ -19,34 +19,22 @@ public class SiegNiederlage_Model {
 
 	//Konstruktor
 	public SiegNiederlage_Model(){
-		
-		
 	
-		
 	}
 	
 	
-	
 	public String getsqlBefehl(){
-		
-		
+
+		befehl= "INSERT INTO `leaderboard` (`idLeaderboard`, `Resultat`, `Spieler_idSpieler`) "
+				+ "VALUES (NULL, '"+Spielfeld_Model.getGesamtpunkte()+"', '"+Spielfeld_Model.getSpielerid()+"')";
 			
-			
-			befehl= "INSERT INTO `leaderboard` (`idLeaderboard`, `Resultat`, `Spieler_idSpieler`) "
-					+ "VALUES (NULL, '"+Spielfeld_Model.getGesamtpunkte()+"', '"+Spielfeld_Model.getSpielerid()+"')" ;
-			
-			return befehl;
-			
-		}
+		return befehl;
+	}
 	
 	public void setLeaderboard(){
 		
 		SQLHandler.setBefehl(getsqlBefehl());
-		
-		SQLHandler.doManipulation();
-		
-		
-		
+		SQLHandler.doManipulation();	
 		SQLHandler.dbclose();
 		
 	}

@@ -61,10 +61,9 @@ public class SiegNiederlage_Controller {
 	public void initialize(){
 
 		if (Spielfeld_Model.getPlayername().equals("player1")){
-			
 			labNachricht.setText(Spielfeld_Model.getGewinner());
-		}else {
 			
+		}else {
 			if (Spielfeld_Model.getGewinner().equals("GEWONNEN")){
 				labNachricht.setText("VERLOREN");
 			}
@@ -80,6 +79,7 @@ public class SiegNiederlage_Controller {
 	public Label getLabNachricht(){
 		return this.labNachricht;
 	}
+	
 	public void setLabNachricht(Label labNachricht){
 		this.labNachricht = labNachricht;
 	}
@@ -92,9 +92,9 @@ public class SiegNiederlage_Controller {
 	 */
 	
 	public void okKlick(MouseEvent e) throws IOException{
-				model.setLeaderboard();
-				Kommunikation.conclose();
-				Platform.exit();
+		model.setLeaderboard();
+		Kommunikation.conclose();
+		Platform.exit();
 	}
 
 	
