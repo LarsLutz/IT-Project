@@ -6,7 +6,7 @@ package Karte;
  *
  */
 
-
+//Geldkarten die jeweils instanziert werden können
 public class GeldKarte extends SuperKarte{
 	private int wert;
 	private String name;
@@ -42,7 +42,7 @@ public class GeldKarte extends SuperKarte{
 	public int getWert() {
 		return wert;
 	}
-
+//Konstruktor
 	public GeldKarte(int wert, String name, int kosten, String pfad){
 		this.wert = wert;
 		this.name = name;

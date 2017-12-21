@@ -6,7 +6,7 @@ package Karte;
  *
  */
 
-
+//Superklasse für die Aktionskarten
 public class AktionsKarte extends SuperKarte{
 	
 

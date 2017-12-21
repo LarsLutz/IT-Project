@@ -7,7 +7,7 @@ package Karte;
  */
 
 
-
+//Superklasse für alle Karten
 public class SuperKarte {
 
 	protected double groesse;

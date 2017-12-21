@@ -8,7 +8,7 @@ import Logik.Spieler;
  *
  */
 
-
+//Aktionskarte Bazaar: kostet 5, zieht 1 Karte, steigert Aktionen um 2 und steigert Guthaben um 1
 public class AKBazaar extends AktionsKarte{
 	
 	final int kosten = 5;
@@ -24,6 +24,7 @@ public class AKBazaar extends AktionsKarte{
 		
 	}
 	
+	//Methode um den Effekt der Aktionskarte im Spiel auszuloesen, wird vom Spielfeld_Controller aufgerufen
 	public void karteSpielen(){
 		Zaehler.addAktion(this.aktionsKarteSpielen);
 		Zaehler.addGuthaben(this.guthaben);

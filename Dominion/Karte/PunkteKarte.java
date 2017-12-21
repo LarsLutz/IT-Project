@@ -7,11 +7,13 @@ package Karte;
  */
 
 
-
+//Punktekarten die jeweils instanziert werden können
 public class PunkteKarte extends SuperKarte{
 	private int punkte;
 	private String name;
 	private int kosten;
+	private String pfad;
+	
 	public String getName() {
 		return name;
 	}
@@ -40,9 +42,7 @@ public class PunkteKarte extends SuperKarte{
 		return punkte;
 	}
 
-	private String pfad;
-	// groesse ??
-	
+	//Konstruktor
 	public PunkteKarte(int punkte, String name, int kosten, String pfad){
 	this.punkte = punkte;
 	this.name = name;

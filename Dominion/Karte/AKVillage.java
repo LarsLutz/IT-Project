@@ -9,7 +9,7 @@ import Logik.Spieler;
  *
  */
 
-
+//Aktionskarte Dorf: kostet 3 Geld, zieht 1 Karte und steigert die Aktionen um 2
 public class AKVillage extends AktionsKarte{
 	
 	final int kosten = 3;
@@ -23,11 +23,10 @@ public class AKVillage extends AktionsKarte{
 	public AKVillage(){
 		
 	}
-	
+	//Methode um den Effekt der Aktionskarte im Spiel auszulösen, wird vom Spielfeld_Controller aufgerufen
 	public void karteSpielen(){
 		Zaehler.addAktion(this.aktionsKarteSpielen);		
 	}
-	
 	
 	public String getTyp() {
 		return typ;
@@ -40,9 +39,11 @@ public class AKVillage extends AktionsKarte{
 	public int getKosten() {
 		return kosten;
 	}
+	
 	public String getName() {
 		return name;
 	}
+	
 	public int getAktionsKarteSpielen() {
 		return aktionsKarteSpielen;
 	}
@@ -55,9 +56,4 @@ public class AKVillage extends AktionsKarte{
 		return this.beschreibung;
 	}
 
-
-	// aktionskarteSpielen ++
-	// kartenAbwerfen ??
-	// karteZiehen = anzahl Karte abgeworfen
-	// setKosten 2
 }

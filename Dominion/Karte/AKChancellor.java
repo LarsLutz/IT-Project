@@ -8,6 +8,8 @@ import Logik.Zaehler;
 * @author Robin Widmer
 *
 */
+
+//Aktionskarte Kanzler: kostet 3, steigert Guthaben um 2 und legt das Deck auf den Abwerfstapel
 public class AKChancellor extends AktionsKarte{
 
 	final int kosten = 3;
@@ -24,6 +26,7 @@ public class AKChancellor extends AktionsKarte{
 		s = new Spieler(0);
 	}
 	
+	//Methode um den Effekt der Aktionskarte im Spiel auszuloesen, wird vom Spielfeld_Controller aufgerufen
 	public void karteSpielen(){
 		Zaehler.addGuthaben(this.guthaben);
 	}

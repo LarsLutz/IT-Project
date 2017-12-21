@@ -12,6 +12,7 @@ package Karte;
 import Logik.Zaehler;
 import Logik.Spieler;
 
+//Aktionskarte Schmied: kostet 4 Geld und zieht 3 Karten
 public class AKSmithy extends AktionsKarte{
 	
 	final int kosten = 4;
@@ -19,15 +20,12 @@ public class AKSmithy extends AktionsKarte{
 	final int karteZiehen = 3;
 	final String typ = "Aktionskarte";
 	final String pfad = "smithy.jpg";
-	//TODO
 	final String beschreibung = "Ziehe 3 Karten";
 	
+	//Methode um den Effekt der Aktionskarte im Spiel auszuloesen wird vom Spielfeld_Controller aufgerufen
 	public void karteSpielen(){
-//		spieler.KarteZiehen(this.karteZiehen); -- brauchts nicht.. wird direkt auf Controller gemacht...
 	}
 
-	
-	
 	public AKSmithy(){
 	}
 	
@@ -52,7 +50,4 @@ public class AKSmithy extends AktionsKarte{
 		return pfad;
 	}
 	
-
-	// karteZiehen +3
-	// setKosten 4
 }
