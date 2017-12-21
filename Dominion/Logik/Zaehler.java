@@ -5,6 +5,7 @@ public final class Zaehler {
     /**
      * 
      * @author  Robin Widmer
+     * Statische Klasse die Zaehler enthält wieviele Kaeufe, AKtionen, Guthaben jeder Spieler zur verfuegung hat
      *
      */
 	
@@ -13,10 +14,16 @@ public final class Zaehler {
 	public static int kaufZaehler = 0;
 	public static int phase;
 	public static int spielerAmZug;
-	public static int runde = 0; // Edu --> Runde auf 0 gesetzt.
+	public static int runde = 0;
+	
+	/**
+     * 
+     * @author  Robin Widmer
+     * privater Konstruktor, da kein Zaehler Objekt instanziert werden muss
+     *
+     */
 	
 	private Zaehler(int aktionsZaehler, int guthaben, int kaufZaehler, int phase, int spielerAmZug, int runde) {
-//		super(); -- das super hesch ez nie selber gschribe - oder scho?
 		this.aktionsZaehler = aktionsZaehler;
 		this.guthaben = guthaben;
 		this.kaufZaehler = kaufZaehler;
@@ -24,15 +31,23 @@ public final class Zaehler {
 		this.spielerAmZug = spielerAmZug;
 		this.runde = runde;
 	}
-	//Robin Widmer
-	//Startwert am afang vo jedem zog
+	/**
+     * 
+     * @author  Robin Widmer
+     * setzt am Anfang des Zuges die Werte wieder auf die Grundwerte
+     *
+     */
 		public static void beginnZug(){
 			aktionsZaehler = 1;
 			kaufZaehler = 1;
 			guthaben = 0;
 		}
-		//Robin Widmer
-		// Methode um d Charte effekt chï¿½nne azwï¿½nde
+	/**
+	  * 
+	  * @author  Robin Widmer
+	  * Methode um mit den Karten die Zaehler Variabeln einfacher anzupassen
+	  *
+	  */
 		public static void addKauf(int i){
 			kaufZaehler+=i;
 		}
