@@ -23,13 +23,19 @@
                   <DropShadow />
                </effect>
             </Button>
-            <Label fx:id="passwortLabel" layoutX="115.0" layoutY="224.0" text="Passwort" textFill="#fbf9f9" AnchorPane.leftAnchor="115.0" AnchorPane.rightAnchor="374.0" />
+            <Label fx:id="passwortLabel" layoutX="98.0" layoutY="224.0" prefHeight="21.0" prefWidth="74.0" text="Passwort" textFill="WHITE" AnchorPane.leftAnchor="98.0" AnchorPane.rightAnchor="374.0">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font></Label>
             <TextField fx:id="usernameTextfeld" layoutX="193.0" layoutY="157.0" prefHeight="27.0" prefWidth="224.0" style="-fx-background-color: #f5deb3;" AnchorPane.bottomAnchor="377.0" AnchorPane.leftAnchor="193.0" AnchorPane.rightAnchor="131.0" AnchorPane.topAnchor="157.0">
                <effect>
                   <DropShadow />
                </effect>
             </TextField>
-            <Label fx:id="usernameLabel" layoutX="112.0" layoutY="163.0" text="Username" textFill="#fbf9f9" AnchorPane.leftAnchor="112.0" />
+            <Label fx:id="usernameLabel" layoutX="97.0" layoutY="163.0" prefHeight="21.0" prefWidth="82.0" text="Username" textFill="WHITE" AnchorPane.leftAnchor="97.0">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font></Label>
             <Button fx:id="loginButton" layoutX="131.0" layoutY="344.0" mnemonicParsing="false" onAction="#oeffneLobby" style="-fx-background-color: #f5deb3;" text="Login">
                <effect>
                   <DropShadow />
