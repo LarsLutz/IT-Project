@@ -14,27 +14,30 @@ import javafx.stage.Stage;
 
 /**
  * 
- * @author Edu
+ * @author Eduart Bunjaku
  *
  */
 
 public class Leaderboard_Controller {
 	
+	//Instanzdaten
 	private Leaderboard_Model model;
 	
+	// Konstruktor
 	public Leaderboard_Controller(){
 		
-		
 		model= new Leaderboard_Model();
-			
-		
+					
 	}
 	
 	
 	
 	@FXML
 	TextArea leaderText;
-	// Lars Lutz
+	
+	/** Setzt den Inhalt der Textarea.
+	 * 
+	 */
 	public void initialize() {
 		leaderText.appendText("Rang \t\t   Spieler \t\t\t Punkte \n");
 	    leaderText.appendText(model.getLeader());
@@ -55,19 +58,17 @@ public class Leaderboard_Controller {
 	@FXML
 	public void zurueckKlick(MouseEvent event) throws IOException{
 		
-		
-		
 				// schliesst aktuelles Fenster
-				Stage currentStage = (Stage) zurueck.getScene().getWindow();
-			    currentStage.close();
+				Stage leaderboard = (Stage) zurueck.getScene().getWindow();
+			    leaderboard.close();
 			    
 			    // oeffnet neues fenster
 				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../lobby/LobbyGui.fxml"));
-		        Parent root1 = (Parent) fxmlLoader.load();
-		        Stage stage = new Stage();
-		        stage.setScene(new Scene(root1));  
-		        stage.show();
-		        stage.setResizable(false);
+		        Parent wurzel = (Parent) fxmlLoader.load();
+		        Stage lobby = new Stage();
+		        lobby.setScene(new Scene(wurzel));  
+		        lobby.show();
+		        lobby.setResizable(false);
 	}
 
 }

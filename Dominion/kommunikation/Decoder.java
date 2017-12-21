@@ -7,6 +7,7 @@ import spielfeld.Spielfeld_Model;
 
 /**
  * @author Lars Lutz
+ * Decodiert den String vom Server
  */
 public class Decoder {
 	
@@ -17,7 +18,9 @@ public class Decoder {
 		
 	}
 	
-	
+	/**
+	 * Verarbeitet den String von der Methode readClient
+	 */
 	synchronized public  void lesen(){
 		
 		try {

@@ -100,19 +100,19 @@ public class Lobby_Controller {
     public void neuesSpiel(ActionEvent event) throws IOException {
     	MP3.spieleMusik();
     	// schliesst aktuelles Fenster
-    	Stage currentStage = (Stage) neuesSpielButton.getScene().getWindow();
-    	currentStage.close();
+    	Stage lobby = (Stage) neuesSpielButton.getScene().getWindow();
+    	lobby.close();
     		    
    	    //oeffnet neues fenster
    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../spielfeld/SpielfeldGUI.fxml"));
-        Parent root1 = (Parent) fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.setTitle("Dominion");
-        stage.setScene(new Scene(root1));
-        stage.show();
-        stage.setResizable(false);
-        stage.setFullScreen(true);
-        stage.setOnCloseRequest(event1 -> {
+        Parent wurzel = (Parent) fxmlLoader.load();
+        Stage spielfeld = new Stage();
+        spielfeld.setTitle("Dominion");
+        spielfeld.setScene(new Scene(wurzel));
+        spielfeld.show();
+        spielfeld.setResizable(false);
+        spielfeld.setFullScreen(true);
+        spielfeld.setOnCloseRequest(event1 -> {
             fxmlLoader.<Spielfeld_Controller>getController().stopStage();
             try {
     			Kommunikation.conclose();
@@ -121,7 +121,7 @@ public class Lobby_Controller {
     			e.printStackTrace();
     		}
         });
-        stage.setOnHiding(event2 -> {
+        spielfeld.setOnHiding(event2 -> {
         	 fxmlLoader.<Spielfeld_Controller>getController().stopStage();
         	
         	
@@ -191,16 +191,16 @@ public class Lobby_Controller {
     public void leaderboardAnzeigen(ActionEvent event) throws IOException {
     	MP3.spieleMusik();
     	// schliesst aktuelles Fenster
-    	Stage currentStage = (Stage) leaderBoardButton.getScene().getWindow();
-    	currentStage.close();
+    	Stage lobby = (Stage) leaderBoardButton.getScene().getWindow();
+    	lobby.close();
     		    
     	// oeffnet neues fenster
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../leaderboard/LeaderboardGUI.fxml"));
-    	Parent root1 = (Parent) fxmlLoader.load();
-    	Stage stage = new Stage();
-    	stage.setScene(new Scene(root1));  
-    	stage.show();
-    	stage.setResizable(false);
+    	Parent wurzel = (Parent) fxmlLoader.load();
+    	Stage leaderboard = new Stage();
+    	leaderboard.setScene(new Scene(wurzel));  
+    	leaderboard.show();
+    	leaderboard.setResizable(false);
     }
 
 
@@ -228,7 +228,7 @@ public class Lobby_Controller {
     }
 
 
-    /**
+    /**Beendet das Programm.
      * 
      * @author Eduart Bunjaku
      *
@@ -237,8 +237,8 @@ public class Lobby_Controller {
     @FXML
     public void beenden(ActionEvent event) {
     	MP3.spieleMusik();
-    	Stage currentStage = (Stage) leaderBoardButton.getScene().getWindow();
-    	currentStage.close();
+    	Stage lobby = (Stage) leaderBoardButton.getScene().getWindow();
+    	lobby.close();
     	try {
 			Kommunikation.conclose();
 		} catch (IOException e) {

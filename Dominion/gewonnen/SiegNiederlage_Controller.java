@@ -57,7 +57,11 @@ public class SiegNiederlage_Controller {
 	@FXML
 	ImageView gameOver;
 	
-	//quasi unsere CompareTo Methode
+	/** Beim Aufrufen des Fensters setzt die Methode den Text auf Gewinner, Verlierer oder Unentschieden.
+	 * 
+	 * 
+	 */
+	
 	public void initialize(){
 
 		if (Spielfeld_Model.getPlayername().equals("player1")){
