@@ -12,7 +12,8 @@ public class Lobby_Model {
     /**
      * 
      * @author Jan Mueller
-     *
+     * 
+     *handelt das Chat nicht geoeffnet werden kann wenn er bereits offen ist
      */
 	
 	private boolean chatIstOffen = false;
