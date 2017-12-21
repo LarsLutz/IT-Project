@@ -61,14 +61,6 @@ public class Leaderboard_Controller {
 				// schliesst aktuelles Fenster
 				Stage leaderboard = (Stage) zurueck.getScene().getWindow();
 			    leaderboard.close();
-			    
-			    // oeffnet neues fenster
-				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../lobby/LobbyGui.fxml"));
-		        Parent wurzel = (Parent) fxmlLoader.load();
-		        Stage lobby = new Stage();
-		        lobby.setScene(new Scene(wurzel));  
-		        lobby.show();
-		        lobby.setResizable(false);
 	}
 
 }

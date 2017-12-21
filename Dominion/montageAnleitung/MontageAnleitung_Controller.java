@@ -38,13 +38,5 @@ public class MontageAnleitung_Controller {
 		// schliesst aktuelles Fenster
     	Stage currentStage = (Stage) zurueck.getScene().getWindow();
     	currentStage.close();
-    		    
-   	    // oeffnet neues fenster
-   		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../lobby/LobbyGui.fxml"));
-        Parent root1 = (Parent) fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root1));  
-        stage.show();
-        stage.setResizable(false);
 	}
 }

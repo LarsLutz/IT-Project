@@ -190,9 +190,6 @@ public class Lobby_Controller {
     @FXML
     public void leaderboardAnzeigen(ActionEvent event) throws IOException {
     	MP3.spieleMusik();
-    	// schliesst aktuelles Fenster
-    	Stage lobby = (Stage) leaderBoardButton.getScene().getWindow();
-    	lobby.close();
     		    
     	// oeffnet neues fenster
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../leaderboard/LeaderboardGUI.fxml"));
@@ -214,9 +211,6 @@ public class Lobby_Controller {
     @FXML
     public void anleitungAnzeigen(ActionEvent event)throws IOException {
     	MP3.spieleMusik();
-    	// schliesst aktuelles Fenster
-    	Stage currentStage = (Stage) anleitungButton.getScene().getWindow();
-    	currentStage.close();
     		    
     	// oeffnet neues fenster
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../montageAnleitung/MontageAnleitungGUI.fxml"));
