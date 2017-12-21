@@ -50,8 +50,8 @@ public class MainUndStart extends Application{
 			
 			URL fxmlUrl = getClass().getResource("LoginGUI.fxml");
 			FXMLLoader fxmlLoader = new FXMLLoader(fxmlUrl); 
-			Parent root = fxmlLoader.load(); 
-			Scene scene = new Scene(root);
+			Parent wurzel = fxmlLoader.load(); 
+			Scene scene = new Scene(wurzel);
 			
 			primaryStage.setTitle("Dominion");
 			primaryStage.setScene(scene);
