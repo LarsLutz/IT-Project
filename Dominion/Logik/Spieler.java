@@ -267,7 +267,7 @@ public class Spieler {
 	}
 
 
-/**Diese Methode vergleicht die Punte der beiden Spieler und legt den Sieger bzw.
+/**Diese Methode vergleicht die Punkte der beiden Spieler und legt den Sieger bzw.
  * den Verlierer fest.
  * @author Eduart Bunjaku
  * 
@@ -294,9 +294,7 @@ public void punkteVergleich(){
 			System.out.println("GETPUNKTE METHODE: "+Spielfeld_Model.getPunkte());
 			Spielfeld_Model.setGewinner("UNENTSCHIEDEN");
 	}
-	
-	
-	
+
 }
 
 }
