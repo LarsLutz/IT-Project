@@ -21,7 +21,7 @@ public class Spielfeldkarte {
     /**
      * 
      * @author  Robin Widmer
-     *
+     * Spielfeldkarten Objekt um die Karten auf dem Spielfeld zu instanzieren
      */
 	
 	public Spielfeldkarte(SuperKarte art, int anzahlVorhanden) {
