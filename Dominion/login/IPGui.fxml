@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.IP_Controller">
    <children>
       <Pane prefHeight="111.0" prefWidth="400.0">
@@ -28,10 +27,19 @@
             </TextField>
          </children>
       </HBox>
-      <Button fx:id="bOK" mnemonicParsing="false" text="OK">
-         <VBox.margin>
-            <Insets left="176.0" />
-         </VBox.margin>
-      </Button>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="bOK" mnemonicParsing="false" onAction="#okKlick" text="OK">
+               <HBox.margin>
+                  <Insets left="140.0" top="30.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="lokal" mnemonicParsing="false" onAction="#localKlick" text="Lokal">
+               <HBox.margin>
+                  <Insets left="60.0" top="30.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
    </children>
 </VBox>

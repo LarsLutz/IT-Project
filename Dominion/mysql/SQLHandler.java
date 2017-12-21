@@ -6,6 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import kommunikation.Kommunikation;
+/**
+ * @author Lars Lutz
+ */
 public class SQLHandler {
 	private static Connection conn = null;
 	private static Statement state = null;
@@ -32,7 +36,10 @@ public class SQLHandler {
 	public static ResultSet doAbfrage(){
 		
 		try {
-		    conn = (Connection) DriverManager.getConnection("jdbc:mysql://192.168.64.2/dominion?" +"user=admin&password=1234567");
+			String ipadress= Kommunikation.getIpadresse();
+			System.out.println(ipadress);
+
+		    conn = (Connection) DriverManager.getConnection("jdbc:mysql://"+ipadress+"/dominion?" +"user=admin&password=1234567");
 		    System.out.println("Login erfolgreich");
 		    
 
@@ -47,10 +54,7 @@ public class SQLHandler {
 		           
 		        	query = state.getResultSet();
 		        
-		        	
-//		            while (query.next()) {
-//		               System.out.println(query.getString(2)); //gets the first column's rows.
-//		            }
+		        		           
 		        }else{
 		        	System.out.println("Keine Daten");
 		        	query =null;
@@ -59,7 +63,6 @@ public class SQLHandler {
 		        
 		    }
 		    catch (SQLException ex){
-		        // F�r Fehler
 		        System.out.println("SQLException: " + ex.getMessage());
 		        System.out.println("SQLState: " + ex.getSQLState());
 		        System.out.println("VendorError: " + ex.getErrorCode());
@@ -81,9 +84,13 @@ public class SQLHandler {
 	}
 	
 public static  void doManipulation(){
+	
+	
 		
 		try {
-		    conn = (Connection) DriverManager.getConnection("jdbc:mysql://192.168.64.2/dominion?" +"user=admin&password=1234567");
+			String ipadress= Kommunikation.getIpadresse();
+			
+			conn = (Connection) DriverManager.getConnection("jdbc:mysql://"+ipadress+"/dominion?" +"user=admin&password=1234567");
 		    System.out.println("Login erfolgreich");
 		    
 
@@ -91,7 +98,7 @@ public static  void doManipulation(){
 
 		    try {
 		        state = conn.createStatement();
-		        //query = state.executeQuery(getBefehl());
+		        
 		        
 		        
 

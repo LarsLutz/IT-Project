@@ -10,6 +10,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import kommunikation.Kommunikation;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -17,11 +18,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lobby.*;
-import registrieren.Registrieren_Model;
 import sound.HintergrundSound;
 import sound.MP3;
 import spielfeld.Spielfeld_Model;
@@ -35,10 +33,10 @@ import spielfeld.Spielfeld_Model;
 
 public class Login_Controller {
 
-	
+	//Instanzdaten
 	private Login_Model model;
-	private HintergrundSound hs;
 	
+	//Konstruktor
 	public Login_Controller(){
 		model= new Login_Model();
 	}
@@ -77,16 +75,40 @@ public class Login_Controller {
     @FXML 
     private Label infolabel;
     
+    
+    
     public void initialize() throws IOException{
+    	
+if (Kommunikation.getIpadresse().isEmpty()){
+    		
+    		loginButton.setDisable(true);
+    		registrierenButton.setDisable(true);
+    	
     	
     	// oeffnet neues fenster
   		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../login/IPGui.fxml"));
-    	Parent root1 = (Parent) fxmlLoader.load();
-    	Stage stage = new Stage();
-    	stage.setScene(new Scene(root1));  
-        stage.show();
-    	stage.setResizable(false);
-    	stage.setAlwaysOnTop(true);
+    	Parent wurzel = (Parent) fxmlLoader.load();
+    	Stage login = new Stage();
+    	login.setScene(new Scene(wurzel));  
+    	login.show();
+    	login.setResizable(false);
+    	login.setAlwaysOnTop(true);
+    	login.setOnHiding(event2 -> {
+            fxmlLoader.<IP_Controller>getController();
+            try {
+            	if (Kommunikation.getIpadresse().isEmpty()){
+				initialize();
+            	}else{
+            		loginButton.setDisable(false);
+            		registrierenButton.setDisable(false);
+            	}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+           
+        });
+    	
+    	}
     	
     	
     }
@@ -103,11 +125,6 @@ public class Login_Controller {
     @FXML
     public void oeffneLobby(ActionEvent event) throws IOException {
     	MP3.spieleMusik();
-    	
-    	//TODO Lars
-//    	if(ipEMpty){
-//    		start das IP Eingabefenster nochmals
-//    	}
     	
     	// Lars Lutz
     	String name = usernameTextfeld.getText();
@@ -126,8 +143,12 @@ public class Login_Controller {
 		
 		String teile[]= ausgabe.split("-");
 		
+		String bid =teile[0];
 		String bname = teile[1];
 		String bpasswort = teile[2];
+		
+		
+		
 		
 		
     	if( name.equals(bname)&& password.equals(bpasswort)){
@@ -135,20 +156,21 @@ public class Login_Controller {
     		model.setSessionID();
     		Chat_Model.setSpielername(bname);
     		Spielfeld_Model.setSpielername(bname);
+    		Spielfeld_Model.setSpielerid(bid);
     	
     	
     	
     	// schliesst aktuelles Fenster
-		Stage currentStage = (Stage) loginButton.getScene().getWindow();
-	    currentStage.close();
+		Stage login = (Stage) loginButton.getScene().getWindow();
+	    login.close();
 	    
 	    // oeffnet neues fenster
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../lobby/LobbyGui.fxml"));
-        Parent root1 = (Parent) fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root1));  
-        stage.show();
-        stage.setResizable(false);
+        Parent wurzel = (Parent) fxmlLoader.load();
+        Stage lobby = new Stage();
+        lobby.setScene(new Scene(wurzel));  
+        lobby.show();
+        lobby.setResizable(false);
     	}else {
     		
     		infolabel.setText("Login Daten Falsch");
@@ -171,16 +193,16 @@ public class Login_Controller {
     	MP3.spieleMusik();
     	
     	// closes current window
-		Stage currentStage = (Stage) registrierenButton.getScene().getWindow();
-	    currentStage.close();
+		Stage login = (Stage) registrierenButton.getScene().getWindow();
+	    login.close();
 	    
 	    // opens new window 'LoginView.fxml'
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../registrieren/RegistrierenGUI.fxml"));
-        Parent root1 = (Parent) fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root1));  
-        stage.show();
-        stage.setResizable(false);
+        Parent wurzel = (Parent) fxmlLoader.load();
+        Stage registrieren = new Stage();
+        registrieren.setScene(new Scene(wurzel));  
+        registrieren.show();
+        registrieren.setResizable(false);
     	
     }
     

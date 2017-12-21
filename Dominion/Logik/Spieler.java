@@ -40,7 +40,7 @@ public class Spieler {
 	public Stack<SuperKarte> abwerfliste = new Stack<SuperKarte>();
 	public int spielerNummer;
 	private SuperKarte superkarte;
-	final int LETZTERUNDE = 3;
+	final int LETZTERUNDE = 21;
 	private int aktuelleRunde = 1;
 	private int gesamtpunkte=0;
 	
