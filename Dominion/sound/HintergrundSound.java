@@ -25,7 +25,7 @@ public final class HintergrundSound {
 	
     /**
      * 
-     * @author  Jan Mueller / Eduart Bunjaku
+     * @author  Jan Mueller
      *
      */
 
@@ -33,11 +33,12 @@ public final class HintergrundSound {
 	MediaPlayer player = new MediaPlayer(media);
 	
 	public void playHintergrundLoop() {
-		//Stack overflow
+		
 		if(!player.isAutoPlay()) {
 		try {
 			
 			player.play();
+			//Stack overflow
 			player.setCycleCount(MediaPlayer.INDEFINITE);
 		} catch (Exception e) {
 			e.printStackTrace();

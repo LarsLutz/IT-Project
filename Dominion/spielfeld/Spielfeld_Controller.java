@@ -64,6 +64,7 @@ public class Spielfeld_Controller {
 	private Thread thread;
 	private Timer timer;
 	private Updater updater;
+	private int rundenZaehler = 1;
 	
 	
     /**
@@ -115,7 +116,7 @@ public class Spielfeld_Controller {
 	Pane pBazaarMiddle, pVillageMiddle, pChancellorMiddle, pMarketMiddle, pSmithyMiddle;
 
 	@FXML
-	Label anzahlMeinStapel, anzahlAblageStapel, infoLabel, verbAktionen, verbKaeufe, verbGuthaben, startLabel, opLogger;
+	Label anzahlMeinStapel, anzahlAblageStapel, infoLabel, verbAktionen, verbKaeufe, verbGuthaben, startLabel, opLogger, lAktRun, lAktRunCount;
 
 	@FXML
 	HBox hBoxBottom, hBoxRealHand;
@@ -133,8 +134,7 @@ public class Spielfeld_Controller {
 		verbKaeufe.setText(Zaehler.getKaufZaehler()+"");
 		anzahlMeinStapel.setText(spie.deckliste.size() + "");
 		anzahlAblageStapel.setText(spie.abwerfliste.size() + "");
-		
-		
+		lAktRunCount.setText(rundenZaehler+"");
 	}
 	
     /**
@@ -566,6 +566,9 @@ public class Spielfeld_Controller {
 	// zugBeenden Knopf Klicken - erst nach abgeschlossenem Discard moeglich
 	@FXML
 	public void zugBeenden() throws IOException{
+		if(sm.getPlayername().equals("player2"))
+			rundenZaehler++;
+		
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner beendet seinen Zug");
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-zug-1");
 		

@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 
 /**
  * 
- * @author  Eduart Bunjaku / Jan Mueller
+ * @author  Eduart Bunjaku
  *
  */
 

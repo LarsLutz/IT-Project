@@ -157,6 +157,12 @@
                         </Label>
                      </children>
                   </Pane>
+                  <Pane prefHeight="100.0" prefWidth="467.0">
+                     <children>
+                        <Label fx:id="lAktRun" layoutX="52.0" layoutY="25.0" text="Aktuelle Runde" textFill="#282728" />
+                        <Label fx:id="lAktRunCount" layoutX="164.0" layoutY="25.0" text="1" textFill="#ee0707" />
+                     </children>
+                  </Pane>
                </children>
             </HBox>
          </children>
