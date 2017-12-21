@@ -152,15 +152,21 @@
                      <children>
                         <Label fx:id="opLogger" alignment="CENTER" contentDisplay="CENTER" layoutX="122.0" layoutY="24.0" mouseTransparent="true" prefHeight="45.0" prefWidth="690.0" text="Hier steht was der Gegner macht" textAlignment="CENTER" textFill="#0e1ae5">
                            <font>
-                              <Font size="30.0" />
+                              <Font name="Algerian" size="30.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
                   <Pane prefHeight="100.0" prefWidth="467.0">
                      <children>
-                        <Label fx:id="lAktRun" layoutX="52.0" layoutY="25.0" text="Aktuelle Runde" textFill="#282728" />
-                        <Label fx:id="lAktRunCount" layoutX="164.0" layoutY="25.0" text="1" textFill="#ee0707" />
+                        <Label fx:id="lAktRun" layoutX="52.0" layoutY="25.0" text="Aktuelle Runde" textFill="#282728">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font></Label>
+                        <Label fx:id="lAktRunCount" layoutX="193.0" layoutY="25.0" text="1" textFill="#ee0707">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font></Label>
                      </children>
                   </Pane>
                </children>

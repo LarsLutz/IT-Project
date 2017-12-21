@@ -100,7 +100,7 @@ public class getLabel extends TimerTask{
 				Platform.runLater(() -> {
 					controller.opLogger.setText(temp);
 					System.out.println("In Label geschrieben");
-					//controller.tEingabe.appendText(temp+"\n");;
+					
 					
 				});
 				Spielfeld_Model.setIstneu(false);
@@ -108,6 +108,16 @@ public class getLabel extends TimerTask{
 			
 			
 			if(Spielfeld_Model.getZug().equals("1")){
+				if (Spielfeld_Model.getPlayername().equals("player1")){
+					Platform.runLater(() -> {
+					int zaehler= controller.rundenZaehler;
+					zaehler++;
+					controller.rundenZaehler++;
+					
+					controller.lAktRunCount.setText(zaehler+""+" / 20");
+					});
+				}
+			
 				controller.spielerEnabeln();
 				Spielfeld_Model.setZug(0+"");
 			}

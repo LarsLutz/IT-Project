@@ -57,14 +57,13 @@ public class Spielfeld_Controller {
 	private Spielfeld_Model sm;
 	private Sammlung sam;
 	private Spieler spie;
-//	private int ivCounter = 0;
 	private ArrayList<ImageView> viewList;
 	private Lobby_Model lm;
 	private Decoder dec;
 	private Thread thread;
 	private Timer timer;
 	private Updater updater;
-	private int rundenZaehler = 1;
+	public int rundenZaehler = 1;
 	
 	
     /**
@@ -134,7 +133,11 @@ public class Spielfeld_Controller {
 		verbKaeufe.setText(Zaehler.getKaufZaehler()+"");
 		anzahlMeinStapel.setText(spie.deckliste.size() + "");
 		anzahlAblageStapel.setText(spie.abwerfliste.size() + "");
-		lAktRunCount.setText(rundenZaehler+"");
+		if(Spielfeld_Model.getPlayername().equals("player2")){
+			lAktRunCount.setText(rundenZaehler+""+""+" / 20");
+		}
+		
+		
 	}
 	
     /**
@@ -208,6 +211,8 @@ public class Spielfeld_Controller {
 	@FXML
 	public void initialize(){
 		//Jan Mueller
+		lAktRunCount.setText(rundenZaehler+""+" / 20");
+		
 		tVerlauf.setStyle("-fx-text-inner-color: red;");
 		tVerlauf.setOpacity(0.45);
 		//css Code von Stack overflow
@@ -566,8 +571,9 @@ public class Spielfeld_Controller {
 	// zugBeenden Knopf Klicken - erst nach abgeschlossenem Discard moeglich
 	@FXML
 	public void zugBeenden() throws IOException{
-		if(sm.getPlayername().equals("player2"))
+		if(Spielfeld_Model.getPlayername().equals("player2")){
 			rundenZaehler++;
+		}
 		
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner beendet seinen Zug");
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-zug-1");
@@ -837,7 +843,7 @@ public class Spielfeld_Controller {
 		if (keyevent.getCode() == KeyCode.ENTER)  {
 
 		String c1;
-		c1= Spielfeld_Model.getSpielername()+"-spielf-chat-"+ tEingabe.getText();
+		c1= Spielfeld_Model.getSpielername()+"-spielf-chat-"+ tEingabe.getText().replaceAll("-", "_");
 		if (c1 != null && !c1.isEmpty()) { //Checkt ob �berhaupt etwas gesendet werden kann
 			try {
 				Kommunikation.sendenClient(c1);
