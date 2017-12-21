@@ -65,17 +65,17 @@ public class SiegNiederlage_Controller {
 	public void initialize(){
 
 		if (Spielfeld_Model.getPlayername().equals("player1")){
-			labNachricht.setText(Spielfeld_Model.getGewinner());
+			labNachricht.setText(Spielfeld_Model.getGewinner()+ "\n"+ "Erreicht Punkte: "+ Spielfeld_Model.getGesamtpunkte());
 			
 		}else {
 			if (Spielfeld_Model.getGewinner().equals("GEWONNEN")){
-				labNachricht.setText("VERLOREN");
+				labNachricht.setText("VERLOREN"+"\n"+ "Erreicht Punkte: "+ Spielfeld_Model.getGesamtpunkte());
 			}
 			if (Spielfeld_Model.getGewinner().equals("VERLOREN")){
-				labNachricht.setText("GEWONNEN");
+				labNachricht.setText("GEWONNEN"+"\n"+ "Erreicht Punkte: "+ Spielfeld_Model.getGesamtpunkte());
 			}
 			if (Spielfeld_Model.getGewinner().equals("UNENTSCHIEDEN")){
-				labNachricht.setText("UNENTSCHIEDEN");
+				labNachricht.setText("UNENTSCHIEDEN"+"\n"+ "Erreicht Punkte: "+ Spielfeld_Model.getGesamtpunkte());
 			}
 		}
 	}
