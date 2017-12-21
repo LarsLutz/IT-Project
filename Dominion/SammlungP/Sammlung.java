@@ -16,7 +16,7 @@ import Karte.SuperKarte;
 /**
  * 
  * @author  Robin Widmer
- *
+ * Klasse die die Kartenobjekte von den vorhandenen Karten im Spiel enthält
  */
 
 
@@ -28,13 +28,17 @@ public class Sammlung {
 	public ArrayList<Spielfeldkarte> getFeldkarten() {
 		return feldkarten;
 	}
-	//Robin Widmer
-		// Arrays mit dem Kartenobjekt
+	
 		public static final GeldKarte[] geldKarten = {new GeldKarte(1,"Kupfer",0, "copper.jpg"), new GeldKarte(2,"Silber", 3, "silver.jpg"), new GeldKarte(3,"Gold",6, "gold.jpg")};
 		public static final PunkteKarte[] punkteKarten = {new PunkteKarte(1,"Anwesen",2, "estate.jpg"), new PunkteKarte(3,"Provinz",5, "duchy.jpg"), new PunkteKarte(6,"Herzogtum",8, "province.jpg")};
 		public static final AktionsKarte[] aktionsKarten = {new AKBazaar(), new AKChancellor(true), new AKVillage(), new AKMarkt(),new AKSmithy()};
-		//Robin Widmer
-		// Methode um alle karten auf dem spielfeld zu initalisieren
+		
+		/**
+		 * 
+		 * @author  Robin Widmer
+		 * Inizialisiert alle Kartenobjekte in die jeweiligen Behaelter
+		 */
+		
 		public void kartenErstellen(){
 			feldkarten = new ArrayList<Spielfeldkarte>(11);
 			for(int i = 0; i<geldKarten.length; i++){
