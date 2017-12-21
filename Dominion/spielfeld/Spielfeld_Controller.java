@@ -48,7 +48,7 @@ import lobby.Lobby_Model;
  * @author  Jan Mueller / Lars Lutz
  * FXML GUI @author Jan Mueller 
  * "Logik" @author Jan Mueller
- * 
+ *  (Lars Lutz Messages)
  */
 
 public class Spielfeld_Controller {
@@ -78,7 +78,7 @@ public class Spielfeld_Controller {
 		lm = new Lobby_Model();
 		dec= new Decoder();
 		
-		
+		//Lars Lutz
 		timer = new Timer();
 		
 		timer.scheduleAtFixedRate(new getLabel(this, sm), 0,1000);
@@ -88,6 +88,7 @@ public class Spielfeld_Controller {
      * 
      * @author  Jan Mueller
      *
+     *Alle SceneBuilder Elemente mit FXML tag
      */
 	
 	@FXML
@@ -123,8 +124,8 @@ public class Spielfeld_Controller {
     /**
      * 
      * @author Jan Mueller
-     * @param wird oft zu aktualisieren
-     *
+     * 
+     * Methode wird immer wieder aufgerufen um unten aufgelistete "StandardLabels" zu aktualisieren
      */
 	
 	private void labelsAktualisieren(){
@@ -143,7 +144,8 @@ public class Spielfeld_Controller {
     /**
      * 
      * @author  Jan Mueller
-     *
+     * @param Index der HBox an dem die abzuwerfende Aktionskarte ist
+     * entfernt die angeklickte Aktionskarte aus der Hand
      */
 	
 	public void standardAktionsKarteHandler(int no){
@@ -173,6 +175,8 @@ public class Spielfeld_Controller {
     /**
      * 
      * @author  Jan Mueller
+     * 
+     * setDisable(false/true) auf alles was ein Spieler in seinem Zug braucht)
      *
      */
 	public void spielerEnabeln() {
@@ -197,7 +201,6 @@ public class Spielfeld_Controller {
 		updater.schliessen();
 
 	    System.err.println("Stage is closing");
-	    // Save file
 	}
 	
 	
@@ -206,16 +209,16 @@ public class Spielfeld_Controller {
     /**
      * 
      * @author  Jan Mueller / Lars Lutz
-     *
+     * passiert sobald das Fenster aufgeht
      */
 	@FXML
 	public void initialize(){
-		//Jan Mueller
+		//Jan Mueller - 
 		lAktRunCount.setText(rundenZaehler+""+" / 20");
-		
+		//Chatstyle
 		tVerlauf.setStyle("-fx-text-inner-color: red;");
 		tVerlauf.setOpacity(0.45);
-		//css Code von Stack overflow
+		//css Code von Stack overflow - setzt Hintergrundbild (kein ImageView damit Vollbild funktioniert)
 		grundbp.setStyle("-fx-background-image: url(\"/spielfeld/BildSpielbrett.jpg\");-fx-background-size: cover, auto;-fx-background-repeat: no-repeat;");
 		
 		//Lars Lutz
@@ -232,13 +235,12 @@ public class Spielfeld_Controller {
 		this.thread=new Thread(updater);
 		this.thread.start();
 		
-	    //Jan Mueller
+	    //Jan Mueller 
 		viewList = new ArrayList<ImageView>();
+		//Starthand aufbauen (fuer spieler)
 		for (int i = 0; i < sm.getAnzahlStarthand(); i++) {
 			this.karteZiehen();
 		}
-		System.err.println("Gibt Inahlt von Playername "+Spielfeld_Model.getPlayername());
-		
 		
 		pMeinDeck.setDisable(true);
 		bazaarMiddle.setDisable(true);
@@ -255,10 +257,6 @@ public class Spielfeld_Controller {
 		Zaehler.beginnZug();
 		
 		labelsAktualisieren();
-	
-		
-		
-	
 	}
 
     /**
@@ -266,15 +264,16 @@ public class Spielfeld_Controller {
      * @author  Jan Mueller
      *
      * Nachrichten @author Lars Lutz
+     * behandelt viel mehr als karteZiehen
      */
 	
 	@FXML
 	public void karteZiehen() {
-		// Behandlung des decks wenn dieses leer ist... -- wird nicht auf der Methode direkt gemacht um eine emptyStackException zu umgehen...
+		// Behandlung des decks wenn dieses leer ist
 		if(spie.deckliste.size() == 0){
 			spie.deckIstLeer();
 		}
-
+		
 		// ziehen unter normalen umstaenden
 		StackPane p = new StackPane();
 		ImageView iv = new ImageView(new Image(this.getClass().getResourceAsStream(spie.deckliste.peek().getPfad())));
@@ -292,16 +291,16 @@ public class Spielfeld_Controller {
 			
 			int aktuellerIndex = hBoxRealHand.getChildren().indexOf(p);
 			
-			//Geldkarten von Hand spielen
+			//Geldkarten von Hand spielen - wenn der Wert groesser als 1 ist (sind alle anderen Karten nicht) und wir in der Kaufphase sind kann die Karte gespielt werden
 			if(spie.handliste.get(aktuellerIndex).getWert() >= 1 && sm.getKaufPhase() == true){
 				spie.geldKarteSpielen(aktuellerIndex);
 				hBoxRealHand.getChildren().remove(aktuellerIndex);
-				
+				//Nachrichten - Lars Lutz
 				nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner hat Geld gespielt");
 			}
 			
 			
-			//Aktionskarten von Hand spielen
+			//Aktionskarten von Hand spielen - einzeln nach richtiger Aktionskarten fragen - Nachrichten von Lars Lutz
 			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Bazaar")) && Zaehler.aktionsZaehler > 0){
 				standardAktionsKarteHandler(aktuellerIndex);
 				sam.aktionsKarten[0].karteSpielen();
@@ -362,23 +361,17 @@ public class Spielfeld_Controller {
 		p.getChildren().add(iv);
 		hBoxRealHand.getChildren().add(p);
 		
-		
-//		ivCounter++;
-//		if (ivCounter > 4000) {
-//			ivCounter = 0;
-//		}
-
 	}
 	
     /**
      * 
      * @author  Jan Mueller
-     *
+     * 
+     * Klick auf den Aktionsphasen Knopf
+     * Nachrichten von @author Lars Lutz
      */
-	// Aktionsphasen Knopf geklickt
 	@FXML
 	public void aktionsPhase() {
-		// Nachrichten von Lars Lutz
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner wechselt in die Aktionsphase");
 		sm.setAktionsPhase(true);
 		startLabel.setText("Aktionsphase");
@@ -390,10 +383,10 @@ public class Spielfeld_Controller {
     /**
      * 
      * @author  Jan Mueller
-     * ausser Nachrichten...
+     * Klick auf den kaufPhasen Knopf
+     * ausser Nachrichten @author Lars Lutz
      */
 	
-	// Kaufphasen Knopf geklickt
 	@FXML
 	public void kaufPhase() {
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner wechselt in Kaufphase");
@@ -422,10 +415,14 @@ public class Spielfeld_Controller {
     /**
      * 
      * @author  Jan Mueller
+     * 
+     * Durch klick auf versch. Aktions- , Geld- und Punktekarten (in der Kaufphase da nur dann nicht disabelt)
+	 * werden diese bei entsprechendem Guthaben gekauft
+	 * 
      *Nachrichten @author Lars Lutz
      */
-	//Durch klick auf versch. Aktions- , Geld- und Punktekarten (in der Kaufphase)
-	//werden diese bei entsprechendem Guthaben gekauft
+
+	
 	@FXML
 	public void clickSmithyMiddle(){
 		spie.kartenKaufen(sam.aktionsKarten[4]);
@@ -518,23 +515,22 @@ public class Spielfeld_Controller {
      * 
      * @author  Jan Mueller
      *Nachtrichten @author Lars Lutz
-     *
+     *Discardphasen Knopf geklickt
      *
      */
-	
-	// Discardphasen Knopf geklickt
 	@FXML
 	public void discardPhase() {
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner wirft seine Hand ab");
 		sm.setKaufPhase(false);
 		sm.setDiscardPhase(true);
-
+		
+		//"aktualisiert" Logik
 		spie.discard();
 
 		hBoxRealHand.getChildren().clear();
 		labelsAktualisieren();
 		
-
+		//5 Karten nachziehen
 		for (int i = 0; i < 5; i++) {
 			this.karteZiehen();
 		}
@@ -563,14 +559,14 @@ public class Spielfeld_Controller {
     /**
      * 
      * @author  Jan Mueller
+     * zugBeenden Knopf Klicken - erst nach abgeschlossenem Discard moeglich
      *Nachrichten @author Lars Lutz
      *	
      */
 	
-	
-	// zugBeenden Knopf Klicken - erst nach abgeschlossenem Discard moeglich
 	@FXML
 	public void zugBeenden() throws IOException{
+		//Label oben rechts
 		if(Spielfeld_Model.getPlayername().equals("player2")){
 			rundenZaehler++;
 		}
@@ -580,7 +576,7 @@ public class Spielfeld_Controller {
 		
 		//relevant fuer SiegNiederlage
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-runde-"+ spie.getAktuelleRunde());
-		//Lars Lutz
+		//@author Lars Lutz
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
@@ -596,7 +592,14 @@ public class Spielfeld_Controller {
 		labelsAktualisieren();
 		opLogger.setText("Gegner am Zug");
 
-	//Lars Lutz und Jan Mueller	
+	/**
+	 * 
+	 * @author Lars Lutz und Jan Mueller
+	 * um GameOver Screen auzurufen
+	 * 
+	 * 
+	 */
+			
 	if(Spielfeld_Model.getPlayername().equals("player2")){
 		spie.setAktuelleRunde(spie.getAktuelleRunde()+1);
 		System.out.println("Aktuelle Runde: " +spie.getAktuelleRunde());
@@ -641,14 +644,16 @@ public class Spielfeld_Controller {
     /**
      * 
      * @author  Jan Mueller
-     *
+     * GameOver Screen aufrufen wenn Zug beenden geklickt wird
+     * 
      */
 	public void neuesFenster() throws IOException{
 		
+		//aktuelles Fenster schliessen
 		Stage currentStage = (Stage) bZugBeenden.getScene().getWindow();
 		currentStage.close();
 	
-		//Game OVer Screen einblenden
+		//Game Over Screen einblenden
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gewonnen/SiegNiederlageGUI.fxml"));
 		Parent root1 = (Parent) fxmlLoader.load();
 		Stage stage = new Stage();
@@ -660,7 +665,7 @@ public class Spielfeld_Controller {
     /**
      * 
      * @author  Jan Mueller
-     *
+     * on MouseEntered - damals noch keine Kenntnisse ueber Tooltips
      */
 	
 	@FXML
@@ -691,8 +696,10 @@ public class Spielfeld_Controller {
     /**
      * 
      * @author  Jan Mueller
+     * Klickeffekt hinzugefuegt (opacity)
      *
      */
+	
 	@FXML
 	public void pressDeck() {
 		rueckseiteDeck.setOpacity(0.5);
