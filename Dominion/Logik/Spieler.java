@@ -28,8 +28,13 @@ public class Spieler {
     /**
      * 
      * @author Robin Widmer
+     * Instanziert eine ArrayList für die Karten in der Hand
+     * Instanziert ein Stack für das Deck des Spielers
+     * Instanziert ein Stack für den Abwerfstapel des Spielers
      *
      */
+	
+	
 	public ArrayList<SuperKarte> handliste = new ArrayList<SuperKarte>();
 	public Stack<SuperKarte> deckliste = new Stack<SuperKarte>();
 	public Stack<SuperKarte> abwerfliste = new Stack<SuperKarte>();
@@ -44,8 +49,9 @@ public class Spieler {
     /**
      * 
      * @author Robin Widmer
-     *
+     * Konstruktor für das Spieler Objekt
      */
+	
 	public Spieler(int spielerNummer) {
 		this.spielerNummer = spielerNummer;
 		setupStartdeck();
@@ -56,9 +62,9 @@ public class Spieler {
     /**
      * 
      * @author Robin Widmer
-     *
+     * Erstellt die Kartenobjekte die jeder Spieler zu beginn des Spiels bekommt, direkt in das Deck des Spielers, 7 Kupfer und 3 Anwesen
      */
-	
+
 	public void setupStartdeck(){
 		GeldKarte startGeld = new GeldKarte(1,"Kupfer",0, "copper.jpg");
 		PunkteKarte startPunkte = new PunkteKarte(1,"Anwesen", 1, "estate.jpg");
@@ -75,11 +81,10 @@ public class Spieler {
     /**
      * 
      * @author Robin Widmer
-     *
+     * Methode die alle Objekte aus der Abwerfliste in das Deck verschiebt und es mischelt
      */
 	
 	
-	//legt abwerfliste auf deckliste wenn deck leer ist
 	public void deckIstLeer(){
 			deckliste.addAll(abwerfliste);
 			abwerfliste.clear();
@@ -88,9 +93,9 @@ public class Spieler {
 	
 	
     /**
-     * 
+     * @param Integer Wert wieviele Karten gezogen werden sollen
      * @author Robin Widmer
-     *
+     * Methode die ein Integer Wert entgegen nimmt um die obersten Kartenobjekte vom Deck der Hand hinzuzufuegen
      */
 	
 	public void KarteZiehen(int anzahlKarten){
@@ -99,46 +104,54 @@ public class Spieler {
 			handliste.add(deckliste.pop());
 		}
 	}
-
-		public void Schuffel(Stack<SuperKarte> toSchuffel){
+	
+	
+	/**
+	 * @author Robin Widmer
+	 * @param Stack
+	 * Methode um ein Behaelter mit Karten Objekten zu mischeln
+	 * 
+	 */
+	
+	
+	public void Schuffel(Stack<SuperKarte> toSchuffel){
 			Collections.shuffle(toSchuffel);
 		}
 		
-	    /**
-	     * 
-	     * @author Robin Widmer
-	     *
-	     */
-
-		public Spielfeldkarte getSpielfeldkarte(SuperKarte K){
+	/**
+	 * @param SuperKarte Objekt übergeben um die richtige Karte auf dem Spielfeld zu erhalten
+	 * @author Robin Widmer
+	 * Methode um die richtige Spielfeldkarte zu erhalten
+	 */
+	
+	public Spielfeldkarte getSpielfeldkarte(SuperKarte K){
 			for(Spielfeldkarte sk: Sammlung.feldkarten){
 				if(sk.art.equals(K)){
 					return sk;}
 	
 			}
 			return null;
-		}
+	}
 
-	    /**
-	     * 
-	     * @author  Robin Widmer
-	     *
-	     */
-		
-public void aktionsKarteSpielen(int indexH) {
-	//handliste.get(indexH).karteSpielen(1); -- karteSpielen (ist die Funktion der Aktionskarte nehme ich an?) wÃ¼rde ich se
-	//separat auf dem S_Controller aufrufen...
-	Zaehler.aktionsZaehler--;
-	abwerfliste.push(handliste.get(indexH));
-	handliste.remove(indexH);
-}
+	/**
+	 * @param Index der Aktionskarte auf der Hand die gespielt werden sollte
+	 * @author  Robin Widmer
+	 * Methode die mit dem Index der ArrayList "Handliste" die richtige Aktionskarte auswaehlt und diese von der Handliste auf die Abwerfliste legt, 
+	 * ebenfalls werden die Aktionen um 1 verringert
+	 */
+
+	public void aktionsKarteSpielen(int indexH) {
+		Zaehler.aktionsZaehler--;
+		abwerfliste.push(handliste.get(indexH));
+		handliste.remove(indexH);
+	}
 
 
-/**
- * 
- * @author  Robin Widmer
- *
- */
+	/**
+	 * @param Index der Geldkarte auf der Hand die gespielt werden sollte
+	 * @author  Robin Widmer
+	 * Methode die mit dem Index der ArrayList "Handliste" die richtige Geldkarte auswaehlt und diese von der Handliste auf die Abwerfliste legt,
+	 */
 
 	public void geldKarteSpielen(int indexH){
 		Zaehler.addGuthaben(handliste.get(indexH).getWert());
@@ -147,11 +160,12 @@ public void aktionsKarteSpielen(int indexH) {
 }
 
 
-/**
- * 
- * @author  Robin Widmer
- *
- */
+	/**
+	 * @param Kartenobjekt von der Karte die gekauft werden sollte
+	 * @author  Robin Widmer
+	 * Methode ueberprueft ob genug Guthaben vorhanden ist, legt die gekaufte Karte auf die Abwerfliste
+	 * Kaeufe werden um 1 reduziert und die Kosten werden dem Guthaben abgezogen
+	 */
 
 	public void kartenKaufen(SuperKarte K){
 		if(K.getKosten() <= Zaehler.getGuthaben()&&Zaehler.getKaufZaehler()>0){
@@ -167,7 +181,7 @@ public void aktionsKarteSpielen(int indexH) {
     /**
      * 
      * @author  Robin Widmer / Jan Mueller
-     *
+     * Methode wirft alle Kartenobjekte aus der Handliste auf die Abwerfliste als Sicherheit wird die Handliste mit .clear geleert
      */
 	
 	public void discard(){
@@ -181,7 +195,7 @@ public void aktionsKarteSpielen(int indexH) {
     /**
      * 
      * @author  Robin Widmer / Jan Mueller
-     *
+     * Methode die ueberprueft ob die Deckliste nicht leer ist und wirft alle Kartenobjekte von der Deckliste auf die Abwerfliste als Sicherheit wird die Deckliste mit .clear geleert 
      */
 	
 	public void deckDiscard(){
