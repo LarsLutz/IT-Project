@@ -11,19 +11,19 @@ import java.net.Socket;
  * Enthält die Methoden welche für die Kommunikation gebraucht werden
  */
 public class Kommunikation {
-	
+
 	private static  Socket sockel;
 	private String linie;
 	private static  BufferedReader input;
 	private  static PrintWriter output;
 	private final static  String schliessen="$CLOSE$";
 	private static String ipadresse="";
-	
+
 	public Kommunikation() {
-		
+
 	}
-	
-	
+
+
 
 	public static String getIpadresse() {
 		return ipadresse;
@@ -44,10 +44,9 @@ public class Kommunikation {
 
 		InetAddress address=InetAddress.getLocalHost(); //Client Adresse auslesen
 
-		System.out.println("Client buffer");
 
 		try {
-	
+
 			sockel = new Socket(Kommunikation.getIpadresse(),50663); //Sucht den Server Socket
 			input = new BufferedReader(new InputStreamReader(sockel.getInputStream())); //Instansiert den Input Reader (Empfängt Daten)
 			output = new PrintWriter(sockel.getOutputStream()); //Instansiert den Writter welcher die Daten versendet
@@ -56,7 +55,6 @@ public class Kommunikation {
 			e.printStackTrace();
 			System.err.println("IO Exception");
 		}
-		System.out.println("Client Addresse : "+address);
 
 	}
 
@@ -66,38 +64,27 @@ public class Kommunikation {
 	 * @throws IOException  wen Input oder Output Fehler beim Sockel
 	 */
 	synchronized public static  void sendenClient(String c) throws IOException{
-		System.out.println("Senden...");
 		String c1=c;
 		output.println(c1); //Sendet den Text im Textfeld
 		output.flush();	// Leert den Cache des Readers
 
 	}
 
-	
+
 	/**
 	 * 
 	 * @return gibt den Empfangenen Wert vom Server zurück
 	 * @throws IOException  wen Input oder Output Fehler beim Sockel
 	 */
 	synchronized public static String readClient() throws IOException{
-		System.out.println("read");
 		String textin = "";
 		if (input.ready()){
 			textin = input.readLine();
 		}
-		System.out.println("lesen "+textin);
 		return textin;
 	}
-	
-	
-	
-	
-	
-	
- 
 
 
-	
 	// Schliesst die Verbindung
 	public static void conclose() throws IOException{
 		sendenClient(schliessen);
@@ -107,6 +94,6 @@ public class Kommunikation {
 		System.out.println("Verbindung geschlossen");
 	}
 
-	
+
 
 }

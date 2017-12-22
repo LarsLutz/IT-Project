@@ -12,9 +12,9 @@ public class GeldKarte extends SuperKarte{
 	private String name;
 	private int kosten;
 	private String pfad;
-	// groesse ??
-	
-	
+
+
+
 	public String getName() {
 		return name;
 	}
@@ -42,17 +42,17 @@ public class GeldKarte extends SuperKarte{
 	public int getWert() {
 		return wert;
 	}
-//Konstruktor
+	//Konstruktor
 	public GeldKarte(int wert, String name, int kosten, String pfad){
 		this.wert = wert;
 		this.name = name;
 		this.kosten = kosten;
 		this.pfad = pfad;
 	}
-	
+
 	public void setWert(int i){
-	this.wert = i;	
+		this.wert = i;	
 	}
-	
-	
+
+
 }

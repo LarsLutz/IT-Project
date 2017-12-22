@@ -30,69 +30,67 @@ import lobby.Lobby_Model;
  * Gui @author Eduart Bunjaku
  */
 public class Chat_Controller  {
-	
+
 	private Chat_Model model;
 	private Decoder dec;
 	private Thread thread;
 	private Boolean leuft =true;
 	private Timer timer;
 	private Updater updater;
-	
-	
+
+
 	/**
 	 * timer starte ein neues Timer Objekt welches jede Sekunde ausgeführt wird.
 	 */
-	
+
 	public Chat_Controller(){
 		dec= new Decoder();
 		model= new Chat_Model();
-		
+
 		timer = new Timer();
-		
+
 		timer.scheduleAtFixedRate(new getNachricht(this, model), 0,1000);
 
-		
+
 	}
-	
-	
-	
+
+
+
 	/**
 	 * Beim starten des Guis wird eine Nachricht gesendet damit die Kommunikation
 	 * initialisiert wird.
 	 * 
 	 * Der Thread wird gestartet welcher die eingehenden Nachrichten verarbeitet.
 	 */
-	
-@FXML
 
-public void initialize(){
-	
-	String c2= "halter-chat-ini-$START";
-	try {
-		Kommunikation.sendenClient(c2);
-	} catch (IOException e) {
-		e.printStackTrace();
-	}
-	
-	updater=new Updater(dec);
-	this.thread=new Thread(updater);
-	this.thread.start();
-	
-}
-
-
-
-public void stopStage(){
-	timer.cancel();
-	timer.purge();
-	updater.schliessen();
-
-    System.err.println("Stage is closing");
-    // Save file
-}
-	
 	@FXML
-	
+
+	public void initialize(){
+
+		String c2= "halter-chat-ini-$START";
+		try {
+			Kommunikation.sendenClient(c2);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		updater=new Updater(dec);
+		this.thread=new Thread(updater);
+		this.thread.start();
+
+	}
+
+
+
+	public void stopStage(){
+		timer.cancel();
+		timer.purge();
+		updater.schliessen();
+
+	}
+
+	@FXML
+
 	TextArea textArea1;
 
 
@@ -100,22 +98,22 @@ public void stopStage(){
 
 	@FXML
 	TextField textArea2;
-	
-	
-	
-	
+
+
+
+
 	@FXML
 	Button bSenden;
-	
-/**
- * Sendet die Nachricht welche im Textfeld eingegeben wurde
- * @throws InterruptedException falls der Thread fehler aufweist
- */
-	
+
+	/**
+	 * Sendet die Nachricht welche im Textfeld eingegeben wurde
+	 * @throws InterruptedException falls der Thread fehler aufweist
+	 */
+
 	@FXML
 	public void sendenKlick() throws InterruptedException{
 
-		
+
 		String c1;
 		c1= Chat_Model.getSpielername()+"-chat-text-"+ textArea2.getText().replaceAll("-", "_");
 		if (c1 != null && !c1.isEmpty()) { //Checkt ob überhaupt etwas gesendet werden kann
@@ -125,52 +123,52 @@ public void stopStage(){
 				e.printStackTrace();
 			}
 			textArea2.clear();
-			
-			
-			
+
+
+
 		}
-		
-		
-		
+
+
+
 	}
-	
+
 	/**
 	 * 
 	 * @param keyevent Nihmt einen Tastendruck entgegen.
 	 * @throws InterruptedException falls der Thread fehler aufweist
 	 */
-	
-	
+
+
 	@FXML
 	public void sendenEnter(KeyEvent keyevent) throws InterruptedException{
 
 		if (keyevent.getCode() == KeyCode.ENTER)  {
 
-		String c1;
-		c1= Chat_Model.getSpielername()+"-chat-text-"+ textArea2.getText().replaceAll("-", "_");
-		if (c1 != null && !c1.isEmpty()) { //Checkt ob ï¿½berhaupt etwas gesendet werden kann
-			try {
-				Kommunikation.sendenClient(c1);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			
-			textArea2.clear();
-			
-			
-		}
-		
-		}
-		
-		
-	}
-	
+			String c1;
+			c1= Chat_Model.getSpielername()+"-chat-text-"+ textArea2.getText().replaceAll("-", "_");
+			if (c1 != null && !c1.isEmpty()) { //Checkt ob ï¿½berhaupt etwas gesendet werden kann
+				try {
+					Kommunikation.sendenClient(c1);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 
-	
+				textArea2.clear();
+
+
+			}
+
+		}
+
+
+	}
+
+
+
 	@FXML
 	public void exitApplication(ActionEvent event) {
-	   Platform.exit();
+		Platform.exit();
 	}
 
-	
+
 }

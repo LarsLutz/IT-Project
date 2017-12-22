@@ -43,7 +43,6 @@ public class Updater implements Runnable{
 
 
 		while(running){
-			System.out.println("Decoder liesst");
 			this.decoder.lesen(); 
 
 

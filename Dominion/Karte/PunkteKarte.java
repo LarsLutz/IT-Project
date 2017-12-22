@@ -13,7 +13,7 @@ public class PunkteKarte extends SuperKarte{
 	private String name;
 	private int kosten;
 	private String pfad;
-	
+
 	public String getName() {
 		return name;
 	}
@@ -44,14 +44,14 @@ public class PunkteKarte extends SuperKarte{
 
 	//Konstruktor
 	public PunkteKarte(int punkte, String name, int kosten, String pfad){
-	this.punkte = punkte;
-	this.name = name;
-	this.kosten = kosten;
-	this.pfad = pfad;
+		this.punkte = punkte;
+		this.name = name;
+		this.kosten = kosten;
+		this.pfad = pfad;
 	}
-	
+
 	public void setPunkte(int i){
-	this.punkte = i;
+		this.punkte = i;
 
 	}
 }

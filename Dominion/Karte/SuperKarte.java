@@ -15,18 +15,18 @@ public class SuperKarte {
 	protected String name;
 	protected int wert;
 	protected int punkte;
-	
+
 	protected int karteZiehen;
 	protected int aktionsKarteSpielen;
 	protected int karteKaufen;
 	protected int guthaben;
 	protected String beschreibung;
 	protected String pfad;
-	
+
 
 	protected boolean seite;
-	
-		
+
+
 	public int getKosten() {
 		return kosten;
 	}
@@ -58,6 +58,6 @@ public class SuperKarte {
 		return pfad;
 	}
 	public void karteSpielen() {
-		
+
 	}
 }

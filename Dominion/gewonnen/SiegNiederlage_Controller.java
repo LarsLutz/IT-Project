@@ -29,44 +29,44 @@ import spielfeld.Spielfeld_Model;
  */
 
 public class SiegNiederlage_Controller {
-	
+
 	// Instanzdaten
 	private Spieler s;
 	private SiegNiederlage_Model model;
-	
-	
+
+
 	// Konstruktor
 	public SiegNiederlage_Controller(){
 		s = new Spieler(0);
 		model =new SiegNiederlage_Model();
 	}
-	
-    @FXML
-    private Pane wurzel;
-    
-    public Pane getWurzel(){
-    	return this.wurzel;
-    }
-	
+
+	@FXML
+	private Pane wurzel;
+
+	public Pane getWurzel(){
+		return this.wurzel;
+	}
+
 	@FXML
 	Button bOk;
-	
+
 	@FXML
 	Label labNachricht;
-	
+
 	@FXML
 	ImageView gameOver;
-	
+
 	/** Beim Aufrufen des Fensters setzt die Methode den Text auf Gewinner, Verlierer oder Unentschieden.
 	 * 
 	 * 
 	 */
-	
+
 	public void initialize(){
 
 		if (Spielfeld_Model.getPlayername().equals("player1")){
 			labNachricht.setText(Spielfeld_Model.getGewinner()+ "\n"+ "Erreicht Punkte: "+ Spielfeld_Model.getGesamtpunkte());
-			
+
 		}else {
 			if (Spielfeld_Model.getGewinner().equals("GEWONNEN")){
 				labNachricht.setText("VERLOREN"+"\n"+ "Erreicht Punkte: "+ Spielfeld_Model.getGesamtpunkte());
@@ -79,28 +79,28 @@ public class SiegNiederlage_Controller {
 			}
 		}
 	}
-	
+
 	public Label getLabNachricht(){
 		return this.labNachricht;
 	}
-	
+
 	public void setLabNachricht(Label labNachricht){
 		this.labNachricht = labNachricht;
 	}
-	
+
 	/**
 	 * Wenn man auf den OK-Button klickt, wird das Programm beendet.
 	 * 
 	 * @param e Mausklick.
 	 * @throws IOException
 	 */
-	
+
 	public void okKlick(MouseEvent e) throws IOException{
 		model.setLeaderboard();
 		Kommunikation.conclose();
 		Platform.exit();
 	}
 
-	
+
 
 }

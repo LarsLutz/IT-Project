@@ -24,12 +24,12 @@ public final class Zaehler {
      */
 	
 	private Zaehler(int aktionsZaehler, int guthaben, int kaufZaehler, int phase, int spielerAmZug, int runde) {
-		this.aktionsZaehler = aktionsZaehler;
-		this.guthaben = guthaben;
-		this.kaufZaehler = kaufZaehler;
-		this.phase = phase;
-		this.spielerAmZug = spielerAmZug;
-		this.runde = runde;
+		Zaehler.aktionsZaehler = aktionsZaehler;
+		Zaehler.guthaben = guthaben;
+		Zaehler.kaufZaehler = kaufZaehler;
+		Zaehler.phase = phase;
+		Zaehler.spielerAmZug = spielerAmZug;
+		Zaehler.runde = runde;
 	}
 	/**
      * 
@@ -62,37 +62,37 @@ public final class Zaehler {
 		return aktionsZaehler;
 	}
 	public static void setAktionsZaehler(int aktionsZaehler) {
-		aktionsZaehler = aktionsZaehler;
+		Zaehler.aktionsZaehler = aktionsZaehler;
 	}
 	public static int getGuthaben() {
 		return guthaben;
 	}
 	public static void setGuthaben(int guthaben) {
-		guthaben = guthaben;
+		Zaehler.guthaben = guthaben;
 	}
 	public static int getKaufZaehler() {
 		return kaufZaehler;
 	}
 	public static void setKaufZaehler(int kaufZaehler) {
-		kaufZaehler = kaufZaehler;
+		Zaehler.kaufZaehler = kaufZaehler;
 	}
 	public static int getPhase() {
 		return phase;
 	}
 	public static void setPhase(int phase) {
-		phase = phase;
+		Zaehler.phase = phase;
 	}
 	public static int getSpielerAmZug() {
 		return spielerAmZug;
 	}
 	public static void setSpielerAmZug(int spielerAmZug) {
-		spielerAmZug = spielerAmZug;
+		Zaehler.spielerAmZug = spielerAmZug;
 	}
 	public static int getRunde() {
 		return runde;
 	}
 	public static void setRunde(int runde) {
-		runde = runde;
+		Zaehler.runde = runde;
 	}
 	
 }

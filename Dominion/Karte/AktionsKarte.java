@@ -8,9 +8,9 @@ package Karte;
 
 //Superklasse für die Aktionskarten
 public class AktionsKarte extends SuperKarte{
-	
 
-	
+
+
 
 	public void aktionsAbwerfen(){	
 	}
@@ -25,7 +25,7 @@ public class AktionsKarte extends SuperKarte{
 	public void aktionsDiscard(){
 	}
 	public void karteSpielen() {
-		
+
 	}
-	
+
 }

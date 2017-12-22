@@ -39,6 +39,8 @@ public class MainUndStart extends Application{
 	
 
 	
+	
+	
 	@Override
 	public void start(Stage primaryStage) {
 		
@@ -58,7 +60,7 @@ public class MainUndStart extends Application{
 			primaryStage.show();
 			// SQL Treiber wird geladen (Zur kommunikation mit Datenbank
 			try {
-				//newInstance ladet einen neuen Abschnitt um fehler zu vermeiden
+				//newInstance ladet einen neuen Abschnitt um Fehler zu vermeiden
 
 		        Class.forName("com.mysql.jdbc.Driver").newInstance();
 		        System.out.println("Treiber laden erfolgreich");

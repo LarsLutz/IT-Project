@@ -8,7 +8,7 @@ import java.util.Random;
 import javafx.scene.input.MouseEvent;
 import mysql.SQLHandler;
 
-/**
+/** Führt die SQL Querys für das Login aus
  * @author Lars Lutz
  */
 public class Login_Model {
@@ -69,7 +69,10 @@ public class Login_Model {
 		this.passwort = passwort;
 	}
 	
-	
+	/**
+	 * Führt das Select Statment aus
+	 * @return  Gibt Abfrage zurück
+	 */
 	public String getsqlBefehlpull(){
 		
 		return "SELECT `spieler`.`idSpieler`, `spieler`.`Spielername`,"
@@ -77,6 +80,11 @@ public class Login_Model {
 				+ "FROM `spieler` "
 				+ "WHERE (`spieler`.`Spielername`='"+ getName()+"')";
 	}
+	
+	/**
+	 * Führt den Updatebefehl aus
+	 * @return gibt den Update Befehl zurück
+	 */
 	
 	public String getsqlBefehlpush(){
 		
@@ -96,7 +104,10 @@ public class Login_Model {
 	
 	}
 	
-	
+	/**
+	 *  Gibt die die abgefragten Login Daten zurück
+	 * @return Gibt den ausgabe String zurück
+	 */
 public String getLogin(){
 		
 		SQLHandler.setBefehl(getsqlBefehlpull());
