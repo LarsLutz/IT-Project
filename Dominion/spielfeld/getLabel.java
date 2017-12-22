@@ -46,6 +46,19 @@ public class getLabel extends TimerTask{
 			Spielfeld_Model.setChat("");
 			}
 		
+		if (player.equals("player1")&& controller.rundenZaehler==21){
+			Platform.runLater(() -> {
+				
+				controller.bP1.setDisable(true);
+				controller.bP2.setDisable(true);
+				controller.bP3.setDisable(true);
+				controller.bZugBeenden.setDisable(true);
+				controller.pMeinDeck.setDisable(true);
+				
+			});
+			
+		}
+		
 		if(ende.equals("$Ende") && player.equals("player1")){
 			Platform.runLater(() -> {
 				

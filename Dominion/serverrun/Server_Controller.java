@@ -47,6 +47,11 @@ public class Server_Controller {
 		this.thread=new Thread(server);
 		this.thread.start();
 		lStatus.setText("running");
+		
+		
+		String [] part =ip.split("/");
+		
+		ip= part[1];
 		lAdresse.setText(ip);
 		
 	}
