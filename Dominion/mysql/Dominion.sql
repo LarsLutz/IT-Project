@@ -39,8 +39,8 @@ CREATE TABLE `leaderboard` (
 --
 
 INSERT INTO `leaderboard` (`idLeaderboard`, `Resultat`, `Spieler_idSpieler`) VALUES
-(1, 50, 1),
-(2, 52, 1);
+(1, 10, 1),
+(2, 11, 1);
 
 -- --------------------------------------------------------
 
@@ -61,12 +61,8 @@ CREATE TABLE `spieler` (
 --
 
 INSERT INTO `spieler` (`idSpieler`, `Spielername`, `Passwort`, `SessionID`, `Spielstand_idSpielstand`) VALUES
-(1, 'Test', 'test', '555', 1),
-(2, 'Lars', '1234', '35', 1),
-(3, 'Hans', '1111', '162', 1),
-(4, 'hhhh', '1111', '0', 1),
-(5, 'Adolf', '8888', '0', 1),
-(6, 'Muso', 'HHHH', '0', 1);
+(1, 'John', '1111', '0', 1),
+(2, 'Jane', '2222', '0', 2);
 
 -- --------------------------------------------------------
 

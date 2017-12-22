@@ -19,7 +19,7 @@ public class Main extends Application {
 		
 		
 		try {
-			
+			Runtime.getRuntime().exec("\"C:\\xampp\\xampp-control.exe\"");
 			URL fxmlUrl = getClass().getResource("ServerGui.fxml");
 			FXMLLoader fxmlLoader = new FXMLLoader(fxmlUrl); 
 			Parent root = fxmlLoader.load(); 

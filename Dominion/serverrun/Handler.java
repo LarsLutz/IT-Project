@@ -41,22 +41,17 @@ class Handler implements Runnable {
 			String message;
 			while (this.player.isRunning()){
 				if (input.ready()){
-					System.out.println("reading");
 					message = input.readLine();
 					if (message == null || message.equals(terminate)){
-						System.out.println("read null");
 						return;
 					}
 					player.setDataIn(message);
-					System.out.println("read" + message);
 				}
 				if (player.isDataOutAvailable()) {
 					try {
 						message = player.getDataOut();
-						System.out.println("sending");
 						output.println(message);
 						output.flush();
-						System.out.println("sent");
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
