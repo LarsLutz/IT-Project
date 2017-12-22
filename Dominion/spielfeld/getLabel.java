@@ -4,13 +4,9 @@ import java.io.IOException;
 import java.util.TimerTask;
 
 import javafx.application.Platform;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 
 /**
- * 
+ * Akktualisiert die Gui Elemente mittles eines Timerthreads
  * @author  Lars Lutz
  *
  */
@@ -18,18 +14,19 @@ import javafx.stage.Stage;
 public class getLabel extends TimerTask{
 
 	private Spielfeld_Controller controller;
-	private Spielfeld_Model model;
 	private int i =0;
 	private int c=0;
 
 	public getLabel(Spielfeld_Controller c,Spielfeld_Model m) {
-		// TODO Auto-generated constructor stub
 
 		this.controller = c;
-		this.model = m;
 
 	}
 
+	/**
+	 * Führt jegliche änderungen auf dem Gui durch.
+	 * Bekommt die werte von Model welche durch die Server kommunikation laufend ändern
+	 */
 	@Override
 	public void run() {
 
@@ -38,72 +35,64 @@ public class getLabel extends TimerTask{
 		String chat = Spielfeld_Model.getChat();
 		String ende = Spielfeld_Model.getEnde();
 		String finale = Spielfeld_Model.getGewinner();
-		//System.out.println("Getlabel: "+chat);
-		//System.err.println("Labeltime "+temp);
-		
+
+		//Fügt Daten in die Textarea
 		if (!chat.isEmpty()){
 			controller.tVerlauf.appendText(chat+"\n");
 			Spielfeld_Model.setChat("");
-			}
-		
+		}
+		// Deaktiviert Player 1 beim letzten Zug
 		if (player.equals("player1")&& controller.rundenZaehler==21){
 			Platform.runLater(() -> {
-				
+
 				controller.bP1.setDisable(true);
 				controller.bP2.setDisable(true);
 				controller.bP3.setDisable(true);
 				controller.bZugBeenden.setDisable(true);
 				controller.pMeinDeck.setDisable(true);
-				
+
 			});
-			
+
 		}
-		
+		// Setzt das Resultat beim letzten Zug damit das Game Over Fenster geöffnet wird.
 		if(ende.equals("$Ende") && player.equals("player1")){
 			Platform.runLater(() -> {
-				
+
 				if (i==0){
 					controller.setResultat();
 					i=1;
-				
+
 				}
 			});
-			
-	}
-		
+
+		}
+		// Öffnet das Game Over Fenster bei Player 2
 		if (!finale.isEmpty() && player.equals("player2")){
 			Platform.runLater(() -> {
-				
+
 				if (c==0){
 					try {
 						controller.neuesFenster();
 					} catch (IOException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 					c=1;
 				}
 			});
 		}
-
+		// Startet die Kommunikation. Setzt die label Nachrichten und sperrt die Gui wen der Zug vorbei ist
 		if (!temp.isEmpty()&& Spielfeld_Model.getIstneu()){
 			if (temp.equals("$START")){
 				System.out.println("Spiel startet");
 				if (player.equals("player2")){
-					
-					
-					
-					
-					//controller.grundbp.setDisable(true);
+
+
 					controller.bP1.setDisable(true);
 					controller.bP2.setDisable(true);
 					controller.bP3.setDisable(true);
 					controller.bZugBeenden.setDisable(true);
 					controller.pMeinDeck.setDisable(true);
-					
-					
-					
-					
+
 					Platform.runLater(() -> {
 						controller.opLogger.setText("Gegner am Zug");
 					});
@@ -112,32 +101,31 @@ public class getLabel extends TimerTask{
 			}else{
 				Platform.runLater(() -> {
 					controller.opLogger.setText(temp);
-					System.out.println("In Label geschrieben");
-					
-					
+
+
 				});
 				Spielfeld_Model.setIstneu(false);
 			}
-			
-			
+
+
 			if(Spielfeld_Model.getZug().equals("1")){
 				if (Spielfeld_Model.getPlayername().equals("player1")){
 					Platform.runLater(() -> {
-					int zaehler= controller.rundenZaehler;
-					zaehler++;
-					controller.rundenZaehler++;
-					
-					controller.lAktRunCount.setText(zaehler+""+" / 20");
+						int zaehler= controller.rundenZaehler;
+						zaehler++;
+						controller.rundenZaehler++;
+
+						controller.lAktRunCount.setText(zaehler+""+" / 20");
 					});
 				}
-			
+
 				controller.spielerEnabeln();
 				Spielfeld_Model.setZug(0+"");
 			}
-			
-			
-			
-			
+
+
+
+
 		}
 
 	}

@@ -1,15 +1,12 @@
 package spielfeld;
 
-import Logik.Spieler;
-import chat.Chat_Model;
-
 public class Spielfeld_Model{
-	
-    /**
-     * 
-     * @author  Lars Lutz     
-     *
-     */
+
+	/**
+	 *  Logik für die Spielfeldkommunikation
+	 * @author  Lars Lutz     
+	 *
+	 */
 	private int wannDisabeln;
 	private final int ANZAHL_START_HAND = 5;
 	private boolean aktionsPhase;
@@ -27,7 +24,7 @@ public class Spielfeld_Model{
 	private static String gewinner="";
 	private static String spielerid="";
 	private static int gesamtpunkte=0;
-	
+
 
 
 
@@ -43,11 +40,11 @@ public class Spielfeld_Model{
 	public Spielfeld_Model(int wannDisablen){
 		this.wannDisabeln = wannDisablen;
 	}
-	
+
 	public static String getZug() {
 		return zug;
 	}
-	
+
 
 
 
@@ -57,8 +54,8 @@ public class Spielfeld_Model{
 		Spielfeld_Model.zug = zug;
 	}
 
-	
-	
+
+
 	public static Boolean getIstneu() {
 		return istneu;
 	}
@@ -67,7 +64,7 @@ public class Spielfeld_Model{
 	public static void setIstneu(Boolean istneu) {
 		Spielfeld_Model.istneu = istneu;
 	}
-	
+
 	public static String getUpdate() {
 		return update;
 	}
@@ -76,43 +73,43 @@ public class Spielfeld_Model{
 	public static void setUpdate(String update) {
 		Spielfeld_Model.update = update;
 	}
-	
+
 	public void setWannDisabeln(int wannDisabeln){
 		this.wannDisabeln = wannDisabeln;
 	}
-	
+
 	public int getWannDisabeln(){
 		return this.wannDisabeln;
 	}
-	
+
 	public int getAnzahlStarthand(){
 		return this.ANZAHL_START_HAND;
 	}
-	
+
 	public void setKaufPhase(boolean kaufPhase){
 		this.kaufPhase = kaufPhase;
 	}
-	
+
 	public boolean getKaufPhase(){
 		return this.kaufPhase;
 	}
-	
+
 	public void setDiscardPhase(boolean discardPhase){
 		this.discardPhase = discardPhase;
 	}
-	
+
 	public boolean getDiscardPhase(){
 		return this.discardPhase;
 	}
-	
+
 	public void setAktionsPhase(boolean aktionsPhase){
 		this.aktionsPhase = aktionsPhase;
 	}
-	
+
 	public boolean getAktionsPhase(){
 		return this.aktionsPhase;
 	}
-	
+
 	public static String getSpielername() {
 		return spielername;
 	}
@@ -121,114 +118,117 @@ public class Spielfeld_Model{
 	public static void setSpielername(String spielername) {
 		Spielfeld_Model.spielername = spielername;
 	}
-	
-public static void verarbeiteString(String c){
-		
+
+	/**
+	 * Verabreitet den Input String vom Server
+	 * @param c String vom Server
+	 */
+
+	public static void verarbeiteString(String c){
+
 		Spielfeld_Model.setIstneu(true);
 		String daten=c;
-		
+
 		String[] parts = daten.split("-");
-		
+
 		String variable= parts[0];
 		String wert = parts[1];
 		String name = parts[2];
-		String head = parts[3];
 		
-		System.err.println("verarbeite Spielfeld: "+ wert);
-		
+
 		switch (variable){
-        case "label":   Spielfeld_Model.setUpdate(wert);       				
-        break;
-        case "init": Spielfeld_Model.setUpdate(wert);
-        break;
-        case "zug" : Spielfeld_Model.setZug(wert);
-        break;
-        case "punkte": Spielfeld_Model.setPunkte(wert);
-        break;
-        case "chat":	Spielfeld_Model.setChat(name+"    "+wert);
-        break;
-        case "runde": Spielfeld_Model.setZugGegner(wert);
-        break;
-        case "ende": Spielfeld_Model.setEnde(wert);
-        break;
-        case "finale": Spielfeld_Model.setGewinner(wert);
-        break;
+		case "label":   Spielfeld_Model.setUpdate(wert);       				
+		break;
+		case "init": Spielfeld_Model.setUpdate(wert);
+		break;
+		case "zug" : Spielfeld_Model.setZug(wert);
+		break;
+		case "punkte": Spielfeld_Model.setPunkte(wert);
+		break;
+		case "chat":	Spielfeld_Model.setChat(name+"    "+wert);
+		break;
+		case "runde": Spielfeld_Model.setZugGegner(wert);
+		break;
+		case "ende": Spielfeld_Model.setEnde(wert);
+		break;
+		case "finale": Spielfeld_Model.setGewinner(wert);
+		break;
 		}
-		
-		
-		
-		
+
+
+
+
 	}
 
 
 
 
-public static String getPlayername() {
-	return playername;
-}
+	public static String getPlayername() {
+		return playername;
+	}
 
 
 
 
-public static void setPlayername(String playername) {
-	Spielfeld_Model.playername = playername;
-}
+	public static void setPlayername(String playername) {
+		Spielfeld_Model.playername = playername;
+	}
 
-public static int getPunkte() {
-	
-	int punkt= Integer.parseInt(punkte);
-	return punkt;
-}
+	public static int getPunkte() {
 
-public static void setPunkte(String punkte) {
-	Spielfeld_Model.punkte = punkte;
-	System.err.println("Gegner Punkte "+ Spielfeld_Model.getPunkte());
-}
+		int punkt= Integer.parseInt(punkte);
+		return punkt;
+	}
 
-public static String getChat() {
-	return chat;
-}
+	public static void setPunkte(String punkte) {
+		Spielfeld_Model.punkte = punkte;
+		System.err.println("Gegner Punkte "+ Spielfeld_Model.getPunkte());
+	}
 
-public static void setChat(String chat) {
-	Spielfeld_Model.chat = chat;
-}
+	public static String getChat() {
+		return chat;
+	}
 
-public static int getZugGegner() {
-	System.out.println("Gegner Zug: "+zugGegner);
-	return Integer.parseInt(zugGegner);
-}
+	public static void setChat(String chat) {
+		Spielfeld_Model.chat = chat;
+	}
 
-public static void setZugGegner(String zugGegner) {
-	Spielfeld_Model.zugGegner = zugGegner;
-}
+	public static int getZugGegner() {
+		System.out.println("Gegner Zug: "+zugGegner);
+		return Integer.parseInt(zugGegner);
+	}
 
-public static String getGewinner() {
-	return gewinner;
-}
+	public static void setZugGegner(String zugGegner) {
+		Spielfeld_Model.zugGegner = zugGegner;
+	}
 
-public static void setGewinner(String gewinner) {
-	Spielfeld_Model.gewinner = gewinner;
-}
+	public static String getGewinner() {
+		return gewinner;
+	}
 
-public static String getSpielerid() {
-	return spielerid;
-}
+	public static void setGewinner(String gewinner) {
+		Spielfeld_Model.gewinner = gewinner;
+	}
 
-public static void setSpielerid(String spielerid) {
-	Spielfeld_Model.spielerid = spielerid;
-}
+	public static String getSpielerid() {
+		return spielerid;
+	}
 
-public static int getGesamtpunkte() {
-	return gesamtpunkte;
-}
+	public static void setSpielerid(String spielerid) {
+		Spielfeld_Model.spielerid = spielerid;
+	}
 
-public static void setGesamtpunkte(int gesamtpunkte) {
-	Spielfeld_Model.gesamtpunkte = gesamtpunkte;
-}
+	public static int getGesamtpunkte() {
+		return gesamtpunkte;
+	}
 
-
+	public static void setGesamtpunkte(int gesamtpunkte) {
+		Spielfeld_Model.gesamtpunkte = gesamtpunkte;
+	}
 
 
-	
-	
+
+
+
+
 }

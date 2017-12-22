@@ -1,20 +1,12 @@
 package spielfeld;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.Timer;
-
-import com.sun.java_cup.internal.runtime.Symbol;
 
 import Logik.Spieler;
 import Logik.Zaehler;
 import SammlungP.Sammlung;
-import chat.Chat_Model;
-import chat.getNachricht;
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -27,12 +19,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundImage;
-import javafx.scene.layout.BackgroundPosition;
-import javafx.scene.layout.BackgroundRepeat;
-import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -41,7 +27,6 @@ import javafx.stage.Stage;
 import kommunikation.Decoder;
 import kommunikation.Kommunikation;
 import kommunikation.Updater;
-import lobby.Lobby_Model;
 
 /**
  * 
@@ -55,10 +40,8 @@ public class Spielfeld_Controller {
 
 
 	private Spielfeld_Model sm;
-	private Sammlung sam;
 	private Spieler spie;
 	private ArrayList<ImageView> viewList;
-	private Lobby_Model lm;
 	private Decoder dec;
 	private Thread thread;
 	private Timer timer;
@@ -73,9 +56,7 @@ public class Spielfeld_Controller {
      */
 	public Spielfeld_Controller() {
 		sm = new Spielfeld_Model(13);
-		sam = new Sammlung();
 		spie = new Spieler(0);
-		lm = new Lobby_Model();
 		dec= new Decoder();
 		
 		//Lars Lutz
@@ -162,7 +143,7 @@ public class Spielfeld_Controller {
 		
 		String c1 =nachricht;
 		 
-		if (c1 != null && !c1.isEmpty()) { //Checkt ob ï¿½berhaupt etwas gesendet werden kann
+		if (c1 != null && !c1.isEmpty()) { //Checkt ob überhaupt etwas gesendet werden kann
 			try {
 				Kommunikation.sendenClient(c1);
 			} catch (IOException e) {
@@ -296,14 +277,14 @@ public class Spielfeld_Controller {
 				spie.geldKarteSpielen(aktuellerIndex);
 				hBoxRealHand.getChildren().remove(aktuellerIndex);
 				//Nachrichten - Lars Lutz
-				nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner hat Geld gespielt");
+				nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner hat Geldkarte gespielt");
 			}
 			
 			
 			//Aktionskarten von Hand spielen - einzeln nach richtiger Aktionskarten fragen - Nachrichten von Lars Lutz
 			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Bazaar")) && Zaehler.aktionsZaehler > 0){
 				standardAktionsKarteHandler(aktuellerIndex);
-				sam.aktionsKarten[0].karteSpielen();
+				Sammlung.aktionsKarten[0].karteSpielen();
 				karteZiehen();
 				
 				nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner hat Aktionskarte Basar gespielt");
@@ -311,7 +292,7 @@ public class Spielfeld_Controller {
 					
 			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Chancellor")) && Zaehler.aktionsZaehler > 0){
 				standardAktionsKarteHandler(aktuellerIndex);
-				sam.aktionsKarten[1].karteSpielen();
+				Sammlung.aktionsKarten[1].karteSpielen();
 				spie.deckDiscard();
 				labelsAktualisieren();
 				
@@ -320,7 +301,7 @@ public class Spielfeld_Controller {
 			
 			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Dorf")) && Zaehler.aktionsZaehler > 0){
 				standardAktionsKarteHandler(aktuellerIndex);
-				sam.aktionsKarten[2].karteSpielen();
+				Sammlung.aktionsKarten[2].karteSpielen();
 				karteZiehen();
 				
 				nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner hat Aktionskarte Dorf gespielt");
@@ -329,7 +310,7 @@ public class Spielfeld_Controller {
 			if(sm.getAktionsPhase() == true && (spie.handliste.get(aktuellerIndex).getName().equals("Markt")) && Zaehler.aktionsZaehler > 0){
 				standardAktionsKarteHandler(aktuellerIndex);
 				karteZiehen();
-				sam.aktionsKarten[3].karteSpielen();
+				Sammlung.aktionsKarten[3].karteSpielen();
 				
 				nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner hat Aktionskarte Markt gespielt");
 			}
@@ -425,7 +406,7 @@ public class Spielfeld_Controller {
 	
 	@FXML
 	public void clickSmithyMiddle(){
-		spie.kartenKaufen(sam.aktionsKarten[4]);
+		spie.kartenKaufen(Sammlung.aktionsKarten[4]);
 		
 		labelsAktualisieren();
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Schmied");
@@ -433,7 +414,7 @@ public class Spielfeld_Controller {
 	
 	@FXML
 	public void clickMarketMiddle(){
-		spie.kartenKaufen(sam.aktionsKarten[3]);
+		spie.kartenKaufen(Sammlung.aktionsKarten[3]);
 		labelsAktualisieren();
 		
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Markt");
@@ -441,7 +422,7 @@ public class Spielfeld_Controller {
 	
 	@FXML
 	public void clickChancellorMiddle(){
-		spie.kartenKaufen(sam.aktionsKarten[1]);
+		spie.kartenKaufen(Sammlung.aktionsKarten[1]);
 		labelsAktualisieren();
 		
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Kanzler");
@@ -449,7 +430,7 @@ public class Spielfeld_Controller {
 	
 	@FXML
 	public void clickCellarMiddle(){
-		spie.kartenKaufen(sam.aktionsKarten[2]);
+		spie.kartenKaufen(Sammlung.aktionsKarten[2]);
 		labelsAktualisieren();
 		
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Dorf");
@@ -457,7 +438,7 @@ public class Spielfeld_Controller {
 	
 	@FXML
 	public void clickBazaarMiddle(){
-		spie.kartenKaufen(sam.aktionsKarten[0]);
+		spie.kartenKaufen(Sammlung.aktionsKarten[0]);
 		labelsAktualisieren();
 		
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Basar");
@@ -465,7 +446,7 @@ public class Spielfeld_Controller {
 	
 	@FXML
 	public void clickKupfer(){
-		spie.kartenKaufen(sam.geldKarten[0]);
+		spie.kartenKaufen(Sammlung.geldKarten[0]);
 		labelsAktualisieren();
 		
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Kupfer");
@@ -473,7 +454,7 @@ public class Spielfeld_Controller {
 	
 	@FXML
 	public void clickSilber(){
-		spie.kartenKaufen(sam.geldKarten[1]);
+		spie.kartenKaufen(Sammlung.geldKarten[1]);
 		labelsAktualisieren();
 		
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Silber");
@@ -481,7 +462,7 @@ public class Spielfeld_Controller {
 	
 	@FXML
 	public void clickGold(){
-		spie.kartenKaufen(sam.geldKarten[2]);
+		spie.kartenKaufen(Sammlung.geldKarten[2]);
 		labelsAktualisieren();
 		
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Gold");
@@ -489,7 +470,7 @@ public class Spielfeld_Controller {
 	
 	@FXML
 	public void clickAnwesen1(){
-		spie.kartenKaufen(sam.punkteKarten[0]);
+		spie.kartenKaufen(Sammlung.punkteKarten[0]);
 		labelsAktualisieren();
 		
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Anwesen");
@@ -497,7 +478,7 @@ public class Spielfeld_Controller {
 	
 	@FXML
 	public void clickAnwesen3(){
-		spie.kartenKaufen(sam.punkteKarten[1]);
+		spie.kartenKaufen(Sammlung.punkteKarten[1]);
 		labelsAktualisieren();
 
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Herzogtum");
@@ -505,7 +486,7 @@ public class Spielfeld_Controller {
 	
 	@FXML
 	public void clickAnwesen6(){
-		spie.kartenKaufen(sam.punkteKarten[2]);
+		spie.kartenKaufen(Sammlung.punkteKarten[2]);
 		labelsAktualisieren();
 		
 		nachrichtSenden(Spielfeld_Model.getPlayername()+"-spielf-label-Gegner kauft Provinz");
@@ -580,7 +561,6 @@ public class Spielfeld_Controller {
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -629,7 +609,6 @@ public class Spielfeld_Controller {
 			nachrichtSenden(Spielfeld_Model.getPlayername() + "-spieler-finale-" + Spielfeld_Model.getGewinner());
 			neuesFenster();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -670,27 +649,27 @@ public class Spielfeld_Controller {
 	
 	@FXML
 	public void infoKanzler() {
-		infoLabel.setText(sam.aktionsKarten[1].getBeschreibung());
+		infoLabel.setText(Sammlung.aktionsKarten[1].getBeschreibung());
 	}
 
 	@FXML
 	public void infoSchmied() {
-		infoLabel.setText(sam.aktionsKarten[4].getBeschreibung());
+		infoLabel.setText(Sammlung.aktionsKarten[4].getBeschreibung());
 	}
 
 	@FXML
 	public void infoKeller() {
-		infoLabel.setText(sam.aktionsKarten[2].getBeschreibung());
+		infoLabel.setText(Sammlung.aktionsKarten[2].getBeschreibung());
 	}
 
 	@FXML
 	public void infoBasar() {
-		infoLabel.setText(sam.aktionsKarten[0].getBeschreibung());
+		infoLabel.setText(Sammlung.aktionsKarten[0].getBeschreibung());
 	}
 
 	@FXML
 	public void infoMarkt() {
-		infoLabel.setText(sam.aktionsKarten[3].getBeschreibung());
+		infoLabel.setText(Sammlung.aktionsKarten[3].getBeschreibung());
 	}
 
     /**
@@ -833,16 +812,13 @@ public class Spielfeld_Controller {
 
 	
     /**
-     * 
-     * @author  Lars Lutz     
+     * Beim drücken von Enter wird der Inhalt vom Textfeld gesendet
+     * @author  Lars Lutz  
+     *    
      * 
      */
 	
-	@FXML
-	public void enterKlick() {
-		System.out.println(
-				"Taste gedrÃ¼ckt.. jetzt noch auf Enter... Bei tastendruck ist es kein MouseEvent sondern ein..?");
-	}
+	
 	
 	@FXML
 	public void sendenEnter(KeyEvent keyevent) throws InterruptedException{
