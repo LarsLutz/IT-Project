@@ -10,13 +10,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import kommunikation.Decoder;
 import kommunikation.Kommunikation;
-import kommunikation.Updater;
 import sound.HintergrundSound;
 import sound.MP3;
 import spielfeld.Spielfeld_Controller;
@@ -31,7 +28,6 @@ import spielfeld.Spielfeld_Controller;
 public class Lobby_Controller {
 
 	private Lobby_Model lm;
-	private Updater update;
 	private HintergrundSound hs;
 	//private Kommunikation kom;
 
@@ -117,7 +113,6 @@ public class Lobby_Controller {
 			try {
 				Kommunikation.conclose();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		});
@@ -236,7 +231,6 @@ public class Lobby_Controller {
 		try {
 			Kommunikation.conclose();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

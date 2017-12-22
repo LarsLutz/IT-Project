@@ -13,7 +13,6 @@ import java.net.Socket;
 public class Kommunikation {
 
 	private static  Socket sockel;
-	private String linie;
 	private static  BufferedReader input;
 	private  static PrintWriter output;
 	private final static  String schliessen="$CLOSE$";
@@ -42,7 +41,7 @@ public class Kommunikation {
 	// Stellt Verbindung zum Server her
 	synchronized public static void clientcon() throws IOException{
 
-		InetAddress address=InetAddress.getLocalHost(); //Client Adresse auslesen
+		InetAddress.getLocalHost();
 
 
 		try {

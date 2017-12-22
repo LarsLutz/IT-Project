@@ -1,9 +1,4 @@
 package kommunikation;
-
-import java.io.IOException;
-
-import chat.Chat_Controller;
-import chat.Chat_Model;
 /**
  * @author Lars Lutz
  * Startet Thread. Ruft den Decoder auf wen neue Nachricht läuft

@@ -1,25 +1,12 @@
 package Logik;
 
-import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 import SammlungP.Spielfeldkarte;
-import gewonnen.SiegNiederlage_Controller;
-import javafx.application.Platform;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
-import kommunikation.Kommunikation;
 import spielfeld.Spielfeld_Model;
-import Karte.AktionsKarte;
 import Karte.GeldKarte;
 import Karte.PunkteKarte;
 import Karte.SuperKarte;
-import java.util.Random;
 import SammlungP.Sammlung;
 import Logik.Zaehler;
 import java.util.Stack;
@@ -39,7 +26,6 @@ public class Spieler {
 	public Stack<SuperKarte> deckliste = new Stack<SuperKarte>();
 	public Stack<SuperKarte> abwerfliste = new Stack<SuperKarte>();
 	public int spielerNummer;
-	private SuperKarte superkarte;
 	final int LETZTERUNDE = 21;
 	private int aktuelleRunde = 1;
 	private int gesamtpunkte=0;

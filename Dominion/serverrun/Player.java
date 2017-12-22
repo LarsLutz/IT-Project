@@ -7,7 +7,9 @@ import java.net.Socket;
 
 import javafx.application.Platform;
 
-/**
+/** Player sind die beiden Clients welche über den Servr miteinander Kommunizieren
+ * Jedes Player objekt bekommt seinen eigenen Input und Output Stream
+ * Wegen Umstellungen der Architektur bekommen trotzdem beide Clients beide Nachrichten
  * @author Lars Lutz
  */
 public class Player{
@@ -26,7 +28,6 @@ public class Player{
         this.id = id;
         this.thread = new Thread(new Handler(socket, this)); //Neuer Thread wird angelegt mit den Playerdaten
         this.thread.start();
-        System.out.println("Player: "+ this.id + " - sock: " + socket.toString());
     }
 
     public int getId() {
@@ -37,7 +38,6 @@ public class Player{
     synchronized public void setDataIn(String message){
         this.dataIn = message;
         this.dataInAvailable = true;
-        System.out.println("Player update: "+ this.id + " - msg: " + message + this.dataIn);
     }
 
     synchronized public boolean isDataInAvailable(){

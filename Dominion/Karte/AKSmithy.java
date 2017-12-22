@@ -9,8 +9,7 @@ package Karte;
 
 
 
-import Logik.Zaehler;
-import Logik.Spieler;
+
 
 //Aktionskarte Schmied: kostet 4 Geld und zieht 3 Karten
 public class AKSmithy extends AktionsKarte{

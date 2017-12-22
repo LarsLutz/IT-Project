@@ -8,7 +8,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-/**
+/** Controller für das Server Fenster
+ * Startet die Threads
  * @author Lars Lutz
  */
 public class Server_Controller {
@@ -17,8 +18,6 @@ public class Server_Controller {
 	private Thread thread;
 	private Server server;
 	private String ip;
-	private Player player;
-	
 	public  Server_Controller() {
 		
 	}

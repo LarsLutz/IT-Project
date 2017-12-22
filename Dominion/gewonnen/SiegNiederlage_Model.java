@@ -14,9 +14,6 @@ public class SiegNiederlage_Model {
 
 	//instanzdaten
 	private String befehl = null;
-	private int gesamtpunkte = 0;
-
-
 	//Konstruktor
 	public SiegNiederlage_Model(){
 

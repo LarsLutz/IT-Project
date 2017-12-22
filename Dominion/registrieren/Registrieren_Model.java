@@ -1,7 +1,5 @@
 package registrieren;
 
-import java.sql.SQLException;
-
 import mysql.SQLHandler;
 
 /**
@@ -10,13 +8,13 @@ import mysql.SQLHandler;
 
 public class Registrieren_Model {
 
-	
-	private String ausgabe="";
+
+
 	private Boolean vorhanden=false;
 	private String befehl =null;
 	private String name;
 	private String passwort;
-	
+
 	public Boolean getVorhanden() {
 		return vorhanden;
 	}
@@ -47,38 +45,42 @@ public class Registrieren_Model {
 	}
 
 
-	
+
 	public Registrieren_Model(){
-		
+
 	}
-	
-	
+
+	/**
+	 * Fügt den neuen User in die Datenbank ein. Unschön und Sicherheitsrisiko: Passwort wir momentan noch im Klartext gespeichert
+	 * @return SQL Befehl für den Handler
+	 */
+
 	public String getsqlBefehl(){
-		
-	if (!getVorhanden()){
-		
-		
-		befehl= "INSERT INTO `spieler` "
-				+ "(`idSpieler`, `Spielername`, `Passwort`, `SessionID`, `Spielstand_idSpielstand`)"
-				+ " VALUES (NULL, '"+getName()+"', '"+getPasswort()+"', '0', '1') ";
-		
+
+		if (!getVorhanden()){
+
+
+			befehl= "INSERT INTO `spieler` "
+					+ "(`idSpieler`, `Spielername`, `Passwort`, `SessionID`, `Spielstand_idSpielstand`)"
+					+ " VALUES (NULL, '"+getName()+"', '"+getPasswort()+"', '0', '1') ";
+
+		}
+
+
+		return befehl;
 	}
-	
-	
-	return befehl;
-	}
-	
-	
-public void setSpieler(){
-		
+
+
+	public void setSpieler(){
+
 		SQLHandler.setBefehl(getsqlBefehl());
-		
+
 		SQLHandler.doManipulation();
-		
-		
-		
+
+
+
 		SQLHandler.dbclose();
-		
+
 	}
-	
+
 }

@@ -9,7 +9,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-	/**
+	/** Main Methode um den Server zu starten
 	 * @author Lars Lutz
 	 */
 	
@@ -22,7 +22,6 @@ public class Main extends Application {
 			
 			URL fxmlUrl = getClass().getResource("ServerGui.fxml");
 			FXMLLoader fxmlLoader = new FXMLLoader(fxmlUrl); 
-			//fxmlLoader.setController(sn_c); - dieser Code teil wirft eine komische Exception.. habe ausserdem nicht verstanden was der Code macht...
 			Parent root = fxmlLoader.load(); 
 			Scene scene = new Scene(root);
 			

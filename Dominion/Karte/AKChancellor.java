@@ -19,11 +19,9 @@ public class AKChancellor extends AktionsKarte{
 	final String typ = "Aktionskarte";
 	final String pfad = "chancellor.jpg";
 	final String beschreibung = "Du erhaeltst +2 Guthaben\nDein Deck landet auf dem Abwerfstapel ";
-	private Spieler s;
-
 	public AKChancellor(boolean deckDiscard){
 		this.deckDiscard = deckDiscard;
-		s = new Spieler(0);
+		new Spieler(0);
 	}
 
 	//Methode um den Effekt der Aktionskarte im Spiel auszuloesen, wird vom Spielfeld_Controller aufgerufen

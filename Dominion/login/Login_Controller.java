@@ -2,8 +2,6 @@ package login;
 
 import java.io.IOException;
 
-import org.omg.CORBA.INITIALIZE;
-
 import chat.Chat_Model;
 // Eduart Bunjaku
 import javafx.application.Platform;
@@ -20,7 +18,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import sound.HintergrundSound;
 import sound.MP3;
 import spielfeld.Spielfeld_Model;
 

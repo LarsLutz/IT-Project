@@ -2,28 +2,17 @@ package chat;
 
 import java.io.IOException;
 import java.util.Timer;
-import java.util.TimerTask;
-
-import com.sun.org.omg.CORBA.Initializer;
-
-import javafx.animation.Animation;
-import javafx.animation.Timeline;
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import kommunikation.Decoder;
 import kommunikation.Kommunikation;
 import kommunikation.Updater;
-import lobby.Lobby_Model;
 
 /**
  * @author Lars Lutz
@@ -34,7 +23,6 @@ public class Chat_Controller  {
 	private Chat_Model model;
 	private Decoder dec;
 	private Thread thread;
-	private Boolean leuft =true;
 	private Timer timer;
 	private Updater updater;
 

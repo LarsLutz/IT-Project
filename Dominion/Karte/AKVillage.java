@@ -1,7 +1,6 @@
 package Karte;
 
 import Logik.Zaehler;
-import Logik.Spieler;
 
 /**
  * 

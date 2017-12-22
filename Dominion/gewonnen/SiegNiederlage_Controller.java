@@ -10,15 +10,11 @@ import java.io.IOException;
 import Logik.Spieler;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 import kommunikation.Kommunikation;
 import spielfeld.Spielfeld_Model;
 
@@ -30,14 +26,12 @@ import spielfeld.Spielfeld_Model;
 
 public class SiegNiederlage_Controller {
 
-	// Instanzdaten
-	private Spieler s;
 	private SiegNiederlage_Model model;
 
 
 	// Konstruktor
 	public SiegNiederlage_Controller(){
-		s = new Spieler(0);
+		new Spieler(0);
 		model =new SiegNiederlage_Model();
 	}
 
